@@ -19,5 +19,9 @@ namespace Fitness_M
         /// Удалить
         /// </summary>
         void Delete();
-    }
+        /// <summary>
+        /// Пустой
+        /// </summary>
+        bool IsEmpty { get; }
+        }
 }

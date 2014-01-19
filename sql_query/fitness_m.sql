@@ -35,6 +35,9 @@ CREATE TABLE IF NOT EXISTS kind_tickets (
   PRIMARY KEY (id)
 );
 
+ALTER TABLE kind_tickets ADD price DECIMAL NOT NULL;
+ALTER TABLE kind_tickets CHANGE price price DECIMAL(10,2)  NOT NULL;
+
 
 CREATE TABLE IF NOT EXISTS tickets (
   id int(11) NOT NULL auto_increment,

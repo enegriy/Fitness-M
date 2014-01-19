@@ -14,7 +14,7 @@ namespace Fitness_M
             : base()
         {
         }
-
+        #region Kind Ticket
         public IList<KindTickets> LoadKindTickets()
         {
             IList<KindTickets> listKinds = new List<KindTickets>();
@@ -36,6 +36,7 @@ namespace Fitness_M
                     kindTickets.CountVisits = (int)reader["count_visits"];
                 kindTickets.IsOnlyGroup = (bool)reader["isonlygroup"];
                 kindTickets.IsInactive = (bool)reader["isinactive"];
+                kindTickets.Price = (decimal)reader["price"];
                 listKinds.Add(kindTickets);
             }
             cmd.Dispose();
@@ -44,7 +45,33 @@ namespace Fitness_M
             return listKinds;
         }
 
-        protected object LoadKindTicketsAttributeById(string fildName, int id)
+        public IList<Tickets> LoadTickets()
+        {
+            IList<Tickets> listTickets = new List<Tickets>();
+
+            OpenConnection();
+
+            string sql = "SELECT * FROM tickets;";
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql);
+            cmd.Connection = Connection;
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var tickets = new Tickets();
+                tickets.Id = (int)reader["id"];
+                tickets.DateFinish = (DateTime)reader["date_finish"];
+                tickets.Balance = (int)reader["balance"];
+                tickets.ClientId = (int)reader["client_id"];
+                tickets.KindTicketsId = (int)reader["kind_tickets_id"];
+                listTickets.Add(tickets);
+            }
+            cmd.Dispose();
+            CloseConnection();
+
+            return listTickets;
+        }
+
+        public object LoadKindTicketsAttributeById(string fildName, int id)
         {
             OpenConnection();
             var cmd = new MySql.Data.MySqlClient.MySqlCommand();
@@ -66,8 +93,8 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO kind_tickets (id, period, count_balls, count_visits, isonlygroup, isinactive) 
-                        VALUES (NULL, @period, @count_balls, @count_visits, @isonlygroup, @isinactive)";
+                sql = @"INSERT INTO kind_tickets (id, period, count_balls, count_visits, isonlygroup, isinactive, price) 
+                        VALUES (NULL, @period, @count_balls, @count_visits, @isonlygroup, @isinactive, @price)";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@period", kindTickets.Period);
@@ -75,10 +102,12 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@count_visits", kindTickets.CountVisits);
                 cmd.Parameters.AddWithValue("@isonlygroup", kindTickets.IsOnlyGroup);
                 cmd.Parameters.AddWithValue("@isinactive", kindTickets.IsInactive);
+                cmd.Parameters.AddWithValue("@price", kindTickets.Price);
 
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    kindTickets.Id = (int)cmd.LastInsertedId;
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {
@@ -91,39 +120,71 @@ namespace Fitness_M
 
             }
             CloseConnection();
+        }
 
-            kindTickets.Id = (int)LoadKindTicketsAttributeById("Id", kindTickets.Id);
+        public void SaveTickets(Tickets tickets)
+        {
+            OpenConnection();
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+            cmd.Connection = Connection;
+
+            string sql = string.Format("select count(*) as count from tickets where id = {0};", tickets.Id);
+            cmd.CommandText = sql;
+            var count = (long)cmd.ExecuteScalar();
+            if (count == 0)
+            {
+                sql = @"INSERT INTO tickets (id, date_finish, balance, client_id, kind_tickets_id) 
+                        VALUES (NULL, @date_finish, @balance, @client_id, @kind_tickets_id);";
+
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@date_finish", tickets.DateFinish);
+                cmd.Parameters.AddWithValue("@balance", tickets.Balance);
+                cmd.Parameters.AddWithValue("@client_id", tickets.ClientId);
+                cmd.Parameters.AddWithValue("@kind_tickets_id", tickets.KindTicketsId);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    tickets.Id = (int)cmd.LastInsertedId;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    if (ex.Number == 1062)
+                    {
+                        throw new BussinesException("Вид шаблона с таким набором значений в базе уже существует!", ex);
+                    }
+                    else throw;
+                }
+
+            }
+            CloseConnection();
         }
 
 
-        public void Update(Client client)
+        public void UpdateKindTickets(KindTickets kindTickets)
         {
-            if (client.Id != null || client.Id != 0)
+            if (kindTickets.Id != 0)
             {
                 OpenConnection();
                 var cmd = new MySql.Data.MySqlClient.MySqlCommand();
                 cmd.Connection = Connection;
 
-                string sql = @"UPDATE clients SET 
-                    number = @number,
-                    surname = @surname,
-                    name = @name,
-                    lastname = @lastname,
-                    datebirth = @datebirth,
-                    phone = @phone,
-                    address = @address,
-                    note = @note
+                string sql = @"UPDATE kind_tickets SET 
+                    period = @period,
+                    count_balls = @count_balls,
+                    count_visits = @count_visits,
+                    isonlygroup = @isonlygroup,
+                    isinactive = @isinactive,
+                    price = @price
                     WHERE id = @id";
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id", client.Id);
-                cmd.Parameters.AddWithValue("@number", client.Number);
-                cmd.Parameters.AddWithValue("@surname", client.SurName);
-                cmd.Parameters.AddWithValue("@name", client.Name);
-                cmd.Parameters.AddWithValue("@lastname", client.LastName);
-                cmd.Parameters.AddWithValue("@datebirth", client.DateBirth);
-                cmd.Parameters.AddWithValue("@phone", client.Phone);
-                cmd.Parameters.AddWithValue("@address", client.Address);
-                cmd.Parameters.AddWithValue("@note", client.Note);
+                cmd.Parameters.AddWithValue("@id", kindTickets.Id);
+                cmd.Parameters.AddWithValue("@period", kindTickets.Period);
+                cmd.Parameters.AddWithValue("@count_balls", kindTickets.CountBalls);
+                cmd.Parameters.AddWithValue("@count_visits", kindTickets.CountVisits);
+                cmd.Parameters.AddWithValue("@isonlygroup", kindTickets.IsOnlyGroup);
+                cmd.Parameters.AddWithValue("@isinactive", kindTickets.IsInactive);
+                cmd.Parameters.AddWithValue("@price", kindTickets.Price);
 
                 cmd.ExecuteNonQuery();
 
@@ -131,21 +192,66 @@ namespace Fitness_M
             }
         }
 
-        public void Delete(Client client)
+        public void UpdateTickets(Tickets tickets)
         {
-            if (client.Id != null || client.Id != 0)
+            if (tickets.Id != 0)
             {
                 OpenConnection();
                 var cmd = new MySql.Data.MySqlClient.MySqlCommand();
                 cmd.Connection = Connection;
 
-                string sql = @"delete from clients where id = @id";
+                string sql = @"UPDATE tickets SET 
+                    balance = @balance,
+                    date_finish = @date_finish,
+                    client_id = @client_id,
+                    kind_tickets_id = @kind_tickets_id
+                    WHERE id = @id";
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id", client.Id);
+                cmd.Parameters.AddWithValue("@id", tickets.Id);
+                cmd.Parameters.AddWithValue("@balance", tickets.Balance);
+                cmd.Parameters.AddWithValue("@date_finish", tickets.DateFinish);
+                cmd.Parameters.AddWithValue("@client_id", tickets.ClientId);
+                cmd.Parameters.AddWithValue("@kind_tickets_id", tickets.KindTicketsId);
+
                 cmd.ExecuteNonQuery();
 
                 CloseConnection();
             }
         }
+
+        public void DeleteKindTickets(KindTickets kindTickets)
+        {
+            if (kindTickets.Id != 0)
+            {
+                OpenConnection();
+                var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd.Connection = Connection;
+
+                string sql = @"delete from kind_tickets where id = @id";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", kindTickets.Id);
+                cmd.ExecuteNonQuery();
+
+                CloseConnection();
+            }
+        }
+
+        public void DeleteTickets(Tickets tickets)
+        {
+            if (tickets.Id != 0)
+            {
+                OpenConnection();
+                var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd.Connection = Connection;
+
+                string sql = @"delete from tickets where id = @id";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", tickets.Id);
+                cmd.ExecuteNonQuery();
+
+                CloseConnection();
+            }
+        }
+        #endregion
     }
 }

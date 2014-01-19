@@ -32,12 +32,24 @@ namespace Fitness_M
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            TicketsFormEdit.FormShow(ActionState.Add, new KindTickets());
+            var kindTickets = new KindTickets();
+            TicketsFormEdit.FormShow(ActionState.Add, kindTickets);
+            if (!kindTickets.IsEmpty)
+            {
+                m_ListKindTickets.Add(kindTickets);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = m_ListKindTickets;
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            TicketsFormEdit.FormShow(ActionState.Edit, new KindTickets());
+            var kindTicket = GetSelectedKindTicket();
+            if (kindTicket != null)
+            {
+                TicketsFormEdit.FormShow(ActionState.Edit, kindTicket);
+            }
+            dataGridView1.Refresh();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

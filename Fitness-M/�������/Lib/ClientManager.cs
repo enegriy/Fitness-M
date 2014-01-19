@@ -83,6 +83,7 @@ namespace Fitness_M
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    client.Id = (int)cmd.LastInsertedId;
                 }
                 catch(MySql.Data.MySqlClient.MySqlException ex)
                 {
@@ -94,8 +95,6 @@ namespace Fitness_M
 
             }
             CloseConnection();
-
-            client.Id = (int)LoadAttributeByNumber("Id", client.Number);
         }
 
 

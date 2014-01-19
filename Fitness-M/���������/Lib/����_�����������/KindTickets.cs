@@ -89,6 +89,25 @@ namespace Fitness_M
             set { m_IsInactive = value; }
         }
 
+        private decimal m_Price;
+        /// <summary>
+        /// Цена
+        /// </summary>
+        public decimal Price
+        {
+            get { return m_Price; }
+            set { m_Price = value; }
+        }
+
+        /// <summary>
+        /// Пустая запись
+        /// </summary>
+        public bool IsEmpty
+        {
+            get { return Id == 0; }
+        }
+        
+
         #region Public Methods
         /// <summary>
         /// Поднять всех клиентов
@@ -105,21 +124,21 @@ namespace Fitness_M
         /// </summary>
         public void Save()
         {
-
+            SaveKindTickets(this);
         }
         /// <summary>
         /// Обновить
         /// </summary>
         public void Update()
         {
-
+            UpdateKindTickets(this);
         }
         /// <summary>
         /// Удалить
         /// </summary>
         public void Delete()
-        { 
-
+        {
+            DeleteKindTickets(this);
         }
         #endregion
     }

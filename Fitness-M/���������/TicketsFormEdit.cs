@@ -37,7 +37,8 @@ namespace Fitness_M
                 Text = "Добавить вид абонемента";
             else if (Action != null && Action == ActionState.Edit)
                 Text = "Изменить вид абонемента";
-            else Text = "Форма редактирования";
+            else 
+                Text = "Форма редактирования";
         }
 
         public TicketsFormEdit()
@@ -57,6 +58,7 @@ namespace Fitness_M
         /// </summary>
         private void BindingClient()
         {
+            numericUpDown4.DataBindings.Add("Value", m_KindTickets, "Price");
             numericUpDown1.DataBindings.Add("Value", m_KindTickets, "Period");
             numericUpDown2.DataBindings.Add("Value", m_KindTickets, "CountBalls");
             numericUpDown3.DataBindings.Add("Value", m_KindTickets, "CountVisits");
@@ -89,8 +91,25 @@ namespace Fitness_M
             Close();
         }
 
-        
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((DialogResult == DialogResult.OK && m_IsClosingForm) ||
+                DialogResult == DialogResult.Cancel)
+            {
+                if (DialogResult == DialogResult.OK)
+                {
+                    if (Action == ActionState.Add)
+                        m_KindTickets.Save();
+                    else if (Action == ActionState.Edit)
+                        m_KindTickets.Update();
+                }
 
+                e.Cancel = false;
+            }
+            else
+                e.Cancel = true;
+        }
 
     }
+
 }
