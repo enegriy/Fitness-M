@@ -8,7 +8,7 @@ namespace Fitness_M
     /// <summary>
     /// Клиент
     /// </summary>
-    public sealed class Client
+    public sealed class Client: ClientManager, IBusinessObject
     {
         /// <summary>
         /// Индтификатор
@@ -61,9 +61,10 @@ namespace Fitness_M
         /// Поднять всех клиентов
         /// </summary>
         /// <returns></returns>
-        public static IList<Client> FindAll()
+        public  static IList<Client> FindAll()
         {
-            return ClientManager.LoadCliets();
+            var cm = new ClientManager();
+            return cm.LoadCliets();
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace Fitness_M
         /// </summary>
         public void Save()
         {
-            ClientManager.Save(this);
+            Save(this);
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace Fitness_M
         /// </summary>
         public void Update()
         {
-            ClientManager.Update(this);
+            Update(this);
         }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace Fitness_M
         /// </summary>
         public void Delete()
         {
-            ClientManager.Delete(this);
+            Delete(this);
         }
 
         

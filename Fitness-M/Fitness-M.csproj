@@ -54,16 +54,27 @@
     <Compile Include="BrowseForm\BrowseForm.Designer.cs">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library\Бизнес_объекты\IBusinessObject.cs" />
+    <Compile Include="Library\Бизнес_объекты\ObjectManager.cs" />
+    <Compile Include="Library\Валидация\ValidationHelper.cs" />
     <Compile Include="Library\Исключения\BussinesException.cs" />
     <Compile Include="Option\ActionState.cs" />
     <Compile Include="Option\ProgOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Абонементы\TicketsControl.cs">
+    <Compile Include="Абонемент\Lib\TicketsManager.cs" />
+    <Compile Include="Абонемент\Lib\Виды_абонементов\KindTickets.cs" />
+    <Compile Include="Абонемент\TicketsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Абонементы\TicketsControl.Designer.cs">
+    <Compile Include="Абонемент\TicketsControl.Designer.cs">
       <DependentUpon>TicketsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Абонемент\TicketsFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Абонемент\TicketsFormEdit.Designer.cs">
+      <DependentUpon>TicketsFormEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Клиенты\Lib\Client.cs" />
     <Compile Include="Клиенты\ClientFormEdit.cs">
@@ -79,6 +90,14 @@
     <Compile Include="Клиенты\ClientsControl.Designer.cs">
       <DependentUpon>ClientsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Пользователи\CurrentUser.cs" />
+    <Compile Include="Пользователи\Roles.cs" />
+    <Compile Include="Пользователи\UserIdentification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Пользователи\UserIdentification.Designer.cs">
+      <DependentUpon>UserIdentification.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,14 +110,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Абонементы\TicketsControl.resx">
+    <EmbeddedResource Include="Абонемент\TicketsControl.resx">
       <DependentUpon>TicketsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Абонемент\TicketsFormEdit.resx">
+      <DependentUpon>TicketsFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Клиенты\ClientFormEdit.resx">
       <DependentUpon>ClientFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Клиенты\ClientsControl.resx">
       <DependentUpon>ClientsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Пользователи\UserIdentification.resx">
+      <DependentUpon>UserIdentification.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,7 +138,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Абонемент\Lib\Абонементы\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

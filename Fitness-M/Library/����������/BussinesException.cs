@@ -6,7 +6,7 @@ using System.Text;
 namespace Fitness_M
 {
     [Serializable()]
-    public sealed class BussinesException : ApplicationException
+    public class BussinesException : ApplicationException
     {
         public BussinesException() : base() { }
         public BussinesException(string message) : base(message) { }

@@ -15,7 +15,11 @@ namespace Fitness_M
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BrowseForm());
+            var frmUserIdent = new UserIdentification();
+            //!!!if (frmUserIdent.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new BrowseForm());
+            }
         }
     }
 }

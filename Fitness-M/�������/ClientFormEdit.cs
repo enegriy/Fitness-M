@@ -118,21 +118,7 @@ namespace Fitness_M
 
         private void OnValidating(object sender, CancelEventArgs e)
         {
-            if (sender is TextBox)
-            {
-                var ctrl = (TextBox)sender;
-                if (string.IsNullOrEmpty(ctrl.Text))
-                {
-                    m_IsClosingForm = false;
-                    errorProviderClient.SetError(ctrl, "Значение не может быть пустым");
-                }
-                else
-                {
-                    m_IsClosingForm = true;
-                    errorProviderClient.SetError(ctrl, "");
-                }
-            }
-            
+            ValidationHelper.Validating(sender, e, m_IsClosingForm, errorProviderClient);
         }
 
 

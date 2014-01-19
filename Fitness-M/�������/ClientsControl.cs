@@ -50,6 +50,7 @@ namespace Fitness_M
             {
                 ClientFormEdit.FormShow(ActionState.Edit, client);
             }
+            dataGridView1.Refresh();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -76,6 +77,25 @@ namespace Fitness_M
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             InitDataGrid();
+            OnFindChange(sender, e);
+        }
+
+        /// <summary>
+        /// Поиск
+        /// </summary>
+        private void OnFindChange(object sender, EventArgs e)
+        {
+            var txt = textBoxFind.Text;
+            if (string.IsNullOrEmpty(txt))
+                dataGridView1.DataSource = m_ListClients;
+            else
+                dataGridView1.DataSource = m_ListClients.Where(x => x.Number.ToString().IndexOf(txt) != -1 
+                    || x.SurName.ToUpper().IndexOf(txt.ToUpper()) != -1).ToArray();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            textBoxFind.Text = "";
         }
     }
 }
