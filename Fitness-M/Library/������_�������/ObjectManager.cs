@@ -27,8 +27,15 @@ namespace Fitness_M
 
         public void OpenConnection()
         {
-            if (Connection.State != System.Data.ConnectionState.Open)
-                Connection.Open();
+            try
+            {
+                if (Connection.State != System.Data.ConnectionState.Open)
+                    Connection.Open();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException exc)
+            {
+                throw new ApplicationException(exc.Message);
+            }
         }
 
         public void CloseConnection()

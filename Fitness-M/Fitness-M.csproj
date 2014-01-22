@@ -48,10 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowseForm\BrowseForm.cs">
+    <Compile Include="Представление\BrowseForm\BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BrowseForm\BrowseForm.Designer.cs">
+    <Compile Include="Представление\BrowseForm\BrowseForm.Designer.cs">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Бизнес_объекты\IBusinessObject.cs" />
@@ -62,44 +62,45 @@
     <Compile Include="Option\ProgOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Абонемент\Lib\TicketsManager.cs" />
-    <Compile Include="Абонемент\Lib\Абонементы\Tickets.cs" />
-    <Compile Include="Абонемент\Lib\Виды_абонементов\KindTickets.cs" />
-    <Compile Include="Абонемент\TicketsControl.cs">
+    <Compile Include="Модель_данных\Абонементы\TicketsManager.cs" />
+    <Compile Include="Модель_данных\Абонементы\Абонементы\Tickets.cs" />
+    <Compile Include="Модель_данных\Абонементы\Виды_абонементов\KindTickets.cs" />
+    <Compile Include="Модель_данных\Набор_данных\ClientDataSet.cs" />
+    <Compile Include="Представление\Абонемент\TicketsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Абонемент\TicketsControl.Designer.cs">
+    <Compile Include="Представление\Абонемент\TicketsControl.Designer.cs">
       <DependentUpon>TicketsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Абонемент\TicketsFormEdit.cs">
+    <Compile Include="Представление\Абонемент\TicketsFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Абонемент\TicketsFormEdit.Designer.cs">
+    <Compile Include="Представление\Абонемент\TicketsFormEdit.Designer.cs">
       <DependentUpon>TicketsFormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Клиенты\Lib\Client.cs" />
-    <Compile Include="Клиенты\ClientFormEdit.cs">
+    <Compile Include="Модель_данных\Клиенты\Client.cs" />
+    <Compile Include="Представление\Клиенты\ClientFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Клиенты\ClientFormEdit.Designer.cs">
+    <Compile Include="Представление\Клиенты\ClientFormEdit.Designer.cs">
       <DependentUpon>ClientFormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Клиенты\Lib\ClientManager.cs" />
-    <Compile Include="Клиенты\ClientsControl.cs">
+    <Compile Include="Модель_данных\Клиенты\ClientManager.cs" />
+    <Compile Include="Представление\Клиенты\ClientsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Клиенты\ClientsControl.Designer.cs">
+    <Compile Include="Представление\Клиенты\ClientsControl.Designer.cs">
       <DependentUpon>ClientsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Пользователи\CurrentUser.cs" />
-    <Compile Include="Пользователи\Roles.cs" />
-    <Compile Include="Пользователи\UserIdentification.cs">
+    <Compile Include="Модель_данных\Пользователи\CurrentUser.cs" />
+    <Compile Include="Модель_данных\Пользователи\Roles.cs" />
+    <Compile Include="Представление\Пользователи\UserIdentification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Пользователи\UserIdentification.Designer.cs">
+    <Compile Include="Представление\Пользователи\UserIdentification.Designer.cs">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BrowseForm\BrowseForm.resx">
+    <EmbeddedResource Include="Представление\BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -111,19 +112,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Абонемент\TicketsControl.resx">
+    <EmbeddedResource Include="Представление\Абонемент\TicketsControl.resx">
       <DependentUpon>TicketsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Абонемент\TicketsFormEdit.resx">
+    <EmbeddedResource Include="Представление\Абонемент\TicketsFormEdit.resx">
       <DependentUpon>TicketsFormEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Клиенты\ClientFormEdit.resx">
+    <EmbeddedResource Include="Представление\Клиенты\ClientFormEdit.resx">
       <DependentUpon>ClientFormEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Клиенты\ClientsControl.resx">
+    <EmbeddedResource Include="Представление\Клиенты\ClientsControl.resx">
       <DependentUpon>ClientsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Пользователи\UserIdentification.resx">
+    <EmbeddedResource Include="Представление\Пользователи\UserIdentification.resx">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
