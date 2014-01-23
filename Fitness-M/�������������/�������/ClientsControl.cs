@@ -114,5 +114,10 @@ namespace Fitness_M
         {
             textBoxFind.Text = "";
         }
+
+        private void btnNewTicket_Click(object sender, EventArgs e)
+        {
+            KindTicketsFormSelect.FormShow(ActionState.Select, GetSelectedClient(), DataSet);
+        }
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9EAEBCD9-ACF4-4C3C-B4F3-950225C84E4C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -72,13 +72,19 @@
     <Compile Include="Представление\Абонемент\TicketsControl.Designer.cs">
       <DependentUpon>TicketsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Представление\Абонемент\TicketsFormEdit.cs">
+    <Compile Include="Представление\Абонемент\KindTicketsFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Представление\Абонемент\TicketsFormEdit.Designer.cs">
-      <DependentUpon>TicketsFormEdit.cs</DependentUpon>
+    <Compile Include="Представление\Абонемент\KindTicketsFormEdit.Designer.cs">
+      <DependentUpon>KindTicketsFormEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Модель_данных\Клиенты\Client.cs" />
+    <Compile Include="Представление\Абонемент\KindTicketsFormSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Абонемент\KindTicketsFormSelect.Designer.cs">
+      <DependentUpon>KindTicketsFormSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Клиенты\ClientFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,8 +121,11 @@
     <EmbeddedResource Include="Представление\Абонемент\TicketsControl.resx">
       <DependentUpon>TicketsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Представление\Абонемент\TicketsFormEdit.resx">
-      <DependentUpon>TicketsFormEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Представление\Абонемент\KindTicketsFormEdit.resx">
+      <DependentUpon>KindTicketsFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Абонемент\KindTicketsFormSelect.resx">
+      <DependentUpon>KindTicketsFormSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Клиенты\ClientFormEdit.resx">
       <DependentUpon>ClientFormEdit.cs</DependentUpon>
@@ -141,6 +150,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Контроллер\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

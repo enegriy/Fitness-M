@@ -42,7 +42,7 @@ namespace Fitness_M
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var kindTickets = new KindTickets();
-            TicketsFormEdit.FormShow(ActionState.Add, kindTickets);
+            KindTicketsFormEdit.FormShow(ActionState.Add, kindTickets);
             if (!kindTickets.IsEmpty)
             {
                 DataSet.ListKindTickets.Add(kindTickets);
@@ -56,7 +56,7 @@ namespace Fitness_M
             var kindTicket = GetSelectedKindTicket();
             if (kindTicket != null)
             {
-                TicketsFormEdit.FormShow(ActionState.Edit, kindTicket);
+                KindTicketsFormEdit.FormShow(ActionState.Edit, kindTicket);
             }
             dataGridView1.Refresh();
         }

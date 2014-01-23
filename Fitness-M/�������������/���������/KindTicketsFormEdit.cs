@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public partial class TicketsFormEdit : Form
+    public partial class KindTicketsFormEdit : Form
     {
         private KindTickets m_KindTickets;
 
@@ -41,7 +41,7 @@ namespace Fitness_M
                 Text = "Форма редактирования";
         }
 
-        public TicketsFormEdit()
+        public KindTicketsFormEdit()
         {
             InitializeComponent();
         }
@@ -74,7 +74,7 @@ namespace Fitness_M
             if (kindTickets == null)
                 throw new BussinesException("Не возможно открыть форму!");
 
-            var frm = new TicketsFormEdit();
+            var frm = new KindTicketsFormEdit();
             frm.Action = action;
             frm.m_KindTickets = kindTickets;
             frm.ShowDialog();

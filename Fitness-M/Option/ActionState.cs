@@ -18,6 +18,10 @@ namespace Fitness_M
         /// <summary>
         /// Удалить
         /// </summary>
-        Delete
+        Delete,
+        /// <summary>
+        /// Выбрать(брауз форма)
+        /// </summary>
+        Select
     }
 }
