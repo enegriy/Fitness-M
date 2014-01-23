@@ -32,6 +32,11 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Выбранный вид тикета
+        /// </summary>
+        public int SelectedIdKindTickets { get; set; }
+
+        /// <summary>
         /// Источник данных
         /// </summary>
         public object DataSource 
@@ -65,6 +70,11 @@ namespace Fitness_M
         }
 
 
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            SelectedIdKindTickets = (int)dataGridView1.CurrentRow.Cells["clmId"].Value;
+        }
+
         /// <summary>
         /// Запустить форму
         /// </summary>
@@ -77,9 +87,16 @@ namespace Fitness_M
             frm.DataSource = dataSet.ListKindTickets;
             frm.Action = action;
             frm.m_Client = client;
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                var ticketController = new TicketsController();
+                ticketController.DataSet = dataSet;
+                ticketController.CreateTicket(client, frm.SelectedIdKindTickets);
+            }
                 
             return frm;
         }
+
+        
     }
 }

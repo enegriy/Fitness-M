@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Представление\BrowseForm\BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +151,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Контроллер\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

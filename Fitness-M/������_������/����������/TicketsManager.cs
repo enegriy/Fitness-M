@@ -133,7 +133,7 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO tickets (id, date_finish, balance, client_id, kind_tickets_id) 
+                sql = @"INSERT INTO tickets (id, datefinish, balance, client_id, kind_tickets_id) 
                         VALUES (NULL, @date_finish, @balance, @client_id, @kind_tickets_id);";
 
                 cmd.CommandText = sql;
