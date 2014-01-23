@@ -41,9 +41,9 @@ ALTER TABLE kind_tickets CHANGE price price DECIMAL(10,2)  NOT NULL;
 
 CREATE TABLE IF NOT EXISTS tickets (
   id int(11) NOT NULL auto_increment,
-  datefinish date NOT NULL DEFAULT '' ,
-  balance int(11) NOT NULL DEFAULT '' ,
-  client_id int(11) NOT NULL DEFAULT '' ,
-  kind_tickets_id int(11) NOT NULL DEFAULT '' ,
+  datefinish date NOT NULL ,
+  balance int(11) NOT NULL  ,
+  client_id int(11) NOT NULL  ,
+  kind_tickets_id int(11) NOT NULL  ,
   PRIMARY KEY (id)
 );
