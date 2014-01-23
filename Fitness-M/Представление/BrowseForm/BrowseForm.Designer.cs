@@ -28,15 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewRegims = new System.Windows.Forms.TreeView();
             this.panelFormConteiner = new System.Windows.Forms.Panel();
+            this.lblStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerForToday = new System.Windows.Forms.Timer(this.components);
+            this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStrip,
+            this.lblDate,
+            this.lblTime});
             this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(670, 22);
@@ -78,6 +88,28 @@
             this.panelFormConteiner.Size = new System.Drawing.Size(464, 452);
             this.panelFormConteiner.TabIndex = 1;
             // 
+            // lblStrip
+            // 
+            this.lblStrip.Name = "lblStrip";
+            this.lblStrip.Size = new System.Drawing.Size(55, 17);
+            this.lblStrip.Text = "Сегодня:";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 17);
+            // 
+            // timerForToday
+            // 
+            this.timerForToday.Interval = 1000;
+            this.timerForToday.Tick += new System.EventHandler(this.timerForToday_Tick);
+            // 
+            // lblTime
+            // 
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(0, 17);
+            // 
             // BrowseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +121,8 @@
             this.Text = "Фитнес-М";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OnBrowseFormLoad);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,6 +135,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewRegims;
         private System.Windows.Forms.Panel panelFormConteiner;
+        private System.Windows.Forms.ToolStripStatusLabel lblStrip;
+        private System.Windows.Forms.ToolStripStatusLabel lblDate;
+        private System.Windows.Forms.Timer timerForToday;
+        private System.Windows.Forms.ToolStripStatusLabel lblTime;
     }
 }
 

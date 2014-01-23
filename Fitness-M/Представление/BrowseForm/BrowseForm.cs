@@ -23,6 +23,7 @@ namespace Fitness_M
             SetRegims(treeViewRegims);
             m_DataSet = ClientDataSet.Get();
             m_DataSet.LoadData();
+            timerForToday.Start();
         }
 
         /// <summary>
@@ -100,6 +101,12 @@ namespace Fitness_M
             {
                 control.Controls.RemoveAt(i);
             }
+        }
+
+        private void timerForToday_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
+            lblTime.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }
