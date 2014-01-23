@@ -42,9 +42,7 @@ namespace Fitness_M
             var bindingTickets = new BindingSource(bindingClients, "ListTickets");
 
             dataGridView1.DataSource = bindingClients;
-            dataGridView2.DataSource = bindingTickets;
-
-            bindingTickets.Filter = "DateFinish > '" + System.DateTime.Now.ToString("dd/MM/yy")+"'";
+            dataGridView2.DataSource = bindingTickets;           
         }
 
         private void OnClientAdd_Click(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace Fitness_M
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var client = GetSelectedClient();
+            var client = ((BindingSource)dataGridView1.DataSource).Current as Client;
             if (client != null)
             {
                 ClientFormEdit.FormShow(ActionState.Edit, client);
@@ -74,7 +72,7 @@ namespace Fitness_M
         {
             if (MessageBox.Show("Вы уверены что хотите удалить клиента ?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                var client = GetSelectedClient();
+                var client = ((BindingSource)dataGridView1.DataSource).Current as Client;
                 if (client != null)
                 {
                     client.Delete();
@@ -82,13 +80,6 @@ namespace Fitness_M
                     dataGridView1.DataSource = DataSet.ListClients.ToArray();
                 }
             }
-        }
-
-        private Client GetSelectedClient()
-        {
-            long number = (long)dataGridView1.CurrentRow.Cells["clmNumber"].Value;
-            var client = DataSet.ListClients.FirstOrDefault(x => x.Number == number);
-            return client;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -117,7 +108,10 @@ namespace Fitness_M
 
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
-            KindTicketsFormSelect.FormShow(ActionState.Select, GetSelectedClient(), DataSet);
+            KindTicketsFormSelect.FormShow(
+                ActionState.Select, 
+                ((BindingSource)dataGridView1.DataSource).Current as Client, 
+                DataSet);
         }
     }
 }
