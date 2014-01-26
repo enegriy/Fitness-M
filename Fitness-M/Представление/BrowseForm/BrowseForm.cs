@@ -90,8 +90,17 @@ namespace Fitness_M
             //Тренажеры
             else if (e.Node.Name == "3")
             {
-                //ClientsControl ctrl = new ClientsControl();
-                //treeViewRegims.Controls.Add(ctrl);
+                try
+                {
+                    FitnessEquipmentControl ctrl = new FitnessEquipmentControl();
+                    ctrl.DataSet = m_DataSet;
+                    ctrl.Dock = DockStyle.Fill;
+                    panelFormConteiner.Controls.Add(ctrl);
+                }
+                catch (BussinesException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

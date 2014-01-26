@@ -47,3 +47,12 @@ CREATE TABLE IF NOT EXISTS tickets (
   kind_tickets_id int(11) NOT NULL  ,
   PRIMARY KEY (id)
 );
+
+create table fitness_equipment
+(
+id int(11) NOT NULL auto_increment,
+title varchar(100) NOT NULL DEFAULT '' ,
+running_time int(11) NOT NULL,
+count_balls int(11) NOT NULL,
+PRIMARY KEY (id)
+);

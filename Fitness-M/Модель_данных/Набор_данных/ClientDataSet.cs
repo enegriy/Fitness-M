@@ -33,6 +33,16 @@ namespace Fitness_M
             set { m_ListTickets = value; }
         }
 
+        private IList<FitnessEquipment> m_ListFitnessEquipment;
+        /// <summary>
+        /// Список тренажеров
+        /// </summary>
+        public IList<FitnessEquipment> ListFitnessEquipment
+        {
+            get { return m_ListFitnessEquipment; }
+            set { m_ListFitnessEquipment = value; }
+        }
+
         /// <summary>
         /// Пустой список тикетов
         /// </summary>
@@ -47,6 +57,14 @@ namespace Fitness_M
         public bool IsEmptyListCliets
         {
             get { return (ListClients == null || ListClients.Count == 0); }
+        }
+
+        /// <summary>
+        /// Пустой список тренажеров
+        /// </summary>
+        public bool IsEmptyListFitnessEquipment
+        {
+            get { return (ListFitnessEquipment == null || ListFitnessEquipment.Count == 0); }
         }
 
 
@@ -107,6 +125,14 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Загрузить тренажеры
+        /// </summary>
+        public void LoadFitnessEquipments()
+        {
+            ListFitnessEquipment = (new FitnessEquipmentManager()).LoadFitnessEquipment();
+        }
+
+        /// <summary>
         /// Установить спецификацию для клиентов
         /// </summary>
         public void SetSpecificationForClients()
@@ -128,6 +154,7 @@ namespace Fitness_M
             LoadClients();
             LoadTickets();
             LoadKindTickets();
+            LoadFitnessEquipments();
             SetSpecificationForClients();
         }
 

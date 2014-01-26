@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
+    <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
+    <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
+    <Compile Include="Модель_данных\Тренажеры\FitnessEquipment.cs" />
+    <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentManager.cs" />
     <Compile Include="Представление\BrowseForm\BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +111,12 @@
     <Compile Include="Представление\Пользователи\UserIdentification.Designer.cs">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentControl.Designer.cs">
+      <DependentUpon>FitnessEquipmentControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Представление\BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +147,9 @@
     <EmbeddedResource Include="Представление\Пользователи\UserIdentification.resx">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentControl.resx">
+      <DependentUpon>FitnessEquipmentControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,7 +163,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

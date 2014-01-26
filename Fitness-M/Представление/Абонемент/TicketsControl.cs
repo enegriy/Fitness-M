@@ -27,11 +27,21 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+
+
             dataGridView1.AutoGenerateColumns = false;
-            InitDataGrid();
+            dataGridView2.AutoGenerateColumns = false;
+
+            InitDataGridKindTickets();
+            InitDataGridTickets();
         }
 
-        public void InitDataGrid()
+        private void InitDataGridTickets()
+        {
+            dataGridView2.DataSource = new TicketMixedManager().GetListTicketMixed();
+        }
+
+        public void InitDataGridKindTickets()
         {
             if (DataSet == null) 
                 throw new ApplicationException("Не задан источник данных");
