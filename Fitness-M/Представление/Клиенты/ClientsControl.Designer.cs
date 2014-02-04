@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -58,20 +60,32 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNewTicket = new System.Windows.Forms.Button();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNewTicket = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnAddPlan = new System.Windows.Forms.Button();
+            this.clmVisitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmVisitFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmVisitTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPlanFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPlanTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIsDisabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -211,7 +225,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(647, 402);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -219,10 +233,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -236,24 +250,24 @@
             this.clmAddress,
             this.clmNote});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(641, 276);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 266);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
@@ -319,18 +333,20 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 285);
+            this.tabControl1.Location = new System.Drawing.Point(3, 275);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(641, 114);
+            this.tabControl1.Size = new System.Drawing.Size(641, 124);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView3);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(633, 88);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(633, 98);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сеанс";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -341,8 +357,8 @@
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(633, 88);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(633, 98);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Абонемент";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -353,7 +369,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(627, 57);
+            this.panel2.Size = new System.Drawing.Size(627, 67);
             this.panel2.TabIndex = 2;
             // 
             // dataGridView2
@@ -371,29 +387,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(627, 57);
+            this.dataGridView2.Size = new System.Drawing.Size(627, 67);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(627, 25);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // btnNewTicket
-            // 
-            this.btnNewTicket.FlatAppearance.BorderSize = 0;
-            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTicket.Location = new System.Drawing.Point(3, 3);
-            this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(75, 24);
-            this.btnNewTicket.TabIndex = 0;
-            this.btnNewTicket.Text = "Новый...";
-            this.btnNewTicket.UseVisualStyleBackColor = true;
-            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
             // 
             // clmId
             // 
@@ -418,6 +413,120 @@
             this.clmBalance.ReadOnly = true;
             this.clmBalance.Width = 140;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(627, 25);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // btnNewTicket
+            // 
+            this.btnNewTicket.FlatAppearance.BorderSize = 0;
+            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTicket.Location = new System.Drawing.Point(3, 3);
+            this.btnNewTicket.Name = "btnNewTicket";
+            this.btnNewTicket.Size = new System.Drawing.Size(75, 24);
+            this.btnNewTicket.TabIndex = 0;
+            this.btnNewTicket.Text = "Новый...";
+            this.btnNewTicket.UseVisualStyleBackColor = true;
+            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnAddPlan);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(627, 25);
+            this.flowLayoutPanel3.TabIndex = 0;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmVisitId,
+            this.clmVisitFrom,
+            this.clmVisitTo,
+            this.clmPlanFrom,
+            this.clmPlanTo,
+            this.clmIsDisabled});
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(627, 67);
+            this.dataGridView3.TabIndex = 1;
+            // 
+            // btnAddPlan
+            // 
+            this.btnAddPlan.FlatAppearance.BorderSize = 0;
+            this.btnAddPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPlan.Location = new System.Drawing.Point(3, 3);
+            this.btnAddPlan.Name = "btnAddPlan";
+            this.btnAddPlan.Size = new System.Drawing.Size(75, 24);
+            this.btnAddPlan.TabIndex = 1;
+            this.btnAddPlan.Text = "Бронь...";
+            this.btnAddPlan.UseVisualStyleBackColor = true;
+            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
+            // 
+            // clmVisitId
+            // 
+            this.clmVisitId.DataPropertyName = "Id";
+            this.clmVisitId.HeaderText = "Ид";
+            this.clmVisitId.Name = "clmVisitId";
+            this.clmVisitId.ReadOnly = true;
+            this.clmVisitId.Visible = false;
+            // 
+            // clmVisitFrom
+            // 
+            this.clmVisitFrom.DataPropertyName = "VisitFrom";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmVisitFrom.HeaderText = "Посещение С";
+            this.clmVisitFrom.Name = "clmVisitFrom";
+            this.clmVisitFrom.ReadOnly = true;
+            this.clmVisitFrom.Width = 120;
+            // 
+            // clmVisitTo
+            // 
+            this.clmVisitTo.DataPropertyName = "VisitTo";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmVisitTo.HeaderText = "Посещение ПО";
+            this.clmVisitTo.Name = "clmVisitTo";
+            this.clmVisitTo.ReadOnly = true;
+            this.clmVisitTo.Width = 120;
+            // 
+            // clmPlanFrom
+            // 
+            this.clmPlanFrom.DataPropertyName = "PlanFrom";
+            this.clmPlanFrom.HeaderText = "Бронь С";
+            this.clmPlanFrom.Name = "clmPlanFrom";
+            this.clmPlanFrom.ReadOnly = true;
+            // 
+            // clmPlanTo
+            // 
+            this.clmPlanTo.DataPropertyName = "PlanTo";
+            this.clmPlanTo.HeaderText = "Бронь ПО";
+            this.clmPlanTo.Name = "clmPlanTo";
+            this.clmPlanTo.ReadOnly = true;
+            // 
+            // clmIsDisabled
+            // 
+            this.clmIsDisabled.DataPropertyName = "IsDisabled";
+            this.clmIsDisabled.HeaderText = "Анулирован";
+            this.clmIsDisabled.Name = "clmIsDisabled";
+            this.clmIsDisabled.ReadOnly = true;
+            this.clmIsDisabled.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmIsDisabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // ClientsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,10 +542,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,6 +585,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateFinish;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Button btnAddPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitFrom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanFrom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanTo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsDisabled;
 
 
 

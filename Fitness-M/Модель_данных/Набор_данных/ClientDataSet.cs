@@ -43,6 +43,16 @@ namespace Fitness_M
             set { m_ListFitnessEquipment = value; }
         }
 
+        private IList<Visit> m_ListVisit;
+        /// <summary>
+        /// Список посещений
+        /// </summary>
+        public IList<Visit> ListVisit
+        {
+            get { return m_ListVisit; }
+            set { m_ListVisit = value; }
+        }
+
         /// <summary>
         /// Пустой список тикетов
         /// </summary>
@@ -57,6 +67,14 @@ namespace Fitness_M
         public bool IsEmptyListCliets
         {
             get { return (ListClients == null || ListClients.Count == 0); }
+        }
+
+        /// <summary>
+        /// Пустой список клиентов
+        /// </summary>
+        public bool IsEmptyListVisit
+        {
+            get { return (ListVisit == null || ListVisit.Count == 0); }
         }
 
         /// <summary>
@@ -125,6 +143,14 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Загрузить посещения
+        /// </summary>
+        public void LoadVisits()
+        {
+            ListVisit = (new VisitManager()).LoadVisit();
+        }
+
+        /// <summary>
         /// Загрузить тренажеры
         /// </summary>
         public void LoadFitnessEquipments()
@@ -147,6 +173,20 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Установить спецификацию посещений для клиентов
+        /// </summary>
+        public void SetSpecificationVisitForClients()
+        {
+            if (ListClients != null && ListTickets != null)
+            {
+                for (int i = 0; i < ListClients.Count; i++)
+                {
+                    ListClients[i].ListVisit = ListVisit.Where(x => x.ClientId == ListClients[i].Id).ToArray();
+                }
+            }
+        }
+
+        /// <summary>
         /// Загрузить все данные
         /// </summary>
         public void LoadData()
@@ -155,7 +195,9 @@ namespace Fitness_M
             LoadTickets();
             LoadKindTickets();
             LoadFitnessEquipments();
+            LoadVisits();
             SetSpecificationForClients();
+            SetSpecificationVisitForClients();
         }
 
         #endregion

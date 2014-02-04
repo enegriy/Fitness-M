@@ -20,7 +20,7 @@ namespace Fitness_M
 
         public ObjectManager()
         {
-            Connection = 
+            Connection =
                 new MySql.Data.MySqlClient.MySqlConnection(
                     ProgOptions.mConnectionString);
         }
@@ -42,6 +42,16 @@ namespace Fitness_M
         {
             if (Connection.State != System.Data.ConnectionState.Closed)
                 Connection.Close();
+        }
+
+        /// <summary>
+        /// Получить значение
+        /// </summary>
+        public T TryGetValue<T>(object value)
+        {
+            if (value != System.DBNull.Value)
+                return (T)value;
+            return default(T);
         }
     }
 }

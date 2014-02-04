@@ -31,10 +31,10 @@ namespace Fitness_M
             while (reader.Read())
             {
                 var fitnessEquipment = new FitnessEquipment();
-                fitnessEquipment.Id = (int)reader["id"];
-                fitnessEquipment.Title = reader["title"].ToString();
-                fitnessEquipment.RunningTime = (int)reader["running_time"];
-                fitnessEquipment.CountBalls = (int)reader["count_balls"];
+                fitnessEquipment.Id = TryGetValue<int>(reader["id"]);
+                fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
+                fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
+                fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
 
                 listFitnessEquipment.Add(fitnessEquipment);
             }

@@ -41,8 +41,33 @@ namespace Fitness_M
         {
             if (MessageBox.Show("Вы уверены что хотите удалить объект?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ((FitnessEquipment)((BindingSource)dataGridView1.DataSource).Current).Delete();
+                var fq = (FitnessEquipment)((BindingSource)dataGridView1.DataSource).Current as FitnessEquipment;
+                if (fq != null)
+                {
+                    fq.Delete();
+                    DataSet.ListFitnessEquipment.Remove(fq);
+                    dataGridView1.DataSource = DataSet.ListFitnessEquipment.ToArray();
+                }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var fitnessEquipment = new FitnessEquipment();
+            var frm = FitnessEquipmentFormEdit.FormShow(ActionState.Add, fitnessEquipment);
+            if (!fitnessEquipment.IsEmpty)
+            {
+                DataSet.ListFitnessEquipment.Add(fitnessEquipment);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = DataSet.ListFitnessEquipment;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var fitnessEquipment = ((BindingSource)dataGridView1.DataSource).Current as FitnessEquipment;
+            var frm = FitnessEquipmentFormEdit.FormShow(ActionState.Edit, fitnessEquipment);
+            dataGridView1.Refresh();
         }
     }
 }

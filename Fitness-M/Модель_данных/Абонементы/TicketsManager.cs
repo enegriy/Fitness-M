@@ -28,15 +28,13 @@ namespace Fitness_M
             while (reader.Read())
             {
                 var kindTickets = new KindTickets();
-                kindTickets.Id = (int)reader["id"];
-                kindTickets.Period = (int)reader["period"];
-                if (reader["count_balls"] != System.DBNull.Value)
-                    kindTickets.CountBalls = (int)reader["count_balls"];
-                if (reader["count_visits"] != System.DBNull.Value)
-                    kindTickets.CountVisits = (int)reader["count_visits"];
-                kindTickets.IsOnlyGroup = (bool)reader["isonlygroup"];
-                kindTickets.IsInactive = (bool)reader["isinactive"];
-                kindTickets.Price = (decimal)reader["price"];
+                kindTickets.Id = TryGetValue<int>(reader["id"]);
+                kindTickets.Period = TryGetValue<int>(reader["period"]);
+                kindTickets.CountBalls = TryGetValue<int>(reader["count_balls"]);
+                kindTickets.CountVisits = TryGetValue<int>(reader["count_visits"]);
+                kindTickets.IsOnlyGroup = TryGetValue<bool>(reader["isonlygroup"]);
+                kindTickets.IsInactive = TryGetValue<bool>(reader["isinactive"]);
+                kindTickets.Price = TryGetValue<decimal>(reader["price"]);
                 listKinds.Add(kindTickets);
             }
             cmd.Dispose();
@@ -58,11 +56,11 @@ namespace Fitness_M
             while (reader.Read())
             {
                 var tickets = new Tickets();
-                tickets.Id = (int)reader["id"];
-                tickets.DateFinish = (DateTime)reader["datefinish"];
-                tickets.Balance = (int)reader["balance"];
-                tickets.ClientId = (int)reader["client_id"];
-                tickets.KindTicketsId = (int)reader["kind_tickets_id"];
+                tickets.Id = TryGetValue<int>(reader["id"]);
+                tickets.DateFinish = TryGetValue<DateTime>(reader["datefinish"]);
+                tickets.Balance = TryGetValue<int>(reader["balance"]);
+                tickets.ClientId = TryGetValue<int>(reader["client_id"]);
+                tickets.KindTicketsId = TryGetValue<int>(reader["kind_tickets_id"]);
                 listTickets.Add(tickets);
             }
             cmd.Dispose();

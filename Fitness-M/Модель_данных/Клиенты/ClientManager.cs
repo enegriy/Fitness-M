@@ -27,15 +27,15 @@ namespace Fitness_M
             while (reader.Read())
             {
                 var client = new Client();
-                client.Id = (int)reader["id"];
-                client.Number = (long)reader["number"];
-                client.SurName = reader["surname"].ToString();
-                client.Name = reader["name"].ToString();
-                client.LastName = reader["lastname"].ToString();
-                client.DateBirth = (DateTime)reader["datebirth"];
-                client.Phone = reader["phone"].ToString();
-                client.Address = reader["address"].ToString();
-                client.Note = reader["note"].ToString();
+                client.Id = TryGetValue<int>(reader["id"]);
+                client.Number = TryGetValue<long>(reader["number"]);
+                client.SurName = TryGetValue<string>(reader["surname"]);
+                client.Name = TryGetValue<string>(reader["name"]);
+                client.LastName = TryGetValue<string>(reader["lastname"]);
+                client.DateBirth = TryGetValue<DateTime>(reader["datebirth"]);
+                client.Phone = TryGetValue<string>(reader["phone"]);
+                client.Address = TryGetValue<string>(reader["address"]);
+                client.Note = TryGetValue<string>(reader["note"]);
                 listClients.Add(client);
             }
             cmd.Dispose();

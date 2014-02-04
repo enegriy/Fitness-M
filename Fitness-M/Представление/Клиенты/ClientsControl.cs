@@ -29,6 +29,7 @@ namespace Fitness_M
         {
             dataGridView1.AutoGenerateColumns = false;
             dataGridView2.AutoGenerateColumns = false;
+            dataGridView3.AutoGenerateColumns = false;
 
             InitDataGrid();
         }
@@ -40,9 +41,11 @@ namespace Fitness_M
 
             var bindingClients = new BindingSource(DataSet.ListClients, "");
             var bindingTickets = new BindingSource(bindingClients, "ListTickets");
+            var bindingVisits = new BindingSource(bindingClients, "ListVisit");
 
             dataGridView1.DataSource = bindingClients;
-            dataGridView2.DataSource = bindingTickets;           
+            dataGridView2.DataSource = bindingTickets;
+            dataGridView3.DataSource = bindingVisits;
         }
 
         private void OnClientAdd_Click(object sender, EventArgs e)
@@ -112,6 +115,11 @@ namespace Fitness_M
                 ActionState.Select, 
                 ((BindingSource)dataGridView1.DataSource).Current as Client, 
                 DataSet);
+        }
+
+        private void btnAddPlan_Click(object sender, EventArgs e)
+        {
+            PlanFormEdit.FormShow();
         }
     }
 }

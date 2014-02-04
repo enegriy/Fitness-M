@@ -11,6 +11,11 @@ namespace Fitness_M
     public class FitnessEquipment: FitnessEquipmentManager, IBusinessObject
     {
         /// <summary>
+        /// Спецификация незанятого времени
+        /// </summary>
+        public IList<DateFromAndDateTo> ListFreeTime { get; set; }
+
+        /// <summary>
         /// Идентификатор
         /// </summary>
         public int Id { get; set; }

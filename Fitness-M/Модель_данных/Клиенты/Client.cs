@@ -14,6 +14,10 @@ namespace Fitness_M
         /// Спецификация абонементов
         /// </summary>
         public IList<Tickets> ListTickets { get; set; }
+        /// <summary>
+        /// Спецификация посещений
+        /// </summary>
+        public IList<Visit> ListVisit { get;set; }
 
         /// <summary>
         /// Индтификатор

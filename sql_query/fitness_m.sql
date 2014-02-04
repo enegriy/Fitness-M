@@ -50,9 +50,32 @@ CREATE TABLE IF NOT EXISTS tickets (
 
 create table fitness_equipment
 (
-id int(11) NOT NULL auto_increment,
-title varchar(100) NOT NULL DEFAULT '' ,
-running_time int(11) NOT NULL,
-count_balls int(11) NOT NULL,
-PRIMARY KEY (id)
+  id int(11) NOT NULL auto_increment,
+  title varchar(100) NOT NULL DEFAULT '' ,
+  running_time int(11) NOT NULL,
+  count_balls int(11) NOT NULL,
+  PRIMARY KEY (id)
 );
+
+create table visits
+(
+  id int(11) NOT NULL auto_increment,
+  client_id int(11) ,
+  plan_from datetime,
+  plan_to datetime,
+  visit_from datetime,
+  visit_to datetime,
+  is_disabled bool,
+  PRIMARY KEY (id)
+);
+
+create table client_use_equipment
+(
+  id int(11) NOT NULL auto_increment,
+  visit_id int(11) ,
+  fitness_equipment_id int(11),
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE client_use_equipment ADD time_from TIME;
+ALTER TABLE client_use_equipment ADD time_to TIME;

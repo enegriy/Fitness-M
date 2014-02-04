@@ -48,9 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\ВремяКомпонент\TimeComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\ВремяКомпонент\TimeComponent.Designer.cs">
+      <DependentUpon>TimeComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
+    <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
+    <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipment.cs" />
+    <Compile Include="Модель_данных\Сеанс\Visit.cs" />
+    <Compile Include="Модель_данных\Сеанс\VisitManager.cs" />
+    <Compile Include="Модель_данных\Тренажеры\DateFromAndDateTo.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipment.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentManager.cs" />
     <Compile Include="Представление\BrowseForm\BrowseForm.cs">
@@ -111,12 +122,39 @@
     <Compile Include="Представление\Пользователи\UserIdentification.Designer.cs">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Представление\Сеанс\PlanFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Сеанс\PlanFormEdit.Designer.cs">
+      <DependentUpon>PlanFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Тренажеры\FitnessEquipmentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Представление\Тренажеры\FitnessEquipmentControl.Designer.cs">
       <DependentUpon>FitnessEquipmentControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormEdit.Designer.cs">
+      <DependentUpon>FitnessEquipmentFormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormSelect.Designer.cs">
+      <DependentUpon>FitnessEquipmentFormSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.Designer.cs">
+      <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Library\ВремяКомпонент\TimeComponent.resx">
+      <DependentUpon>TimeComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,8 +185,20 @@
     <EmbeddedResource Include="Представление\Пользователи\UserIdentification.resx">
       <DependentUpon>UserIdentification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Сеанс\PlanFormEdit.resx">
+      <DependentUpon>PlanFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentControl.resx">
       <DependentUpon>FitnessEquipmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentFormEdit.resx">
+      <DependentUpon>FitnessEquipmentFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentFormSelect.resx">
+      <DependentUpon>FitnessEquipmentFormSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.resx">
+      <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

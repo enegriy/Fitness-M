@@ -35,6 +35,7 @@ namespace Fitness_M
             treeViewRegims.Nodes.Add("1","Клиенты");
             treeViewRegims.Nodes.Add("2", "Абонементы");
             treeViewRegims.Nodes.Add("3", "Тренажеры");
+            treeViewRegims.Nodes.Add("4", "График");
         }
 
         private void SetUserControl(UserControl ctrl)
@@ -93,6 +94,21 @@ namespace Fitness_M
                 try
                 {
                     FitnessEquipmentControl ctrl = new FitnessEquipmentControl();
+                    ctrl.DataSet = m_DataSet;
+                    ctrl.Dock = DockStyle.Fill;
+                    panelFormConteiner.Controls.Add(ctrl);
+                }
+                catch (BussinesException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            //График
+            else if (e.Node.Name == "4")
+            {
+                try
+                {
+                    FitnessEquipmentSchedule ctrl = new FitnessEquipmentSchedule();
                     ctrl.DataSet = m_DataSet;
                     ctrl.Dock = DockStyle.Fill;
                     panelFormConteiner.Controls.Add(ctrl);
