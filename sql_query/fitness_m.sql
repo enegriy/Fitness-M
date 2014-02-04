@@ -79,3 +79,10 @@ create table client_use_equipment
 
 ALTER TABLE client_use_equipment ADD time_from TIME;
 ALTER TABLE client_use_equipment ADD time_to TIME;
+
+CREATE TABLE IF NOT EXISTS parameters (
+  id int(11) NOT NULL auto_increment,
+  title varchar(100) not null,
+  value varchar(100),
+  PRIMARY KEY (id)
+);

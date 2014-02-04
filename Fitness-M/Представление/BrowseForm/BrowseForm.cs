@@ -32,10 +32,11 @@ namespace Fitness_M
         /// <param name="treeViewRegims"></param>
         private void SetRegims(TreeView treeViewRegims)
         {
-            treeViewRegims.Nodes.Add("1","Клиенты");
+            treeViewRegims.Nodes.Add("1", "Клиенты");
             treeViewRegims.Nodes.Add("2", "Абонементы");
             treeViewRegims.Nodes.Add("3", "Тренажеры");
             treeViewRegims.Nodes.Add("4", "График");
+            treeViewRegims.Nodes.Add("5", "Администрирование");
         }
 
         private void SetUserControl(UserControl ctrl)
@@ -110,6 +111,20 @@ namespace Fitness_M
                 {
                     FitnessEquipmentSchedule ctrl = new FitnessEquipmentSchedule();
                     ctrl.DataSet = m_DataSet;
+                    ctrl.Dock = DockStyle.Fill;
+                    panelFormConteiner.Controls.Add(ctrl);
+                }
+                catch (BussinesException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (e.Node.Name == "5")
+            {
+                try
+                {
+                    AdministrationControl ctrl = new AdministrationControl();
+                    //ctrl.DataSet = m_DataSet;
                     ctrl.Dock = DockStyle.Fill;
                     panelFormConteiner.Controls.Add(ctrl);
                 }

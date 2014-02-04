@@ -56,6 +56,12 @@ namespace Fitness_M
                         }
                     }
                 }
+
+                if (firstFreeDate < workPeriod.DateTo)
+                {
+                    dateFromAndTo = new DateFromAndDateTo(firstFreeDate, workPeriod.DateTo);
+                    listFreeTime.Add(dateFromAndTo);
+                }
             }
             else
                 listFreeTime.Add(workPeriod);

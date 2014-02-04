@@ -55,8 +55,8 @@ namespace Fitness_M
         private void SetTimeToFitnessEquipment(IList<FitnessEquipment> listFitnessEquipment)
         {
             var feqController = new FitnessEquipmentController();
-            var dateFrom = new DateTime(2000,01,01,8,0,0);
-            var dateTo = new DateTime(2000,01,01,18,0,0);
+            var dateFrom = new DateTime(DateVisit.Year, DateVisit.Month, DateVisit.Day, 8, 0, 0);
+            var dateTo = new DateTime(DateVisit.Year, DateVisit.Month, DateVisit.Day, 18, 0, 0);
             var workPeriod = new DateFromAndDateTo(dateFrom, dateTo);
 
             foreach (FitnessEquipment fq in listFitnessEquipment)

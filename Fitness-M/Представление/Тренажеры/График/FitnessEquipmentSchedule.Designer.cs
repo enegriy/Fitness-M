@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.clmFqTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRunningTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCountBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.clmFreeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateToFreeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
@@ -98,23 +100,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(604, 307);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmFreeTime,
-            this.clmDateToFreeTime});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(604, 162);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // clmFqTitle
             // 
             this.clmFqTitle.DataPropertyName = "Title";
@@ -139,9 +124,29 @@
             this.clmCountBalls.ReadOnly = true;
             this.clmCountBalls.Width = 150;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmFreeTime,
+            this.clmDateToFreeTime});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(604, 162);
+            this.dataGridView2.TabIndex = 0;
+            // 
             // clmFreeTime
             // 
             this.clmFreeTime.DataPropertyName = "DateFrom";
+            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.NullValue = null;
+            this.clmFreeTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmFreeTime.HeaderText = "Свободно \"С\"";
             this.clmFreeTime.Name = "clmFreeTime";
             this.clmFreeTime.ReadOnly = true;
@@ -150,6 +155,8 @@
             // clmDateToFreeTime
             // 
             this.clmDateToFreeTime.DataPropertyName = "DateTo";
+            dataGridViewCellStyle2.Format = "t";
+            this.clmDateToFreeTime.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmDateToFreeTime.HeaderText = "Свободно \"ПО\"";
             this.clmDateToFreeTime.Name = "clmDateToFreeTime";
             this.clmDateToFreeTime.ReadOnly = true;

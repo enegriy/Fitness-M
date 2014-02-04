@@ -59,6 +59,7 @@
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
     <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipment.cs" />
+    <Compile Include="Модель_данных\Параметры\ParamsManager.cs" />
     <Compile Include="Модель_данных\Сеанс\Visit.cs" />
     <Compile Include="Модель_данных\Сеанс\VisitManager.cs" />
     <Compile Include="Модель_данных\Тренажеры\DateFromAndDateTo.cs" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="Представление\Абонемент\KindTicketsFormSelect.Designer.cs">
       <DependentUpon>KindTicketsFormSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Представление\Администрирование\AdministrationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Представление\Администрирование\AdministrationControl.Designer.cs">
+      <DependentUpon>AdministrationControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Представление\Клиенты\ClientFormEdit.cs">
       <SubType>Form</SubType>
@@ -175,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Абонемент\KindTicketsFormSelect.resx">
       <DependentUpon>KindTicketsFormSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Администрирование\AdministrationControl.resx">
+      <DependentUpon>AdministrationControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Клиенты\ClientFormEdit.resx">
       <DependentUpon>ClientFormEdit.cs</DependentUpon>
