@@ -6,9 +6,9 @@ using System.Text;
 namespace Fitness_M
 {
     /// <summary>
-    /// Клиент
+    /// Сеанс
     /// </summary>
-    public sealed class Visit
+    public sealed class Visit : VisitManager, IBusinessObject
     {
         /// <summary>
         /// Спецификация абонементов
@@ -43,5 +43,43 @@ namespace Fitness_M
         /// Анулирован
         /// </summary>
         public bool IsDisabled { get; set; }
+
+        /// <summary>
+        /// Пустая запись
+        /// </summary>
+        public bool IsEmpty
+        {
+            get { return Id == 0; }
+        }
+
+        #region Public Methods
+
+
+        /// <summary>
+        /// Сохранить
+        /// </summary>
+        public void Save()
+        {
+            Save(this);
+        }
+
+        /// <summary>
+        /// Обновить
+        /// </summary>
+        public void Update()
+        {
+            Update(this);
+        }
+
+        /// <summary>
+        /// Удалить
+        /// </summary>
+        public void Delete()
+        {
+            Delete(this);
+        }
+
+
+        #endregion
     }
 }

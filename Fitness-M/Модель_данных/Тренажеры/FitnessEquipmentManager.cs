@@ -16,6 +16,36 @@ namespace Fitness_M
         public FitnessEquipmentManager() : base() { }
 
         /// <summary>
+        /// Получить тренажер по Ид
+        /// </summary>
+        public FitnessEquipment Get(int Id)
+        {
+            OpenConnection();
+
+            FitnessEquipment fitnessEquipment = null;
+
+            string sql = "select * from fitness_equipment where id = @id;";
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql);
+            cmd.Connection = Connection;
+
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                fitnessEquipment = new FitnessEquipment();
+                fitnessEquipment.Id = TryGetValue<int>(reader["id"]);
+                fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
+                fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
+                fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
+            }
+            cmd.Dispose();
+            CloseConnection();
+
+            return fitnessEquipment;
+        }
+
+        /// <summary>
         /// Загрузить все тренажеры 
         /// </summary>
         public IList<FitnessEquipment> LoadFitnessEquipment()

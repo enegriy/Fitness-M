@@ -12,6 +12,25 @@ namespace Fitness_M
 {
     public partial class PlanFormEdit : Form
     {
+        #region Prop
+        /// <summary>
+        /// Форма просмотра
+        /// </summary>
+        public bool IsFormView
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Клиент
+        /// </summary>
+        public Client CurrentClient
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Набор данных
         /// </summary>
@@ -23,6 +42,7 @@ namespace Fitness_M
 
         private TimeSpan m_PeriodTrainingStart;
         private TimeSpan m_PeriodTrainingFinish;
+
         /// <summary>
         /// Период тренировки с
         /// </summary>
@@ -37,14 +57,51 @@ namespace Fitness_M
         {
             get { return m_PeriodTrainingFinish; }
         }
-
+        #endregion
         /// <summary>
-        /// Показать форму
+        /// Показать форму редактирования
         /// </summary>
-        public static void FormShow(ClientDataSet dataSet)
+        public static void FormShow(ClientDataSet dataSet, Client client)
         {
             var frm = new PlanFormEdit();
             frm.DataSet = dataSet;
+            frm.CurrentClient = client;
+            frm.ShowDialog();
+        }
+
+        public static void FormViewVisit(Visit visit)
+        {
+            var frm = new PlanFormEdit();
+
+            if(visit.VisitFrom != DateTime.MinValue)
+            {
+                frm.dtDateVisit.Value = visit.VisitFrom;
+                frm.tbTimeFrom.Text = visit.VisitFrom.TimeOfDay.ToShortTime();
+                frm.tbTimeTo.Text = visit.VisitTo.TimeOfDay.ToShortTime();
+            }
+            else
+            {
+                frm.dtDateVisit.Value = visit.PlanFrom;
+                frm.tbTimeFrom.Text = visit.PlanFrom.TimeOfDay.ToShortTime();
+                frm.tbTimeTo.Text = visit.PlanTo.TimeOfDay.ToShortTime();
+            }
+
+            var feManager = new FitnessEquipmentManager();
+
+            var visitSpec = new List<FitnessEquipmentWillBeReserve>();
+            foreach(var clientUseFitEq in visit.ClientUseFitnessEquipmentSpec)
+            {
+                var fitWillBeReserve = new FitnessEquipmentWillBeReserve();
+                fitWillBeReserve.FitnessEquipmentReserve =  feManager.Get(clientUseFitEq.FitnessEquipmentId);
+                fitWillBeReserve.TimeFrom = clientUseFitEq.TimeFrom;
+                fitWillBeReserve.TimeTo = clientUseFitEq.TimeTo;
+                visitSpec.Add(fitWillBeReserve);
+            }
+            frm.grid1.AutoGenerateColumns = false;
+            frm.grid1.DataSource = new BindingSource(visitSpec,"");
+
+            frm.SetReadOnly();
+            frm.IsFormView = true;
             frm.ShowDialog();
         }
 
@@ -52,12 +109,54 @@ namespace Fitness_M
 
         public PlanFormEdit()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void OnFormLoad(object sender, EventArgs e)
         {
-            InitGrid();
+            if(!IsFormView) InitGrid();
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == System.Windows.Forms.DialogResult.OK && !IsFormView)
+            {
+                var om = new ObjectManager();
+                om.OpenConnection();
+                var tr = om.Connection.BeginTransaction();
+                try
+                {
+                    Visit newVisit = new Visit();
+                    newVisit.ClientId = CurrentClient.Id;
+                    newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
+                    newVisit.PlanTo = dtDateVisit.Value.Date.Add(m_PeriodTrainingFinish);
+                    newVisit.IsDisabled = false;
+
+                    newVisit.Save();
+
+                    var source = (BindingSource)grid1.DataSource;
+                    foreach (var boundItem in source)
+                    {
+                        var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
+                        var useFitnessEq = new ClientUseFitnessEquipment();
+                        useFitnessEq.VisitId = newVisit.Id;
+                        useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
+                        useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
+                        useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
+                        useFitnessEq.Save();
+                    }
+                    tr.Commit();
+                }
+                catch (Exception exc)
+                {
+                    tr.Rollback();
+                    throw new BussinesException(exc.Message, exc);
+                }
+                finally
+                {
+                    om.CloseConnection();
+                }
+            }
         }
 
         private void InitGrid()
@@ -162,9 +261,18 @@ namespace Fitness_M
 
         private void OnDateVisitChanged(object sender, EventArgs e)
         {
-            ((BindingSource)grid1.DataSource).Clear();
+            if (grid1.DataSource != null)
+                ((BindingSource)grid1.DataSource).Clear();
+            
             tbTimeFrom.Text = "";
             tbTimeTo.Text = "";
+        }
+
+        private void SetReadOnly()
+        {
+            dtDateVisit.Enabled = false;
+            btnAddFQ.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         

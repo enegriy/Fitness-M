@@ -39,6 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grid1 = new System.Windows.Forms.DataGridView();
+            this.clmFitnessEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCountBallsFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFQ = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -47,11 +52,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbTimeFrom = new System.Windows.Forms.TextBox();
             this.tbTimeTo = new System.Windows.Forms.TextBox();
-            this.clmFitnessEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCountBallsFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -200,6 +200,42 @@
             this.grid1.VirtualMode = true;
             this.grid1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.OnCellValueNeeded);
             // 
+            // clmFitnessEquipment
+            // 
+            this.clmFitnessEquipment.DataPropertyName = "FitnessEquipmentReserve";
+            this.clmFitnessEquipment.HeaderText = "Тренажер";
+            this.clmFitnessEquipment.Name = "clmFitnessEquipment";
+            this.clmFitnessEquipment.ReadOnly = true;
+            this.clmFitnessEquipment.Visible = false;
+            // 
+            // clmNameFq
+            // 
+            this.clmNameFq.HeaderText = "Название";
+            this.clmNameFq.Name = "clmNameFq";
+            this.clmNameFq.ReadOnly = true;
+            this.clmNameFq.Width = 200;
+            // 
+            // clmCountBallsFq
+            // 
+            this.clmCountBallsFq.HeaderText = "Колличество баллов";
+            this.clmCountBallsFq.Name = "clmCountBallsFq";
+            this.clmCountBallsFq.ReadOnly = true;
+            this.clmCountBallsFq.Width = 140;
+            // 
+            // clmTimeFq
+            // 
+            dataGridViewCellStyle2.NullValue = null;
+            this.clmTimeFq.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmTimeFq.HeaderText = "Время c";
+            this.clmTimeFq.Name = "clmTimeFq";
+            this.clmTimeFq.ReadOnly = true;
+            // 
+            // clmTimeTo
+            // 
+            this.clmTimeTo.HeaderText = "Время по";
+            this.clmTimeTo.Name = "clmTimeTo";
+            this.clmTimeTo.ReadOnly = true;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnAddFQ);
@@ -281,42 +317,6 @@
             this.tbTimeTo.Size = new System.Drawing.Size(62, 20);
             this.tbTimeTo.TabIndex = 26;
             // 
-            // clmFitnessEquipment
-            // 
-            this.clmFitnessEquipment.DataPropertyName = "FitnessEquipmentReserve";
-            this.clmFitnessEquipment.HeaderText = "Тренажер";
-            this.clmFitnessEquipment.Name = "clmFitnessEquipment";
-            this.clmFitnessEquipment.ReadOnly = true;
-            this.clmFitnessEquipment.Visible = false;
-            // 
-            // clmNameFq
-            // 
-            this.clmNameFq.HeaderText = "Название";
-            this.clmNameFq.Name = "clmNameFq";
-            this.clmNameFq.ReadOnly = true;
-            this.clmNameFq.Width = 200;
-            // 
-            // clmCountBallsFq
-            // 
-            this.clmCountBallsFq.HeaderText = "Колличество баллов";
-            this.clmCountBallsFq.Name = "clmCountBallsFq";
-            this.clmCountBallsFq.ReadOnly = true;
-            this.clmCountBallsFq.Width = 140;
-            // 
-            // clmTimeFq
-            // 
-            dataGridViewCellStyle2.NullValue = null;
-            this.clmTimeFq.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmTimeFq.HeaderText = "Время c";
-            this.clmTimeFq.Name = "clmTimeFq";
-            this.clmTimeFq.ReadOnly = true;
-            // 
-            // clmTimeTo
-            // 
-            this.clmTimeTo.HeaderText = "Время по";
-            this.clmTimeTo.Name = "clmTimeTo";
-            this.clmTimeTo.ReadOnly = true;
-            // 
             // PlanFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +327,7 @@
             this.Name = "PlanFormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Бронировать";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.Load += new System.EventHandler(this.OnFormLoad);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

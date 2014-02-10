@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -57,6 +57,17 @@
             this.clmNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.clmVisitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmVisitFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmVisitTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPlanFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPlanTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIsDisabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnViewVisit = new System.Windows.Forms.Button();
+            this.btnAddPlan = new System.Windows.Forms.Button();
+            this.btnDisable = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -65,27 +76,22 @@
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNewTicket = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnAddPlan = new System.Windows.Forms.Button();
-            this.clmVisitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmVisitFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmVisitTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPlanFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPlanTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmIsDisabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmStartVisit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmFinishVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.flowLayoutPanel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -223,9 +229,10 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 52);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(647, 402);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -233,10 +240,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -250,24 +257,24 @@
             this.clmAddress,
             this.clmNote});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(641, 266);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 246);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
@@ -333,7 +340,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 275);
+            this.tabControl1.Location = new System.Drawing.Point(3, 255);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(641, 124);
@@ -350,6 +357,128 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сеанс";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmVisitId,
+            this.clmVisitFrom,
+            this.clmVisitTo,
+            this.clmPlanFrom,
+            this.clmPlanTo,
+            this.clmIsDisabled});
+            this.dataGridView3.ContextMenuStrip = this.contextMenu;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(627, 67);
+            this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnMouseDoubleClick);
+            // 
+            // clmVisitId
+            // 
+            this.clmVisitId.DataPropertyName = "Id";
+            this.clmVisitId.HeaderText = "Ид";
+            this.clmVisitId.Name = "clmVisitId";
+            this.clmVisitId.ReadOnly = true;
+            this.clmVisitId.Visible = false;
+            // 
+            // clmVisitFrom
+            // 
+            this.clmVisitFrom.DataPropertyName = "VisitFrom";
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle19;
+            this.clmVisitFrom.HeaderText = "Посещение С";
+            this.clmVisitFrom.Name = "clmVisitFrom";
+            this.clmVisitFrom.ReadOnly = true;
+            this.clmVisitFrom.Width = 120;
+            // 
+            // clmVisitTo
+            // 
+            this.clmVisitTo.DataPropertyName = "VisitTo";
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle20;
+            this.clmVisitTo.HeaderText = "Посещение ПО";
+            this.clmVisitTo.Name = "clmVisitTo";
+            this.clmVisitTo.ReadOnly = true;
+            this.clmVisitTo.Width = 120;
+            // 
+            // clmPlanFrom
+            // 
+            this.clmPlanFrom.DataPropertyName = "PlanFrom";
+            this.clmPlanFrom.HeaderText = "Бронь С";
+            this.clmPlanFrom.Name = "clmPlanFrom";
+            this.clmPlanFrom.ReadOnly = true;
+            // 
+            // clmPlanTo
+            // 
+            this.clmPlanTo.DataPropertyName = "PlanTo";
+            this.clmPlanTo.HeaderText = "Бронь ПО";
+            this.clmPlanTo.Name = "clmPlanTo";
+            this.clmPlanTo.ReadOnly = true;
+            // 
+            // clmIsDisabled
+            // 
+            this.clmIsDisabled.DataPropertyName = "IsDisabled";
+            this.clmIsDisabled.HeaderText = "Анулирован";
+            this.clmIsDisabled.Name = "clmIsDisabled";
+            this.clmIsDisabled.ReadOnly = true;
+            this.clmIsDisabled.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmIsDisabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnViewVisit);
+            this.flowLayoutPanel3.Controls.Add(this.btnAddPlan);
+            this.flowLayoutPanel3.Controls.Add(this.btnDisable);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(627, 25);
+            this.flowLayoutPanel3.TabIndex = 0;
+            // 
+            // btnViewVisit
+            // 
+            this.btnViewVisit.FlatAppearance.BorderSize = 0;
+            this.btnViewVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewVisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnViewVisit.Location = new System.Drawing.Point(3, 3);
+            this.btnViewVisit.Name = "btnViewVisit";
+            this.btnViewVisit.Size = new System.Drawing.Size(109, 24);
+            this.btnViewVisit.TabIndex = 3;
+            this.btnViewVisit.Text = "Просмотреть...";
+            this.btnViewVisit.UseVisualStyleBackColor = true;
+            this.btnViewVisit.Click += new System.EventHandler(this.OnBtnViewVisitClick);
+            // 
+            // btnAddPlan
+            // 
+            this.btnAddPlan.FlatAppearance.BorderSize = 0;
+            this.btnAddPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPlan.Location = new System.Drawing.Point(118, 3);
+            this.btnAddPlan.Name = "btnAddPlan";
+            this.btnAddPlan.Size = new System.Drawing.Size(75, 24);
+            this.btnAddPlan.TabIndex = 1;
+            this.btnAddPlan.Text = "Бронь...";
+            this.btnAddPlan.UseVisualStyleBackColor = true;
+            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
+            // 
+            // btnDisable
+            // 
+            this.btnDisable.FlatAppearance.BorderSize = 0;
+            this.btnDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisable.Location = new System.Drawing.Point(199, 3);
+            this.btnDisable.Name = "btnDisable";
+            this.btnDisable.Size = new System.Drawing.Size(93, 24);
+            this.btnDisable.TabIndex = 2;
+            this.btnDisable.Text = "Анулировать...";
+            this.btnDisable.UseVisualStyleBackColor = true;
+            this.btnDisable.Click += new System.EventHandler(this.OnBtnDisable);
             // 
             // tabPage2
             // 
@@ -434,98 +563,28 @@
             this.btnNewTicket.UseVisualStyleBackColor = true;
             this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
             // 
-            // flowLayoutPanel3
+            // contextMenu
             // 
-            this.flowLayoutPanel3.Controls.Add(this.btnAddPlan);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(627, 25);
-            this.flowLayoutPanel3.TabIndex = 0;
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmStartVisit,
+            this.cmFinishVisit});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(208, 70);
+            this.contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.OnContextMenuOpening);
             // 
-            // dataGridView3
+            // cmStartVisit
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmVisitId,
-            this.clmVisitFrom,
-            this.clmVisitTo,
-            this.clmPlanFrom,
-            this.clmPlanTo,
-            this.clmIsDisabled});
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(627, 67);
-            this.dataGridView3.TabIndex = 1;
+            this.cmStartVisit.Name = "cmStartVisit";
+            this.cmStartVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmStartVisit.Text = "Начать посещение...";
+            this.cmStartVisit.Click += new System.EventHandler(this.OnStartVisitClick);
             // 
-            // btnAddPlan
+            // cmFinishVisit
             // 
-            this.btnAddPlan.FlatAppearance.BorderSize = 0;
-            this.btnAddPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPlan.Location = new System.Drawing.Point(3, 3);
-            this.btnAddPlan.Name = "btnAddPlan";
-            this.btnAddPlan.Size = new System.Drawing.Size(75, 24);
-            this.btnAddPlan.TabIndex = 1;
-            this.btnAddPlan.Text = "Бронь...";
-            this.btnAddPlan.UseVisualStyleBackColor = true;
-            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
-            // 
-            // clmVisitId
-            // 
-            this.clmVisitId.DataPropertyName = "Id";
-            this.clmVisitId.HeaderText = "Ид";
-            this.clmVisitId.Name = "clmVisitId";
-            this.clmVisitId.ReadOnly = true;
-            this.clmVisitId.Visible = false;
-            // 
-            // clmVisitFrom
-            // 
-            this.clmVisitFrom.DataPropertyName = "VisitFrom";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmVisitFrom.HeaderText = "Посещение С";
-            this.clmVisitFrom.Name = "clmVisitFrom";
-            this.clmVisitFrom.ReadOnly = true;
-            this.clmVisitFrom.Width = 120;
-            // 
-            // clmVisitTo
-            // 
-            this.clmVisitTo.DataPropertyName = "VisitTo";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmVisitTo.HeaderText = "Посещение ПО";
-            this.clmVisitTo.Name = "clmVisitTo";
-            this.clmVisitTo.ReadOnly = true;
-            this.clmVisitTo.Width = 120;
-            // 
-            // clmPlanFrom
-            // 
-            this.clmPlanFrom.DataPropertyName = "PlanFrom";
-            this.clmPlanFrom.HeaderText = "Бронь С";
-            this.clmPlanFrom.Name = "clmPlanFrom";
-            this.clmPlanFrom.ReadOnly = true;
-            // 
-            // clmPlanTo
-            // 
-            this.clmPlanTo.DataPropertyName = "PlanTo";
-            this.clmPlanTo.HeaderText = "Бронь ПО";
-            this.clmPlanTo.Name = "clmPlanTo";
-            this.clmPlanTo.ReadOnly = true;
-            // 
-            // clmIsDisabled
-            // 
-            this.clmIsDisabled.DataPropertyName = "IsDisabled";
-            this.clmIsDisabled.HeaderText = "Анулирован";
-            this.clmIsDisabled.Name = "clmIsDisabled";
-            this.clmIsDisabled.ReadOnly = true;
-            this.clmIsDisabled.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmIsDisabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cmFinishVisit.Name = "cmFinishVisit";
+            this.cmFinishVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmFinishVisit.Text = "Закончить посещение...";
+            this.cmFinishVisit.Click += new System.EventHandler(this.OnFinishVisitClick);
             // 
             // ClientsControl
             // 
@@ -543,12 +602,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -594,6 +654,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanTo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsDisabled;
+        private System.Windows.Forms.Button btnDisable;
+        private System.Windows.Forms.Button btnViewVisit;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem cmStartVisit;
+        private System.Windows.Forms.ToolStripMenuItem cmFinishVisit;
 
 
 

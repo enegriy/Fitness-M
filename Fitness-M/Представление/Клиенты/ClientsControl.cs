@@ -119,7 +119,97 @@ namespace Fitness_M
 
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
-            PlanFormEdit.FormShow(DataSet);
+            var source = dataGridView1.DataSource as BindingSource;
+
+            PlanFormEdit.FormShow(DataSet, (Client)source.Current);
         }
+
+        private void OnBtnDisable(object sender, EventArgs e)
+        {
+            try
+            {
+                var source = dataGridView3.DataSource as BindingSource;
+                var currentVisit = (Visit)source.Current;
+                if (currentVisit != null)
+                {
+                    if (currentVisit.VisitFrom != DateTime.MinValue || currentVisit.VisitTo != DateTime.MinValue)
+                        throw new BussinesException("Нельзя анулировать сеанс который был начат или завершен!");
+
+                    if (MessageBox.Show("Вы уверены что хотите анулировать посещение?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        currentVisit.IsDisabled = true;
+                        currentVisit.Update();
+                        dataGridView3.Refresh();
+                    }
+                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void OnBtnViewVisitClick(object sender, EventArgs e)
+        {
+            var source = dataGridView3.DataSource as BindingSource;
+            var currentVisit = (Visit)source.Current;
+            if (currentVisit != null)
+            {
+                PlanFormEdit.FormViewVisit(currentVisit);
+            }
+        }
+
+        private void OnMouseDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var source = dataGridView3.DataSource as BindingSource;
+            if (source == null)
+                btnAddPlan_Click(sender, null);
+            else
+                OnBtnViewVisitClick(sender, null);
+        }
+
+        private void OnContextMenuOpening(object sender, CancelEventArgs e)
+        {
+            cmStartVisit.Enabled = false;
+            cmFinishVisit.Enabled = false;
+
+            var source = dataGridView3.DataSource as BindingSource;
+            if (source.Current != null)
+            {
+                var visit = (Visit)source.Current;
+                if (visit.VisitFrom == DateTime.MinValue)
+                {
+                    cmStartVisit.Enabled = true;
+                    cmFinishVisit.Enabled = false;
+                }
+                else if (visit.VisitTo == DateTime.MinValue)
+                {
+                    cmStartVisit.Enabled = false;
+                    cmFinishVisit.Enabled = true;
+                }
+            }
+            
+            
+        }
+
+        private void OnStartVisitClick(object sender, EventArgs e)
+        {
+            var source = dataGridView3.DataSource as BindingSource;
+            var visit = (Visit)source.Current;
+            visit.VisitFrom = DateTime.Now;
+            visit.Update();
+            dataGridView3.Refresh();
+
+        }
+
+        private void OnFinishVisitClick(object sender, EventArgs e)
+        {
+            var source = dataGridView3.DataSource as BindingSource;
+            var visit = (Visit)source.Current;
+            visit.VisitTo = DateTime.Now;
+            visit.Update();
+            dataGridView3.Refresh();
+        }
+
     }
 }

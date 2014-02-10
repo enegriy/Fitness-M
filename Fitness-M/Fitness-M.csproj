@@ -54,6 +54,7 @@
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
     <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipment.cs" />
+    <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipmentManager.cs" />
     <Compile Include="Модель_данных\Параметры\ParamsManager.cs" />
     <Compile Include="Модель_данных\Сеанс\Visit.cs" />
     <Compile Include="Модель_данных\Сеанс\VisitManager.cs" />

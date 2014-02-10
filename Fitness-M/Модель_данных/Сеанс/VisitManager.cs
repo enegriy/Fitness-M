@@ -8,7 +8,7 @@ namespace Fitness_M
     /// <summary>
     /// Мэнэджер для работы с посещениями
     /// </summary>
-    public sealed class VisitManager : ObjectManager
+    public class VisitManager : ObjectManager
     {
         /// <summary>
         /// Конструктор
@@ -98,7 +98,7 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO visit (id, client_id, plan_from, plan_to, visit_from, visit_to, is_disabled) 
+                sql = @"INSERT INTO visits (id, client_id, plan_from, plan_to, visit_from, visit_to, is_disabled) 
                         VALUES (NULL, @client_id, @plan_from, @plan_to, @visit_from,  @visit_to,  @is_disabled)";
 
                 cmd.CommandText = sql;
@@ -133,13 +133,13 @@ namespace Fitness_M
                 var cmd = new MySql.Data.MySqlClient.MySqlCommand();
                 cmd.Connection = Connection;
 
-                string sql = @"UPDATE visit SET 
+                string sql = @"UPDATE visits SET 
                     client_id = @client_id,
                     plan_from = @plan_from,
                     plan_to = @plan_to,
                     visit_from = @visit_from,
                     visit_to = @visit_to,
-                    is_disabled = @is_disabled,
+                    is_disabled = @is_disabled
                     WHERE id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@client_id", visit.ClientId);
@@ -148,6 +148,7 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@visit_from", visit.VisitFrom);
                 cmd.Parameters.AddWithValue("@visit_to", visit.VisitTo);
                 cmd.Parameters.AddWithValue("@is_disabled", visit.IsDisabled);
+                cmd.Parameters.AddWithValue("@id", visit.Id);
 
                 cmd.ExecuteNonQuery();
 
@@ -165,7 +166,7 @@ namespace Fitness_M
                 var cmd = new MySql.Data.MySqlClient.MySqlCommand();
                 cmd.Connection = Connection;
 
-                string sql = @"delete from visit where id = @id";
+                string sql = @"delete from visits where id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", visit.Id);
                 cmd.ExecuteNonQuery();

@@ -8,7 +8,7 @@ namespace Fitness_M
     /// <summary>
     /// Клиент использует тренажеры
     /// </summary>
-    public sealed class ClientUseFitnessEquipment
+    public sealed class ClientUseFitnessEquipment : ClientUseFitnessEquipmentManager, IBusinessObject
     {
         /// <summary>
         /// Индтификатор
@@ -30,5 +30,41 @@ namespace Fitness_M
         /// Время по
         /// </summary>
         public TimeSpan TimeTo { get; set; }
+        /// <summary>
+        /// Пустая запись
+        /// </summary>
+        public bool IsEmpty
+        {
+            get { return Id == 0; }
+        }
+
+        #region Public Methods
+
+        /// <summary>
+        /// Сохранить
+        /// </summary>
+        public void Save()
+        {
+            Save(this);
+        }
+
+        /// <summary>
+        /// Обновить
+        /// </summary>
+        public void Update()
+        {
+            Update(this);
+        }
+
+        /// <summary>
+        /// Удалить
+        /// </summary>
+        public void Delete()
+        {
+            Delete(this);
+        }
+
+
+        #endregion
     }
 }
