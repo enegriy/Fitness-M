@@ -48,7 +48,17 @@ namespace Fitness_M
 
             om.CloseConnection();
 
-            return DateTime.Parse(value.ToString());
+            DateTime rslt;
+            try
+            {
+                rslt = DateTime.Parse(value.ToString());
+            }
+            catch
+            {
+                rslt = DateTime.Now;
+            }
+
+            return rslt;
         }
 
         /// <summary>

@@ -73,6 +73,8 @@ namespace Fitness_M
                 clientUseFitnessEquipment.Id = TryGetValue<int>(reader["id"]);
                 clientUseFitnessEquipment.VisitId = TryGetValue<int>(reader["visit_id"]);
                 clientUseFitnessEquipment.FitnessEquipmentId = TryGetValue<int>(reader["fitness_equipment_id"]);
+                clientUseFitnessEquipment.TimeFrom = TryGetValue<TimeSpan>(reader["time_from"]);
+                clientUseFitnessEquipment.TimeTo = TryGetValue<TimeSpan>(reader["time_to"]);
 
                 listClientUseFQ.Add(clientUseFitnessEquipment);
             }

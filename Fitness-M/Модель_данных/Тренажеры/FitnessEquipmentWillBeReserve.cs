@@ -6,22 +6,14 @@ using System.Text;
 namespace Fitness_M
 {
     /// <summary>
-    /// Клиент использует тренажеры
+    /// Транспортный класс , тренажер будет забронирован
     /// </summary>
-    public sealed class ClientUseFitnessEquipment
+    public sealed class FitnessEquipmentWillBeReserve
     {
         /// <summary>
-        /// Индтификатор
+        /// Бронируемый тренажер
         /// </summary>
-        public int Id { get; set; }
-        /// <summary>
-        /// Сеанс
-        /// </summary>
-        public int VisitId { get; set; }
-        /// <summary>
-        /// Тренажер
-        /// </summary>
-        public int FitnessEquipmentId { get; set; }
+        public FitnessEquipment FitnessEquipmentReserve { get; set; }
         /// <summary>
         /// Время с
         /// </summary>
@@ -30,5 +22,6 @@ namespace Fitness_M
         /// Время по
         /// </summary>
         public TimeSpan TimeTo { get; set; }
+
     }
 }

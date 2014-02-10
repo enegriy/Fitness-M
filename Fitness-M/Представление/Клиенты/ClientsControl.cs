@@ -37,7 +37,7 @@ namespace Fitness_M
         public void InitDataGrid()
         {
             if (DataSet == null)
-                throw new ApplicationException("Не задан источник данных");
+                throw new BussinesException("Не задан источник данных");
 
             var bindingClients = new BindingSource(DataSet.ListClients, "");
             var bindingTickets = new BindingSource(bindingClients, "ListTickets");
@@ -119,7 +119,7 @@ namespace Fitness_M
 
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
-            PlanFormEdit.FormShow();
+            PlanFormEdit.FormShow(DataSet);
         }
     }
 }

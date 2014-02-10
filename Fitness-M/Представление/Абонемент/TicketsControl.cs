@@ -44,7 +44,7 @@ namespace Fitness_M
         public void InitDataGridKindTickets()
         {
             if (DataSet == null) 
-                throw new ApplicationException("Не задан источник данных");
+                throw new BussinesException("Не задан источник данных");
 
             dataGridView1.DataSource = DataSet.ListKindTickets;
         }

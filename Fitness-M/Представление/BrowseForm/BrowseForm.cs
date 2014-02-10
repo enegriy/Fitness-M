@@ -41,18 +41,13 @@ namespace Fitness_M
 
         private void SetUserControl(UserControl ctrl)
         {
-            try
-            {
-                if (ctrl is ClientsControl)
-                    ctrl = new ClientsControl();
 
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
-            }
-            catch (BussinesException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            if (ctrl is ClientsControl)
+                ctrl = new ClientsControl();
+
+            ctrl.Dock = DockStyle.Fill;
+            panelFormConteiner.Controls.Add(ctrl);
+
         }
 
         private void OnAfterSelect(object sender, TreeViewEventArgs e)
@@ -62,76 +57,44 @@ namespace Fitness_M
             //Клиенты
             if (e.Node.Name == "1")
             {
-                try
-                {
-                    ClientsControl ctrl = new ClientsControl();
-                    ctrl.DataSet = m_DataSet;
-                    ctrl.Dock = DockStyle.Fill;
-                    panelFormConteiner.Controls.Add(ctrl);
-                }
-                catch (BussinesException ex)
-                {
-                    MessageBox.Show(ex.Message,"Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }                
+                ClientsControl ctrl = new ClientsControl();
+                ctrl.DataSet = m_DataSet;
+                ctrl.Dock = DockStyle.Fill;
+                panelFormConteiner.Controls.Add(ctrl);
+
             }
             //Абонементы
             else if (e.Node.Name == "2")
             {
-                try
-                {
-                    TicketsControl ctrl = new TicketsControl();
-                    ctrl.DataSet = m_DataSet;
-                    ctrl.Dock = DockStyle.Fill;
-                    panelFormConteiner.Controls.Add(ctrl);
-                }
-                catch (BussinesException ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                TicketsControl ctrl = new TicketsControl();
+                ctrl.DataSet = m_DataSet;
+                ctrl.Dock = DockStyle.Fill;
+                panelFormConteiner.Controls.Add(ctrl);
             }
             //Тренажеры
             else if (e.Node.Name == "3")
             {
-                try
-                {
-                    FitnessEquipmentControl ctrl = new FitnessEquipmentControl();
-                    ctrl.DataSet = m_DataSet;
-                    ctrl.Dock = DockStyle.Fill;
-                    panelFormConteiner.Controls.Add(ctrl);
-                }
-                catch (BussinesException ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                FitnessEquipmentControl ctrl = new FitnessEquipmentControl();
+                ctrl.DataSet = m_DataSet;
+                ctrl.Dock = DockStyle.Fill;
+                panelFormConteiner.Controls.Add(ctrl);
             }
             //График
             else if (e.Node.Name == "4")
             {
-                try
-                {
-                    FitnessEquipmentSchedule ctrl = new FitnessEquipmentSchedule();
-                    ctrl.DataSet = m_DataSet;
-                    ctrl.Dock = DockStyle.Fill;
-                    panelFormConteiner.Controls.Add(ctrl);
-                }
-                catch (BussinesException ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                FitnessEquipmentSchedule ctrl = new FitnessEquipmentSchedule();
+                ctrl.DateVisit = DateTime.Now;
+                ctrl.DataSet = m_DataSet;
+                ctrl.Dock = DockStyle.Fill;
+                ctrl.VisibleDateVisit = true;
+                panelFormConteiner.Controls.Add(ctrl);
             }
             else if (e.Node.Name == "5")
             {
-                try
-                {
-                    AdministrationControl ctrl = new AdministrationControl();
-                    //ctrl.DataSet = m_DataSet;
-                    ctrl.Dock = DockStyle.Fill;
-                    panelFormConteiner.Controls.Add(ctrl);
-                }
-                catch (BussinesException ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                AdministrationControl ctrl = new AdministrationControl();
+                ctrl.Dock = DockStyle.Fill;
+                panelFormConteiner.Controls.Add(ctrl);
             }
         }
 

@@ -13,13 +13,16 @@ namespace Fitness_M
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var frmUserIdent = new UserIdentification();
-            //!!!if (frmUserIdent.ShowDialog() == DialogResult.OK)
+            //if (frmUserIdent.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new BrowseForm());
             }
+
+
         }
     }
 }

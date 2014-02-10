@@ -34,7 +34,7 @@ namespace Fitness_M
             }
             catch (MySql.Data.MySqlClient.MySqlException exc)
             {
-                throw new ApplicationException(exc.Message);
+                throw new BussinesException(exc.Message);
             }
         }
 

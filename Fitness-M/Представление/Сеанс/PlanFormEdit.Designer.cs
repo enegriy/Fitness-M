@@ -29,31 +29,33 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmIdFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCountBallsFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRunningTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFQ = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dtDateVisit = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.timeComponent1 = new Fitness_M.TimeComponent();
-            this.timeComponent2 = new Fitness_M.TimeComponent();
+            this.tbTimeFrom = new System.Windows.Forms.TextBox();
+            this.tbTimeTo = new System.Windows.Forms.TextBox();
+            this.clmFitnessEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCountBallsFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,11 +69,11 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dtDateVisit, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.timeComponent1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.timeComponent2, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbTimeFrom, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbTimeTo, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -137,9 +139,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 4);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.grid1);
             this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -151,11 +154,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Тренажеры";
             // 
-            // dataGridView1
+            // grid1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.grid1.AllowUserToAddRows = false;
+            this.grid1.AllowUserToDeleteRows = false;
+            this.grid1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -163,63 +166,39 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmIdFq,
+            this.grid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.grid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmFitnessEquipment,
             this.clmNameFq,
             this.clmCountBallsFq,
-            this.clmRunningTimeFq});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 47);
-            this.dataGridView1.Name = "dataGridView1";
+            this.clmTimeFq,
+            this.clmTimeTo});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(571, 113);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // clmIdFq
-            // 
-            this.clmIdFq.HeaderText = "Ид";
-            this.clmIdFq.Name = "clmIdFq";
-            this.clmIdFq.ReadOnly = true;
-            this.clmIdFq.Visible = false;
-            // 
-            // clmNameFq
-            // 
-            this.clmNameFq.HeaderText = "Название";
-            this.clmNameFq.Name = "clmNameFq";
-            this.clmNameFq.ReadOnly = true;
-            // 
-            // clmCountBallsFq
-            // 
-            this.clmCountBallsFq.HeaderText = "Колличество баллов";
-            this.clmCountBallsFq.Name = "clmCountBallsFq";
-            this.clmCountBallsFq.ReadOnly = true;
-            this.clmCountBallsFq.Width = 140;
-            // 
-            // clmRunningTimeFq
-            // 
-            this.clmRunningTimeFq.HeaderText = "Время тренировки(мин.)";
-            this.clmRunningTimeFq.Name = "clmRunningTimeFq";
-            this.clmRunningTimeFq.ReadOnly = true;
-            this.clmRunningTimeFq.Width = 160;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid1.Location = new System.Drawing.Point(3, 47);
+            this.grid1.Name = "grid1";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.grid1.RowHeadersVisible = false;
+            this.grid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid1.Size = new System.Drawing.Size(571, 113);
+            this.grid1.TabIndex = 1;
+            this.grid1.VirtualMode = true;
+            this.grid1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.OnCellValueNeeded);
             // 
             // flowLayoutPanel1
             // 
@@ -243,13 +222,26 @@
             this.btnAddFQ.UseVisualStyleBackColor = true;
             this.btnAddFQ.Click += new System.EventHandler(this.btnAddFQ_Click);
             // 
-            // dateTimePicker1
+            // btnDelete
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(148, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(139, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(91, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(82, 24);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Удалить...";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // dtDateVisit
+            // 
+            this.dtDateVisit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtDateVisit.Location = new System.Drawing.Point(148, 3);
+            this.dtDateVisit.Name = "dtDateVisit";
+            this.dtDateVisit.Size = new System.Drawing.Size(139, 20);
+            this.dtDateVisit.TabIndex = 22;
+            this.dtDateVisit.ValueChanged += new System.EventHandler(this.OnDateVisitChanged);
             // 
             // label2
             // 
@@ -273,33 +265,57 @@
             this.label3.Text = "Время по:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnDelete
+            // tbTimeFrom
             // 
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(91, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(82, 24);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Удалить...";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.tbTimeFrom.Enabled = false;
+            this.tbTimeFrom.Location = new System.Drawing.Point(148, 29);
+            this.tbTimeFrom.Name = "tbTimeFrom";
+            this.tbTimeFrom.Size = new System.Drawing.Size(62, 20);
+            this.tbTimeFrom.TabIndex = 25;
             // 
-            // timeComponent1
+            // tbTimeTo
             // 
-            this.timeComponent1.Enabled = false;
-            this.timeComponent1.Location = new System.Drawing.Point(148, 29);
-            this.timeComponent1.Name = "timeComponent1";
-            this.timeComponent1.Size = new System.Drawing.Size(139, 24);
-            this.timeComponent1.TabIndex = 25;
+            this.tbTimeTo.Enabled = false;
+            this.tbTimeTo.Location = new System.Drawing.Point(438, 29);
+            this.tbTimeTo.Name = "tbTimeTo";
+            this.tbTimeTo.Size = new System.Drawing.Size(62, 20);
+            this.tbTimeTo.TabIndex = 26;
             // 
-            // timeComponent2
+            // clmFitnessEquipment
             // 
-            this.timeComponent2.Enabled = false;
-            this.timeComponent2.Location = new System.Drawing.Point(438, 29);
-            this.timeComponent2.Name = "timeComponent2";
-            this.timeComponent2.Size = new System.Drawing.Size(141, 24);
-            this.timeComponent2.TabIndex = 26;
+            this.clmFitnessEquipment.DataPropertyName = "FitnessEquipmentReserve";
+            this.clmFitnessEquipment.HeaderText = "Тренажер";
+            this.clmFitnessEquipment.Name = "clmFitnessEquipment";
+            this.clmFitnessEquipment.ReadOnly = true;
+            this.clmFitnessEquipment.Visible = false;
+            // 
+            // clmNameFq
+            // 
+            this.clmNameFq.HeaderText = "Название";
+            this.clmNameFq.Name = "clmNameFq";
+            this.clmNameFq.ReadOnly = true;
+            this.clmNameFq.Width = 200;
+            // 
+            // clmCountBallsFq
+            // 
+            this.clmCountBallsFq.HeaderText = "Колличество баллов";
+            this.clmCountBallsFq.Name = "clmCountBallsFq";
+            this.clmCountBallsFq.ReadOnly = true;
+            this.clmCountBallsFq.Width = 140;
+            // 
+            // clmTimeFq
+            // 
+            dataGridViewCellStyle2.NullValue = null;
+            this.clmTimeFq.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmTimeFq.HeaderText = "Время c";
+            this.clmTimeFq.Name = "clmTimeFq";
+            this.clmTimeFq.ReadOnly = true;
+            // 
+            // clmTimeTo
+            // 
+            this.clmTimeTo.HeaderText = "Время по";
+            this.clmTimeTo.Name = "clmTimeTo";
+            this.clmTimeTo.ReadOnly = true;
             // 
             // PlanFormEdit
             // 
@@ -311,11 +327,12 @@
             this.Name = "PlanFormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Бронировать";
+            this.Load += new System.EventHandler(this.OnFormLoad);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -328,19 +345,20 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAddFQ;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDateVisit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmIdFq;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox tbTimeFrom;
+        private System.Windows.Forms.TextBox tbTimeTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFitnessEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNameFq;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCountBallsFq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmRunningTimeFq;
-        private TimeComponent timeComponent1;
-        private TimeComponent timeComponent2;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeFq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeTo;
     }
 }

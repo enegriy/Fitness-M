@@ -102,6 +102,7 @@
             this.dtTimeFrom.Name = "dtTimeFrom";
             this.dtTimeFrom.Size = new System.Drawing.Size(56, 20);
             this.dtTimeFrom.TabIndex = 4;
+            this.dtTimeFrom.ValueChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // label3
             // 
@@ -122,6 +123,7 @@
             this.dtTimeTo.Name = "dtTimeTo";
             this.dtTimeTo.Size = new System.Drawing.Size(49, 20);
             this.dtTimeTo.TabIndex = 6;
+            this.dtTimeTo.ValueChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // AdministrationControl
             // 

@@ -48,12 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\ВремяКомпонент\TimeComponent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Library\ВремяКомпонент\TimeComponent.Designer.cs">
-      <DependentUpon>TimeComponent.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
@@ -65,6 +60,7 @@
     <Compile Include="Модель_данных\Тренажеры\DateFromAndDateTo.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipment.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentManager.cs" />
+    <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentWillBeReserve.cs" />
     <Compile Include="Представление\BrowseForm\BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +131,12 @@
     <Compile Include="Представление\Сеанс\PlanFormEdit.Designer.cs">
       <DependentUpon>PlanFormEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Представление\Тренажеры\ReserveFitnessEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\ReserveFitnessEquipment.Designer.cs">
+      <DependentUpon>ReserveFitnessEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Тренажеры\FitnessEquipmentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,9 +161,6 @@
     <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.Designer.cs">
       <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Library\ВремяКомпонент\TimeComponent.resx">
-      <DependentUpon>TimeComponent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Представление\BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentFormSelect.resx">
       <DependentUpon>FitnessEquipmentFormSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\ReserveFitnessEquipment.resx">
+      <DependentUpon>ReserveFitnessEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.resx">
       <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>

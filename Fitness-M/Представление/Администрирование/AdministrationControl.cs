@@ -22,24 +22,36 @@ namespace Fitness_M
         private void OnFormLoad(object sender, EventArgs e)
         {
             tbTitle.Text = ParamsManager.GetParams<string>(ParamsConstant.FitnessClubName);
+           
             var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
+            var timeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo);
+
             if (timeFrom == DateTime.MinValue)
                 dtTimeFrom.Value = DateTime.Now;
             else
                 dtTimeFrom.Value = timeFrom;
+
+            if (timeTo == DateTime.MinValue)
+                dtTimeTo.Value = DateTime.Now;
+            else
+                dtTimeTo.Value = timeTo;
         }
         
         private void OnLeave(object sender, EventArgs e)
         {
-            ParamsManager.SetParams(ParamsConstant.FitnessClubName, tbTitle.Text);
-            ParamsManager.SetParams(ParamsConstant.WorkTimeFrom, dtTimeFrom.Value);
+            if (m_IsValueChanged)
+            {
+                ParamsManager.SetParams(ParamsConstant.FitnessClubName, tbTitle.Text);
+                ParamsManager.SetParams(ParamsConstant.WorkTimeFrom, dtTimeFrom.Value);
+                ParamsManager.SetParams(ParamsConstant.WorkTimeTo, dtTimeTo.Value);
+            }
         }
 
         
 
         private void OnTextChanged(object sender, EventArgs e)
         {
-
+            m_IsValueChanged = true;
         }
     }
 }
