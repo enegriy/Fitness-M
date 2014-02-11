@@ -27,8 +27,9 @@ namespace Fitness_M
             grid.GridColor = System.Drawing.Color.WhiteSmoke;
             grid.RowHeadersVisible = false;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
             grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             var defaultCellStyle = new DataGridViewCellStyle();
             defaultCellStyle.BackColor = System.Drawing.Color.White;
