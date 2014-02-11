@@ -66,6 +66,7 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+            GridHelper.SetGridStyle(dataGridView1);
             SetFormTitle();
         }
 

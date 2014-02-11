@@ -87,8 +87,8 @@ namespace Fitness_M
             if (DateVisit == null || DateVisit == DateTime.MinValue) 
                 throw new BussinesException("Не задана дата посещения!");
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView2.AutoGenerateColumns = false;
+            GridHelper.SetGridStyle(dataGridView1);
+            GridHelper.SetGridStyle(dataGridView2);
 
             dtVisit.Value = DateVisit;
 

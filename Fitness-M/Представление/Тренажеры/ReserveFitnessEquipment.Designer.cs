@@ -55,13 +55,14 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 479);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(828, 590);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -73,12 +74,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnOk, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(365, 446);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(487, 550);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(253, 30);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(337, 36);
             this.tableLayoutPanel2.TabIndex = 22;
             this.tableLayoutPanel2.TabStop = true;
             // 
@@ -87,9 +89,10 @@
             this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.Location = new System.Drawing.Point(129, 3);
+            this.btnCancel.Location = new System.Drawing.Point(172, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(121, 24);
+            this.btnCancel.Size = new System.Drawing.Size(161, 28);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -98,9 +101,10 @@
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOk.Location = new System.Drawing.Point(3, 3);
+            this.btnOk.Location = new System.Drawing.Point(4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(120, 24);
+            this.btnOk.Size = new System.Drawing.Size(160, 28);
             this.btnOk.TabIndex = 8;
             this.btnOk.Text = "Ок";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -110,9 +114,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.fitnessEquipmentSchedule1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 49);
+            this.panel1.Location = new System.Drawing.Point(4, 60);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(615, 391);
+            this.panel1.Size = new System.Drawing.Size(820, 482);
             this.panel1.TabIndex = 23;
             // 
             // fitnessEquipmentSchedule1
@@ -121,8 +126,9 @@
             this.fitnessEquipmentSchedule1.DateVisit = new System.DateTime(2014, 2, 5, 22, 17, 9, 0);
             this.fitnessEquipmentSchedule1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fitnessEquipmentSchedule1.Location = new System.Drawing.Point(0, 0);
+            this.fitnessEquipmentSchedule1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.fitnessEquipmentSchedule1.Name = "fitnessEquipmentSchedule1";
-            this.fitnessEquipmentSchedule1.Size = new System.Drawing.Size(615, 391);
+            this.fitnessEquipmentSchedule1.Size = new System.Drawing.Size(820, 482);
             this.fitnessEquipmentSchedule1.TabIndex = 0;
             this.fitnessEquipmentSchedule1.VisibleDateVisit = false;
             // 
@@ -130,30 +136,32 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 5;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tbTime, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox1, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 22);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(615, 25);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(820, 30);
             this.tableLayoutPanel3.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 25);
+            this.label1.Size = new System.Drawing.Size(72, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Время с:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,10 +170,11 @@
             // 
             this.tbTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTime.HideSelection = false;
-            this.tbTime.Location = new System.Drawing.Point(63, 3);
+            this.tbTime.Location = new System.Drawing.Point(84, 4);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTime.Mask = "90:00";
             this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(59, 20);
+            this.tbTime.Size = new System.Drawing.Size(79, 22);
             this.tbTime.TabIndex = 1;
             this.tbTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbTime.ValidatingType = typeof(System.DateTime);
@@ -175,9 +184,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(128, 0);
+            this.label2.Location = new System.Drawing.Point(171, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 25);
+            this.label2.Size = new System.Drawing.Size(81, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Время по:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,17 +197,20 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Enabled = false;
             this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(195, 3);
+            this.textBox1.Location = new System.Drawing.Point(260, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 20);
+            this.textBox1.Size = new System.Drawing.Size(79, 22);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ReserveFitnessEquipment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 479);
+            this.ClientSize = new System.Drawing.Size(828, 590);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReserveFitnessEquipment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбрать тренажер";

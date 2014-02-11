@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTickets = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.clmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAbCountBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAbCountVisits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAbPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmClientNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmClientFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmClientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageKind = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +56,15 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.clmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAbCountBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAbCountVisits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAbPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmClientNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmClientFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmClientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageTickets.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -69,18 +80,20 @@
             this.tabControl1.Controls.Add(this.tabPageKind);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(604, 497);
+            this.tabControl1.Size = new System.Drawing.Size(805, 612);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageTickets
             // 
             this.tabPageTickets.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageTickets.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTickets.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTickets.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageTickets.Name = "tabPageTickets";
-            this.tabPageTickets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTickets.Size = new System.Drawing.Size(596, 471);
+            this.tabPageTickets.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageTickets.Size = new System.Drawing.Size(797, 583);
             this.tabPageTickets.TabIndex = 0;
             this.tabPageTickets.Text = " Абонементы клиентов ";
             this.tabPageTickets.UseVisualStyleBackColor = true;
@@ -92,20 +105,20 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(590, 465);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(789, 575);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ColumnHeadersHeight = 30;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmNumber,
             this.clmDateFinish,
@@ -118,90 +131,22 @@
             this.clmClientPhone});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView2, 2);
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 142);
+            this.dataGridView2.Location = new System.Drawing.Point(4, 176);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(584, 320);
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(781, 395);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // clmNumber
-            // 
-            this.clmNumber.DataPropertyName = "TicketId";
-            this.clmNumber.HeaderText = "Номер";
-            this.clmNumber.Name = "clmNumber";
-            this.clmNumber.ReadOnly = true;
-            this.clmNumber.Width = 50;
-            // 
-            // clmDateFinish
-            // 
-            this.clmDateFinish.DataPropertyName = "DateFinish";
-            this.clmDateFinish.HeaderText = "Дата окончания";
-            this.clmDateFinish.Name = "clmDateFinish";
-            this.clmDateFinish.ReadOnly = true;
-            this.clmDateFinish.Width = 80;
-            // 
-            // clmBalance
-            // 
-            this.clmBalance.DataPropertyName = "Balance";
-            this.clmBalance.HeaderText = "Остаток";
-            this.clmBalance.Name = "clmBalance";
-            this.clmBalance.ReadOnly = true;
-            this.clmBalance.Width = 80;
-            // 
-            // clmAbCountBalls
-            // 
-            this.clmAbCountBalls.DataPropertyName = "CountBalls";
-            this.clmAbCountBalls.HeaderText = "Количество баллов";
-            this.clmAbCountBalls.Name = "clmAbCountBalls";
-            this.clmAbCountBalls.ReadOnly = true;
-            // 
-            // clmAbCountVisits
-            // 
-            this.clmAbCountVisits.DataPropertyName = "CountVisits";
-            this.clmAbCountVisits.HeaderText = "Количество посещений";
-            this.clmAbCountVisits.Name = "clmAbCountVisits";
-            this.clmAbCountVisits.ReadOnly = true;
-            this.clmAbCountVisits.Width = 80;
-            // 
-            // clmAbPrice
-            // 
-            this.clmAbPrice.DataPropertyName = "Price";
-            this.clmAbPrice.HeaderText = "Цена";
-            this.clmAbPrice.Name = "clmAbPrice";
-            this.clmAbPrice.ReadOnly = true;
-            this.clmAbPrice.Width = 80;
-            // 
-            // clmClientNumber
-            // 
-            this.clmClientNumber.DataPropertyName = "CLientNumber";
-            this.clmClientNumber.HeaderText = "Клиент-Номер";
-            this.clmClientNumber.Name = "clmClientNumber";
-            this.clmClientNumber.ReadOnly = true;
-            this.clmClientNumber.Width = 90;
-            // 
-            // clmClientFio
-            // 
-            this.clmClientFio.DataPropertyName = "FUllName";
-            this.clmClientFio.HeaderText = "Клиент-ФИО";
-            this.clmClientFio.Name = "clmClientFio";
-            this.clmClientFio.ReadOnly = true;
-            this.clmClientFio.Width = 200;
-            // 
-            // clmClientPhone
-            // 
-            this.clmClientPhone.DataPropertyName = "Phone";
-            this.clmClientPhone.HeaderText = "Клиент-Телефон";
-            this.clmClientPhone.Name = "clmClientPhone";
-            this.clmClientPhone.ReadOnly = true;
             // 
             // tabPageKind
             // 
             this.tabPageKind.Controls.Add(this.dataGridView1);
             this.tabPageKind.Controls.Add(this.panel1);
-            this.tabPageKind.Location = new System.Drawing.Point(4, 22);
+            this.tabPageKind.Location = new System.Drawing.Point(4, 25);
+            this.tabPageKind.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageKind.Name = "tabPageKind";
-            this.tabPageKind.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKind.Size = new System.Drawing.Size(596, 471);
+            this.tabPageKind.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageKind.Size = new System.Drawing.Size(797, 583);
             this.tabPageKind.TabIndex = 1;
             this.tabPageKind.Text = " Виды абонементов ";
             this.tabPageKind.UseVisualStyleBackColor = true;
@@ -210,8 +155,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmId,
             this.clmPrice,
@@ -221,10 +165,11 @@
             this.clmOnlyGroup,
             this.clmInactive});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 41);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(590, 435);
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(789, 538);
             this.dataGridView1.TabIndex = 1;
             // 
             // clmId
@@ -238,6 +183,8 @@
             // clmPrice
             // 
             this.clmPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPrice.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmPrice.HeaderText = "Цена";
             this.clmPrice.Name = "clmPrice";
             this.clmPrice.ReadOnly = true;
@@ -245,6 +192,8 @@
             // clmPeriod
             // 
             this.clmPeriod.DataPropertyName = "Period";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPeriod.DefaultCellStyle = dataGridViewCellStyle9;
             this.clmPeriod.HeaderText = "Период действия(месяц)";
             this.clmPeriod.Name = "clmPeriod";
             this.clmPeriod.ReadOnly = true;
@@ -253,6 +202,8 @@
             // clmCountBalls
             // 
             this.clmCountBalls.DataPropertyName = "CountBalls";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmCountBalls.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmCountBalls.HeaderText = "Количество баллов";
             this.clmCountBalls.Name = "clmCountBalls";
             this.clmCountBalls.ReadOnly = true;
@@ -261,6 +212,8 @@
             // clmVisits
             // 
             this.clmVisits.DataPropertyName = "CountVisits";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmVisits.DefaultCellStyle = dataGridViewCellStyle11;
             this.clmVisits.HeaderText = "Количество посещений";
             this.clmVisits.Name = "clmVisits";
             this.clmVisits.ReadOnly = true;
@@ -291,9 +244,10 @@
             this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(590, 30);
+            this.panel1.Size = new System.Drawing.Size(789, 37);
             this.panel1.TabIndex = 0;
             // 
             // btnDelete
@@ -301,9 +255,10 @@
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(180, 0);
+            this.btnDelete.Location = new System.Drawing.Point(240, 0);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(90, 30);
+            this.btnDelete.Size = new System.Drawing.Size(120, 37);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Удалить...";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -314,9 +269,10 @@
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(90, 0);
+            this.btnEdit.Location = new System.Drawing.Point(120, 0);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(90, 30);
+            this.btnEdit.Size = new System.Drawing.Size(120, 37);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Изменить...";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -328,20 +284,106 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 30);
+            this.btnAdd.Size = new System.Drawing.Size(120, 37);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить...";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // clmNumber
+            // 
+            this.clmNumber.DataPropertyName = "TicketId";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmNumber.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmNumber.HeaderText = "Номер";
+            this.clmNumber.Name = "clmNumber";
+            this.clmNumber.ReadOnly = true;
+            this.clmNumber.Width = 50;
+            // 
+            // clmDateFinish
+            // 
+            this.clmDateFinish.DataPropertyName = "DateFinish";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmDateFinish.HeaderText = "Дата окончания";
+            this.clmDateFinish.Name = "clmDateFinish";
+            this.clmDateFinish.ReadOnly = true;
+            this.clmDateFinish.Width = 80;
+            // 
+            // clmBalance
+            // 
+            this.clmBalance.DataPropertyName = "Balance";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmBalance.HeaderText = "Остаток";
+            this.clmBalance.Name = "clmBalance";
+            this.clmBalance.ReadOnly = true;
+            this.clmBalance.Width = 80;
+            // 
+            // clmAbCountBalls
+            // 
+            this.clmAbCountBalls.DataPropertyName = "CountBalls";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAbCountBalls.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmAbCountBalls.HeaderText = "Количество баллов";
+            this.clmAbCountBalls.Name = "clmAbCountBalls";
+            this.clmAbCountBalls.ReadOnly = true;
+            // 
+            // clmAbCountVisits
+            // 
+            this.clmAbCountVisits.DataPropertyName = "CountVisits";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAbCountVisits.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmAbCountVisits.HeaderText = "Количество посещений";
+            this.clmAbCountVisits.Name = "clmAbCountVisits";
+            this.clmAbCountVisits.ReadOnly = true;
+            this.clmAbCountVisits.Width = 80;
+            // 
+            // clmAbPrice
+            // 
+            this.clmAbPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAbPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmAbPrice.HeaderText = "Цена";
+            this.clmAbPrice.Name = "clmAbPrice";
+            this.clmAbPrice.ReadOnly = true;
+            this.clmAbPrice.Width = 80;
+            // 
+            // clmClientNumber
+            // 
+            this.clmClientNumber.DataPropertyName = "CLientNumber";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmClientNumber.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmClientNumber.HeaderText = "Клиент-Номер";
+            this.clmClientNumber.Name = "clmClientNumber";
+            this.clmClientNumber.ReadOnly = true;
+            this.clmClientNumber.Width = 90;
+            // 
+            // clmClientFio
+            // 
+            this.clmClientFio.DataPropertyName = "FUllName";
+            this.clmClientFio.HeaderText = "Клиент-ФИО";
+            this.clmClientFio.Name = "clmClientFio";
+            this.clmClientFio.ReadOnly = true;
+            this.clmClientFio.Width = 200;
+            // 
+            // clmClientPhone
+            // 
+            this.clmClientPhone.DataPropertyName = "Phone";
+            this.clmClientPhone.HeaderText = "Клиент-Телефон";
+            this.clmClientPhone.Name = "clmClientPhone";
+            this.clmClientPhone.ReadOnly = true;
+            // 
             // TicketsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TicketsControl";
-            this.Size = new System.Drawing.Size(604, 497);
+            this.Size = new System.Drawing.Size(805, 612);
             this.Load += new System.EventHandler(this.OnFormLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPageTickets.ResumeLayout(false);
@@ -364,6 +406,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPeriod;
@@ -371,8 +415,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmVisits;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmOnlyGroup;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmInactive;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateFinish;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;

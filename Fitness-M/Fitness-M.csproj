@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\Грид\GridHelper.cs" />
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
@@ -150,12 +151,6 @@
     <Compile Include="Представление\Тренажеры\FitnessEquipmentFormEdit.Designer.cs">
       <DependentUpon>FitnessEquipmentFormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Представление\Тренажеры\FitnessEquipmentFormSelect.Designer.cs">
-      <DependentUpon>FitnessEquipmentFormSelect.cs</DependentUpon>
-    </Compile>
     <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,9 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentFormEdit.resx">
       <DependentUpon>FitnessEquipmentFormEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Представление\Тренажеры\FitnessEquipmentFormSelect.resx">
-      <DependentUpon>FitnessEquipmentFormSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\ReserveFitnessEquipment.resx">
       <DependentUpon>ReserveFitnessEquipment.cs</DependentUpon>

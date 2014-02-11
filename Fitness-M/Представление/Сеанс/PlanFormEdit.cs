@@ -114,6 +114,7 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+            GridHelper.SetGridStyle(grid1);
             if(!IsFormView) InitGrid();
         }
 

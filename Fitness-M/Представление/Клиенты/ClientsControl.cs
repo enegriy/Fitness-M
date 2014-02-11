@@ -36,6 +36,10 @@ namespace Fitness_M
 
         public void InitDataGrid()
         {
+            GridHelper.SetGridStyle(dataGridView1);
+            GridHelper.SetGridStyle(dataGridView2);
+            GridHelper.SetGridStyle(dataGridView3);
+
             if (DataSet == null)
                 throw new BussinesException("Не задан источник данных");
 

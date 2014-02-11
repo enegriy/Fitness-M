@@ -27,7 +27,7 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
-            dataGridView1.AutoGenerateColumns = false;
+            GridHelper.SetGridStyle(dataGridView1);
             InitDataGridFitnessEquipment();
         }
 
