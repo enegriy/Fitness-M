@@ -43,6 +43,33 @@ namespace Fitness_M
             return listKinds;
         }
 
+        public KindTickets GetKindTickets(int id)
+        {
+            KindTickets kindTickets=null;
+
+            OpenConnection();
+
+            string sql = "SELECT * FROM kind_tickets where id = {0};";
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand(string.Format(sql, id));
+            cmd.Connection = Connection;
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                kindTickets = new KindTickets();
+                kindTickets.Id = TryGetValue<int>(reader["id"]);
+                kindTickets.Period = TryGetValue<int>(reader["period"]);
+                kindTickets.CountBalls = TryGetValue<int>(reader["count_balls"]);
+                kindTickets.CountVisits = TryGetValue<int>(reader["count_visits"]);
+                kindTickets.IsOnlyGroup = TryGetValue<bool>(reader["isonlygroup"]);
+                kindTickets.IsInactive = TryGetValue<bool>(reader["isinactive"]);
+                kindTickets.Price = TryGetValue<decimal>(reader["price"]);
+            }
+            cmd.Dispose();
+            CloseConnection();
+
+            return kindTickets;
+        }
+
         public IList<Tickets> LoadTickets()
         {
             IList<Tickets> listTickets = new List<Tickets>();
@@ -200,7 +227,7 @@ namespace Fitness_M
 
                 string sql = @"UPDATE tickets SET 
                     balance = @balance,
-                    date_finish = @date_finish,
+                    datefinish = @date_finish,
                     client_id = @client_id,
                     kind_tickets_id = @kind_tickets_id
                     WHERE id = @id";

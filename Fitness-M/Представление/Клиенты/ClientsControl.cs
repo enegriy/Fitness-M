@@ -123,10 +123,19 @@ namespace Fitness_M
 
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
-            var source = dataGridView1.DataSource as BindingSource;
-
-            PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+            try
+            {
+                var source = dataGridView1.DataSource as BindingSource;
+                TicketsController.CheckExistTickets(((Client)source.Current).ListTickets);
+                PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+            }
+            catch (BussinesException exc)
+            {
+                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        
 
         private void OnBtnDisable(object sender, EventArgs e)
         {
@@ -141,6 +150,15 @@ namespace Fitness_M
 
                     if (MessageBox.Show("Вы уверены что хотите анулировать посещение?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        //Если анулируем групповой сеанс
+                        if (currentVisit.IsOnlyGroup)
+                        {
+                            
+                        }
+                        else//Иначе тренажеры
+                        {
+                        }
+
                         currentVisit.IsDisabled = true;
                         currentVisit.Update();
                         dataGridView3.Refresh();

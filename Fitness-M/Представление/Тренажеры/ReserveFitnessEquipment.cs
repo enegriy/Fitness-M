@@ -11,6 +11,8 @@ namespace Fitness_M
 {
     public partial class ReserveFitnessEquipment : Form
     {
+        private bool m_IsClosingForm = true;
+
         #region Prop
 
         /// <summary>
@@ -77,38 +79,19 @@ namespace Fitness_M
         }
 
 
-        private TimeSpan CompileDate(string time)
-        {
-            var index = time.IndexOf(":");
-            var hour_str = time.Substring(0, index);
-            var min_str = time.Substring(index+1, (time.Length-index)-1);
-
-            if (string.IsNullOrEmpty(hour_str))
-                hour_str = "0";
-
-            if (string.IsNullOrEmpty(min_str))
-                min_str = "0";
-
-            int hour = int.Parse(hour_str);
-            int min = int.Parse(min_str);
-
-            if ((hour < 0 || hour > 23) || (min < 0 || min > 59))
-            {
-                tbTime.Focus();
-                throw new BussinesException("Некорректно введено время записи!");
-            }
-            return new TimeSpan(hour,min,0);
-        }
+        
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult == DialogResult.OK)
+            e.Cancel = true;
+
+            if (DialogResult == DialogResult.OK && m_IsClosingForm)
             {
                 try
                 {
                     var fitnessEquipment = fitnessEquipmentSchedule1.FitnessEquipmentSelected;
 
-                    var timeStart = CompileDate(tbTime.Text);
+                    var timeStart = TimeHelper.CompileDate(tbTime.Text);
 
                     var timeFinish = timeStart.Add(
                         new TimeSpan(0, fitnessEquipment.RunningTime,0));
@@ -123,12 +106,19 @@ namespace Fitness_M
                     m_FitnessEquipmentWillBeReserve.FitnessEquipmentReserve = fitnessEquipment;
                     m_FitnessEquipmentWillBeReserve.TimeFrom = timeStart;
                     m_FitnessEquipmentWillBeReserve.TimeTo = timeFinish;
+
+                    e.Cancel = false;
                 }
                 catch (BussinesException exc)
                 {
                     MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
+                
+            }
+            else if (DialogResult == System.Windows.Forms.DialogResult.Cancel)
+            {
+                e.Cancel = false; ;
             }
             
         }
@@ -140,6 +130,27 @@ namespace Fitness_M
                 tbTime.SelectionStart = 0;
                 tbTime.SelectionLength = tbTime.Text.Length;
             }
+        }
+
+        private void OnTimeValidating(object sender, CancelEventArgs e)
+        {
+            var time = tbTime.Text.Replace(" ", "").Replace(":","");
+            if (string.IsNullOrEmpty(time))
+            {
+                m_IsClosingForm = false;
+                errorProvider1.SetError((Control)sender, "Значение не может быть пустым");
+            }
+            else
+            {
+                m_IsClosingForm = true;
+                errorProvider1.SetError((Control)sender, "");
+            }
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

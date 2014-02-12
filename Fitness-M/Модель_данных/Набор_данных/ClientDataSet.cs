@@ -181,7 +181,14 @@ namespace Fitness_M
             {
                 for (int i = 0; i < ListClients.Count; i++)
                 {
-                    ListClients[i].ListVisit = ListVisit.Where(x => x.ClientId == ListClients[i].Id).ToArray();
+                    if (ListClients[i].ListVisit == null)
+                        ListClients[i].ListVisit = new List<Visit>();
+
+                    var listVisit = ListVisit.Where(x => x.ClientId == ListClients[i].Id).ToArray();
+                    foreach (var visit in listVisit)
+                    {
+                        ListClients[i].ListVisit.Add(visit);
+                    }
                 }
             }
         }

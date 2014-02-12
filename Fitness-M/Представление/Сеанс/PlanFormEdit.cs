@@ -86,16 +86,21 @@ namespace Fitness_M
                 frm.tbTimeTo.Text = visit.PlanTo.TimeOfDay.ToShortTime();
             }
 
+            frm.cbGroupVisit.Checked = visit.IsOnlyGroup;
+
             var feManager = new FitnessEquipmentManager();
 
             var visitSpec = new List<FitnessEquipmentWillBeReserve>();
-            foreach(var clientUseFitEq in visit.ClientUseFitnessEquipmentSpec)
+            if (visit.ClientUseFitnessEquipmentSpec != null)
             {
-                var fitWillBeReserve = new FitnessEquipmentWillBeReserve();
-                fitWillBeReserve.FitnessEquipmentReserve =  feManager.Get(clientUseFitEq.FitnessEquipmentId);
-                fitWillBeReserve.TimeFrom = clientUseFitEq.TimeFrom;
-                fitWillBeReserve.TimeTo = clientUseFitEq.TimeTo;
-                visitSpec.Add(fitWillBeReserve);
+                foreach (var clientUseFitEq in visit.ClientUseFitnessEquipmentSpec)
+                {
+                    var fitWillBeReserve = new FitnessEquipmentWillBeReserve();
+                    fitWillBeReserve.FitnessEquipmentReserve = feManager.Get(clientUseFitEq.FitnessEquipmentId);
+                    fitWillBeReserve.TimeFrom = clientUseFitEq.TimeFrom;
+                    fitWillBeReserve.TimeTo = clientUseFitEq.TimeTo;
+                    visitSpec.Add(fitWillBeReserve);
+                }
             }
             frm.grid1.AutoGenerateColumns = false;
             frm.grid1.DataSource = new BindingSource(visitSpec,"");
@@ -120,43 +125,74 @@ namespace Fitness_M
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult == System.Windows.Forms.DialogResult.OK && !IsFormView)
+            try
             {
-                var om = new ObjectManager();
-                om.OpenConnection();
-                var tr = om.Connection.BeginTransaction();
-                try
+                if (DialogResult == System.Windows.Forms.DialogResult.OK && !IsFormView)
                 {
-                    Visit newVisit = new Visit();
-                    newVisit.ClientId = CurrentClient.Id;
-                    newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
-                    newVisit.PlanTo = dtDateVisit.Value.Date.Add(m_PeriodTrainingFinish);
-                    newVisit.IsDisabled = false;
-
-                    newVisit.Save();
-
-                    var source = (BindingSource)grid1.DataSource;
-                    foreach (var boundItem in source)
+                    if (cbGroupVisit.Checked)
                     {
-                        var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
-                        var useFitnessEq = new ClientUseFitnessEquipment();
-                        useFitnessEq.VisitId = newVisit.Id;
-                        useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
-                        useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
-                        useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
-                        useFitnessEq.Save();
+                        TimeSpan timeFrom = TimeHelper.CompileDate(tbTimeFrom.Text);
+                        TimeSpan timeTo = TimeHelper.CompileDate(tbTimeTo.Text);
+
+                        if (timeFrom > timeTo)
+                            throw new BussinesException("Время 'с' не божет быть больше времени 'по'!");
+
+                        Visit newVisit = new Visit();
+                        newVisit.ClientId = CurrentClient.Id;
+                        newVisit.PlanFrom = dtDateVisit.Value.Date.Add(timeFrom);
+                        newVisit.PlanTo = dtDateVisit.Value.Date.Add(timeTo);
+                        newVisit.IsDisabled = false;
+                        newVisit.IsOnlyGroup = true;
+
+                        TicketsController.DeductGroupVisit(CurrentClient.ListTickets);
+                        newVisit.Save();
+                        CurrentClient.ListVisit.Add(newVisit);
                     }
-                    tr.Commit();
+                    else
+                    {
+                        var om = new ObjectManager();
+                        om.OpenConnection();
+                        var tr = om.Connection.BeginTransaction();
+                        try
+                        {
+                            Visit newVisit = new Visit();
+                            newVisit.ClientId = CurrentClient.Id;
+                            newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
+                            newVisit.PlanTo = dtDateVisit.Value.Date.Add(PeriodTrainingFinish);
+                            newVisit.IsDisabled = false;
+                            newVisit.IsOnlyGroup = false;
+                            newVisit.Save();
+                            CurrentClient.ListVisit.Add(newVisit);
+
+                            var source = (BindingSource)grid1.DataSource;
+                            foreach (var boundItem in source)
+                            {
+                                var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
+                                var useFitnessEq = new ClientUseFitnessEquipment();
+                                useFitnessEq.VisitId = newVisit.Id;
+                                useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
+                                useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
+                                useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
+                                useFitnessEq.Save();
+                            }
+                            tr.Commit();
+                        }
+                        catch (Exception exc)
+                        {
+                            tr.Rollback();
+                            throw new BussinesException(exc.Message, exc);
+                        }
+                        finally
+                        {
+                            om.CloseConnection();
+                        }
+                    }
                 }
-                catch (Exception exc)
-                {
-                    tr.Rollback();
-                    throw new BussinesException(exc.Message, exc);
-                }
-                finally
-                {
-                    om.CloseConnection();
-                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
             }
         }
 
@@ -199,12 +235,15 @@ namespace Fitness_M
 
         private void SetPeriodTraining(TimeSpan timeFrom, TimeSpan timeTo)
         {
-            if (timeFrom < m_PeriodTrainingStart || string.IsNullOrEmpty(tbTimeFrom.Text))
+            var valTimeFrom = tbTimeFrom.Text.Replace(" ", "").Replace(":", "");
+            var valTimeTo = tbTimeTo.Text.Replace(" ", "").Replace(":", "");
+
+            if (timeFrom < m_PeriodTrainingStart || string.IsNullOrEmpty(valTimeFrom))
             {
                 m_PeriodTrainingStart = timeFrom;
                 tbTimeFrom.Text = timeFrom.ToShortTime();
             }
-            if (timeTo > m_PeriodTrainingFinish || string.IsNullOrEmpty(tbTimeTo.Text))
+            if (timeTo > m_PeriodTrainingFinish || string.IsNullOrEmpty(valTimeTo))
             {
                 m_PeriodTrainingFinish = timeTo;
                 tbTimeTo.Text = timeTo.ToShortTime();
@@ -274,8 +313,26 @@ namespace Fitness_M
             dtDateVisit.Enabled = false;
             btnAddFQ.Enabled = false;
             btnDelete.Enabled = false;
+            cbGroupVisit.Enabled = false;
+            tbTimeFrom.Enabled = false;
+            tbTimeTo.Enabled = false;
         }
 
+        private void OnCheckedChange(object sender, EventArgs e)
+        {
+            if (cbGroupVisit.Checked)
+            {
+                groupBox1.Enabled = false;
+                tbTimeFrom.Enabled = true;
+                tbTimeTo.Enabled = true;
+            }
+            else
+            {
+                tbTimeFrom.Enabled = false;
+                tbTimeTo.Enabled = false;
+                groupBox1.Enabled = true;
+            }
+        }
         
     }
 }

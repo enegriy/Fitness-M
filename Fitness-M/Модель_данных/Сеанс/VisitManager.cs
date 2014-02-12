@@ -40,6 +40,7 @@ namespace Fitness_M
                 visit.VisitFrom = TryGetValue<DateTime>(reader["visit_from"]);
                 visit.VisitTo = TryGetValue<DateTime>(reader["visit_to"]);
                 visit.IsDisabled = TryGetValue<bool>(reader["is_disabled"]);
+                visit.IsOnlyGroup = TryGetValue<bool>(reader["isonlygroup"]);
                 listVisits.Add(visit);
             }
             reader.Close();
@@ -98,8 +99,8 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO visits (id, client_id, plan_from, plan_to, visit_from, visit_to, is_disabled) 
-                        VALUES (NULL, @client_id, @plan_from, @plan_to, @visit_from,  @visit_to,  @is_disabled)";
+                sql = @"INSERT INTO visits (id, client_id, plan_from, plan_to, visit_from, visit_to, is_disabled, isonlygroup) 
+                        VALUES (NULL, @client_id, @plan_from, @plan_to, @visit_from,  @visit_to,  @is_disabled, @isonlygroup)";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@client_id", visit.ClientId);
@@ -108,6 +109,7 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@visit_from", visit.VisitFrom);
                 cmd.Parameters.AddWithValue("@visit_to", visit.VisitTo);
                 cmd.Parameters.AddWithValue("@is_disabled", visit.IsDisabled);
+                cmd.Parameters.AddWithValue("@isonlygroup", visit.IsOnlyGroup);
 
                 try
                 {
@@ -139,7 +141,8 @@ namespace Fitness_M
                     plan_to = @plan_to,
                     visit_from = @visit_from,
                     visit_to = @visit_to,
-                    is_disabled = @is_disabled
+                    is_disabled = @is_disabled,
+                    isonlygroup = @isonlygroup
                     WHERE id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@client_id", visit.ClientId);
@@ -148,6 +151,7 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@visit_from", visit.VisitFrom);
                 cmd.Parameters.AddWithValue("@visit_to", visit.VisitTo);
                 cmd.Parameters.AddWithValue("@is_disabled", visit.IsDisabled);
+                cmd.Parameters.AddWithValue("@isonlygroup", visit.IsOnlyGroup);
                 cmd.Parameters.AddWithValue("@id", visit.Id);
 
                 cmd.ExecuteNonQuery();

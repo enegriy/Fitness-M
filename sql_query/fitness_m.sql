@@ -86,3 +86,5 @@ CREATE TABLE IF NOT EXISTS parameters (
   value varchar(100),
   PRIMARY KEY (id)
 );
+
+ALTER TABLE visits ADD isonlygroup bool

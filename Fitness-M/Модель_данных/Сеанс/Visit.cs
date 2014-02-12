@@ -43,6 +43,10 @@ namespace Fitness_M
         /// Анулирован
         /// </summary>
         public bool IsDisabled { get; set; }
+        /// <summary>
+        /// Групповое занятие
+        /// </summary>
+        public bool IsOnlyGroup { get; set; }
 
         /// <summary>
         /// Пустая запись
