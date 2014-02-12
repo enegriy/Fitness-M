@@ -59,18 +59,24 @@ namespace Fitness_M
 
 
         private void CheckTime(
-            FitnessEquipment fitnessEquipment, 
+            FitnessEquipment fitnessEquipment,
             DateTime dateVisit,
-            TimeSpan timeStart, 
+            TimeSpan timeStart,
             TimeSpan timeFinish)
         {
             var listFreeTime = fitnessEquipment.ListFreeTime.Where(x => x.DateFrom.Date == dateVisit);
-
+            bool isFreePeriod = false;
             foreach (var freeTime in listFreeTime)
             {
-                if (freeTime.DateFrom.TimeOfDay > timeStart || 
-                    freeTime.DateTo.TimeOfDay < timeFinish)
-                    throw new BussinesException(string.Format("Невозможно записаться на {0} - {1}!",
+                if (freeTime.DateFrom.TimeOfDay <= timeStart &&
+                    freeTime.DateTo.TimeOfDay >= timeFinish)
+                    isFreePeriod = true;
+
+            }
+
+            if (!isFreePeriod)
+            {
+                throw new BussinesException(string.Format("Невозможно записаться на {0} - {1}!",
                         timeStart.ToString(),
                         timeFinish.ToString()));
             }
@@ -126,7 +132,7 @@ namespace Fitness_M
                 }
                 catch (BussinesException exc)
                 {
-                    MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageHelper.ShowError(exc.Message);
                     e.Cancel = true;
                 }
             }

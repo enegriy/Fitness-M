@@ -74,7 +74,8 @@ namespace Fitness_M
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены что хотите удалить вид шаблона ?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageHelper.ShowQuestion(
+                "Вы уверены что хотите удалить вид шаблона ?") == DialogResult.Yes)
             {
                 var kindTicket = GetSelectedKindTicket();
                 if (kindTicket != null)

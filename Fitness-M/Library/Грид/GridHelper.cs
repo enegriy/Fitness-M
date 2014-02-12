@@ -40,5 +40,21 @@ namespace Fitness_M
 
             grid.DefaultCellStyle = defaultCellStyle;
         }
+
+        /// <summary>
+        /// Перемещение выделенной строки грида на событие нажатия правой кнопки мыши
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <param name="e"></param>
+        public static void OnCellMouseDown(DataGridView grid, DataGridViewCellMouseEventArgs e)
+        {
+            if (!e.RowIndex.Equals(-1) &&
+                !e.ColumnIndex.Equals(-1) &&
+                e.Button.Equals(MouseButtons.Right))
+            {
+                grid.CurrentCell = grid[e.ColumnIndex, e.RowIndex];
+                grid.CurrentRow.Selected = true;
+            }
+        }
     }
 }
