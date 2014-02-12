@@ -38,8 +38,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddClient = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnEditClient = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -78,11 +80,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridTickets = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNewTicket = new System.Windows.Forms.Button();
+            this.btnDebt = new System.Windows.Forms.Button();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNewTicket = new System.Windows.Forms.Button();
+            this.clmDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPayBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,7 +109,7 @@
             // flowLayoutPanel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btnAddClient);
             this.flowLayoutPanel1.Controls.Add(this.btnEditClient);
             this.flowLayoutPanel1.Controls.Add(this.btnDelete);
             this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
@@ -116,24 +121,24 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(873, 65);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // btnAddClient
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.ImageIndex = 2;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить...";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.OnClientAdd_Click);
+            this.btnAddClient.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddClient.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddClient.FlatAppearance.BorderSize = 0;
+            this.btnAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddClient.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddClient.ImageIndex = 2;
+            this.btnAddClient.ImageList = this.imageList1;
+            this.btnAddClient.Location = new System.Drawing.Point(3, 3);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(94, 55);
+            this.btnAddClient.TabIndex = 0;
+            this.btnAddClient.Text = "Добавить...";
+            this.btnAddClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddClient.UseVisualStyleBackColor = false;
+            this.btnAddClient.Click += new System.EventHandler(this.OnClientAdd_Click);
             // 
             // imageList1
             // 
@@ -153,10 +158,10 @@
             this.btnEditClient.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEditClient.ImageIndex = 1;
             this.btnEditClient.ImageList = this.imageList1;
-            this.btnEditClient.Location = new System.Drawing.Point(106, 4);
+            this.btnEditClient.Location = new System.Drawing.Point(104, 4);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(128, 60);
+            this.btnEditClient.Size = new System.Drawing.Size(93, 55);
             this.btnEditClient.TabIndex = 1;
             this.btnEditClient.Text = "Изменить...";
             this.btnEditClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -173,9 +178,9 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.ImageIndex = 3;
             this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(241, 3);
+            this.btnDelete.Location = new System.Drawing.Point(204, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(79, 49);
+            this.btnDelete.Size = new System.Drawing.Size(79, 55);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Удалить...";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -184,15 +189,14 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnUpdate.ImageIndex = 4;
             this.btnUpdate.ImageList = this.imageList1;
-            this.btnUpdate.Location = new System.Drawing.Point(326, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(289, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 62);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 55);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Обновить";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -203,7 +207,7 @@
             // 
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.textBoxFind);
-            this.panel1.Location = new System.Drawing.Point(407, 3);
+            this.panel1.Location = new System.Drawing.Point(370, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(182, 46);
             this.panel1.TabIndex = 4;
@@ -510,6 +514,7 @@
             // 
             // btnViewVisit
             // 
+            this.btnViewVisit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnViewVisit.FlatAppearance.BorderSize = 0;
             this.btnViewVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewVisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -552,7 +557,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1280, 144);
+            this.tabPage2.Size = new System.Drawing.Size(873, 144);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Абонемент";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -561,9 +566,9 @@
             // 
             this.panel2.Controls.Add(this.gridTickets);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 28);
+            this.panel2.Location = new System.Drawing.Point(4, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1272, 102);
+            this.panel2.Size = new System.Drawing.Size(865, 105);
             this.panel2.TabIndex = 2;
             // 
             // gridTickets
@@ -575,7 +580,9 @@
             this.gridTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmId,
             this.clmDateFinish,
-            this.clmBalance});
+            this.clmBalance,
+            this.clmDebt,
+            this.clmPayBefore});
             this.gridTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridTickets.Location = new System.Drawing.Point(0, 0);
             this.gridTickets.Margin = new System.Windows.Forms.Padding(4);
@@ -583,8 +590,45 @@
             this.gridTickets.RowHeadersVisible = false;
             this.gridTickets.RowTemplate.Height = 24;
             this.gridTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTickets.Size = new System.Drawing.Size(1272, 102);
+            this.gridTickets.Size = new System.Drawing.Size(865, 105);
             this.gridTickets.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
+            this.flowLayoutPanel2.Controls.Add(this.btnDebt);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(865, 31);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // btnNewTicket
+            // 
+            this.btnNewTicket.FlatAppearance.BorderSize = 0;
+            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTicket.Location = new System.Drawing.Point(4, 4);
+            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNewTicket.Name = "btnNewTicket";
+            this.btnNewTicket.Size = new System.Drawing.Size(75, 24);
+            this.btnNewTicket.TabIndex = 0;
+            this.btnNewTicket.Text = "Новый...";
+            this.btnNewTicket.UseVisualStyleBackColor = true;
+            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
+            // 
+            // btnDebt
+            // 
+            this.btnDebt.FlatAppearance.BorderSize = 0;
+            this.btnDebt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebt.Location = new System.Drawing.Point(87, 4);
+            this.btnDebt.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDebt.Name = "btnDebt";
+            this.btnDebt.Size = new System.Drawing.Size(75, 24);
+            this.btnDebt.TabIndex = 1;
+            this.btnDebt.Text = "Долг...";
+            this.btnDebt.UseVisualStyleBackColor = true;
+            this.btnDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
             // clmId
             // 
@@ -615,28 +659,29 @@
             this.clmBalance.ReadOnly = true;
             this.clmBalance.Width = 140;
             // 
-            // flowLayoutPanel2
+            // clmDebt
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1272, 31);
-            this.flowLayoutPanel2.TabIndex = 1;
+            this.clmDebt.DataPropertyName = "Debt";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.clmDebt.DefaultCellStyle = dataGridViewCellStyle9;
+            this.clmDebt.HeaderText = "Долг";
+            this.clmDebt.Name = "clmDebt";
+            this.clmDebt.ReadOnly = true;
             // 
-            // btnNewTicket
+            // clmPayBefore
             // 
-            this.btnNewTicket.FlatAppearance.BorderSize = 0;
-            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTicket.Location = new System.Drawing.Point(4, 4);
-            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(100, 30);
-            this.btnNewTicket.TabIndex = 0;
-            this.btnNewTicket.Text = "Новый...";
-            this.btnNewTicket.UseVisualStyleBackColor = true;
-            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
+            this.clmPayBefore.DataPropertyName = "PayBefore";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle10.Format = "d";
+            dataGridViewCellStyle10.NullValue = null;
+            this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmPayBefore.HeaderText = "Оплатить до";
+            this.clmPayBefore.Name = "clmPayBefore";
+            this.clmPayBefore.ReadOnly = true;
             // 
             // ClientsControl
             // 
@@ -671,7 +716,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnEditClient;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -710,11 +755,14 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView gridTickets;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnNewTicket;
+        private System.Windows.Forms.Button btnDebt;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateFinish;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnNewTicket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDebt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPayBefore;
 
 
 

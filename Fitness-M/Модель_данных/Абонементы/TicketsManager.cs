@@ -88,6 +88,8 @@ namespace Fitness_M
                 tickets.Balance = TryGetValue<int>(reader["balance"]);
                 tickets.ClientId = TryGetValue<int>(reader["client_id"]);
                 tickets.KindTicketsId = TryGetValue<int>(reader["kind_tickets_id"]);
+                tickets.Debt = TryGetValue<decimal>(reader["debt"]);
+                tickets.PayBefore = TryGetValue<DateTime>(reader["pay_before"]);
                 listTickets.Add(tickets);
             }
             cmd.Dispose();
@@ -158,14 +160,16 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO tickets (id, datefinish, balance, client_id, kind_tickets_id) 
-                        VALUES (NULL, @date_finish, @balance, @client_id, @kind_tickets_id);";
+                sql = @"INSERT INTO tickets (id, datefinish, balance, client_id, kind_tickets_id, debt, pay_before) 
+                        VALUES (NULL, @date_finish, @balance, @client_id, @kind_tickets_id, @debt, @pay_before);";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@date_finish", tickets.DateFinish);
                 cmd.Parameters.AddWithValue("@balance", tickets.Balance);
                 cmd.Parameters.AddWithValue("@client_id", tickets.ClientId);
                 cmd.Parameters.AddWithValue("@kind_tickets_id", tickets.KindTicketsId);
+                cmd.Parameters.AddWithValue("@debt", tickets.Debt);
+                cmd.Parameters.AddWithValue("@pay_before", tickets.PayBefore);
 
                 try
                 {
@@ -229,6 +233,8 @@ namespace Fitness_M
                     balance = @balance,
                     datefinish = @date_finish,
                     client_id = @client_id,
+                    debt = @debt,
+                    pay_before = @pay_before,
                     kind_tickets_id = @kind_tickets_id
                     WHERE id = @id";
                 cmd.CommandText = sql;
@@ -237,6 +243,8 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@date_finish", tickets.DateFinish);
                 cmd.Parameters.AddWithValue("@client_id", tickets.ClientId);
                 cmd.Parameters.AddWithValue("@kind_tickets_id", tickets.KindTicketsId);
+                cmd.Parameters.AddWithValue("@debt", tickets.Debt);
+                cmd.Parameters.AddWithValue("@pay_before", tickets.PayBefore);
 
                 cmd.ExecuteNonQuery();
 

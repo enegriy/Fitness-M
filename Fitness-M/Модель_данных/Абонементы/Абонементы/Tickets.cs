@@ -60,6 +60,26 @@ namespace Fitness_M
             set { m_KindTicketsId = value; }
         }
 
+        private decimal m_Debt;
+        /// <summary>
+        /// Долг
+        /// </summary>
+        public decimal Debt
+        {
+            get { return m_Debt; }
+            set { m_Debt = value; }
+        }
+
+        private DateTime m_PayBefore;
+        /// <summary>
+        /// Оплатить до
+        /// </summary>
+        public DateTime PayBefore
+        {
+            get { return m_PayBefore; }
+            set { m_PayBefore = value; }
+        }
+
         /// <summary>
         /// Пустой
         /// </summary>

@@ -320,5 +320,18 @@ namespace Fitness_M
             GridHelper.OnCellMouseDown((DataGridView)sender, e);
         }
 
+        /// <summary>
+        /// Долг
+        /// </summary>
+        private void btnDebt_Click(object sender, EventArgs e)
+        {
+            var ticket = ((BindingSource)gridTickets.DataSource).Current;
+            if (ticket != null)
+            {
+                if (DebtFormEdit.FormShow((Tickets)ticket) == DialogResult.OK)
+                    gridVisits.Refresh();
+            }
+        }
+
     }
 }

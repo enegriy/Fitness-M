@@ -82,6 +82,12 @@
     <Compile Include="Модель_данных\Абонементы\Абонементы\Tickets.cs" />
     <Compile Include="Модель_данных\Абонементы\Виды_абонементов\KindTickets.cs" />
     <Compile Include="Модель_данных\Набор_данных\ClientDataSet.cs" />
+    <Compile Include="Представление\Абонемент\DebtFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Абонемент\DebtFormEdit.Designer.cs">
+      <DependentUpon>DebtFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Абонемент\TicketsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Представление\Абонемент\DebtFormEdit.resx">
+      <DependentUpon>DebtFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\Абонемент\TicketsControl.resx">
       <DependentUpon>TicketsControl.cs</DependentUpon>
     </EmbeddedResource>

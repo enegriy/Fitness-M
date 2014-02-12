@@ -87,4 +87,5 @@ CREATE TABLE IF NOT EXISTS parameters (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE visits ADD isonlygroup bool
+ALTER TABLE visits ADD isonlygroup bool;
+ALTER TABLE tickets ADD debt DECIMAL(10,2);
