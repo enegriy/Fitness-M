@@ -225,11 +225,7 @@ namespace Fitness_M
             }
             catch (BussinesException ex)
             {
-                MessageBox.Show(
-                    ex.Message, 
-                    "Ошибка", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error);
+                MessageHelper.ShowError(ex.Message);
             }
         }
 
@@ -273,11 +269,8 @@ namespace Fitness_M
             var source = (BindingSource) grid1.DataSource;
             if (source.Current == null) return;
 
-            if (MessageBox.Show(
-                "Вы уверены что хоитет удалить объект?", 
-                "Вопрос", 
-                MessageBoxButtons.YesNo, 
-                MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageHelper.ShowQuestion(
+                "Вы уверены что хоитет удалить объект?") == DialogResult.Yes)
             {
                 source.RemoveCurrent();
                 grid1.Refresh();

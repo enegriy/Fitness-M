@@ -59,7 +59,7 @@ namespace Fitness_M
                 }
                 catch (BussinesException ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageHelper.ShowError(ex.Message);
                     e.Cancel = true;
                 }
             }

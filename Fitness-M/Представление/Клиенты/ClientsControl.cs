@@ -11,6 +11,7 @@ namespace Fitness_M
 {
     public partial class ClientsControl : UserControl
     {
+        #region Prop
         /// <summary>
         /// Данные
         /// </summary>
@@ -19,72 +20,93 @@ namespace Fitness_M
             get;
             set;
         }
+        #endregion
 
         public ClientsControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Загрузка формы
+        /// </summary>
         private void OnClientControlLoad(object sender, EventArgs e)
         {
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView2.AutoGenerateColumns = false;
-            dataGridView3.AutoGenerateColumns = false;
-
+            //Стили и сточники данных для грида
             InitDataGrid();
         }
 
+        /// <summary>
+        /// Инициализация грида
+        /// </summary>
         public void InitDataGrid()
         {
-            GridHelper.SetGridStyle(dataGridView1);
-            GridHelper.SetGridStyle(dataGridView2);
-            GridHelper.SetGridStyle(dataGridView3);
+            GridHelper.SetGridStyle(gridClients);
+            GridHelper.SetGridStyle(gridTickets);
+            GridHelper.SetGridStyle(gridVisits);
 
             if (DataSet == null)
                 throw new BussinesException("Не задан источник данных");
 
-            var bindingClients = new BindingSource(DataSet.ListClients, "");
+            SetBinding(DataSet.ListClients);
+        }
+
+        /// <summary>
+        /// Биндинг для гридов
+        /// </summary>
+        private void SetBinding(IList<Client> listClient)
+        {
+            var bindingClients = new BindingSource(listClient, "");
             var bindingTickets = new BindingSource(bindingClients, "ListTickets");
             var bindingVisits = new BindingSource(bindingClients, "ListVisit");
 
-            dataGridView1.DataSource = bindingClients;
-            dataGridView2.DataSource = bindingTickets;
-            dataGridView3.DataSource = bindingVisits;
+            gridClients.DataSource = bindingClients;
+            gridTickets.DataSource = bindingTickets;
+            gridVisits.DataSource = bindingVisits;
         }
 
+        /// <summary>
+        /// Добавить клиента
+        /// </summary>
         private void OnClientAdd_Click(object sender, EventArgs e)
         {
             var newClient = new Client();
             newClient.DateBirth = DateTime.Now;
+
             ClientFormEdit.FormShow(ActionState.Add, newClient);
             if (!newClient.IsEmpty)
             {
-                DataSet.ListClients.Add(newClient);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = DataSet.ListClients;
+                ((BindingSource)gridClients.DataSource).Add(newClient);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Изменить клиента
+        /// </summary>
+        private void btnEditClient_Click(object sender, EventArgs e)
         {
-            var client = ((BindingSource)dataGridView1.DataSource).Current as Client;
+            var client = ((BindingSource)gridClients.DataSource).Current as Client;
             if (client != null)
             {
                 ClientFormEdit.FormShow(ActionState.Edit, client);
             }
-            dataGridView1.Refresh();
+            gridClients.Refresh();
         }
 
+        /// <summary>
+        /// Удалить клиента
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены что хотите удалить клиента ?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageHelper.ShowQuestion(
+                "Вы уверены что хотите удалить клиента ?") == DialogResult.Yes)
             {
-                var client = ((BindingSource)dataGridView1.DataSource).Current as Client;
+                var client = ((BindingSource)gridClients.DataSource).Current as Client;
                 if (client != null)
                 {
                     client.Delete();
                     DataSet.ListClients.Remove(client);
-                    dataGridView1.DataSource = DataSet.ListClients.ToArray();
+                    gridClients.DataSource = DataSet.ListClients.ToArray();
                 }
             }
         }
@@ -102,53 +124,62 @@ namespace Fitness_M
         {
             var txt = textBoxFind.Text;
             if (string.IsNullOrEmpty(txt))
-                dataGridView1.DataSource = DataSet.ListClients;
+            {
+                SetBinding(DataSet.ListClients.ToArray());
+            }
             else
-                dataGridView1.DataSource = DataSet.ListClients.Where(x => x.Number.ToString().IndexOf(txt) != -1 
+            {
+                var listClient = DataSet.ListClients.Where(x => x.Number.ToString().IndexOf(txt) != -1
                     || x.SurName.ToUpper().IndexOf(txt.ToUpper()) != -1).ToArray();
+
+                SetBinding(listClient);
+            }
         }
+
+        
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             textBoxFind.Text = "";
         }
 
+        /// <summary>
+        /// Новый абонемент
+        /// </summary>
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
             KindTicketsFormSelect.FormShow(
                 ActionState.Select, 
-                ((BindingSource)dataGridView1.DataSource).Current as Client, 
+                ((BindingSource)gridClients.DataSource).Current as Client, 
                 DataSet);
         }
 
+        /// <summary>
+        /// Добавить бронь
+        /// </summary>
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var source = dataGridView1.DataSource as BindingSource;
-                TicketsController.CheckExistTickets(((Client)source.Current).ListTickets);
-                PlanFormEdit.FormShow(DataSet, (Client)source.Current);
-            }
-            catch (BussinesException exc)
-            {
-                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var source = gridClients.DataSource as BindingSource;
+
+            PlanFormEdit.FormShow(DataSet, (Client)source.Current);
         }
 
-        
-
+        /// <summary>
+        /// Анулировать
+        /// </summary>
         private void OnBtnDisable(object sender, EventArgs e)
         {
             try
             {
-                var source = dataGridView3.DataSource as BindingSource;
+                var source = gridVisits.DataSource as BindingSource;
                 var currentVisit = (Visit)source.Current;
                 if (currentVisit != null)
                 {
                     if (currentVisit.VisitFrom != DateTime.MinValue || currentVisit.VisitTo != DateTime.MinValue)
                         throw new BussinesException("Нельзя анулировать сеанс который был начат или завершен!");
 
-                    if (MessageBox.Show("Вы уверены что хотите анулировать посещение?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageHelper.ShowQuestion(
+                        "Вы уверены что хотите анулировать посещение?") == DialogResult.Yes)
                     {
                         //Если анулируем групповой сеанс
                         if (currentVisit.IsOnlyGroup)
@@ -161,19 +192,24 @@ namespace Fitness_M
 
                         currentVisit.IsDisabled = true;
                         currentVisit.Update();
-                        dataGridView3.Refresh();
+                        gridVisits.Refresh();
                     }
                 }
             }
             catch (BussinesException exc)
             {
-                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageHelper.ShowError(exc.Message);
             }
         }
 
+        /// <summary>
+        /// Просмотреть запись
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnBtnViewVisitClick(object sender, EventArgs e)
         {
-            var source = dataGridView3.DataSource as BindingSource;
+            var source = gridVisits.DataSource as BindingSource;
             var currentVisit = (Visit)source.Current;
             if (currentVisit != null)
             {
@@ -181,21 +217,27 @@ namespace Fitness_M
             }
         }
 
+        /// <summary>
+        /// Просмотреть запись(двойное нажатие мышки)
+        /// </summary>
         private void OnMouseDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var source = dataGridView3.DataSource as BindingSource;
+            var source = gridVisits.DataSource as BindingSource;
             if (source == null)
                 btnAddPlan_Click(sender, null);
             else
                 OnBtnViewVisitClick(sender, null);
         }
 
+        /// <summary>
+        /// Доступность контекстного меню
+        /// </summary>
         private void OnContextMenuOpening(object sender, CancelEventArgs e)
         {
             cmStartVisit.Enabled = false;
             cmFinishVisit.Enabled = false;
 
-            var source = dataGridView3.DataSource as BindingSource;
+            var source = gridVisits.DataSource as BindingSource;
             if (source.Current != null)
             {
                 var visit = (Visit)source.Current;
@@ -214,23 +256,68 @@ namespace Fitness_M
             
         }
 
+        /// <summary>
+        /// Начать сеанс
+        /// </summary>
         private void OnStartVisitClick(object sender, EventArgs e)
         {
-            var source = dataGridView3.DataSource as BindingSource;
-            var visit = (Visit)source.Current;
-            visit.VisitFrom = DateTime.Now;
-            visit.Update();
-            dataGridView3.Refresh();
+            try
+            {
+                var source = gridVisits.DataSource as BindingSource;
+                var visit = (Visit)source.Current;
 
+                if (visit.IsDisabled)
+                    throw new BussinesException("Нельзя начать или закончить посещение если оно анулировано!");
+                
+                var dateVisit = DateTime.Now;
+                if (MessageHelper.ShowQuestion(
+                    string.Format("Начать посещение в {0} ?", dateVisit.ToString("HH:mm"))) == DialogResult.Yes)
+                {
+                    visit.VisitFrom = DateTime.Now;
+                    visit.Update();
+                    gridVisits.Refresh();
+                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
         }
 
+        /// <summary>
+        /// Закончить сеанс
+        /// </summary>
         private void OnFinishVisitClick(object sender, EventArgs e)
         {
-            var source = dataGridView3.DataSource as BindingSource;
-            var visit = (Visit)source.Current;
-            visit.VisitTo = DateTime.Now;
-            visit.Update();
-            dataGridView3.Refresh();
+            try
+            {
+                var source = gridVisits.DataSource as BindingSource;
+                var visit = (Visit)source.Current;
+
+                if (visit.IsDisabled)
+                    throw new BussinesException("Нельзя начать или закончить посещение если оно анулировано!");
+                
+                var dateVisit = DateTime.Now;
+                if (MessageHelper.ShowQuestion(
+                    string.Format("Закончить посещение в {0} ?", dateVisit.ToString("HH:mm"))) == DialogResult.Yes)
+                {
+                    visit.VisitTo = dateVisit;
+                    visit.Update();
+                    gridVisits.Refresh();
+                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
+        }
+
+        /// <summary>
+        /// Нажатие кнопки мыши на гриде
+        /// </summary>
+        private void OnCellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GridHelper.OnCellMouseDown((DataGridView)sender, e);
         }
 
     }

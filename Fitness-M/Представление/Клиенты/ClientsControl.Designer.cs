@@ -41,14 +41,14 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditClient = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.textBoxFind = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridClients = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,25 +58,26 @@
             this.clmPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmStartVisit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmFinishVisit = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.gridVisits = new System.Windows.Forms.DataGridView();
             this.clmVisitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmVisitFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmVisitTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPlanFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPlanTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIsDisabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmStartVisit = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmFinishVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnViewVisit = new System.Windows.Forms.Button();
             this.btnAddPlan = new System.Windows.Forms.Button();
             this.btnDisable = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.gridTickets = new System.Windows.Forms.DataGridView();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,29 +86,34 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridClients)).BeginInit();
+            this.contextMenu.SuspendLayout();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.contextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVisits)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTickets)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.btnEditClient);
             this.flowLayoutPanel1.Controls.Add(this.btnDelete);
             this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(647, 52);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(873, 65);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button1
@@ -139,22 +145,23 @@
             this.imageList1.Images.SetKeyName(3, "deletered_3524.ico");
             this.imageList1.Images.SetKeyName(4, "refreshblue_5698.ico");
             // 
-            // button2
+            // btnEditClient
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.ImageIndex = 1;
-            this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(105, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 49);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Изменить...";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditClient.FlatAppearance.BorderSize = 0;
+            this.btnEditClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEditClient.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEditClient.ImageIndex = 1;
+            this.btnEditClient.ImageList = this.imageList1;
+            this.btnEditClient.Location = new System.Drawing.Point(106, 4);
+            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditClient.Name = "btnEditClient";
+            this.btnEditClient.Size = new System.Drawing.Size(128, 60);
+            this.btnEditClient.TabIndex = 1;
+            this.btnEditClient.Text = "Изменить...";
+            this.btnEditClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditClient.UseVisualStyleBackColor = true;
+            this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
             // 
             // btnDelete
             // 
@@ -166,7 +173,7 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.ImageIndex = 3;
             this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(207, 3);
+            this.btnDelete.Location = new System.Drawing.Point(241, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(79, 49);
             this.btnDelete.TabIndex = 2;
@@ -183,9 +190,9 @@
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnUpdate.ImageIndex = 4;
             this.btnUpdate.ImageList = this.imageList1;
-            this.btnUpdate.Location = new System.Drawing.Point(292, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(326, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 49);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 62);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Обновить";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -196,7 +203,7 @@
             // 
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.textBoxFind);
-            this.panel1.Location = new System.Drawing.Point(373, 3);
+            this.panel1.Location = new System.Drawing.Point(407, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(182, 46);
             this.panel1.TabIndex = 4;
@@ -227,24 +234,25 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.gridClients, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 52);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(647, 402);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(881, 298);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // gridClients
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeight = 30;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridClients.AllowUserToAddRows = false;
+            this.gridClients.AllowUserToOrderColumns = true;
+            this.gridClients.ColumnHeadersHeight = 30;
+            this.gridClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.clmNumber,
             this.clmSurname,
@@ -254,13 +262,14 @@
             this.clmPhone,
             this.clmAddress,
             this.clmNote});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(641, 246);
-            this.dataGridView1.TabIndex = 0;
+            this.tableLayoutPanel1.SetColumnSpan(this.gridClients, 2);
+            this.gridClients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridClients.Location = new System.Drawing.Point(4, 77);
+            this.gridClients.Margin = new System.Windows.Forms.Padding(4);
+            this.gridClients.Name = "gridClients";
+            this.gridClients.RowTemplate.Height = 24;
+            this.gridClients.Size = new System.Drawing.Size(873, 192);
+            this.gridClients.TabIndex = 0;
             // 
             // Id
             // 
@@ -344,53 +353,96 @@
             this.clmNote.ReadOnly = true;
             this.clmNote.Width = 120;
             // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmStartVisit,
+            this.cmFinishVisit});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(208, 48);
+            this.contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.OnContextMenuOpening);
+            // 
+            // cmStartVisit
+            // 
+            this.cmStartVisit.Name = "cmStartVisit";
+            this.cmStartVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmStartVisit.Text = "Начать посещение...";
+            this.cmStartVisit.Click += new System.EventHandler(this.OnStartVisitClick);
+            // 
+            // cmFinishVisit
+            // 
+            this.cmFinishVisit.Name = "cmFinishVisit";
+            this.cmFinishVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmFinishVisit.Text = "Закончить посещение...";
+            this.cmFinishVisit.Click += new System.EventHandler(this.OnFinishVisitClick);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(881, 472);
+            this.splitContainer1.SplitterDistance = 298;
+            this.splitContainer1.TabIndex = 2;
+            // 
             // tabControl1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 2);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 255);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(641, 124);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.Size = new System.Drawing.Size(881, 170);
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView3);
+            this.tabPage1.Controls.Add(this.gridVisits);
             this.tabPage1.Controls.Add(this.flowLayoutPanel3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(633, 98);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(873, 144);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сеанс";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // gridVisits
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridVisits.AllowUserToAddRows = false;
+            this.gridVisits.AllowUserToDeleteRows = false;
+            this.gridVisits.BackgroundColor = System.Drawing.Color.White;
+            this.gridVisits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridVisits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmVisitId,
             this.clmVisitFrom,
             this.clmVisitTo,
             this.clmPlanFrom,
             this.clmPlanTo,
             this.clmIsDisabled});
-            this.dataGridView3.ContextMenuStrip = this.contextMenu;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(627, 67);
-            this.dataGridView3.TabIndex = 1;
-            this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnMouseDoubleClick);
+            this.gridVisits.ContextMenuStrip = this.contextMenu;
+            this.gridVisits.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridVisits.Location = new System.Drawing.Point(4, 35);
+            this.gridVisits.Margin = new System.Windows.Forms.Padding(4);
+            this.gridVisits.Name = "gridVisits";
+            this.gridVisits.RowHeadersVisible = false;
+            this.gridVisits.RowTemplate.Height = 24;
+            this.gridVisits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridVisits.Size = new System.Drawing.Size(865, 105);
+            this.gridVisits.TabIndex = 1;
+            this.gridVisits.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
             // 
             // clmVisitId
             // 
@@ -445,38 +497,15 @@
             this.clmIsDisabled.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmIsDisabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // contextMenu
-            // 
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmStartVisit,
-            this.cmFinishVisit});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(208, 48);
-            this.contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.OnContextMenuOpening);
-            // 
-            // cmStartVisit
-            // 
-            this.cmStartVisit.Name = "cmStartVisit";
-            this.cmStartVisit.Size = new System.Drawing.Size(207, 22);
-            this.cmStartVisit.Text = "Начать посещение...";
-            this.cmStartVisit.Click += new System.EventHandler(this.OnStartVisitClick);
-            // 
-            // cmFinishVisit
-            // 
-            this.cmFinishVisit.Name = "cmFinishVisit";
-            this.cmFinishVisit.Size = new System.Drawing.Size(207, 22);
-            this.cmFinishVisit.Text = "Закончить посещение...";
-            this.cmFinishVisit.Click += new System.EventHandler(this.OnFinishVisitClick);
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.btnViewVisit);
             this.flowLayoutPanel3.Controls.Add(this.btnAddPlan);
             this.flowLayoutPanel3.Controls.Add(this.btnDisable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(627, 25);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(865, 31);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // btnViewVisit
@@ -522,39 +551,40 @@
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(633, 98);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1280, 144);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Абонемент";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.gridTickets);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(629, 68);
+            this.panel2.Size = new System.Drawing.Size(1272, 102);
             this.panel2.TabIndex = 2;
             // 
-            // dataGridView2
+            // gridTickets
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridTickets.AllowUserToAddRows = false;
+            this.gridTickets.AllowUserToDeleteRows = false;
+            this.gridTickets.BackgroundColor = System.Drawing.Color.White;
+            this.gridTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmId,
             this.clmDateFinish,
             this.clmBalance});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(629, 68);
-            this.dataGridView2.TabIndex = 0;
+            this.gridTickets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridTickets.Location = new System.Drawing.Point(0, 0);
+            this.gridTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.gridTickets.Name = "gridTickets";
+            this.gridTickets.RowHeadersVisible = false;
+            this.gridTickets.RowTemplate.Height = 24;
+            this.gridTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridTickets.Size = new System.Drawing.Size(1272, 102);
+            this.gridTickets.TabIndex = 0;
             // 
             // clmId
             // 
@@ -589,18 +619,20 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(629, 25);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1272, 31);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // btnNewTicket
             // 
             this.btnNewTicket.FlatAppearance.BorderSize = 0;
             this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTicket.Location = new System.Drawing.Point(3, 3);
+            this.btnNewTicket.Location = new System.Drawing.Point(4, 4);
+            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(75, 24);
+            this.btnNewTicket.Size = new System.Drawing.Size(100, 30);
             this.btnNewTicket.TabIndex = 0;
             this.btnNewTicket.Text = "Новый...";
             this.btnNewTicket.UseVisualStyleBackColor = true;
@@ -610,24 +642,27 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientsControl";
-            this.Size = new System.Drawing.Size(647, 454);
+            this.Size = new System.Drawing.Size(881, 472);
             this.Load += new System.EventHandler(this.OnClientControlLoad);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridClients)).EndInit();
+            this.contextMenu.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.contextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridVisits)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTickets)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -637,7 +672,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditClient;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ImageList imageList1;
@@ -645,25 +680,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxFind;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnNewTicket;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button btnAddPlan;
-        private System.Windows.Forms.Button btnDisable;
-        private System.Windows.Forms.Button btnViewVisit;
+        private System.Windows.Forms.DataGridView gridClients;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem cmStartVisit;
         private System.Windows.Forms.ToolStripMenuItem cmFinishVisit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateFinish;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSurname;
@@ -673,12 +693,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNote;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView gridVisits;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmVisitTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPlanTo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsDisabled;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Button btnViewVisit;
+        private System.Windows.Forms.Button btnAddPlan;
+        private System.Windows.Forms.Button btnDisable;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView gridTickets;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateFinish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnNewTicket;
 
 
 
