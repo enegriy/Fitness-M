@@ -114,7 +114,7 @@ namespace Fitness_M
 
         private void OnValidating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validating(sender, e, m_IsClosingForm, errorProvider1);
+            ValidationHelper.Validating(sender, e, ref m_IsClosingForm, errorProvider1);
         }
 
     }

@@ -10,7 +10,7 @@ namespace Fitness_M
     public static class ValidationHelper
     {
         public static void Validating(object sender, CancelEventArgs e,
-            bool IsClosingForm, ErrorProvider errorProvider)
+            ref bool IsClosingForm, ErrorProvider errorProvider)
         {
             if (sender is TextBox)
             {

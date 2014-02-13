@@ -63,6 +63,9 @@ namespace Fitness_M
         /// </summary>
         public static void FormShow(ClientDataSet dataSet, Client client)
         {
+            if (client == null)
+                throw new BussinesException("Бронирование не возможно, выберите клиента!");
+
             var frm = new PlanFormEdit();
             frm.DataSet = dataSet;
             frm.CurrentClient = client;

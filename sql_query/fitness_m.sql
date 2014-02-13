@@ -66,6 +66,7 @@ create table visits
   visit_from datetime,
   visit_to datetime,
   is_disabled bool,
+  isonlygroup bool,
   PRIMARY KEY (id)
 );
 
@@ -87,5 +88,5 @@ CREATE TABLE IF NOT EXISTS parameters (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE visits ADD isonlygroup bool;
 ALTER TABLE tickets ADD debt DECIMAL(10,2);
+ALTER TABLE tickets ADD pay_before DATE;

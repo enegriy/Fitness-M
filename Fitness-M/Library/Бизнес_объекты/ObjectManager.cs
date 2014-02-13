@@ -50,7 +50,9 @@ namespace Fitness_M
         public T TryGetValue<T>(object value)
         {
             if (value != System.DBNull.Value)
+            {
                 return (T)value;
+            }
             return default(T);
         }
     }

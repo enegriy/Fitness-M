@@ -88,7 +88,7 @@ namespace Fitness_M
             var client = ((BindingSource)gridClients.DataSource).Current as Client;
             if (client != null)
             {
-                ClientFormEdit.FormShow(ActionState.Edit, client);
+                var frm = ClientFormEdit.FormShow(ActionState.Edit, client);
             }
             gridClients.Refresh();
         }
@@ -105,8 +105,9 @@ namespace Fitness_M
                 if (client != null)
                 {
                     client.Delete();
-                    DataSet.ListClients.Remove(client);
-                    gridClients.DataSource = DataSet.ListClients.ToArray();
+                    ((BindingSource)gridClients.DataSource).Remove(client);
+                    //DataSet.ListClients.Remove(client);
+                    //gridClients.DataSource = DataSet.ListClients.ToArray();
                 }
             }
         }
@@ -148,10 +149,41 @@ namespace Fitness_M
         /// </summary>
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
-            KindTicketsFormSelect.FormShow(
-                ActionState.Select, 
-                ((BindingSource)gridClients.DataSource).Current as Client, 
-                DataSet);
+            try
+            {
+                var client = ((BindingSource)gridClients.DataSource).Current as Client;
+                if (client == null)
+                    throw new BussinesException("Клиент не выбран!");
+
+                MustAddTicket(client);
+
+                KindTicketsFormSelect.FormShow(
+                    ActionState.Select,
+                    client,
+                    DataSet);
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
+        }
+
+        /// <summary>
+        /// Могу добавить абонемент
+        /// </summary>
+        private void MustAddTicket(Client client)
+        {
+            var listTicket = client.ListTickets.Where(x => 
+                x.DateFinish.Date > DateTime.Now && x.Balance > 0);
+
+            var isExistOnlyGroup = listTicket.Any(x => 
+                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == true);
+
+            var isExistNotOnlyGroup = listTicket.Any(x =>
+                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);
+
+            if (isExistNotOnlyGroup && isExistOnlyGroup)
+                throw new BussinesException("Не возможно добавить новый абонемент, у клиента уже есть абонемент на групповые и не групповые занятия!");
         }
 
         /// <summary>
@@ -159,9 +191,16 @@ namespace Fitness_M
         /// </summary>
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
-            var source = gridClients.DataSource as BindingSource;
+            try
+            {
+                var source = gridClients.DataSource as BindingSource;
 
-            PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+                PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
         }
 
         /// <summary>

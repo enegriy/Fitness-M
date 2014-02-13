@@ -42,12 +42,14 @@ namespace Fitness_M
             if (MessageHelper.ShowQuestion(
                 "Вы уверены что хотите удалить объект?") == DialogResult.Yes)
             {
-                var fq = (FitnessEquipment)((BindingSource)dataGridView1.DataSource).Current as FitnessEquipment;
+                var source = (BindingSource)dataGridView1.DataSource;
+                var fq = (FitnessEquipment)source.Current;
                 if (fq != null)
                 {
                     fq.Delete();
-                    DataSet.ListFitnessEquipment.Remove(fq);
-                    dataGridView1.DataSource = DataSet.ListFitnessEquipment.ToArray();
+                    source.Remove(fq);
+                    //DataSet.ListFitnessEquipment.Remove(fq);
+                    //dataGridView1.DataSource = DataSet.ListFitnessEquipment.ToArray();
                 }
             }
         }
@@ -62,6 +64,7 @@ namespace Fitness_M
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = DataSet.ListFitnessEquipment;
             }
+            //!!!
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -143,11 +143,33 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Загрузить абонементы на текущую дату 
+        /// </summary>
+        public void LoadTicketsOnCurrentDate()
+        {
+            ListTickets = (new TicketsManager()).LoadTickets();
+            ListTickets = ListTickets.Where(tck => 
+                tck.DateFinish.Date >= DateTime.Now.Date &&
+                tck.Balance > 0).ToList();
+        }
+
+        /// <summary>
         /// Загрузить посещения
         /// </summary>
         public void LoadVisits()
         {
             ListVisit = (new VisitManager()).LoadVisit();
+        }
+
+        /// <summary>
+        /// Загрузить на текущую дату
+        /// </summary>
+        public void LoadVisitsOnCurrentDate()
+        {
+            ListVisit = (new VisitManager()).LoadVisit();
+            ListVisit = ListVisit.Where(vst =>
+                vst.PlanFrom.Date >= DateTime.Now.Date ||
+                vst.VisitFrom.Date >= DateTime.Now.Date).ToList();
         }
 
         /// <summary>
@@ -199,10 +221,10 @@ namespace Fitness_M
         public void LoadData()
         {
             LoadClients();
-            LoadTickets();
+            LoadTicketsOnCurrentDate();
             LoadKindTickets();
             LoadFitnessEquipments();
-            LoadVisits();
+            LoadVisitsOnCurrentDate();
             SetSpecificationForClients();
             SetSpecificationVisitForClients();
         }

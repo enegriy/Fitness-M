@@ -11,6 +11,7 @@ namespace Fitness_M
 {
     public partial class KindTicketsFormEdit : Form
     {
+        private KindTickets m_KindTicketSnapshot;
         private KindTickets m_KindTickets;
 
         private bool m_IsClosingForm = true;
@@ -41,31 +42,6 @@ namespace Fitness_M
                 Text = "Форма редактирования";
         }
 
-        public KindTicketsFormEdit()
-        {
-            InitializeComponent();
-        }
-
-        private void OnFormLoad(object sender, EventArgs e)
-        {
-            SetFormTitle();
-            BindingClient();
-
-        }
-
-        /// <summary>
-        /// Биндинг
-        /// </summary>
-        private void BindingClient()
-        {
-            numericUpDown4.DataBindings.Add("Value", m_KindTickets, "Price");
-            numericUpDown1.DataBindings.Add("Value", m_KindTickets, "Period");
-            numericUpDown2.DataBindings.Add("Value", m_KindTickets, "CountBalls");
-            numericUpDown3.DataBindings.Add("Value", m_KindTickets, "CountVisits");
-            checkBox1.DataBindings.Add("Checked", m_KindTickets, "IsOnlyGroup");
-            checkBox2.DataBindings.Add("Checked", m_KindTickets, "IsInactive");
-        }
-
         /// <summary>
         /// Запустить форму
         /// </summary>
@@ -81,14 +57,18 @@ namespace Fitness_M
             return frm;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        public KindTicketsFormEdit()
         {
-            Close();
+            InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void OnFormLoad(object sender, EventArgs e)
         {
-            Close();
+            m_KindTicketSnapshot = m_KindTickets.SnapShot();
+            SetFormTitle();
+            BindingClient();
+            ((INotifyPropertyChanged)m_KindTickets).PropertyChanged += PropertyChanged;
+
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
@@ -103,13 +83,51 @@ namespace Fitness_M
                     else if (Action == ActionState.Edit)
                         m_KindTickets.Update();
                 }
+                else if (DialogResult == DialogResult.Cancel)
+                {
+                    m_KindTickets.RestoreBySnapShot(m_KindTicketSnapshot);
+                }
 
                 e.Cancel = false;
             }
             else
                 e.Cancel = true;
+
+            if(!e.Cancel)
+                ((INotifyPropertyChanged)m_KindTickets).PropertyChanged -= PropertyChanged;
         }
 
+        public void PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "IsOnlyGroup")
+            {
+                if (m_KindTickets.IsOnlyGroup)
+                {
+                    numCountBalls.Value = 0;
+                    numCountBalls.Enabled = false;
+                    numCountVisit.Enabled = true;
+                }
+                else
+                {
+                    numCountVisit.Value = 0;
+                    numCountVisit.Enabled = false;
+                    numCountBalls.Enabled = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Биндинг
+        /// </summary>
+        private void BindingClient()
+        {
+            numericUpDown4.DataBindings.Add("Value", m_KindTickets, "Price",false,DataSourceUpdateMode.OnPropertyChanged);
+            numericUpDown1.DataBindings.Add("Value", m_KindTickets, "Period", false, DataSourceUpdateMode.OnPropertyChanged);
+            numCountBalls.DataBindings.Add("Value", m_KindTickets, "CountBalls", false, DataSourceUpdateMode.OnPropertyChanged);
+            numCountVisit.DataBindings.Add("Value", m_KindTickets, "CountVisits", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbOnlyGroup.DataBindings.Add("Checked", m_KindTickets, "IsOnlyGroup", false, DataSourceUpdateMode.OnPropertyChanged);
+            checkBox2.DataBindings.Add("Checked", m_KindTickets, "IsInactive", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
     }
 
 }

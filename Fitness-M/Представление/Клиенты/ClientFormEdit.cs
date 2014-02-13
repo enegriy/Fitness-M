@@ -78,7 +78,7 @@ namespace Fitness_M
             textBox2.DataBindings.Add("Text", m_CurrentClient, "Surname");
             textBox3.DataBindings.Add("Text", m_CurrentClient, "Name");
             textBox4.DataBindings.Add("Text", m_CurrentClient, "Lastname");
-            dateTimePicker1.DataBindings.Add("Value", m_CurrentClient, "DateBirth");
+            //dateTimePicker1.DataBindings.Add("Value", m_CurrentClient);
             textBox5.DataBindings.Add("Text", m_CurrentClient, "Phone");
             textBox6.DataBindings.Add("Text", m_CurrentClient, "Address");
             textBox7.DataBindings.Add("Text", m_CurrentClient, "Note");
@@ -106,19 +106,9 @@ namespace Fitness_M
                 e.Cancel = true;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void OnValidating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validating(sender, e, m_IsClosingForm, errorProviderClient);
+           ValidationHelper.Validating(sender, e, ref m_IsClosingForm, errorProviderClient);
         }
 
 

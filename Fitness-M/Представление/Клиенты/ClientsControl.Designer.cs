@@ -80,14 +80,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridTickets = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNewTicket = new System.Windows.Forms.Button();
-            this.btnDebt = new System.Windows.Forms.Button();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNewTicket = new System.Windows.Forms.Button();
+            this.btnDebt = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -115,10 +115,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(873, 65);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1165, 80);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnAddClient
@@ -131,9 +131,10 @@
             this.btnAddClient.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddClient.ImageIndex = 2;
             this.btnAddClient.ImageList = this.imageList1;
-            this.btnAddClient.Location = new System.Drawing.Point(3, 3);
+            this.btnAddClient.Location = new System.Drawing.Point(4, 4);
+            this.btnAddClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(94, 55);
+            this.btnAddClient.Size = new System.Drawing.Size(125, 68);
             this.btnAddClient.TabIndex = 0;
             this.btnAddClient.Text = "Добавить...";
             this.btnAddClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -158,10 +159,10 @@
             this.btnEditClient.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEditClient.ImageIndex = 1;
             this.btnEditClient.ImageList = this.imageList1;
-            this.btnEditClient.Location = new System.Drawing.Point(104, 4);
-            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditClient.Location = new System.Drawing.Point(138, 5);
+            this.btnEditClient.Margin = new System.Windows.Forms.Padding(5);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(93, 55);
+            this.btnEditClient.Size = new System.Drawing.Size(124, 68);
             this.btnEditClient.TabIndex = 1;
             this.btnEditClient.Text = "Изменить...";
             this.btnEditClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -178,9 +179,10 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.ImageIndex = 3;
             this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(204, 3);
+            this.btnDelete.Location = new System.Drawing.Point(271, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(79, 55);
+            this.btnDelete.Size = new System.Drawing.Size(105, 68);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Удалить...";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -194,9 +196,10 @@
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnUpdate.ImageIndex = 4;
             this.btnUpdate.ImageList = this.imageList1;
-            this.btnUpdate.Location = new System.Drawing.Point(289, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(384, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 55);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 68);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Обновить";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -207,18 +210,20 @@
             // 
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.textBoxFind);
-            this.panel1.Location = new System.Drawing.Point(370, 3);
+            this.panel1.Location = new System.Drawing.Point(492, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(182, 46);
+            this.panel1.Size = new System.Drawing.Size(243, 57);
             this.panel1.TabIndex = 4;
             // 
             // btnClear
             // 
             this.btnClear.ImageIndex = 0;
             this.btnClear.ImageList = this.imageList1;
-            this.btnClear.Location = new System.Drawing.Point(143, 11);
+            this.btnClear.Location = new System.Drawing.Point(191, 14);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(36, 27);
+            this.btnClear.Size = new System.Drawing.Size(48, 33);
             this.btnClear.TabIndex = 1;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -226,10 +231,11 @@
             // textBoxFind
             // 
             this.textBoxFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFind.Location = new System.Drawing.Point(3, 10);
+            this.textBoxFind.Location = new System.Drawing.Point(4, 12);
+            this.textBoxFind.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFind.Multiline = true;
             this.textBoxFind.Name = "textBoxFind";
-            this.textBoxFind.Size = new System.Drawing.Size(134, 29);
+            this.textBoxFind.Size = new System.Drawing.Size(177, 35);
             this.textBoxFind.TabIndex = 0;
             this.textBoxFind.TextChanged += new System.EventHandler(this.OnFindChange);
             // 
@@ -242,13 +248,13 @@
             this.tableLayoutPanel1.Controls.Add(this.gridClients, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(881, 298);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1175, 405);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // gridClients
@@ -268,11 +274,11 @@
             this.clmNote});
             this.tableLayoutPanel1.SetColumnSpan(this.gridClients, 2);
             this.gridClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridClients.Location = new System.Drawing.Point(4, 77);
-            this.gridClients.Margin = new System.Windows.Forms.Padding(4);
+            this.gridClients.Location = new System.Drawing.Point(5, 95);
+            this.gridClients.Margin = new System.Windows.Forms.Padding(5);
             this.gridClients.Name = "gridClients";
             this.gridClients.RowTemplate.Height = 24;
-            this.gridClients.Size = new System.Drawing.Size(873, 192);
+            this.gridClients.Size = new System.Drawing.Size(1165, 274);
             this.gridClients.TabIndex = 0;
             // 
             // Id
@@ -363,20 +369,20 @@
             this.cmStartVisit,
             this.cmFinishVisit});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(208, 48);
+            this.contextMenu.Size = new System.Drawing.Size(243, 52);
             this.contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.OnContextMenuOpening);
             // 
             // cmStartVisit
             // 
             this.cmStartVisit.Name = "cmStartVisit";
-            this.cmStartVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmStartVisit.Size = new System.Drawing.Size(242, 24);
             this.cmStartVisit.Text = "Начать посещение...";
             this.cmStartVisit.Click += new System.EventHandler(this.OnStartVisitClick);
             // 
             // cmFinishVisit
             // 
             this.cmFinishVisit.Name = "cmFinishVisit";
-            this.cmFinishVisit.Size = new System.Drawing.Size(207, 22);
+            this.cmFinishVisit.Size = new System.Drawing.Size(242, 24);
             this.cmFinishVisit.Text = "Закончить посещение...";
             this.cmFinishVisit.Click += new System.EventHandler(this.OnFinishVisitClick);
             // 
@@ -385,6 +391,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -395,8 +402,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(881, 472);
-            this.splitContainer1.SplitterDistance = 298;
+            this.splitContainer1.Size = new System.Drawing.Size(1175, 581);
+            this.splitContainer1.SplitterDistance = 405;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
             // 
             // tabControl1
@@ -405,20 +413,21 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(881, 170);
+            this.tabControl1.Size = new System.Drawing.Size(1175, 171);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gridVisits);
             this.tabPage1.Controls.Add(this.flowLayoutPanel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(873, 144);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(5);
+            this.tabPage1.Size = new System.Drawing.Size(1167, 142);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сеанс";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -438,13 +447,13 @@
             this.clmIsDisabled});
             this.gridVisits.ContextMenuStrip = this.contextMenu;
             this.gridVisits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridVisits.Location = new System.Drawing.Point(4, 35);
-            this.gridVisits.Margin = new System.Windows.Forms.Padding(4);
+            this.gridVisits.Location = new System.Drawing.Point(5, 43);
+            this.gridVisits.Margin = new System.Windows.Forms.Padding(5);
             this.gridVisits.Name = "gridVisits";
             this.gridVisits.RowHeadersVisible = false;
             this.gridVisits.RowTemplate.Height = 24;
             this.gridVisits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridVisits.Size = new System.Drawing.Size(865, 105);
+            this.gridVisits.Size = new System.Drawing.Size(1157, 94);
             this.gridVisits.TabIndex = 1;
             this.gridVisits.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
             // 
@@ -507,9 +516,10 @@
             this.flowLayoutPanel3.Controls.Add(this.btnAddPlan);
             this.flowLayoutPanel3.Controls.Add(this.btnDisable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(865, 31);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1157, 38);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // btnViewVisit
@@ -518,9 +528,10 @@
             this.btnViewVisit.FlatAppearance.BorderSize = 0;
             this.btnViewVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewVisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnViewVisit.Location = new System.Drawing.Point(3, 3);
+            this.btnViewVisit.Location = new System.Drawing.Point(4, 4);
+            this.btnViewVisit.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewVisit.Name = "btnViewVisit";
-            this.btnViewVisit.Size = new System.Drawing.Size(109, 24);
+            this.btnViewVisit.Size = new System.Drawing.Size(145, 30);
             this.btnViewVisit.TabIndex = 3;
             this.btnViewVisit.Text = "Просмотреть...";
             this.btnViewVisit.UseVisualStyleBackColor = true;
@@ -530,9 +541,10 @@
             // 
             this.btnAddPlan.FlatAppearance.BorderSize = 0;
             this.btnAddPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPlan.Location = new System.Drawing.Point(118, 3);
+            this.btnAddPlan.Location = new System.Drawing.Point(157, 4);
+            this.btnAddPlan.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPlan.Name = "btnAddPlan";
-            this.btnAddPlan.Size = new System.Drawing.Size(75, 24);
+            this.btnAddPlan.Size = new System.Drawing.Size(100, 30);
             this.btnAddPlan.TabIndex = 1;
             this.btnAddPlan.Text = "Бронь...";
             this.btnAddPlan.UseVisualStyleBackColor = true;
@@ -542,9 +554,10 @@
             // 
             this.btnDisable.FlatAppearance.BorderSize = 0;
             this.btnDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisable.Location = new System.Drawing.Point(199, 3);
+            this.btnDisable.Location = new System.Drawing.Point(265, 4);
+            this.btnDisable.Margin = new System.Windows.Forms.Padding(4);
             this.btnDisable.Name = "btnDisable";
-            this.btnDisable.Size = new System.Drawing.Size(93, 24);
+            this.btnDisable.Size = new System.Drawing.Size(124, 30);
             this.btnDisable.TabIndex = 2;
             this.btnDisable.Text = "Анулировать...";
             this.btnDisable.UseVisualStyleBackColor = true;
@@ -554,10 +567,11 @@
             // 
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(873, 144);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(5);
+            this.tabPage2.Size = new System.Drawing.Size(1167, 142);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Абонемент";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -566,9 +580,10 @@
             // 
             this.panel2.Controls.Add(this.gridTickets);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(4, 35);
+            this.panel2.Location = new System.Drawing.Point(5, 43);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(865, 105);
+            this.panel2.Size = new System.Drawing.Size(1157, 94);
             this.panel2.TabIndex = 2;
             // 
             // gridTickets
@@ -585,50 +600,13 @@
             this.clmPayBefore});
             this.gridTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridTickets.Location = new System.Drawing.Point(0, 0);
-            this.gridTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.gridTickets.Margin = new System.Windows.Forms.Padding(5);
             this.gridTickets.Name = "gridTickets";
             this.gridTickets.RowHeadersVisible = false;
             this.gridTickets.RowTemplate.Height = 24;
             this.gridTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTickets.Size = new System.Drawing.Size(865, 105);
+            this.gridTickets.Size = new System.Drawing.Size(1157, 94);
             this.gridTickets.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
-            this.flowLayoutPanel2.Controls.Add(this.btnDebt);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(865, 31);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // btnNewTicket
-            // 
-            this.btnNewTicket.FlatAppearance.BorderSize = 0;
-            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTicket.Location = new System.Drawing.Point(4, 4);
-            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(75, 24);
-            this.btnNewTicket.TabIndex = 0;
-            this.btnNewTicket.Text = "Новый...";
-            this.btnNewTicket.UseVisualStyleBackColor = true;
-            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
-            // 
-            // btnDebt
-            // 
-            this.btnDebt.FlatAppearance.BorderSize = 0;
-            this.btnDebt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDebt.Location = new System.Drawing.Point(87, 4);
-            this.btnDebt.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDebt.Name = "btnDebt";
-            this.btnDebt.Size = new System.Drawing.Size(75, 24);
-            this.btnDebt.TabIndex = 1;
-            this.btnDebt.Text = "Долг...";
-            this.btnDebt.UseVisualStyleBackColor = true;
-            this.btnDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
             // clmId
             // 
@@ -643,6 +621,8 @@
             // 
             this.clmDateFinish.DataPropertyName = "DateFinish";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
             this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle7;
             this.clmDateFinish.HeaderText = "Дата окончания";
             this.clmDateFinish.Name = "clmDateFinish";
@@ -677,20 +657,56 @@
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaShell;
             dataGridViewCellStyle10.Format = "d";
-            dataGridViewCellStyle10.NullValue = null;
             this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmPayBefore.HeaderText = "Оплатить до";
             this.clmPayBefore.Name = "clmPayBefore";
             this.clmPayBefore.ReadOnly = true;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
+            this.flowLayoutPanel2.Controls.Add(this.btnDebt);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1157, 38);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // btnNewTicket
+            // 
+            this.btnNewTicket.FlatAppearance.BorderSize = 0;
+            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTicket.Location = new System.Drawing.Point(5, 5);
+            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(5);
+            this.btnNewTicket.Name = "btnNewTicket";
+            this.btnNewTicket.Size = new System.Drawing.Size(100, 30);
+            this.btnNewTicket.TabIndex = 0;
+            this.btnNewTicket.Text = "Новый...";
+            this.btnNewTicket.UseVisualStyleBackColor = true;
+            this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
+            // 
+            // btnDebt
+            // 
+            this.btnDebt.FlatAppearance.BorderSize = 0;
+            this.btnDebt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebt.Location = new System.Drawing.Point(115, 5);
+            this.btnDebt.Margin = new System.Windows.Forms.Padding(5);
+            this.btnDebt.Name = "btnDebt";
+            this.btnDebt.Size = new System.Drawing.Size(100, 30);
+            this.btnDebt.TabIndex = 1;
+            this.btnDebt.Text = "Долг...";
+            this.btnDebt.UseVisualStyleBackColor = true;
+            this.btnDebt.Click += new System.EventHandler(this.btnDebt_Click);
+            // 
             // ClientsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ClientsControl";
-            this.Size = new System.Drawing.Size(881, 472);
+            this.Size = new System.Drawing.Size(1175, 581);
             this.Load += new System.EventHandler(this.OnClientControlLoad);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

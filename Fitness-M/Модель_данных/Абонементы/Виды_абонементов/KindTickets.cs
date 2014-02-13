@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace Fitness_M
 {
     /// <summary>
     /// Виды абонементов
     /// </summary>
-    public class KindTickets : TicketsManager, IBusinessObject 
+    public class KindTickets : TicketsManager, IBusinessObject, INotifyPropertyChanged
     {
         /// <summary>
         /// Индтификатор
@@ -20,7 +21,11 @@ namespace Fitness_M
         public int Id
         {
             get { return m_Id; }
-            set { m_Id = value; }
+            set 
+            { 
+                m_Id = value;
+                OnPropertyChanged("Id");
+            }
         }
 
         /// <summary>
@@ -33,7 +38,10 @@ namespace Fitness_M
         public int Period
         {
             get { return m_Period; }
-            set { m_Period = value; }
+            set { 
+                m_Period = value;
+                OnPropertyChanged("Period");
+            }
         }
 
         /// <summary>
@@ -46,7 +54,10 @@ namespace Fitness_M
         public int CountBalls
         {
             get { return m_CountBalls; }
-            set { m_CountBalls = value; }
+            set { 
+                m_CountBalls = value;
+                OnPropertyChanged("CountBalls");
+            }
         }
 
         /// <summary>
@@ -59,7 +70,10 @@ namespace Fitness_M
         public int CountVisits
         {
             get { return m_CountVisits; }
-            set { m_CountVisits = value; }
+            set { 
+                m_CountVisits = value;
+                OnPropertyChanged("CountVisits");
+            }
         }
 
         /// <summary>
@@ -72,7 +86,10 @@ namespace Fitness_M
         public bool IsOnlyGroup
         {
             get { return m_IsOnlyGroup; }
-            set { m_IsOnlyGroup = value; }
+            set { 
+                m_IsOnlyGroup = value;
+                OnPropertyChanged("IsOnlyGroup");
+            }
         }
 
 
@@ -86,7 +103,10 @@ namespace Fitness_M
         public bool IsInactive
         {
             get { return m_IsInactive; }
-            set { m_IsInactive = value; }
+            set { 
+                m_IsInactive = value;
+                OnPropertyChanged("IsInactive");
+            }
         }
 
         private decimal m_Price;
@@ -96,7 +116,10 @@ namespace Fitness_M
         public decimal Price
         {
             get { return m_Price; }
-            set { m_Price = value; }
+            set { 
+                m_Price = value;
+                OnPropertyChanged("Price");
+            }
         }
 
         /// <summary>
@@ -140,6 +163,84 @@ namespace Fitness_M
         {
             DeleteKindTickets(this);
         }
+
+        /// <summary>
+        /// Сделать активным
+        /// </summary>
+        public void DoActive()
+        {
+            IsInactive = false;
+            UpdateIsDisabled(this, IsInactive);
+        }
+
+        /// <summary>
+        /// Сделать неактивным
+        /// </summary>
+        public void DoInactive()
+        {
+            IsInactive = true;
+            UpdateIsDisabled(this, IsInactive);
+        }
+
+        /// <summary>
+        /// Используется этот вид абонемента
+        /// </summary>
+        /// <returns></returns>
+        public bool UseKindTicket()
+        {
+            return UseKindTicket(this);
+        }
+
+        /// <summary>
+        /// Сделать снимок
+        /// </summary>
+        /// <returns></returns>
+        public KindTickets SnapShot()
+        {
+            var snapshot = new KindTickets();
+            snapshot.Id = Id;
+            snapshot.Period = Period;
+            snapshot.CountBalls = CountBalls;
+            snapshot.CountVisits = CountVisits;
+            snapshot.IsInactive = IsInactive;
+            snapshot.IsOnlyGroup = IsOnlyGroup;
+            snapshot.Price = Price;
+            return snapshot;
+        }
+
+        /// <summary>
+        /// Востановить по значению снимка
+        /// </summary>
+        /// <param name="snapShot"></param>
+        public void RestoreBySnapShot(KindTickets snapShot)
+        {
+            Id = snapShot.Id;
+            Period = snapShot.Period;
+            CountBalls = snapShot.CountBalls;
+            CountVisits = snapShot.CountVisits;
+            IsInactive = snapShot.IsInactive;
+            IsOnlyGroup = snapShot.IsOnlyGroup;
+            Price = snapShot.Price;
+        }
         #endregion
+
+        #region INotifyChanged
+        /// <summary>
+        /// Возможность информировать всех, что свойства объекта изменились
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Fire PropertyChanged
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        
     }
 }

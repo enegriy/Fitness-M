@@ -11,12 +11,15 @@ namespace Fitness_M
 {
     public partial class KindTicketsFormSelect : Form
     {
+        #region Prop
         /// <summary>
-        /// Клиент для которого добавляем абонемент
+        /// Данные
         /// </summary>
-        private Client m_Client;
-
-        private bool m_IsClosingForm = true;
+        public ClientDataSet DataSet
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Действие
@@ -32,22 +35,26 @@ namespace Fitness_M
         }
 
         /// <summary>
-        /// Выбранный вид тикета
+        /// Клиент для которого добавляем абонемент
         /// </summary>
-        public int SelectedIdKindTickets { get; set; }
+        private Client m_Client;
 
         /// <summary>
         /// Источник данных
         /// </summary>
-        public object DataSource 
-        { 
-            set 
+        public object DataSource
+        {
+            set
             {
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = value; 
-            } 
+                GridHelper.SetGridStyle(gridKindTickets);
+                gridKindTickets.DataSource = new BindingSource(value, "");
+            }
         }
+        #endregion
 
+        private bool m_IsClosingForm = true;
+
+        
         public KindTicketsFormSelect()
         {
             InitializeComponent();
@@ -66,14 +73,7 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
-            GridHelper.SetGridStyle(dataGridView1);
             SetFormTitle();
-        }
-
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            SelectedIdKindTickets = (int)dataGridView1.CurrentRow.Cells["clmId"].Value;
         }
 
         /// <summary>
@@ -85,17 +85,38 @@ namespace Fitness_M
                 throw new BussinesException("Не возможно открыть форму, не задан клиент!");
 
             var frm = new KindTicketsFormSelect();
-            frm.DataSource = dataSet.ListKindTickets;
+            var activeTickets = dataSet.ListKindTickets.Where(x => x.IsInactive == false).ToArray();
+            frm.DataSource = activeTickets;
             frm.Action = action;
             frm.m_Client = client;
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                var ticketController = new TicketsController();
-                ticketController.DataSet = dataSet;
-                ticketController.CreateTicket(client, frm.SelectedIdKindTickets);
-            }
-                
+            frm.DataSet = dataSet;
+            frm.ShowDialog();
             return frm;
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (DialogResult == DialogResult.OK)
+                {
+                    var ticketController = new TicketsController();
+
+                    object currentKindTicket = ((BindingSource)gridKindTickets.DataSource).Current;
+                    if (currentKindTicket == null)
+                        throw new BussinesException("Не выбран абонемент!");
+
+
+                    var newTicket = ticketController.CreateTicket(m_Client, (KindTickets)currentKindTicket);
+                    DataSet.ListTickets.Add(newTicket);
+                    DataSet.SetSpecificationForClients();
+                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+                e.Cancel = true;
+            }
         }
 
         

@@ -11,6 +11,7 @@ namespace Fitness_M
 {
     public partial class TicketsControl : UserControl
     {
+        #region Prop
         /// <summary>
         /// Данные
         /// </summary>
@@ -19,6 +20,7 @@ namespace Fitness_M
             get;
             set;
         }
+        #endregion
 
         public TicketsControl()
         {
@@ -27,19 +29,14 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
-            GridHelper.SetGridStyle(dataGridView1);
-            GridHelper.SetGridStyle(dataGridView2);
-
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView2.AutoGenerateColumns = false;
-
             InitDataGridKindTickets();
             InitDataGridTickets();
         }
 
         private void InitDataGridTickets()
         {
-            dataGridView2.DataSource = new TicketMixedManager().GetListTicketMixed();
+            GridHelper.SetGridStyle(gridAllTickets);
+            gridAllTickets.DataSource = new BindingSource( new TicketMixedManager().GetListTicketMixed(),"");
         }
 
         public void InitDataGridKindTickets()
@@ -47,7 +44,8 @@ namespace Fitness_M
             if (DataSet == null) 
                 throw new BussinesException("Не задан источник данных");
 
-            dataGridView1.DataSource = DataSet.ListKindTickets;
+            GridHelper.SetGridStyle(gridKindTicket);
+            gridKindTicket.DataSource = new BindingSource(DataSet.ListKindTickets,"");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -56,42 +54,86 @@ namespace Fitness_M
             KindTicketsFormEdit.FormShow(ActionState.Add, kindTickets);
             if (!kindTickets.IsEmpty)
             {
-                DataSet.ListKindTickets.Add(kindTickets);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = DataSet.ListKindTickets;
+                ((BindingSource)gridKindTicket.DataSource).Add(kindTickets);
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var kindTicket = GetSelectedKindTicket();
-            if (kindTicket != null)
+            try
             {
-                KindTicketsFormEdit.FormShow(ActionState.Edit, kindTicket);
+                var kindTicket = GetSelectedKindTicket();
+
+                if (kindTicket.UseKindTicket())
+                    throw new BussinesException("Нельзя изменить, абонементы этого виды были проданы клиентам!");
+
+                if (kindTicket != null)
+                {
+                    KindTicketsFormEdit.FormShow(ActionState.Edit, kindTicket);
+                }
+                gridKindTicket.Refresh();
             }
-            dataGridView1.Refresh();
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageHelper.ShowQuestion(
-                "Вы уверены что хотите удалить вид шаблона ?") == DialogResult.Yes)
+            try
             {
                 var kindTicket = GetSelectedKindTicket();
-                if (kindTicket != null)
+
+                if (kindTicket.UseKindTicket())
+                    throw new BussinesException("Нельзя удалить, абонементы этого виды были проданы клиентам!");
+
+                if (MessageHelper.ShowQuestion(
+                    "Вы уверены что хотите удалить вид шаблона ?") == DialogResult.Yes)
                 {
-                    kindTicket.Delete();
-                    DataSet.ListKindTickets.Remove(kindTicket);
-                    dataGridView1.DataSource = DataSet.ListKindTickets.ToArray();
+                    if (kindTicket != null)
+                    {
+                        kindTicket.Delete();
+                        DataSet.ListKindTickets.Remove(kindTicket);
+                        gridKindTicket.DataSource = new BindingSource(DataSet.ListKindTickets, "");
+                    }
                 }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
             }
         }
 
+        /// <summary>
+        /// Выделенный абонемент
+        /// </summary>
+        /// <returns></returns>
         private KindTickets GetSelectedKindTicket()
         {
-            int Id = (int)dataGridView1.CurrentRow.Cells["clmId"].Value;
-            var kindTicket = DataSet.ListKindTickets.FirstOrDefault(x => x.Id == Id);
-            return kindTicket;
+            return (KindTickets)((BindingSource)gridKindTicket.DataSource).Current;
+        }
+
+        private void btnInactive_Click(object sender, EventArgs e)
+        {
+            if (MessageHelper.ShowQuestion("Вы хотите снять абонемент данного типа с продажи?") == DialogResult.Yes)
+            {
+                var kindTickets = GetSelectedKindTicket();
+                if(!kindTickets.IsInactive)
+                    kindTickets.DoInactive();
+            }
+
+        }
+
+        private void btnActive_Click(object sender, EventArgs e)
+        {
+            if (MessageHelper.ShowQuestion("Вы хотите ввести абонемент данного типа в продажу?") == DialogResult.Yes)
+            {
+                var kindTickets = GetSelectedKindTicket();
+                if (kindTickets.IsInactive)
+                    kindTickets.DoActive();
+            }
+
         }
     }
 }

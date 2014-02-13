@@ -10,12 +10,8 @@ namespace Fitness_M
     /// </summary>
     public class TicketsController
     {
-        public ClientDataSet DataSet { get; set; }
-
-        public void CreateTicket(Client client, int kindTicketsId)
+        public Tickets CreateTicket(Client client, KindTickets kindTickets)
         {
-            var kindTickets = DataSet.ListKindTickets.FirstOrDefault(x => x.Id == kindTicketsId);
-
             var ticket = new Tickets();
             ticket.ClientId = client.Id;
             ticket.KindTicketsId = kindTickets.Id;
@@ -31,11 +27,7 @@ namespace Fitness_M
 
             ticket.Save();
 
-            if (DataSet != null)
-            {
-                DataSet.ListTickets.Add(ticket);
-                DataSet.SetSpecificationForClients();
-            }
+            return ticket;
         }
 
         /// <summary>

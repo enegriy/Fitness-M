@@ -221,6 +221,27 @@ namespace Fitness_M
             }
         }
 
+        public void UpdateIsDisabled(KindTickets kindTickets, bool IsInactive)
+        {
+            if (kindTickets.Id != 0)
+            {
+                OpenConnection();
+                var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd.Connection = Connection;
+
+                string sql = @"UPDATE kind_tickets SET 
+                    isinactive = @isinactive
+                    WHERE id = @id";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", kindTickets.Id);
+                cmd.Parameters.AddWithValue("@isinactive", kindTickets.IsInactive);
+
+                cmd.ExecuteNonQuery();
+
+                CloseConnection();
+            }
+        }
+
         public void UpdateTickets(Tickets tickets)
         {
             if (tickets.Id != 0)
@@ -267,6 +288,26 @@ namespace Fitness_M
 
                 CloseConnection();
             }
+        }
+
+        public bool UseKindTicket(KindTickets kindTickets)
+        {
+            if (kindTickets.Id == 0) return false;
+
+            OpenConnection();
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+            cmd.Connection = Connection;
+
+            string sql = @"select count(*) from tickets where kind_tickets_id = @id";
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@id", kindTickets.Id);
+            long count = (long)cmd.ExecuteScalar();
+
+            CloseConnection();
+
+            if (count > 0)
+                return true;
+            return false;
         }
 
         public void DeleteTickets(Tickets tickets)
