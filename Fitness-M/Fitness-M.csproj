@@ -52,6 +52,7 @@
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
+    <Compile Include="Контроллер\Тренажеры\ClientController.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
@@ -230,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+    <Folder Include="Контроллер\Клиенты\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

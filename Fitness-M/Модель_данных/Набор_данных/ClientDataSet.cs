@@ -53,6 +53,16 @@ namespace Fitness_M
             set { m_ListVisit = value; }
         }
 
+        private IList<KindTickets> m_ListKindTickets;
+        /// <summary>
+        /// Вид тикетов
+        /// </summary>
+        public IList<KindTickets> ListKindTickets
+        {
+            get { return m_ListKindTickets; }
+            set { m_ListKindTickets = value; }
+        }
+
         /// <summary>
         /// Пустой список тикетов
         /// </summary>
@@ -85,17 +95,6 @@ namespace Fitness_M
             get { return (ListFitnessEquipment == null || ListFitnessEquipment.Count == 0); }
         }
 
-
-        private IList<KindTickets> m_ListKindTickets;
-        /// <summary>
-        /// Вид тикетов
-        /// </summary>
-        public IList<KindTickets> ListKindTickets
-        {
-            get { return m_ListKindTickets; }
-            set { m_ListKindTickets = value; }
-        }
-
         /// <summary>
         /// Пустой список видов тикетов
         /// </summary>
@@ -103,6 +102,11 @@ namespace Fitness_M
         {
             get { return (ListKindTickets == null || ListKindTickets.Count == 0); }
         }
+
+
+        
+
+        
 
         #region PublicMethods
         /// <summary>
@@ -116,6 +120,7 @@ namespace Fitness_M
         {
             if (m_This != null) return m_This;
             m_This = new ClientDataSet();
+            m_This.LoadData();
             return m_This;
         }
 
@@ -225,8 +230,6 @@ namespace Fitness_M
             LoadKindTickets();
             LoadFitnessEquipments();
             LoadVisitsOnCurrentDate();
-            SetSpecificationForClients();
-            SetSpecificationVisitForClients();
         }
 
         #endregion

@@ -98,17 +98,35 @@ namespace Fitness_M
         /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageHelper.ShowQuestion(
-                "Вы уверены что хотите удалить клиента ?") == DialogResult.Yes)
+            try
             {
                 var client = ((BindingSource)gridClients.DataSource).Current as Client;
-                if (client != null)
+
+                var clientController = new ClientController();
+                clientController.CheckConstrainsClient(client);
+
+                if (MessageHelper.ShowQuestion(
+                    "Вы уверены что хотите удалить клиента ?") == DialogResult.Yes)
                 {
-                    client.Delete();
-                    ((BindingSource)gridClients.DataSource).Remove(client);
-                    //DataSet.ListClients.Remove(client);
-                    //gridClients.DataSource = DataSet.ListClients.ToArray();
+                    if (client != null)
+                    {
+                        foreach (var visit in client.ListVisit)
+                            visit.Delete();
+
+                        foreach (var ticket in client.ListTickets)
+                            ticket.Delete();
+
+                        client.Delete();
+
+                        ((BindingSource)gridClients.DataSource).Remove(client);
+                        //DataSet.ListClients.Remove(client);
+                        //gridClients.DataSource = DataSet.ListClients.ToArray();
+                    }
                 }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError("Удаление невозможно! "+exc.Message);
             }
         }
 
@@ -149,13 +167,14 @@ namespace Fitness_M
         /// </summary>
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
+            var ticketController = new TicketsController();
             try
             {
                 var client = ((BindingSource)gridClients.DataSource).Current as Client;
                 if (client == null)
                     throw new BussinesException("Клиент не выбран!");
 
-                MustAddTicket(client);
+                ticketController.CheckExistTwoKindTicket(client);
 
                 KindTicketsFormSelect.FormShow(
                     ActionState.Select,
@@ -166,24 +185,6 @@ namespace Fitness_M
             {
                 MessageHelper.ShowError(exc.Message);
             }
-        }
-
-        /// <summary>
-        /// Могу добавить абонемент
-        /// </summary>
-        private void MustAddTicket(Client client)
-        {
-            var listTicket = client.ListTickets.Where(x => 
-                x.DateFinish.Date > DateTime.Now && x.Balance > 0);
-
-            var isExistOnlyGroup = listTicket.Any(x => 
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == true);
-
-            var isExistNotOnlyGroup = listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);
-
-            if (isExistNotOnlyGroup && isExistOnlyGroup)
-                throw new BussinesException("Не возможно добавить новый абонемент, у клиента уже есть абонемент на групповые и не групповые занятия!");
         }
 
         /// <summary>
@@ -317,6 +318,7 @@ namespace Fitness_M
                     gridVisits.Refresh();
                 }
             }
+
             catch (BussinesException exc)
             {
                 MessageHelper.ShowError(exc.Message);

@@ -67,16 +67,6 @@ namespace Fitness_M
 #region Public Methods
 
         /// <summary>
-        /// Поднять всех клиентов
-        /// </summary>
-        /// <returns></returns>
-        public  static IList<Client> FindAll()
-        {
-            var cm = new ClientManager();
-            return cm.LoadCliets();
-        }
-
-        /// <summary>
         /// Сохранить
         /// </summary>
         public void Save()

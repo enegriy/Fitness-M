@@ -22,7 +22,6 @@ namespace Fitness_M
         {
             SetRegims(treeViewRegims);
             m_DataSet = ClientDataSet.Get();
-            m_DataSet.LoadData();
             timerForToday.Start();
         }
 

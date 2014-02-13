@@ -106,6 +106,16 @@ namespace Fitness_M
                     if (currentKindTicket == null)
                         throw new BussinesException("Не выбран абонемент!");
 
+                    if (((KindTickets)currentKindTicket).IsOnlyGroup)
+                    {
+                        if (ticketController.IsExistTicketOnlyGroup(m_Client))
+                            throw new BussinesException("У клиента уже существует абонемент на групповые занятия!");
+                    }
+                    else
+                    {
+                        if (ticketController.IsExistTicketOnFitnessEq(m_Client))
+                            throw new BussinesException("У клиента существует абонемент с неиспользуемыми баллами!");
+                    }
 
                     var newTicket = ticketController.CreateTicket(m_Client, (KindTickets)currentKindTicket);
                     DataSet.ListTickets.Add(newTicket);

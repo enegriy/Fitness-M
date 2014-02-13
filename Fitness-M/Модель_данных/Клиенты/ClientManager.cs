@@ -149,5 +149,21 @@ namespace Fitness_M
                 CloseConnection();
             }
         }
+
+        public long GenerateNumber()
+        {
+            OpenConnection();
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+            cmd.Connection = Connection;
+
+            string sql = @"select max(number) from clients;";
+            cmd.CommandText = sql;
+            long num = (long)cmd.ExecuteScalar();
+            num++;
+
+            CloseConnection();
+
+            return num;
+        }
     }
 }

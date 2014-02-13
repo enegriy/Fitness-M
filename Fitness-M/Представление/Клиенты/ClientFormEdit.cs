@@ -67,6 +67,17 @@ namespace Fitness_M
         {
             SetFormTitle();
             BindingClient();
+            SetNumberClient();
+        }
+
+        /// <summary>
+        /// Установить номер клиента
+        /// </summary>
+        private void SetNumberClient()
+        {
+            textBox1.Enabled = false;
+            if(Action == ActionState.Add)
+                textBox1.Text = new ClientManager().GenerateNumber().ToString();
         }
 
         /// <summary>
@@ -78,6 +89,7 @@ namespace Fitness_M
             textBox2.DataBindings.Add("Text", m_CurrentClient, "Surname");
             textBox3.DataBindings.Add("Text", m_CurrentClient, "Name");
             textBox4.DataBindings.Add("Text", m_CurrentClient, "Lastname");
+            dateTimePicker1.Value = m_CurrentClient.DateBirth;
             //dateTimePicker1.DataBindings.Add("Value", m_CurrentClient);
             textBox5.DataBindings.Add("Text", m_CurrentClient, "Phone");
             textBox6.DataBindings.Add("Text", m_CurrentClient, "Address");
@@ -94,6 +106,8 @@ namespace Fitness_M
             {
                 if (DialogResult == DialogResult.OK)
                 {
+                    m_CurrentClient.DateBirth = dateTimePicker1.Value;
+
                     if (Action == ActionState.Add)
                         m_CurrentClient.Save();
                     else if (Action == ActionState.Edit)
