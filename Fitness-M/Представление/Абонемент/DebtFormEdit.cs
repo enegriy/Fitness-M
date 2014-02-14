@@ -36,7 +36,12 @@ namespace Fitness_M
                     Ticket.Debt = 0;
                 else
                     Ticket.Debt = numDebt.Value;
-                Ticket.PayBefore = dateTimePayBefore.Value;
+
+                if (Ticket.Debt == 0)
+                    Ticket.PayBefore = DateTime.MinValue;
+                else
+                    Ticket.PayBefore = dateTimePayBefore.Value;
+
                 Ticket.Update();
             }
         }

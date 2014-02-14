@@ -387,7 +387,12 @@ namespace Fitness_M
 
         private void OnCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
         {
+            var currObj = (Tickets)gridTickets.Rows[e.RowIndex].DataBoundItem;
 
+            if (e.ColumnIndex == 3)
+                e.Value = currObj.Debt == 0 ? "" : currObj.Debt.ToString();
+            else if (e.ColumnIndex == 4)
+                e.Value = currObj.PayBefore == DateTime.MinValue ? "" : currObj.PayBefore.ToString("dd.MM.yyyy");
         }
 
     }

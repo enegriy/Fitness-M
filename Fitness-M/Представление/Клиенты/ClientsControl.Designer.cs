@@ -88,7 +88,6 @@
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -127,7 +126,7 @@
             this.btnAddClient.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAddClient.FlatAppearance.BorderSize = 0;
             this.btnAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddClient.ImageIndex = 2;
             this.btnAddClient.ImageList = this.imageList1;
@@ -155,7 +154,7 @@
             // 
             this.btnEditClient.FlatAppearance.BorderSize = 0;
             this.btnEditClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnEditClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditClient.ImageIndex = 1;
             this.btnEditClient.ImageList = this.imageList1;
@@ -175,7 +174,7 @@
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.ImageIndex = 3;
             this.btnDelete.ImageList = this.imageList1;
@@ -593,8 +592,7 @@
             this.clmDateFinish,
             this.clmBalance,
             this.clmDebt,
-            this.clmPayBefore,
-            this.Column1});
+            this.clmPayBefore});
             this.gridTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridTickets.Location = new System.Drawing.Point(0, 0);
             this.gridTickets.Margin = new System.Windows.Forms.Padding(5);
@@ -677,7 +675,6 @@
             // 
             // clmDebt
             // 
-            this.clmDebt.DataPropertyName = "Debt";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.SeaShell;
             dataGridViewCellStyle9.Format = "N2";
@@ -689,7 +686,6 @@
             // 
             // clmPayBefore
             // 
-            this.clmPayBefore.DataPropertyName = "PayBefore";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaShell;
             dataGridViewCellStyle10.Format = "d";
@@ -697,11 +693,7 @@
             this.clmPayBefore.HeaderText = "Оплатить до";
             this.clmPayBefore.Name = "clmPayBefore";
             this.clmPayBefore.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.clmPayBefore.Width = 120;
             // 
             // ClientsControl
             // 
@@ -783,7 +775,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDebt;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPayBefore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 
 
 
