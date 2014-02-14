@@ -10,7 +10,13 @@ namespace Fitness_M
     /// </summary>
     public class TicketsController
     {
-        public Tickets CreateTicket(Client client, KindTickets kindTickets)
+        /// <summary>
+        /// Создание абонемента
+        /// </summary>
+        public Tickets CreateTicket(
+            Client client, 
+            KindTickets kindTickets, 
+            ClientDataSet dataSet)
         {
             var ticket = new Tickets();
             ticket.ClientId = client.Id;
@@ -54,12 +60,10 @@ namespace Fitness_M
         /// </summary>
         public static void DeductGroupVisit(IList<Tickets> listTicket)
         {
-            TicketsManager ticketManager = new TicketsManager();
-
             var ticket = listTicket.FirstOrDefault(x => 
                 x.DateFinish > System.DateTime.Now && 
                 x.Balance > 0 && 
-                ticketManager.GetKindTickets(x.KindTicketsId).IsOnlyGroup);
+                x.KindTicketsRef.IsOnlyGroup);
 
             ticket.Balance -= 1;
             ticket.Update();
@@ -75,10 +79,10 @@ namespace Fitness_M
                 x.DateFinish.Date > DateTime.Now && x.Balance > 0);
 
             var isExistOnlyGroup = listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == true);
+                x.KindTicketsRef.IsOnlyGroup == true);
 
             var isExistNotOnlyGroup = listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);
+                x.KindTicketsRef.IsOnlyGroup == false);
 
             if (isExistNotOnlyGroup && isExistOnlyGroup)
                 throw new BussinesException("Не возможно добавить новый абонемент, у клиента уже есть абонемент на групповые и не групповые занятия!");

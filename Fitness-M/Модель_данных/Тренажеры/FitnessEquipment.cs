@@ -10,6 +10,7 @@ namespace Fitness_M
     /// </summary>
     public class FitnessEquipment: FitnessEquipmentManager, IBusinessObject
     {
+        #region Prop
         /// <summary>
         /// Спецификация незанятого времени
         /// </summary>
@@ -38,18 +39,9 @@ namespace Fitness_M
         {
             get { return Id == 0; }
         }
+        #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// Поднять всех клиентов
-        /// </summary>
-        /// <returns></returns>
-        public static IList<FitnessEquipment> FindAll()
-        {
-            var fem = new FitnessEquipmentManager();
-            return fem.LoadFitnessEquipment();
-        }
 
         /// <summary>
         /// Сохранить
@@ -74,7 +66,6 @@ namespace Fitness_M
         {
             Delete(this);
         }
-
 
         #endregion
     }

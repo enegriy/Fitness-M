@@ -12,6 +12,7 @@ namespace Fitness_M
     {
         private static ClientDataSet m_This;
 
+        #region Tables
         private IList<Client> m_ListClients;
         /// <summary>
         /// Список клиентов
@@ -63,49 +64,19 @@ namespace Fitness_M
             set { m_ListKindTickets = value; }
         }
 
+        private IList<ClientUseFitnessEquipment> m_ListUseFitnessEquipment;
         /// <summary>
-        /// Пустой список тикетов
+        /// Вид тикетов
         /// </summary>
-        public bool IsEmptyListTickets
+        public IList<ClientUseFitnessEquipment> ListUseFitnessEquipment
         {
-            get { return (ListTickets == null || ListTickets.Count == 0); }
+            get { return m_ListUseFitnessEquipment; }
+            set { m_ListUseFitnessEquipment = value; }
         }
-
-        /// <summary>
-        /// Пустой список клиентов
-        /// </summary>
-        public bool IsEmptyListCliets
-        {
-            get { return (ListClients == null || ListClients.Count == 0); }
-        }
-
-        /// <summary>
-        /// Пустой список клиентов
-        /// </summary>
-        public bool IsEmptyListVisit
-        {
-            get { return (ListVisit == null || ListVisit.Count == 0); }
-        }
-
-        /// <summary>
-        /// Пустой список тренажеров
-        /// </summary>
-        public bool IsEmptyListFitnessEquipment
-        {
-            get { return (ListFitnessEquipment == null || ListFitnessEquipment.Count == 0); }
-        }
-
-        /// <summary>
-        /// Пустой список видов тикетов
-        /// </summary>
-        public bool IsEmptyListKindTickets
-        {
-            get { return (ListKindTickets == null || ListKindTickets.Count == 0); }
-        }
+        #endregion
 
 
         
-
         
 
         #region PublicMethods
@@ -125,16 +96,33 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Загрузить все данные
+        /// </summary>
+        public void LoadData()
+        {
+            LoadClients();
+            LoadTickets();
+            LoadKindTickets();
+            LoadFitnessEquipments();
+            LoadVisits();
+            LoadUseFitnessEquipment();
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
         /// Загрузить список клиентов
         /// </summary>
-        public void LoadClients()
+        private void LoadClients()
         {
             ListClients = (new ClientManager()).LoadCliets();
         }
         /// <summary>
         /// Загрузить список видов абонементов
         /// </summary>
-        public void LoadKindTickets()
+        private void LoadKindTickets()
         {
             ListKindTickets = (new TicketsManager()).LoadKindTickets();
         }
@@ -142,53 +130,62 @@ namespace Fitness_M
         /// <summary>
         /// Загрузить абонементы 
         /// </summary>
-        public void LoadTickets()
+        private void LoadTickets()
         {
             ListTickets = (new TicketsManager()).LoadTickets();
-        }
-
-        /// <summary>
-        /// Загрузить абонементы на текущую дату 
-        /// </summary>
-        public void LoadTicketsOnCurrentDate()
-        {
-            ListTickets = (new TicketsManager()).LoadTickets();
-            ListTickets = ListTickets.Where(tck => 
-                tck.DateFinish.Date >= DateTime.Now.Date &&
-                tck.Balance > 0).ToList();
-        }
-
-        /// <summary>
-        /// Загрузить посещения
-        /// </summary>
-        public void LoadVisits()
-        {
-            ListVisit = (new VisitManager()).LoadVisit();
-        }
-
-        /// <summary>
-        /// Загрузить на текущую дату
-        /// </summary>
-        public void LoadVisitsOnCurrentDate()
-        {
-            ListVisit = (new VisitManager()).LoadVisit();
-            ListVisit = ListVisit.Where(vst =>
-                vst.PlanFrom.Date >= DateTime.Now.Date ||
-                vst.VisitFrom.Date >= DateTime.Now.Date).ToList();
         }
 
         /// <summary>
         /// Загрузить тренажеры
         /// </summary>
-        public void LoadFitnessEquipments()
+        private void LoadFitnessEquipments()
         {
             ListFitnessEquipment = (new FitnessEquipmentManager()).LoadFitnessEquipment();
         }
 
         /// <summary>
+        /// Загрузить посещения
+        /// </summary>
+        private void LoadVisits()
+        {
+            ListVisit = (new VisitManager()).LoadVisit();
+        }
+
+        /// <summary>
+        /// Загрузить используемых тренажеров
+        /// </summary>
+        private void LoadUseFitnessEquipment()
+        {
+            ListUseFitnessEquipment = (new ClientUseFitnessEquipmentManager()).LoadClientUseFitnessEquipments();
+        }
+
+        /// <summary>
+        /// Загрузить абонементы на текущую дату 
+        /// </summary>
+        /*private void LoadTicketsOnCurrentDate()
+        {
+            ListTickets = (new TicketsManager()).LoadTickets();
+            ListTickets = ListTickets.Where(tck =>
+                tck.DateFinish.Date >= DateTime.Now.Date &&
+                tck.Balance > 0).ToList();
+        }*/
+
+        /// <summary>
+        /// Загрузить на текущую дату
+        /// </summary>
+        /*private void LoadVisitsOnCurrentDate()
+        {
+            ListVisit = (new VisitManager()).LoadVisit();
+            ListVisit = ListVisit.Where(vst =>
+                vst.PlanFrom.Date >= DateTime.Now.Date ||
+                vst.VisitFrom.Date >= DateTime.Now.Date).ToList();
+        }*/
+
+
+        /// <summary>
         /// Установить спецификацию для клиентов
         /// </summary>
-        public void SetSpecificationForClients()
+        /*private void SetSpecificationForClients()
         {
             if (ListClients != null && ListTickets != null)
             {
@@ -197,12 +194,12 @@ namespace Fitness_M
                     ListClients[i].ListTickets = ListTickets.Where(x => x.ClientId == ListClients[i].Id).ToArray();
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Установить спецификацию посещений для клиентов
         /// </summary>
-        public void SetSpecificationVisitForClients()
+        /*private void SetSpecificationVisitForClients()
         {
             if (ListClients != null && ListTickets != null)
             {
@@ -218,20 +215,9 @@ namespace Fitness_M
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Загрузить все данные
-        /// </summary>
-        public void LoadData()
-        {
-            LoadClients();
-            LoadTicketsOnCurrentDate();
-            LoadKindTickets();
-            LoadFitnessEquipments();
-            LoadVisitsOnCurrentDate();
-        }
+        }*/
 
         #endregion
+
     }
 }

@@ -76,7 +76,8 @@ namespace Fitness_M
             ClientFormEdit.FormShow(ActionState.Add, newClient);
             if (!newClient.IsEmpty)
             {
-                ((BindingSource)gridClients.DataSource).Add(newClient);
+                var source = (BindingSource)gridClients.DataSource;
+                source.Position = source.Add(newClient);
             }
         }
 
@@ -130,12 +131,6 @@ namespace Fitness_M
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            InitDataGrid();
-            OnFindChange(sender, e);
-        }
-
         /// <summary>
         /// Поиск
         /// </summary>
@@ -170,16 +165,27 @@ namespace Fitness_M
             var ticketController = new TicketsController();
             try
             {
-                var client = ((BindingSource)gridClients.DataSource).Current as Client;
+                var source = (BindingSource)gridClients.DataSource;
+                var client = source.Current as Client;
                 if (client == null)
                     throw new BussinesException("Клиент не выбран!");
 
                 ticketController.CheckExistTwoKindTicket(client);
 
-                KindTicketsFormSelect.FormShow(
-                    ActionState.Select,
+                var kindTicketSelected = KindTicketsFormSelect.FormShow(
                     client,
                     DataSet);
+
+                if (kindTicketSelected != null)
+                {
+                    var ticket = ticketController
+                        .CreateTicket(client, kindTicketSelected, DataSet);
+
+                    DataSet.ListTickets.Add(ticket);
+
+                    var ticketSource = (BindingSource)gridTickets.DataSource;
+                    ticketSource.Position = ticketSource.Add(ticket);
+                }
             }
             catch (BussinesException exc)
             {
@@ -196,7 +202,12 @@ namespace Fitness_M
             {
                 var source = gridClients.DataSource as BindingSource;
 
-                PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+                var visit = PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+                if (visit != null)
+                {
+                    DataSet.ListVisit.Add(visit);
+                    ((BindingSource)gridVisits.DataSource).Add(visit);
+                }
             }
             catch (BussinesException exc)
             {
@@ -370,8 +381,13 @@ namespace Fitness_M
             if (ticket != null)
             {
                 if (DebtFormEdit.FormShow((Tickets)ticket) == DialogResult.OK)
-                    gridVisits.Refresh();
+                    gridTickets.Refresh();
             }
+        }
+
+        private void OnCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+
         }
 
     }

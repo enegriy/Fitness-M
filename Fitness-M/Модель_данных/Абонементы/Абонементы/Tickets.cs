@@ -8,8 +8,9 @@ namespace Fitness_M
     /// <summary>
     /// Абонементы
     /// </summary>
-    public class Tickets : TicketsManager, IBusinessObject 
+    public class Tickets : TicketsManager, IBusinessObject
     {
+        #region Prop
         private int m_Id;
         /// <summary>
         /// Идентити
@@ -90,8 +91,7 @@ namespace Fitness_M
                 return Id == 0;
             }
         }
-
-
+        #endregion
 
         #region Public Methods
 
@@ -127,6 +127,51 @@ namespace Fitness_M
             DeleteTickets(this);
         }
 
+        #endregion
+
+        #region ReferenceProp
+        private Client m_ClientRef;
+        /// <summary>
+        /// Ссылка на клиента
+        /// </summary>
+        public Client ClientRef
+        {
+            get
+            {
+                if (m_ClientRef == null)
+                {
+                    var dataSet = ClientDataSet.Get();
+                    m_ClientRef = dataSet.ListClients.FirstOrDefault(x => x.Id == ClientId);
+                }
+                return m_ClientRef;
+            }
+            set
+            {
+                m_ClientRef = value;
+            }
+        }
+
+
+        private KindTickets m_KindTicketsRef;
+        /// <summary>
+        /// Ссылка на Вид абонемент
+        /// </summary>
+        public KindTickets KindTicketsRef
+        {
+            get 
+            {
+                if (m_KindTicketsRef == null)
+                {
+                    var dataSet = ClientDataSet.Get();
+                    m_KindTicketsRef = dataSet.ListKindTickets.FirstOrDefault(x => x.Id == KindTicketsId);
+                }
+                return m_KindTicketsRef; 
+            }
+            set 
+            { 
+                m_KindTicketsRef = value; 
+            }
+        }
         #endregion
     }
 }

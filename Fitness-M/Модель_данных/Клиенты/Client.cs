@@ -10,14 +10,53 @@ namespace Fitness_M
     /// </summary>
     public sealed class Client: ClientManager, IBusinessObject
     {
+        #region Prop
+        private IList<Tickets> m_ListTickets;
         /// <summary>
         /// Спецификация абонементов
         /// </summary>
-        public IList<Tickets> ListTickets { get; set; }
+        public IList<Tickets> ListTickets {
+            get
+            {
+                if (m_ListTickets == null)
+                {
+                    m_ListTickets = new List<Tickets>();
+                    var dataSet = ClientDataSet.Get();
+                    var tickets = dataSet.ListTickets.Where(x => x.ClientId == this.Id).ToList();
+                    ((List<Tickets>)m_ListTickets).AddRange(tickets);
+                }
+
+                return m_ListTickets;
+            }
+            set
+            {
+                m_ListTickets = value;
+            }
+        }
+
+        private IList<Visit> m_ListVisit;
         /// <summary>
         /// Спецификация посещений
         /// </summary>
-        public IList<Visit> ListVisit { get;set; }
+        public IList<Visit> ListVisit
+        {
+            get
+            {
+                if (m_ListVisit == null)
+                {
+                    m_ListVisit = new List<Visit>();
+                    var dataSet = ClientDataSet.Get();
+                    var visits = dataSet.ListVisit.Where(x => x.ClientId == this.Id).ToList();
+                    ((List<Visit>)m_ListVisit).AddRange(visits);
+                }
+
+                return m_ListVisit;
+            }
+            set
+            {
+                m_ListVisit = value;
+            }
+        }
 
         /// <summary>
         /// Индтификатор
@@ -62,9 +101,9 @@ namespace Fitness_M
         {
             get { return Id == 0; }
         }
+        #endregion
 
-
-#region Public Methods
+        #region Public Methods
 
         /// <summary>
         /// Сохранить
@@ -89,8 +128,6 @@ namespace Fitness_M
         {
             Delete(this);
         }
-
-        
-#endregion
+        #endregion
     }
 }

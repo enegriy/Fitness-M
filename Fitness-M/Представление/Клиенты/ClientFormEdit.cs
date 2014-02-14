@@ -76,8 +76,11 @@ namespace Fitness_M
         private void SetNumberClient()
         {
             textBox1.Enabled = false;
-            if(Action == ActionState.Add)
-                textBox1.Text = new ClientManager().GenerateNumber().ToString();
+            if (Action == ActionState.Add)
+            {
+                m_CurrentClient.Number = new ClientManager().GenerateNumber();
+                textBox1.Text = m_CurrentClient.Number.ToString();
+            }
         }
 
         /// <summary>

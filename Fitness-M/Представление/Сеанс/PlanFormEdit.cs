@@ -57,11 +57,16 @@ namespace Fitness_M
         {
             get { return m_PeriodTrainingFinish; }
         }
+
+        /// <summary>
+        /// Новое посещение
+        /// </summary>
+        public Visit NewVisit { get; set; }
         #endregion
         /// <summary>
         /// Показать форму редактирования
         /// </summary>
-        public static void FormShow(ClientDataSet dataSet, Client client)
+        public static Visit FormShow(ClientDataSet dataSet, Client client)
         {
             if (client == null)
                 throw new BussinesException("Бронирование не возможно, выберите клиента!");
@@ -69,7 +74,10 @@ namespace Fitness_M
             var frm = new PlanFormEdit();
             frm.DataSet = dataSet;
             frm.CurrentClient = client;
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                return frm.NewVisit;
+            return null;
+            
         }
 
         public static void FormViewVisit(Visit visit)
@@ -149,7 +157,7 @@ namespace Fitness_M
 
                         TicketsController.DeductGroupVisit(CurrentClient.ListTickets);
                         newVisit.Save();
-                        CurrentClient.ListVisit.Add(newVisit);
+                        NewVisit = newVisit;
                     }
                     else
                     {
@@ -165,7 +173,6 @@ namespace Fitness_M
                             newVisit.IsDisabled = false;
                             newVisit.IsOnlyGroup = false;
                             newVisit.Save();
-                            CurrentClient.ListVisit.Add(newVisit);
 
                             var source = (BindingSource)grid1.DataSource;
                             foreach (var boundItem in source)
@@ -177,8 +184,11 @@ namespace Fitness_M
                                 useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
                                 useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
                                 useFitnessEq.Save();
+                                newVisit.ClientUseFitnessEquipmentSpec.Add(useFitnessEq);
                             }
                             tr.Commit();
+
+                            NewVisit = newVisit;
                         }
                         catch (Exception exc)
                         {

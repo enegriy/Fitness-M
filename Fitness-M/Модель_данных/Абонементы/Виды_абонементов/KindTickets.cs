@@ -11,6 +11,7 @@ namespace Fitness_M
     /// </summary>
     public class KindTickets : TicketsManager, IBusinessObject, INotifyPropertyChanged
     {
+        #region Prop
         /// <summary>
         /// Индтификатор
         /// </summary>
@@ -92,7 +93,6 @@ namespace Fitness_M
             }
         }
 
-
         /// <summary>
         /// Недействителен
         /// </summary>
@@ -129,18 +129,9 @@ namespace Fitness_M
         {
             get { return Id == 0; }
         }
-        
+        #endregion
 
         #region Public Methods
-        /// <summary>
-        /// Поднять всех клиентов
-        /// </summary>
-        /// <returns></returns>
-        public static IList<KindTickets> FindAll()
-        {
-            var tm = new TicketsManager();
-            return tm.LoadKindTickets();
-        }
 
         /// <summary>
         /// Сохранить
@@ -240,7 +231,5 @@ namespace Fitness_M
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-
-        
     }
 }

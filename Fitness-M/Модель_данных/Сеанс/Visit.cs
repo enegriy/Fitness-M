@@ -10,10 +10,30 @@ namespace Fitness_M
     /// </summary>
     public sealed class Visit : VisitManager, IBusinessObject
     {
+        #region Prop
+        private IList<ClientUseFitnessEquipment> m_ClientUseFitnessEquipmentSpec;
         /// <summary>
         /// Спецификация абонементов
         /// </summary>
-        public IList<ClientUseFitnessEquipment> ClientUseFitnessEquipmentSpec { get; set; }
+        public IList<ClientUseFitnessEquipment> ClientUseFitnessEquipmentSpec 
+        {
+            get 
+            {
+                if (m_ClientUseFitnessEquipmentSpec == null)
+                {
+                    m_ClientUseFitnessEquipmentSpec = new List<ClientUseFitnessEquipment>();
+                    var dataSet = ClientDataSet.Get();
+                    var useFitnessEquipment = dataSet.ListUseFitnessEquipment.Where(x => x.VisitId == this.Id).ToList();
+                    ((List<ClientUseFitnessEquipment>)m_ClientUseFitnessEquipmentSpec).AddRange(useFitnessEquipment);
+                }
+
+                return m_ClientUseFitnessEquipmentSpec;
+            }
+            set 
+            {
+                m_ClientUseFitnessEquipmentSpec = value;
+            }
+        }
 
         /// <summary>
         /// Индтификатор
@@ -55,9 +75,32 @@ namespace Fitness_M
         {
             get { return Id == 0; }
         }
+        #endregion
+
+        #region Reference Prop
+        private Client m_ClientRef;
+        /// <summary>
+        /// Ссылка на клиента
+        /// </summary>
+        public Client ClientRef
+        {
+            get
+            {
+                if (m_ClientRef == null)
+                {
+                    var dataSet = ClientDataSet.Get();
+                    m_ClientRef = dataSet.ListClients.FirstOrDefault(x => x.Id == ClientId);
+                }
+                return m_ClientRef;
+            }
+            set
+            {
+                m_ClientRef = value;
+            }
+        }
+        #endregion
 
         #region Public Methods
-
 
         /// <summary>
         /// Сохранить
@@ -83,7 +126,7 @@ namespace Fitness_M
             Delete(this);
         }
 
-
         #endregion
+
     }
 }

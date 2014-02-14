@@ -44,7 +44,14 @@ namespace Fitness_M
         private void OnFormLoad(object sender, EventArgs e)
         {
             numDebt.Value = Ticket.Debt;
-            dateTimePayBefore.Value = Ticket.PayBefore;
+            try
+            {
+                dateTimePayBefore.Value = Ticket.PayBefore;
+            }
+            catch
+            {
+                dateTimePayBefore.Value = DateTime.Now;
+            }
         }
     }
 }
