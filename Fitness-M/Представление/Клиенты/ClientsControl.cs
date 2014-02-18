@@ -223,7 +223,10 @@ namespace Fitness_M
             try
             {
                 var source = gridVisits.DataSource as BindingSource;
+                var sourceClient = gridClients.DataSource as BindingSource;
                 var currentVisit = (Visit)source.Current;
+                var currentClient = (Client)sourceClient.Current;
+
                 if (currentVisit != null)
                 {
                     if (currentVisit.VisitFrom != DateTime.MinValue || currentVisit.VisitTo != DateTime.MinValue)
@@ -235,10 +238,12 @@ namespace Fitness_M
                         //Если анулируем групповой сеанс
                         if (currentVisit.IsOnlyGroup)
                         {
-                            
+                            TicketsController.ReturnGroupVisit(currentClient.ListTickets);
                         }
                         else//Иначе тренажеры
                         {
+                            int countBalls = currentVisit.ClientUseFitnessEquipmentSpec.Sum(x => x.FitnessEquipmentRef.CountBalls);
+                            TicketsController.ReturnBalls(currentClient.ListTickets, countBalls);
                         }
 
                         currentVisit.IsDisabled = true;

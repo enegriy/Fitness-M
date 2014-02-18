@@ -65,7 +65,75 @@ namespace Fitness_M
                 x.Balance > 0 && 
                 x.KindTicketsRef.IsOnlyGroup);
 
+            if (ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
+
+            if (ticket.Balance <= 0)
+                throw new BussinesException("У вас не осталось групповых занятий!");
+
             ticket.Balance -= 1;
+            ticket.Update();
+
+        }
+
+
+        /// <summary>
+        /// Вернуть групповое занятие
+        /// </summary>
+        public static void ReturnGroupVisit(IList<Tickets> listTicket)
+        {
+            var ticket = listTicket.FirstOrDefault(x =>
+                x.DateFinish > System.DateTime.Now &&
+                x.Balance > 0 &&
+                x.KindTicketsRef.IsOnlyGroup);
+
+            if (ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
+
+            ticket.Balance += 1;
+            ticket.Update();
+
+        }
+
+        /// <summary>
+        /// Списать баллы
+        /// </summary>
+        public static void ReturnBalls(IList<Tickets> listTicket,
+            int countBalls)
+        {
+            var ticket = listTicket.FirstOrDefault(x =>
+                x.DateFinish > System.DateTime.Now &&
+                x.Balance > 0 &&
+                !x.KindTicketsRef.IsOnlyGroup);
+
+            if (ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
+
+            ticket.Balance += countBalls;
+
+            ticket.Update();
+
+        }
+
+        /// <summary>
+        /// Списать баллы
+        /// </summary>
+        public static void DeductBalls(IList<Tickets> listTicket,
+            int countBalls)
+        {
+            var ticket = listTicket.FirstOrDefault(x =>
+                x.DateFinish > System.DateTime.Now &&
+                x.Balance > 0 &&
+                !x.KindTicketsRef.IsOnlyGroup);
+
+            if(ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
+
+            if (ticket.Balance < countBalls)
+                throw new BussinesException("Для посещения этих тренажеров у вас не хватает баллов!");
+
+            ticket.Balance -= countBalls;
+
             ticket.Update();
 
         }

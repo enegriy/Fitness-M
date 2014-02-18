@@ -175,6 +175,7 @@ namespace Fitness_M
                             newVisit.Save();
 
                             var source = (BindingSource)grid1.DataSource;
+                            int countBalls = 0;
                             foreach (var boundItem in source)
                             {
                                 var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
@@ -183,9 +184,13 @@ namespace Fitness_M
                                 useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
                                 useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
                                 useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
+                                countBalls += fitnessEqWillBeReseve.FitnessEquipmentReserve.CountBalls;
                                 useFitnessEq.Save();
                                 newVisit.ClientUseFitnessEquipmentSpec.Add(useFitnessEq);
                             }
+
+                            TicketsController.DeductBalls(CurrentClient.ListTickets, countBalls);
+
                             tr.Commit();
 
                             NewVisit = newVisit;
