@@ -22,6 +22,9 @@ namespace Fitness_M
         }
         #endregion
 
+        private TicketFilter m_Filter = new TicketFilter();
+        private TicketMixedManager ticketMixManager = new TicketMixedManager();
+
         public TicketsControl()
         {
             InitializeComponent();
@@ -36,7 +39,11 @@ namespace Fitness_M
         private void InitDataGridTickets()
         {
             GridHelper.SetGridStyle(gridAllTickets);
-            gridAllTickets.DataSource = new BindingSource( new TicketMixedManager().GetListTicketMixed(),"");
+
+            m_Filter.Balance = (int)numBalance.Value;
+
+            gridAllTickets.DataSource = new BindingSource(
+                ticketMixManager.GetListTicketMixed(m_Filter), "");
         }
 
         public void InitDataGridKindTickets()
@@ -134,6 +141,29 @@ namespace Fitness_M
                     kindTickets.DoActive();
             }
 
+        }
+
+        private void OnBtnSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_Filter.ClientNumber = string.IsNullOrEmpty(tbClientNumber.Text) ?
+                    0 :
+                    int.Parse(tbClientNumber.Text);
+            }
+            catch (FormatException)
+            {
+                m_Filter.ClientNumber = 0;
+            }
+            m_Filter.ClientSurname = tbClientSurname.Text;
+            m_Filter.Period = cbPeriod.SelectedIndex;
+            m_Filter.NotExistTickets = cbNotExist.Checked;
+            m_Filter.Balance = (int)numBalance.Value;
+
+            var listTickets = ticketMixManager.GetListTicketMixed(m_Filter);
+            gridAllTickets.DataSource = new BindingSource(
+                listTickets, "");
+            
         }
     }
 }

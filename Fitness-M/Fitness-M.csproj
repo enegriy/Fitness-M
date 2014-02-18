@@ -51,6 +51,7 @@
     <Compile Include="Library\Грид\GridHelper.cs" />
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
+    <Compile Include="Контроллер\Абонемент\TicketFilter.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Контроллер\Тренажеры\ClientController.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />

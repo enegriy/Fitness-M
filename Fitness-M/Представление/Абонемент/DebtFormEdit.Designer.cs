@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dateTimePayBefore, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
@@ -76,11 +76,11 @@
             this.tableLayoutPanel2.Controls.Add(this.btnOk, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 80);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(499, 36);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
@@ -89,7 +89,7 @@
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.Location = new System.Drawing.Point(343, 4);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 28);
             this.btnClose.TabIndex = 0;
@@ -101,7 +101,7 @@
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOk.Location = new System.Drawing.Point(183, 4);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(152, 28);
             this.btnOk.TabIndex = 1;
@@ -137,7 +137,7 @@
             this.numDebt.DecimalPlaces = 2;
             this.numDebt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numDebt.Location = new System.Drawing.Point(257, 10);
-            this.numDebt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numDebt.Margin = new System.Windows.Forms.Padding(4);
             this.numDebt.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -151,7 +151,7 @@
             // 
             this.dateTimePayBefore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePayBefore.Location = new System.Drawing.Point(257, 42);
-            this.dateTimePayBefore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePayBefore.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePayBefore.Name = "dateTimePayBefore";
             this.dateTimePayBefore.Size = new System.Drawing.Size(246, 22);
             this.dateTimePayBefore.TabIndex = 3;
@@ -162,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 132);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(522, 168);
             this.Name = "DebtFormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
