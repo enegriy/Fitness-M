@@ -186,6 +186,7 @@ namespace Fitness_M
                                 useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
                                 countBalls += fitnessEqWillBeReseve.FitnessEquipmentReserve.CountBalls;
                                 useFitnessEq.Save();
+                                DataSet.ListUseFitnessEquipment.Add(useFitnessEq);
                                 newVisit.ClientUseFitnessEquipmentSpec.Add(useFitnessEq);
                             }
 

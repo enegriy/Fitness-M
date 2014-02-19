@@ -57,8 +57,8 @@ namespace Fitness_M
         private void SetBinding(IList<Client> listClient)
         {
             var bindingClients = new BindingSource(listClient, "");
-            var bindingTickets = new BindingSource(bindingClients, "ListTickets");
-            var bindingVisits = new BindingSource(bindingClients, "ListVisit");
+            var bindingTickets = new BindingSource(bindingClients, "ListTicketsActive");
+            var bindingVisits = new BindingSource(bindingClients, "ListVisitActive");
 
             gridClients.DataSource = bindingClients;
             gridTickets.DataSource = bindingTickets;
@@ -202,6 +202,8 @@ namespace Fitness_M
             {
                 var source = gridClients.DataSource as BindingSource;
 
+                CheckDebt((Client)source.Current);
+
                 var visit = PlanFormEdit.FormShow(DataSet, (Client)source.Current);
                 if (visit != null)
                 {
@@ -213,6 +215,28 @@ namespace Fitness_M
             {
                 MessageHelper.ShowError(exc.Message);
             }
+        }
+
+        private void CheckDebt(Client client)
+        {
+            foreach (var ticket in client.ListTicketsActive)
+            {
+                if (ticket.Debt > 0 && (ticket.PayBefore.Date - DateTime.Now.Date).Days < 0)
+                {
+                    throw new BussinesException("Не оплачен абонемент!");
+                }
+            }
+
+            foreach (var ticket in client.ListTicketsActive)
+            {
+                if (ticket.Debt > 0 && (ticket.PayBefore.Date - DateTime.Now.Date).Days < 14)
+                {
+                    MessageHelper.ShowInfo(string.Format("У клиента есть задолжность {0}р. по оплате абонемента!", ticket.Debt));
+                    break;
+                }
+            }
+
+            
         }
 
         /// <summary>

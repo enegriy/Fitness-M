@@ -43,5 +43,13 @@ namespace Fitness_M
                 buttons,
                 MessageBoxIcon.Question);
         }
+
+        /// <summary>
+        /// Сообщение информация 
+        /// </summary>
+        public static void ShowInfo(string message)
+        {
+            MessageBox.Show(message, "Внимание", MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
     }
 }

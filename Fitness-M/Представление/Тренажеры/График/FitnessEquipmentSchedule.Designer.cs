@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -55,30 +55,28 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 287F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dtVisit, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnPrintBusyFitnessEq, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(813, 622);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(610, 505);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.splitContainer1, 4);
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 36);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 29);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -89,9 +87,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer1.Size = new System.Drawing.Size(805, 582);
-            this.splitContainer1.SplitterDistance = 376;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(604, 473);
+            this.splitContainer1.SplitterDistance = 305;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
@@ -107,13 +104,12 @@
             this.clmCountBalls});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(805, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(604, 305);
             this.dataGridView1.TabIndex = 0;
             // 
             // clmFqTitle
@@ -127,8 +123,8 @@
             // clmRunningTime
             // 
             this.clmRunningTime.DataPropertyName = "RunningTime";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle9;
             this.clmRunningTime.HeaderText = "Время тренировки(мин.)";
             this.clmRunningTime.Name = "clmRunningTime";
             this.clmRunningTime.ReadOnly = true;
@@ -137,8 +133,8 @@
             // clmCountBalls
             // 
             this.clmCountBalls.DataPropertyName = "CountBalls";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmCountBalls.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmCountBalls.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmCountBalls.HeaderText = "Колличество баллов";
             this.clmCountBalls.Name = "clmCountBalls";
             this.clmCountBalls.ReadOnly = true;
@@ -155,21 +151,20 @@
             this.clmDateToFreeTime});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(805, 201);
+            this.dataGridView2.Size = new System.Drawing.Size(604, 164);
             this.dataGridView2.TabIndex = 0;
             // 
             // clmFreeTime
             // 
             this.clmFreeTime.DataPropertyName = "DateFrom";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "t";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clmFreeTime.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Format = "t";
+            dataGridViewCellStyle11.NullValue = null;
+            this.clmFreeTime.DefaultCellStyle = dataGridViewCellStyle11;
             this.clmFreeTime.HeaderText = "Свободно \"С\"";
             this.clmFreeTime.Name = "clmFreeTime";
             this.clmFreeTime.ReadOnly = true;
@@ -178,9 +173,9 @@
             // clmDateToFreeTime
             // 
             this.clmDateToFreeTime.DataPropertyName = "DateTo";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "t";
-            this.clmDateToFreeTime.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Format = "t";
+            this.clmDateToFreeTime.DefaultCellStyle = dataGridViewCellStyle12;
             this.clmDateToFreeTime.HeaderText = "Свободно \"ПО\"";
             this.clmDateToFreeTime.Name = "clmDateToFreeTime";
             this.clmDateToFreeTime.ReadOnly = true;
@@ -190,42 +185,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 32);
+            this.label1.Size = new System.Drawing.Size(177, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Загруженность тренажеров на:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtVisit
             // 
-            this.dtVisit.Location = new System.Drawing.Point(248, 4);
-            this.dtVisit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtVisit.Location = new System.Drawing.Point(186, 3);
             this.dtVisit.Name = "dtVisit";
-            this.dtVisit.Size = new System.Drawing.Size(175, 22);
+            this.dtVisit.Size = new System.Drawing.Size(131, 20);
             this.dtVisit.TabIndex = 2;
             this.dtVisit.ValueChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // btnPrintBusyFitnessEq
             // 
             this.btnPrintBusyFitnessEq.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrintBusyFitnessEq.Location = new System.Drawing.Point(430, 3);
+            this.btnPrintBusyFitnessEq.Location = new System.Drawing.Point(322, 2);
+            this.btnPrintBusyFitnessEq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrintBusyFitnessEq.Name = "btnPrintBusyFitnessEq";
-            this.btnPrintBusyFitnessEq.Size = new System.Drawing.Size(281, 26);
+            this.btnPrintBusyFitnessEq.Size = new System.Drawing.Size(95, 22);
             this.btnPrintBusyFitnessEq.TabIndex = 3;
-            this.btnPrintBusyFitnessEq.Text = "Печать списка занятых тренажеров";
+            this.btnPrintBusyFitnessEq.Text = "Печать";
             this.btnPrintBusyFitnessEq.UseVisualStyleBackColor = true;
             this.btnPrintBusyFitnessEq.Click += new System.EventHandler(this.OnClickBtnPrint);
             // 
             // FitnessEquipmentSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FitnessEquipmentSchedule";
-            this.Size = new System.Drawing.Size(813, 622);
+            this.Size = new System.Drawing.Size(610, 505);
             this.Load += new System.EventHandler(this.FitnessEquipmentSchedule_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

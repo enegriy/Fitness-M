@@ -13,9 +13,10 @@ namespace Fitness_M
         #region Prop
         private IList<Tickets> m_ListTickets;
         /// <summary>
-        /// Спецификация абонементов
+        /// Спецификация абонементов всех
         /// </summary>
-        public IList<Tickets> ListTickets {
+        public IList<Tickets> ListTickets 
+        {
             get
             {
                 if (m_ListTickets == null)
@@ -34,9 +35,20 @@ namespace Fitness_M
             }
         }
 
+        /// <summary>
+        /// Спецификация абонементов действующих
+        /// </summary>
+        public IList<Tickets> ListTicketsActive
+        {
+            get
+            {
+                return ListTickets.Where(x => x.Balance > 0 && x.DateFinish.Date >= DateTime.Now.Date).ToList();
+            }
+        }
+
         private IList<Visit> m_ListVisit;
         /// <summary>
-        /// Спецификация посещений
+        /// Спецификация посещений всех
         /// </summary>
         public IList<Visit> ListVisit
         {
@@ -55,6 +67,17 @@ namespace Fitness_M
             set
             {
                 m_ListVisit = value;
+            }
+        }
+
+        /// <summary>
+        /// Спецификация посещений на текущую дату
+        /// </summary>
+        public IList<Visit> ListVisitActive
+        {
+            get
+            {
+                return ListVisit.Where(x => x.PlanFrom.Date >= DateTime.Now.Date).ToList();
             }
         }
 

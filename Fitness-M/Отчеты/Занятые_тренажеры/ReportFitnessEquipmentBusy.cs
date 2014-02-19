@@ -16,14 +16,13 @@ namespace Fitness_M
         private int countPage = 1;
         private ClientUseFitnessEquipment[] listUseFitEquipment = null;
         private ClientUseFitnessEquipment storeCufe = null;
-        bool MustContinue = false;
+        bool MustContinue = true;
 
         public static void ShowReport(DateTime date)
         {
             var frm = new ReportFitnessEquipmentBusy();
             frm.Date = date;
             frm.ShowDialog();
-
         }
 
         public void OnFormLoad(object sender, EventArgs e)
@@ -48,7 +47,7 @@ namespace Fitness_M
         /// </summary>
         private void OnPrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            float fieldSize = 8;
+            float fieldSize = 40;
 
             float textSizeHeader = 14;
             float textSize = 12;
@@ -61,11 +60,12 @@ namespace Fitness_M
             var brush = Brushes.Black;
 
             int line = 1;
+            int countLine = 50;
 
             if (countPage == 1)
             {
-                e.Graphics.DrawString("График загруженности тренажеров на " + Date.ToString("dd.MM.yyyy"), fontHeader, brush, fieldSize, textSizeHeader);
-                line++;
+                e.Graphics.DrawString("График загруженности тренажеров на " + Date.ToString("dd.MM.yyyy"), fontHeader, brush, fieldSize, textSizeHeader+space);
+                line+=2;
             }
 
             
@@ -80,7 +80,7 @@ namespace Fitness_M
 
                 if (storeFeId != fe.FitnessEquipmentId)
                 {
-                    if (line > 2)
+                    if (line > countLine)
                     {
                         e.HasMorePages = true;
                         storeCufe = fe;
@@ -109,9 +109,21 @@ namespace Fitness_M
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OnBtnPrint_Click(object sender, EventArgs e)
         {
-            printPreviewControl1.StartPage = 1;
+            printDoc.Print();
+        }
+
+        private void btnPrevPage_Click(object sender, EventArgs e)
+        {
+            if (printPreviewControl1.StartPage > 0)
+                printPreviewControl1.StartPage -= 1;
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (printPreviewControl1.StartPage < countPage)
+                printPreviewControl1.StartPage += 1;
         }
 
     }

@@ -102,11 +102,13 @@ namespace Fitness_M
             {
                 label1.Visible = true;
                 dtVisit.Visible = true;
+                btnPrintBusyFitnessEq.Visible = true;
             }
             else
             {
                 label1.Visible = false;
                 dtVisit.Visible = false;
+                btnPrintBusyFitnessEq.Visible = false;
             }
         }
 

@@ -75,11 +75,9 @@ namespace Fitness_M
             var frm = FitnessEquipmentFormEdit.FormShow(ActionState.Add, fitnessEquipment);
             if (!fitnessEquipment.IsEmpty)
             {
-                DataSet.ListFitnessEquipment.Add(fitnessEquipment);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = DataSet.ListFitnessEquipment;
+                var source = (BindingSource)dataGridView1.DataSource;
+                source.Position = source.Add(fitnessEquipment);
             }
-            //!!!
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
