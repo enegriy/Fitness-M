@@ -144,16 +144,47 @@ namespace Fitness_M
             if (fitnessEquipment.Id != null || fitnessEquipment.Id != 0)
             {
                 OpenConnection();
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand();
-                cmd.Connection = Connection;
+                try
+                {
+                    var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                    cmd.Connection = Connection;
 
-                string sql = @"delete from fitness_equipment where id = @id";
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id", fitnessEquipment.Id);
-                cmd.ExecuteNonQuery();
+                    CheckDeleteFitnessEquipment(fitnessEquipment.Id);
 
-                CloseConnection();
+                    string sql = @"delete from fitness_equipment where id = @id";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@id", fitnessEquipment.Id);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (BussinesException ex)
+                {
+                    throw;
+                }
+                finally
+                {
+                    CloseConnection();
+                }
             }
+        }
+
+        /// <summary>
+        /// Проверить можно удалить тренажер
+        /// </summary>
+        /// <param name="p"></param>
+        private void CheckDeleteFitnessEquipment(int fitnessEquipmentId)
+        {
+            OpenConnection();
+            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+            cmd.Connection = Connection;
+
+            string sql = @"select COUNT(*) from client_use_equipment
+                            where fitness_equipment_id  = @id ";
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@id", fitnessEquipmentId);
+            var count = (long)cmd.ExecuteScalar();
+
+            if (count > 0)
+                throw new BussinesException("Нельзя удалить тренажер, на нем занимаются клиенты!");
         }
     }
 }

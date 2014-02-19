@@ -66,6 +66,12 @@
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipment.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentManager.cs" />
     <Compile Include="Модель_данных\Тренажеры\FitnessEquipmentWillBeReserve.cs" />
+    <Compile Include="Отчеты\Занятые_тренажеры\ReportFitnessEquipmentBusy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Отчеты\Занятые_тренажеры\ReportFitnessEquipmentBusy.Designer.cs">
+      <DependentUpon>ReportFitnessEquipmentBusy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\BrowseForm\BrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.Designer.cs">
       <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Отчеты\Занятые_тренажеры\ReportFitnessEquipmentBusy.resx">
+      <DependentUpon>ReportFitnessEquipmentBusy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\BrowseForm\BrowseForm.resx">
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>

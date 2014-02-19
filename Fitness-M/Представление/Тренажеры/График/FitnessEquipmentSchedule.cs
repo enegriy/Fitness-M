@@ -171,6 +171,11 @@ namespace Fitness_M
             m_FreeTimeSelected = (DateFromAndDateTo)dataSource.Current;
         }
 
+        private void OnClickBtnPrint(object sender, EventArgs e)
+        {
+            ReportFitnessEquipmentBusy.ShowReport(dtVisit.Value.Date);
+        }
+
 
     }
 }

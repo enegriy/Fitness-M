@@ -66,7 +66,7 @@ namespace Fitness_M
 
         private IList<ClientUseFitnessEquipment> m_ListUseFitnessEquipment;
         /// <summary>
-        /// Вид тикетов
+        /// Список занятых тренажеров
         /// </summary>
         public IList<ClientUseFitnessEquipment> ListUseFitnessEquipment
         {

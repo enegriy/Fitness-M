@@ -21,6 +21,8 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+            ConstraintByUser();
+
             tbTitle.Text = ParamsManager.GetParams<string>(ParamsConstant.FitnessClubName);
            
             var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
@@ -44,6 +46,14 @@ namespace Fitness_M
                 ParamsManager.SetParams(ParamsConstant.FitnessClubName, tbTitle.Text);
                 ParamsManager.SetParams(ParamsConstant.WorkTimeFrom, dtTimeFrom.Value);
                 ParamsManager.SetParams(ParamsConstant.WorkTimeTo, dtTimeTo.Value);
+            }
+        }
+
+        private void ConstraintByUser()
+        {
+            if (CurrentUser.Role != Roles.Administrator)
+            {
+                tableLayoutPanel1.Enabled = false;
             }
         }
 

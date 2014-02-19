@@ -32,8 +32,18 @@ namespace Fitness_M
 
         private void OnFormLoad(object sender, EventArgs e)
         {
+            ConstraintByUser();
             InitDataGridKindTickets();
             InitDataGridTickets();
+        }
+
+        private void ConstraintByUser()
+        {
+            if (CurrentUser.Role != Roles.Administrator)
+            {
+                gridKindTicket.Enabled = false;
+                panel1.Enabled = false;
+            }
         }
 
         private void InitDataGridTickets()

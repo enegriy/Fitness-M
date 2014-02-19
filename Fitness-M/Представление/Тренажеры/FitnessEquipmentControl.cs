@@ -29,6 +29,16 @@ namespace Fitness_M
         {
             GridHelper.SetGridStyle(dataGridView1);
             InitDataGridFitnessEquipment();
+            ConstraintByUser();
+
+        }
+
+        private void ConstraintByUser()
+        {
+            if (CurrentUser.Role != Roles.Administrator)
+            {
+                flowLayoutPanel1.Enabled = false;
+            }
         }
 
         private void InitDataGridFitnessEquipment()
@@ -42,14 +52,19 @@ namespace Fitness_M
             if (MessageHelper.ShowQuestion(
                 "Вы уверены что хотите удалить объект?") == DialogResult.Yes)
             {
-                var source = (BindingSource)dataGridView1.DataSource;
-                var fq = (FitnessEquipment)source.Current;
-                if (fq != null)
+                try
                 {
-                    fq.Delete();
-                    source.Remove(fq);
-                    //DataSet.ListFitnessEquipment.Remove(fq);
-                    //dataGridView1.DataSource = DataSet.ListFitnessEquipment.ToArray();
+                    var source = (BindingSource)dataGridView1.DataSource;
+                    var fq = (FitnessEquipment)source.Current;
+                    if (fq != null)
+                    {
+                        fq.Delete();
+                        source.Remove(fq);
+                    }
+                }
+                catch (BussinesException ex)
+                {
+                    MessageHelper.ShowError(ex.Message);
                 }
             }
         }
