@@ -35,6 +35,10 @@ namespace Fitness_M
         /// </summary>
         public decimal Price { get; set; }
         /// <summary>
+        /// Долг
+        /// </summary>
+        public decimal Debt { get; set; }
+        /// <summary>
         /// Номер
         /// </summary>
         public long ClientNumber { get; set; }

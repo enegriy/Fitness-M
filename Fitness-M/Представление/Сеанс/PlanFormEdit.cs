@@ -142,6 +142,8 @@ namespace Fitness_M
                 {
                     if (cbGroupVisit.Checked)
                     {
+                        TicketsController.CheckExistGroupVisitTicket(CurrentClient.ListTickets);
+
                         TimeSpan timeFrom = TimeHelper.CompileDate(tbTimeFrom.Text);
                         TimeSpan timeTo = TimeHelper.CompileDate(tbTimeTo.Text);
 
@@ -166,6 +168,8 @@ namespace Fitness_M
                         var tr = om.Connection.BeginTransaction();
                         try
                         {
+                            TicketsController.CheckExistBallsTicket(CurrentClient.ListTickets);
+
                             Visit newVisit = new Visit();
                             newVisit.ClientId = CurrentClient.Id;
                             newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);

@@ -175,5 +175,14 @@ namespace Fitness_M
                 listTickets, "");
             
         }
+
+        private void OnCellValueNeed(object sender, DataGridViewCellValueEventArgs e)
+        {
+            var currObj = (TicketMixed)gridAllTickets.Rows[e.RowIndex].DataBoundItem;
+
+            if (e.ColumnIndex == 9)
+                e.Value = currObj.Debt == 0 ? "" : currObj.Debt.ToString();
+        }
+
     }
 }

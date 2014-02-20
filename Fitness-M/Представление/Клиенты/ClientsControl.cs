@@ -424,5 +424,21 @@ namespace Fitness_M
                 e.Value = currObj.PayBefore == DateTime.MinValue ? "" : currObj.PayBefore.ToString("dd.MM.yyyy");
         }
 
+        private void OnOpeningContextClient(object sender, CancelEventArgs e)
+        {
+            if (((BindingSource)gridClients.DataSource).Current == null)
+            {
+                cmChangeClient.Enabled = false;
+                cmDeleteClient.Enabled = false;
+            }
+        }
+
+        private void OnDblClickClient(object sender, DataGridViewCellEventArgs e)
+        {
+            var source = gridClients.DataSource as BindingSource;
+            if (source != null && source.Current != null)
+                btnEditClient_Click(sender, null);
+        }
+
     }
 }

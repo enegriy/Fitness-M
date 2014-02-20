@@ -27,7 +27,7 @@ namespace Fitness_M
 
             string sql = @"select 
                               t.id as ticketID, t.datefinish, balance, 
-                              kt.count_balls, kt.count_visits, kt.price,
+                              kt.count_balls, kt.count_visits, kt.price, t.debt,
                               c.number, c.surname, c.name, c.lastname, c.phone
                             from tickets t
                             left join kind_tickets kt on t.kind_tickets_id = kt.id
@@ -112,11 +112,13 @@ namespace Fitness_M
                 ticketMixed.CountBalls = (int)reader["count_balls"];
                 ticketMixed.CountVisits = (int)reader["count_visits"];
                 ticketMixed.Price = (decimal)reader["price"];
+                ticketMixed.Debt = (decimal)reader["debt"];
                 ticketMixed.ClientNumber = (long)reader["number"];
                 ticketMixed.Surname = reader["surname"].ToString();
                 ticketMixed.Name = reader["name"].ToString();
                 ticketMixed.Lastname = reader["lastname"].ToString();
                 ticketMixed.Phone = reader["phone"].ToString();
+                
 
                 listTicketMixed.Add(ticketMixed);
             }

@@ -56,6 +56,41 @@ namespace Fitness_M
         }
 
         /// <summary>
+        /// Проверить существование абонемента на групповые занятия
+        /// </summary>
+        public static void CheckExistGroupVisitTicket(IList<Tickets> listTicket)
+        {
+            var ticket = listTicket.FirstOrDefault(x =>
+                x.DateFinish > System.DateTime.Now &&
+                x.Balance > 0 &&
+                x.KindTicketsRef.IsOnlyGroup);
+
+            if (ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
+
+            if (ticket.Balance <= 0)
+                throw new BussinesException("У вас не осталось групповых занятий!");
+        }
+
+        /// <summary>
+        /// Проверить существование абонемента на посещение тренажеров
+        /// </summary>
+        public static void CheckExistBallsTicket(IList<Tickets> listTicket)
+        {
+            var ticket = listTicket.FirstOrDefault(x =>
+                x.DateFinish > System.DateTime.Now &&
+                x.Balance > 0 &&
+                !x.KindTicketsRef.IsOnlyGroup);
+
+            if (ticket == null)
+                throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
+
+            if (ticket.Balance <= 0)
+                throw new BussinesException("У вас не осталось групповых занятий!");
+        }
+
+
+        /// <summary>
         /// Списать групповое занятие
         /// </summary>
         public static void DeductGroupVisit(IList<Tickets> listTicket)
