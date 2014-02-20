@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -60,6 +60,9 @@
             this.clmPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuClient = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmChangeClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDeleteClient = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuVisit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmStartVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmFinishVisit = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,13 +93,13 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNewTicket = new System.Windows.Forms.Button();
             this.btnDebt = new System.Windows.Forms.Button();
-            this.contextMenuClient = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmChangeClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmDeleteClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuTicket = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmDebt = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).BeginInit();
+            this.contextMenuClient.SuspendLayout();
             this.contextMenuVisit.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -109,7 +112,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTickets)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
-            this.contextMenuClient.SuspendLayout();
+            this.contextMenuTicket.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -260,7 +263,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1175, 398);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1175, 397);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // gridClients
@@ -285,7 +288,7 @@
             this.gridClients.Margin = new System.Windows.Forms.Padding(5);
             this.gridClients.Name = "gridClients";
             this.gridClients.RowTemplate.Height = 24;
-            this.gridClients.Size = new System.Drawing.Size(1165, 328);
+            this.gridClients.Size = new System.Drawing.Size(1165, 327);
             this.gridClients.TabIndex = 0;
             this.gridClients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDblClickClient);
             this.gridClients.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
@@ -303,8 +306,8 @@
             // clmNumber
             // 
             this.clmNumber.DataPropertyName = "Number";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmNumber.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmNumber.DefaultCellStyle = dataGridViewCellStyle11;
             this.clmNumber.Frozen = true;
             this.clmNumber.HeaderText = "Номер";
             this.clmNumber.Name = "clmNumber";
@@ -337,10 +340,10 @@
             // clmDateBirth
             // 
             this.clmDateBirth.DataPropertyName = "DateBirth";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.Format = "d";
-            dataGridViewCellStyle42.NullValue = null;
-            this.clmDateBirth.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Format = "d";
+            dataGridViewCellStyle12.NullValue = null;
+            this.clmDateBirth.DefaultCellStyle = dataGridViewCellStyle12;
             this.clmDateBirth.HeaderText = "Дата рождения";
             this.clmDateBirth.Name = "clmDateBirth";
             this.clmDateBirth.ReadOnly = true;
@@ -349,8 +352,8 @@
             // clmPhone
             // 
             this.clmPhone.DataPropertyName = "Phone";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPhone.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPhone.DefaultCellStyle = dataGridViewCellStyle13;
             this.clmPhone.HeaderText = "Телефон";
             this.clmPhone.Name = "clmPhone";
             this.clmPhone.ReadOnly = true;
@@ -371,6 +374,30 @@
             this.clmNote.Name = "clmNote";
             this.clmNote.ReadOnly = true;
             this.clmNote.Width = 120;
+            // 
+            // contextMenuClient
+            // 
+            this.contextMenuClient.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmChangeClient,
+            this.cmDeleteClient});
+            this.contextMenuClient.Name = "contextMenuClient";
+            this.contextMenuClient.Size = new System.Drawing.Size(163, 52);
+            this.contextMenuClient.Opening += new System.ComponentModel.CancelEventHandler(this.OnOpeningContextClient);
+            // 
+            // cmChangeClient
+            // 
+            this.cmChangeClient.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmChangeClient.Name = "cmChangeClient";
+            this.cmChangeClient.Size = new System.Drawing.Size(162, 24);
+            this.cmChangeClient.Text = "Изменить...";
+            this.cmChangeClient.Click += new System.EventHandler(this.btnEditClient_Click);
+            // 
+            // cmDeleteClient
+            // 
+            this.cmDeleteClient.Name = "cmDeleteClient";
+            this.cmDeleteClient.Size = new System.Drawing.Size(162, 24);
+            this.cmDeleteClient.Text = "Удалить...";
+            this.cmDeleteClient.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // contextMenuVisit
             // 
@@ -427,7 +454,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1175, 581);
-            this.splitContainer1.SplitterDistance = 398;
+            this.splitContainer1.SplitterDistance = 397;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -440,7 +467,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1175, 178);
+            this.tabControl1.Size = new System.Drawing.Size(1175, 179);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -451,7 +478,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(5);
-            this.tabPage1.Size = new System.Drawing.Size(1167, 149);
+            this.tabPage1.Size = new System.Drawing.Size(1167, 150);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сеанс";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -477,7 +504,7 @@
             this.gridVisits.RowHeadersVisible = false;
             this.gridVisits.RowTemplate.Height = 24;
             this.gridVisits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridVisits.Size = new System.Drawing.Size(1157, 101);
+            this.gridVisits.Size = new System.Drawing.Size(1157, 102);
             this.gridVisits.TabIndex = 1;
             this.gridVisits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnMouseDoubleClick);
             this.gridVisits.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
@@ -493,8 +520,8 @@
             // clmVisitFrom
             // 
             this.clmVisitFrom.DataPropertyName = "VisitFrom";
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle19;
             this.clmVisitFrom.HeaderText = "Посещение С";
             this.clmVisitFrom.Name = "clmVisitFrom";
             this.clmVisitFrom.ReadOnly = true;
@@ -503,8 +530,8 @@
             // clmVisitTo
             // 
             this.clmVisitTo.DataPropertyName = "VisitTo";
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle20;
             this.clmVisitTo.HeaderText = "Посещение ПО";
             this.clmVisitTo.Name = "clmVisitTo";
             this.clmVisitTo.ReadOnly = true;
@@ -608,7 +635,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(5);
-            this.tabPage2.Size = new System.Drawing.Size(1167, 149);
+            this.tabPage2.Size = new System.Drawing.Size(1167, 150);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Абонемент";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -620,7 +647,7 @@
             this.panel2.Location = new System.Drawing.Point(5, 43);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1157, 101);
+            this.panel2.Size = new System.Drawing.Size(1157, 102);
             this.panel2.TabIndex = 2;
             // 
             // gridTickets
@@ -635,6 +662,7 @@
             this.clmBalance,
             this.clmDebt,
             this.clmPayBefore});
+            this.gridTickets.ContextMenuStrip = this.contextMenuTicket;
             this.gridTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridTickets.Location = new System.Drawing.Point(0, 0);
             this.gridTickets.Margin = new System.Windows.Forms.Padding(5);
@@ -642,16 +670,17 @@
             this.gridTickets.RowHeadersVisible = false;
             this.gridTickets.RowTemplate.Height = 24;
             this.gridTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTickets.Size = new System.Drawing.Size(1157, 101);
+            this.gridTickets.Size = new System.Drawing.Size(1157, 102);
             this.gridTickets.TabIndex = 0;
             this.gridTickets.VirtualMode = true;
+            this.gridTickets.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
             this.gridTickets.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.OnCellValueNeeded);
             // 
             // clmId
             // 
             this.clmId.DataPropertyName = "Id";
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmId.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmId.DefaultCellStyle = dataGridViewCellStyle14;
             this.clmId.HeaderText = "Номер";
             this.clmId.Name = "clmId";
             this.clmId.ReadOnly = true;
@@ -659,10 +688,10 @@
             // clmDateFinish
             // 
             this.clmDateFinish.DataPropertyName = "DateFinish";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.Format = "d";
-            dataGridViewCellStyle47.NullValue = null;
-            this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Format = "d";
+            dataGridViewCellStyle15.NullValue = null;
+            this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle15;
             this.clmDateFinish.HeaderText = "Дата окончания";
             this.clmDateFinish.Name = "clmDateFinish";
             this.clmDateFinish.ReadOnly = true;
@@ -671,8 +700,8 @@
             // clmBalance
             // 
             this.clmBalance.DataPropertyName = "Balance";
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle16;
             this.clmBalance.HeaderText = "Остаток";
             this.clmBalance.Name = "clmBalance";
             this.clmBalance.ReadOnly = true;
@@ -680,21 +709,21 @@
             // 
             // clmDebt
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle49.Format = "N2";
-            dataGridViewCellStyle49.NullValue = null;
-            this.clmDebt.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle17.Format = "N2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.clmDebt.DefaultCellStyle = dataGridViewCellStyle17;
             this.clmDebt.HeaderText = "Долг";
             this.clmDebt.Name = "clmDebt";
             this.clmDebt.ReadOnly = true;
             // 
             // clmPayBefore
             // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle50.Format = "d";
-            this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle18.Format = "d";
+            this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle18;
             this.clmPayBefore.HeaderText = "Оплатить до";
             this.clmPayBefore.Name = "clmPayBefore";
             this.clmPayBefore.ReadOnly = true;
@@ -745,29 +774,20 @@
             this.btnDebt.UseVisualStyleBackColor = true;
             this.btnDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
-            // contextMenuClient
+            // contextMenuTicket
             // 
-            this.contextMenuClient.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmChangeClient,
-            this.cmDeleteClient});
-            this.contextMenuClient.Name = "contextMenuClient";
-            this.contextMenuClient.Size = new System.Drawing.Size(163, 52);
-            this.contextMenuClient.Opening += new System.ComponentModel.CancelEventHandler(this.OnOpeningContextClient);
+            this.contextMenuTicket.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmDebt});
+            this.contextMenuTicket.Name = "contextMenuClient";
+            this.contextMenuTicket.Size = new System.Drawing.Size(153, 50);
             // 
-            // cmChangeClient
+            // cmDebt
             // 
-            this.cmChangeClient.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmChangeClient.Name = "cmChangeClient";
-            this.cmChangeClient.Size = new System.Drawing.Size(162, 24);
-            this.cmChangeClient.Text = "Изменить...";
-            this.cmChangeClient.Click += new System.EventHandler(this.btnEditClient_Click);
-            // 
-            // cmDeleteClient
-            // 
-            this.cmDeleteClient.Name = "cmDeleteClient";
-            this.cmDeleteClient.Size = new System.Drawing.Size(162, 24);
-            this.cmDeleteClient.Text = "Удалить...";
-            this.cmDeleteClient.Click += new System.EventHandler(this.btnDelete_Click);
+            this.cmDebt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmDebt.Name = "cmDebt";
+            this.cmDebt.Size = new System.Drawing.Size(152, 24);
+            this.cmDebt.Text = "Долг...";
+            this.cmDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
             // ClientsControl
             // 
@@ -783,6 +803,7 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).EndInit();
+            this.contextMenuClient.ResumeLayout(false);
             this.contextMenuVisit.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -795,7 +816,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTickets)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.contextMenuClient.ResumeLayout(false);
+            this.contextMenuTicket.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -855,6 +876,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuClient;
         private System.Windows.Forms.ToolStripMenuItem cmChangeClient;
         private System.Windows.Forms.ToolStripMenuItem cmDeleteClient;
+        private System.Windows.Forms.ContextMenuStrip contextMenuTicket;
+        private System.Windows.Forms.ToolStripMenuItem cmDebt;
 
 
 

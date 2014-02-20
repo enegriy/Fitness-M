@@ -12,7 +12,7 @@
     <AssemblyName>Fitness-M</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>agt_login_2120.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\agt_login_2120.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -180,13 +180,14 @@
       <DependentUpon>BrowseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Представление\Абонемент\DebtFormEdit.resx">
       <DependentUpon>DebtFormEdit.cs</DependentUpon>
@@ -241,7 +242,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="agt_login_2120.ico" />
+    <None Include="Resources\agt_login_2120.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
