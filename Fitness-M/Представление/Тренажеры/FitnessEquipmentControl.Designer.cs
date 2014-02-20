@@ -145,7 +145,7 @@
             this.btnAdd.Location = new System.Drawing.Point(4, 4);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(131, 34);
+            this.btnAdd.Size = new System.Drawing.Size(114, 34);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить...";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,10 +159,10 @@
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.ImageIndex = 1;
             this.btnEdit.ImageList = this.imageList1;
-            this.btnEdit.Location = new System.Drawing.Point(143, 4);
+            this.btnEdit.Location = new System.Drawing.Point(126, 4);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(131, 34);
+            this.btnEdit.Size = new System.Drawing.Size(112, 34);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Изменить...";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,10 +176,10 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.ImageIndex = 0;
             this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(282, 4);
+            this.btnDelete.Location = new System.Drawing.Point(246, 4);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(125, 34);
+            this.btnDelete.Size = new System.Drawing.Size(105, 34);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Удалить...";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

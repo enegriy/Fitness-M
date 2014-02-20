@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitnessEquipmentSchedule));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -130,8 +130,8 @@
             // clmRunningTime
             // 
             this.clmRunningTime.DataPropertyName = "RunningTime";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmRunningTime.HeaderText = "Время тренировки(мин.)";
             this.clmRunningTime.Name = "clmRunningTime";
             this.clmRunningTime.ReadOnly = true;
@@ -140,8 +140,8 @@
             // clmCountBalls
             // 
             this.clmCountBalls.DataPropertyName = "CountBalls";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmCountBalls.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmCountBalls.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmCountBalls.HeaderText = "Колличество баллов";
             this.clmCountBalls.Name = "clmCountBalls";
             this.clmCountBalls.ReadOnly = true;
@@ -169,10 +169,10 @@
             // clmFreeTime
             // 
             this.clmFreeTime.DataPropertyName = "DateFrom";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Format = "t";
-            dataGridViewCellStyle11.NullValue = null;
-            this.clmFreeTime.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "t";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clmFreeTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmFreeTime.HeaderText = "Свободно \"С\"";
             this.clmFreeTime.Name = "clmFreeTime";
             this.clmFreeTime.ReadOnly = true;
@@ -181,9 +181,9 @@
             // clmDateToFreeTime
             // 
             this.clmDateToFreeTime.DataPropertyName = "DateTo";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Format = "t";
-            this.clmDateToFreeTime.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "t";
+            this.clmDateToFreeTime.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmDateToFreeTime.HeaderText = "Свободно \"ПО\"";
             this.clmDateToFreeTime.Name = "clmDateToFreeTime";
             this.clmDateToFreeTime.ReadOnly = true;
@@ -218,10 +218,10 @@
             this.btnPrintBusyFitnessEq.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrintBusyFitnessEq.ImageIndex = 0;
             this.btnPrintBusyFitnessEq.ImageList = this.imageList1;
-            this.btnPrintBusyFitnessEq.Location = new System.Drawing.Point(442, 2);
-            this.btnPrintBusyFitnessEq.Margin = new System.Windows.Forms.Padding(15, 2, 3, 2);
+            this.btnPrintBusyFitnessEq.Location = new System.Drawing.Point(462, 2);
+            this.btnPrintBusyFitnessEq.Margin = new System.Windows.Forms.Padding(35, 2, 3, 2);
             this.btnPrintBusyFitnessEq.Name = "btnPrintBusyFitnessEq";
-            this.btnPrintBusyFitnessEq.Size = new System.Drawing.Size(114, 28);
+            this.btnPrintBusyFitnessEq.Size = new System.Drawing.Size(94, 28);
             this.btnPrintBusyFitnessEq.TabIndex = 3;
             this.btnPrintBusyFitnessEq.Text = "Печать...";
             this.btnPrintBusyFitnessEq.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
