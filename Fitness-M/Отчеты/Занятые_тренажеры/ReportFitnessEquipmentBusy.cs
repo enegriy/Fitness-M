@@ -49,9 +49,9 @@ namespace Fitness_M
         {
             float fieldSize = 40;
 
-            float textSizeHeader = 14;
-            float textSize = 12;
-            float space = 10;
+            float textSizeHeader = 12;
+            float textSize = 10;
+            float space = 8;
 
             var fontHeader = new Font(FontFamily.GenericSansSerif, textSizeHeader,FontStyle.Bold);
             var fontFitness = new Font(FontFamily.GenericSansSerif, textSize, FontStyle.Bold);
@@ -60,7 +60,7 @@ namespace Fitness_M
             var brush = Brushes.Black;
 
             int line = 1;
-            int countLine = 50;
+            int countLine = 60;
 
             if (countPage == 1)
             {

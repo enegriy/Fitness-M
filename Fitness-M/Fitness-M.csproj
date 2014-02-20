@@ -97,6 +97,12 @@
     <Compile Include="Представление\Абонемент\DebtFormEdit.Designer.cs">
       <DependentUpon>DebtFormEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Представление\Абонемент\TicketDetailsFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Абонемент\TicketDetailsFormEdit.Designer.cs">
+      <DependentUpon>TicketDetailsFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Абонемент\TicketsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="Представление\Абонемент\DebtFormEdit.resx">
       <DependentUpon>DebtFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Абонемент\TicketDetailsFormEdit.resx">
+      <DependentUpon>TicketDetailsFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Абонемент\TicketsControl.resx">
       <DependentUpon>TicketsControl.cs</DependentUpon>

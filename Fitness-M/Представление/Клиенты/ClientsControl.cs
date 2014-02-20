@@ -440,5 +440,17 @@ namespace Fitness_M
                 btnEditClient_Click(sender, null);
         }
 
+        private void OnShowTicket_Click(object sender, EventArgs e)
+        {
+            var ticket = (Tickets)((BindingSource)gridTickets.DataSource).Current;
+            if (ticket != null)
+                TicketDetailsFormEdit.Show(ticket);
+        }
+
+        private void OnCellDblClickTicket(object sender, DataGridViewCellEventArgs e)
+        {
+            OnShowTicket_Click(sender, null);
+        }
+
     }
 }
