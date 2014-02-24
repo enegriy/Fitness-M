@@ -183,6 +183,8 @@ namespace Fitness_M
 
                     DataSet.ListTickets.Add(ticket);
 
+                    client.ListTickets.Add(ticket);
+
                     var ticketSource = (BindingSource)gridTickets.DataSource;
                     ticketSource.Position = ticketSource.Add(ticket);
                 }
@@ -201,14 +203,17 @@ namespace Fitness_M
             try
             {
                 var source = gridClients.DataSource as BindingSource;
+                var client = (Client)source.Current;
 
-                CheckDebt((Client)source.Current);
+                CheckDebt(client);
 
-                var visit = PlanFormEdit.FormShow(DataSet, (Client)source.Current);
+                var visit = PlanFormEdit.FormShow(DataSet, client);
                 if (visit != null)
                 {
                     DataSet.ListVisit.Add(visit);
                     ((BindingSource)gridVisits.DataSource).Add(visit);
+
+                    client.ListVisit.Add(visit);
                 }
             }
             catch (BussinesException exc)
@@ -450,6 +455,35 @@ namespace Fitness_M
         private void OnCellDblClickTicket(object sender, DataGridViewCellEventArgs e)
         {
             OnShowTicket_Click(sender, null);
+        }
+
+        private void OnTicketDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ticket = (Tickets)((BindingSource)gridTickets.DataSource).Current;
+                var client = (Client)((BindingSource)gridClients.DataSource).Current;
+
+                if (ticket != null)
+                {
+                    if (MessageHelper.ShowQuestion("Вы уверены что хотите удалить абонемент?") == DialogResult.Yes)
+                    {
+                        if ((ticket.KindTicketsRef.IsOnlyGroup && ticket.Balance < ticket.KindTicketsRef.CountVisits) ||
+                            (!ticket.KindTicketsRef.IsOnlyGroup && ticket.Balance < ticket.KindTicketsRef.CountBalls))
+                            throw new BussinesException("Нельзя удалить абонемент по нему существуют посещения!");
+
+                        var ticketSource = (BindingSource)gridTickets.DataSource;
+                        ticketSource.Remove(ticket);
+                        DataSet.ListTickets.Remove(ticket);
+                        client.ListTickets.Remove(ticket);
+                        ticket.Delete();
+                    }
+                }
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
         }
 
     }

@@ -45,7 +45,7 @@ namespace Fitness_M
                     {
                         if (firstFreeDate == busyTime.DateFrom)
                         {
-                            firstFreeDate = busyTime.DateFrom;
+                            firstFreeDate = busyTime.DateTo;
                             continue;
                         }
                         else

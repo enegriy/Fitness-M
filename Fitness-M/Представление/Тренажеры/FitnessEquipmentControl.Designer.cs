@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitnessEquipmentControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmEqId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEqTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRunningTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEqCountBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.clmEqId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEqTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRunningTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEqCountBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -83,42 +83,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(646, 471);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // clmEqId
-            // 
-            this.clmEqId.DataPropertyName = "Id";
-            this.clmEqId.HeaderText = "Id";
-            this.clmEqId.Name = "clmEqId";
-            this.clmEqId.ReadOnly = true;
-            this.clmEqId.Visible = false;
-            // 
-            // clmEqTitle
-            // 
-            this.clmEqTitle.DataPropertyName = "Title";
-            this.clmEqTitle.HeaderText = "Название";
-            this.clmEqTitle.Name = "clmEqTitle";
-            this.clmEqTitle.ReadOnly = true;
-            this.clmEqTitle.Width = 250;
-            // 
-            // clmRunningTime
-            // 
-            this.clmRunningTime.DataPropertyName = "RunningTime";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmRunningTime.HeaderText = "Время тренировки (мин.)";
-            this.clmRunningTime.Name = "clmRunningTime";
-            this.clmRunningTime.ReadOnly = true;
-            this.clmRunningTime.Width = 200;
-            // 
-            // clmEqCountBalls
-            // 
-            this.clmEqCountBalls.DataPropertyName = "CountBalls";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmEqCountBalls.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmEqCountBalls.HeaderText = "Количество боллов";
-            this.clmEqCountBalls.Name = "clmEqCountBalls";
-            this.clmEqCountBalls.ReadOnly = true;
-            this.clmEqCountBalls.Width = 170;
             // 
             // flowLayoutPanel1
             // 
@@ -188,6 +152,42 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // clmEqId
+            // 
+            this.clmEqId.DataPropertyName = "Id";
+            this.clmEqId.HeaderText = "Id";
+            this.clmEqId.Name = "clmEqId";
+            this.clmEqId.ReadOnly = true;
+            this.clmEqId.Visible = false;
+            // 
+            // clmEqTitle
+            // 
+            this.clmEqTitle.DataPropertyName = "Title";
+            this.clmEqTitle.HeaderText = "Название";
+            this.clmEqTitle.Name = "clmEqTitle";
+            this.clmEqTitle.ReadOnly = true;
+            this.clmEqTitle.Width = 250;
+            // 
+            // clmRunningTime
+            // 
+            this.clmRunningTime.DataPropertyName = "RunningTime";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmRunningTime.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmRunningTime.HeaderText = "Время тренировки (мин.)";
+            this.clmRunningTime.Name = "clmRunningTime";
+            this.clmRunningTime.ReadOnly = true;
+            this.clmRunningTime.Width = 200;
+            // 
+            // clmEqCountBalls
+            // 
+            this.clmEqCountBalls.DataPropertyName = "CountBalls";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmEqCountBalls.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmEqCountBalls.HeaderText = "Количество боллов";
+            this.clmEqCountBalls.Name = "clmEqCountBalls";
+            this.clmEqCountBalls.ReadOnly = true;
+            this.clmEqCountBalls.Width = 170;
+            // 
             // FitnessEquipmentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,11 +211,11 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEqId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEqTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRunningTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEqCountBalls;
-        private System.Windows.Forms.ImageList imageList1;
 
     }
 }

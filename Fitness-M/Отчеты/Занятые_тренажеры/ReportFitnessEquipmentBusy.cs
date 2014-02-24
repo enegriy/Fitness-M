@@ -95,6 +95,14 @@ namespace Fitness_M
                 }
 
 
+                if (line > 62)
+                {
+                    e.HasMorePages = true;
+                    storeCufe = fe;
+                    countPage++;
+                    MustContinue = false;
+                    break;
+                }
                 e.Graphics.DrawString(
                     string.Format("{0} - {1}   {2}", fe.TimeFrom.ToShortTime(), fe.TimeTo.ToShortTime(), fe.VisitRef.ClientRef.SurName),
                     fontTime, brush, fieldSize, line * (textSize + space));

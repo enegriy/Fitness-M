@@ -38,13 +38,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numRunTime = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.errorProviderFQ = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRunTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFQ)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numRunTime, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -158,18 +158,18 @@
             this.label2.Text = "Время тренировки(мин.):";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // numericUpDown1
+            // numRunTime
             // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Location = new System.Drawing.Point(169, 39);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numRunTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numRunTime.Location = new System.Drawing.Point(169, 39);
+            this.numRunTime.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.numRunTime.Name = "numRunTime";
+            this.numRunTime.Size = new System.Drawing.Size(150, 20);
+            this.numRunTime.TabIndex = 3;
             // 
             // label3
             // 
@@ -202,7 +202,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRunTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFQ)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,7 +214,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numRunTime;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

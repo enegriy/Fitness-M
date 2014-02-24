@@ -73,28 +73,44 @@ namespace Fitness_M
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            if ((DialogResult == DialogResult.OK && m_IsClosingForm) ||
-                DialogResult == DialogResult.Cancel)
+            try
             {
-                if (DialogResult == DialogResult.OK)
+                if ((DialogResult == DialogResult.OK && m_IsClosingForm) ||
+                    DialogResult == DialogResult.Cancel)
                 {
-                    if (Action == ActionState.Add)
-                        m_KindTickets.Save();
-                    else if (Action == ActionState.Edit)
-                        m_KindTickets.Update();
-                }
-                else if (DialogResult == DialogResult.Cancel)
-                {
-                    m_KindTickets.RestoreBySnapShot(m_KindTicketSnapshot);
-                }
+                    if (DialogResult == DialogResult.OK)
+                    {
+                        ValidationKindTickets(m_KindTickets);
 
-                e.Cancel = false;
+                        if (Action == ActionState.Add)
+                            m_KindTickets.Save();
+                        else if (Action == ActionState.Edit)
+                            m_KindTickets.Update();
+                    }
+                    else if (DialogResult == DialogResult.Cancel)
+                    {
+                        m_KindTickets.RestoreBySnapShot(m_KindTicketSnapshot);
+                    }
+
+                    e.Cancel = false;
+                }
+                else
+                    e.Cancel = true;
+
+                if (!e.Cancel)
+                    ((INotifyPropertyChanged)m_KindTickets).PropertyChanged -= PropertyChanged;
             }
-            else
+            catch (BussinesException exc)
+            {
                 e.Cancel = true;
+                MessageHelper.ShowError(exc.Message);
+            }
+        }
 
-            if(!e.Cancel)
-                ((INotifyPropertyChanged)m_KindTickets).PropertyChanged -= PropertyChanged;
+        private void ValidationKindTickets(KindTickets m_KindTickets)
+        {
+            if (m_KindTickets.CountBalls <= 0 && m_KindTickets.CountVisits <= 0)
+                throw new BussinesException("Укажите количество баллов или посещений !");
         }
 
         public void PropertyChanged(object sender, PropertyChangedEventArgs e)

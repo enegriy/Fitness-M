@@ -140,6 +140,8 @@ namespace Fitness_M
             {
                 if (DialogResult == System.Windows.Forms.DialogResult.OK && !IsFormView)
                 {
+                    ValidationPlan();
+
                     if (cbGroupVisit.Checked)
                     {
                         TicketsController.CheckExistGroupVisitTicket(CurrentClient.ListTickets);
@@ -163,6 +165,9 @@ namespace Fitness_M
                     }
                     else
                     {
+                        IList<ClientUseFitnessEquipment> listUseFitness =
+                            new List<ClientUseFitnessEquipment>();
+
                         var om = new ObjectManager();
                         om.OpenConnection();
                         var tr = om.Connection.BeginTransaction();
@@ -176,7 +181,7 @@ namespace Fitness_M
                             newVisit.PlanTo = dtDateVisit.Value.Date.Add(PeriodTrainingFinish);
                             newVisit.IsDisabled = false;
                             newVisit.IsOnlyGroup = false;
-                            newVisit.Save();
+                            
 
                             var source = (BindingSource)grid1.DataSource;
                             int countBalls = 0;
@@ -184,19 +189,24 @@ namespace Fitness_M
                             {
                                 var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
                                 var useFitnessEq = new ClientUseFitnessEquipment();
-                                useFitnessEq.VisitId = newVisit.Id;
                                 useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
                                 useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
                                 useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
                                 countBalls += fitnessEqWillBeReseve.FitnessEquipmentReserve.CountBalls;
-                                useFitnessEq.Save();
-                                DataSet.ListUseFitnessEquipment.Add(useFitnessEq);
-                                newVisit.ClientUseFitnessEquipmentSpec.Add(useFitnessEq);
+                                listUseFitness.Add(useFitnessEq);
                             }
 
                             TicketsController.DeductBalls(CurrentClient.ListTickets, countBalls);
 
                             tr.Commit();
+
+                            newVisit.Save();
+                            foreach (var clientUse in listUseFitness)
+                            {
+                                clientUse.VisitId = newVisit.Id;
+                                clientUse.Save();
+                                DataSet.ListUseFitnessEquipment.Add(clientUse);
+                            }
 
                             NewVisit = newVisit;
                         }
@@ -216,6 +226,24 @@ namespace Fitness_M
             {
                 MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
+            }
+        }
+
+        private void ValidationPlan()
+        {
+            if (cbGroupVisit.Checked)
+            {
+                if (tbTimeFrom.Text == "  :")
+                    throw new BussinesException("'Время с' не может быть пустым!");
+
+                if (tbTimeTo.Text == "  :")
+                    throw new BussinesException("'Время по' не может быть пустым!");
+            }
+            else
+            {
+                var source = (BindingSource)grid1.DataSource;
+                if (source.Count == 0)
+                    throw new BussinesException("Необходимо выбрать тренажеры!");
             }
         }
 

@@ -29,6 +29,7 @@ namespace Fitness_M
             string sql = "select * from visits order by client_id;";
             var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql);
             cmd.Connection = Connection;
+
             var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -67,6 +68,7 @@ namespace Fitness_M
 
              var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql);
             cmd.Connection = Connection;
+
             var reader = cmd.ExecuteReader();
             while (reader.Read())
             {

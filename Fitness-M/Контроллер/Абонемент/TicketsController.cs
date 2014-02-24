@@ -83,7 +83,7 @@ namespace Fitness_M
                 !x.KindTicketsRef.IsOnlyGroup);
 
             if (ticket == null)
-                throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
+                throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
 
             if (ticket.Balance <= 0)
                 throw new BussinesException("У вас не осталось групповых занятий!");

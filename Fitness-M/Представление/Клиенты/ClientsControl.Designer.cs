@@ -92,12 +92,13 @@
             this.clmPayBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuTicket = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmDebt = new System.Windows.Forms.ToolStripMenuItem();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNewTicket = new System.Windows.Forms.Button();
-            this.btnDebt = new System.Windows.Forms.Button();
-            this.btnShowTicket = new System.Windows.Forms.Button();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmShowTicket = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnShowTicket = new System.Windows.Forms.Button();
+            this.btnNewTicket = new System.Windows.Forms.Button();
+            this.btnDebt = new System.Windows.Forms.Button();
+            this.btnTicketDelete = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -737,17 +738,49 @@
             this.cmDebt.Text = "Долг...";
             this.cmDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            // 
+            // cmShowTicket
+            // 
+            this.cmShowTicket.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmShowTicket.Name = "cmShowTicket";
+            this.cmShowTicket.Size = new System.Drawing.Size(159, 22);
+            this.cmShowTicket.Text = "Просмотреть...";
+            this.cmShowTicket.Click += new System.EventHandler(this.OnShowTicket_Click);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnShowTicket);
             this.flowLayoutPanel2.Controls.Add(this.btnNewTicket);
             this.flowLayoutPanel2.Controls.Add(this.btnDebt);
+            this.flowLayoutPanel2.Controls.Add(this.btnTicketDelete);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(865, 31);
             this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // btnShowTicket
+            // 
+            this.btnShowTicket.FlatAppearance.BorderSize = 0;
+            this.btnShowTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnShowTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShowTicket.ImageIndex = 8;
+            this.btnShowTicket.ImageList = this.imageList1;
+            this.btnShowTicket.Location = new System.Drawing.Point(4, 4);
+            this.btnShowTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowTicket.Name = "btnShowTicket";
+            this.btnShowTicket.Size = new System.Drawing.Size(123, 24);
+            this.btnShowTicket.TabIndex = 2;
+            this.btnShowTicket.Text = "Просмотреть...";
+            this.btnShowTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnShowTicket.UseVisualStyleBackColor = true;
+            this.btnShowTicket.Click += new System.EventHandler(this.OnShowTicket_Click);
             // 
             // btnNewTicket
             // 
@@ -783,36 +816,22 @@
             this.btnDebt.UseVisualStyleBackColor = true;
             this.btnDebt.Click += new System.EventHandler(this.btnDebt_Click);
             // 
-            // btnShowTicket
+            // btnTicketDelete
             // 
-            this.btnShowTicket.FlatAppearance.BorderSize = 0;
-            this.btnShowTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnShowTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowTicket.ImageIndex = 8;
-            this.btnShowTicket.ImageList = this.imageList1;
-            this.btnShowTicket.Location = new System.Drawing.Point(4, 4);
-            this.btnShowTicket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowTicket.Name = "btnShowTicket";
-            this.btnShowTicket.Size = new System.Drawing.Size(123, 24);
-            this.btnShowTicket.TabIndex = 2;
-            this.btnShowTicket.Text = "Просмотреть...";
-            this.btnShowTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnShowTicket.UseVisualStyleBackColor = true;
-            this.btnShowTicket.Click += new System.EventHandler(this.OnShowTicket_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
-            // 
-            // cmShowTicket
-            // 
-            this.cmShowTicket.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmShowTicket.Name = "cmShowTicket";
-            this.cmShowTicket.Size = new System.Drawing.Size(159, 22);
-            this.cmShowTicket.Text = "Просмотреть...";
-            this.cmShowTicket.Click += new System.EventHandler(this.OnShowTicket_Click);
+            this.btnTicketDelete.FlatAppearance.BorderSize = 0;
+            this.btnTicketDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicketDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTicketDelete.ImageIndex = 0;
+            this.btnTicketDelete.ImageList = this.imageList1;
+            this.btnTicketDelete.Location = new System.Drawing.Point(292, 4);
+            this.btnTicketDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTicketDelete.Name = "btnTicketDelete";
+            this.btnTicketDelete.Size = new System.Drawing.Size(85, 24);
+            this.btnTicketDelete.TabIndex = 3;
+            this.btnTicketDelete.Text = "Удалить...";
+            this.btnTicketDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTicketDelete.UseVisualStyleBackColor = true;
+            this.btnTicketDelete.Click += new System.EventHandler(this.OnTicketDelete_Click);
             // 
             // ClientsControl
             // 
@@ -906,6 +925,7 @@
         private System.Windows.Forms.Button btnShowTicket;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cmShowTicket;
+        private System.Windows.Forms.Button btnTicketDelete;
 
 
 

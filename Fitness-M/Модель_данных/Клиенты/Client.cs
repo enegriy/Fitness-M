@@ -23,7 +23,10 @@ namespace Fitness_M
                 {
                     m_ListTickets = new List<Tickets>();
                     var dataSet = ClientDataSet.Get();
-                    var tickets = dataSet.ListTickets.Where(x => x.ClientId == this.Id).ToList();
+                    var tickets = dataSet.ListTickets
+                        .Where(x => x.ClientId == this.Id)
+                        .Distinct()
+                        .ToList();
                     ((List<Tickets>)m_ListTickets).AddRange(tickets);
                 }
 
@@ -54,11 +57,14 @@ namespace Fitness_M
         {
             get
             {
-                if (m_ListVisit == null)
+                if (m_ListVisit == null )
                 {
                     m_ListVisit = new List<Visit>();
                     var dataSet = ClientDataSet.Get();
-                    var visits = dataSet.ListVisit.Where(x => x.ClientId == this.Id).ToList();
+                    var visits = dataSet.ListVisit
+                        .Where(x => x.ClientId == this.Id)
+                        .Distinct()
+                        .ToList();
                     ((List<Visit>)m_ListVisit).AddRange(visits);
                 }
 

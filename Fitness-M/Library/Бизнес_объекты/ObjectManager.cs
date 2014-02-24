@@ -10,6 +10,7 @@ namespace Fitness_M
     /// </summary>
     public class ObjectManager
     {
+
         private MySql.Data.MySqlClient.MySqlConnection m_Connection;
 
         public MySql.Data.MySqlClient.MySqlConnection Connection

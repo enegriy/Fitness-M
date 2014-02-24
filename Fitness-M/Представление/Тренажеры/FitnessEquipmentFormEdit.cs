@@ -72,7 +72,7 @@ namespace Fitness_M
         private void BindingFQ()
         {
             textBox1.DataBindings.Add("Text", m_CurrentFQ, "Title");
-            numericUpDown1.DataBindings.Add("Value", m_CurrentFQ, "RunningTime");
+            numRunTime.DataBindings.Add("Value", m_CurrentFQ, "RunningTime",false,DataSourceUpdateMode.OnPropertyChanged);
             numericUpDown2.DataBindings.Add("Value", m_CurrentFQ, "CountBalls");
         }
 
