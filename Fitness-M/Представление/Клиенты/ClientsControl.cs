@@ -486,5 +486,10 @@ namespace Fitness_M
             }
         }
 
+        private void OnBtnContract_Click(object sender, EventArgs e)
+        {
+            ReportContract.ShowReport();
+        }
+
     }
 }

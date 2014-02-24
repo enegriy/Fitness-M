@@ -1,6 +1,6 @@
 ﻿namespace Fitness_M
 {
-    partial class ReportFitnessEquipmentBusy
+    partial class ReportContract
     {
         /// <summary>
         /// Required designer variable.
@@ -50,8 +50,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 32);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(674, 32);
+            this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(839, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 32);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -80,9 +80,9 @@
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnPrint);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(212, 3);
+            this.panel2.Location = new System.Drawing.Point(171, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(412, 26);
+            this.panel2.Size = new System.Drawing.Size(330, 26);
             this.panel2.TabIndex = 4;
             // 
             // btnPrevPage
@@ -117,14 +117,14 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(343, 2);
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(261, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(67, 22);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Закрыть";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnPrint
             // 
@@ -135,7 +135,7 @@
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "Печать";
             this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.OnBtnPrint_Click);
+            this.btnPrint.Click += new System.EventHandler(this.OnPrintClick);
             // 
             // printPreviewControl1
             // 
@@ -143,29 +143,26 @@
             this.printPreviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printPreviewControl1.Document = this.printDoc;
             this.printPreviewControl1.Location = new System.Drawing.Point(0, 32);
-            this.printPreviewControl1.Margin = new System.Windows.Forms.Padding(2);
             this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(839, 475);
-            this.printPreviewControl1.TabIndex = 1;
+            this.printPreviewControl1.Size = new System.Drawing.Size(674, 418);
+            this.printPreviewControl1.TabIndex = 2;
             this.printPreviewControl1.Zoom = 1D;
             // 
             // printDoc
             // 
             this.printDoc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.OnPrintPage);
             // 
-            // ReportFitnessEquipmentBusy
+            // ReportContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 507);
+            this.ClientSize = new System.Drawing.Size(674, 450);
             this.Controls.Add(this.printPreviewControl1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ReportFitnessEquipmentBusy";
+            this.Name = "ReportContract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Печать списка занятых тренажеров";
+            this.Text = "Договор на оказание услуг";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.OnFormLoad);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -177,14 +174,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
-        private System.Drawing.Printing.PrintDocument printDoc;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnPrevPage;
         private System.Windows.Forms.Button btnNextPage;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
+        private System.Drawing.Printing.PrintDocument printDoc;
+
     }
 }
