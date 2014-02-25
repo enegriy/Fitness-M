@@ -488,7 +488,10 @@ namespace Fitness_M
 
         private void OnBtnContract_Click(object sender, EventArgs e)
         {
-            ReportContract.ShowReport();
+            var ticket = (Tickets)((BindingSource)gridTickets.DataSource).Current;
+
+            if (ticket != null)
+                ReportContract.ShowReport(ticket);
         }
 
     }
