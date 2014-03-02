@@ -51,6 +51,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.errorProviderClient = new System.Windows.Forms.ErrorProvider(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).BeginInit();
@@ -61,9 +62,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
@@ -76,14 +76,17 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.textBox7, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 15, 10);
-            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
@@ -102,7 +105,7 @@
             this.label8.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label8, 2);
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(13, 192);
+            this.label8.Location = new System.Drawing.Point(13, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(406, 26);
             this.label8.TabIndex = 17;
@@ -249,10 +252,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox7, 2);
             this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(13, 221);
+            this.textBox7.Location = new System.Drawing.Point(13, 247);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(406, 170);
+            this.textBox7.Size = new System.Drawing.Size(406, 144);
             this.textBox7.TabIndex = 7;
             // 
             // tableLayoutPanel2
@@ -301,6 +304,19 @@
             this.errorProviderClient.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderClient.ContainerControl = this;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(13, 195);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(406, 20);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.Text = "Электронная карточка";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // ClientFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +362,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ErrorProvider errorProviderClient;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -36,6 +36,7 @@ namespace Fitness_M
                 client.Phone = TryGetValue<string>(reader["phone"]);
                 client.Address = TryGetValue<string>(reader["address"]);
                 client.Note = TryGetValue<string>(reader["note"]);
+                client.Code = TryGetValue<uint>(reader["code"]);
                 listClients.Add(client);
             }
             cmd.Dispose();
@@ -67,8 +68,8 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO clients (id, number, surname, name, lastname, datebirth, phone, address, note) 
-                        VALUES (NULL, @number, @surname, @name, @lastname, @datebirth, @phone, @address, @note)";
+                sql = @"INSERT INTO clients (id, number, surname, name, lastname, datebirth, phone, address, note, code) 
+                        VALUES (NULL, @number, @surname, @name, @lastname, @datebirth, @phone, @address, @note, @code)";
                 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@number", client.Number);
@@ -79,6 +80,7 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@phone", client.Phone);
                 cmd.Parameters.AddWithValue("@address", client.Address);
                 cmd.Parameters.AddWithValue("@note", client.Note);
+                cmd.Parameters.AddWithValue("@code", client.Code);
 
                 try
                 {
@@ -114,7 +116,8 @@ namespace Fitness_M
                     datebirth = @datebirth,
                     phone = @phone,
                     address = @address,
-                    note = @note
+                    note = @note,
+                    code = @code
                     WHERE id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", client.Id);
@@ -126,6 +129,7 @@ namespace Fitness_M
                 cmd.Parameters.AddWithValue("@phone", client.Phone);
                 cmd.Parameters.AddWithValue("@address", client.Address);
                 cmd.Parameters.AddWithValue("@note", client.Note);
+                cmd.Parameters.AddWithValue("@code", client.Code);
 
                 cmd.ExecuteNonQuery();
 

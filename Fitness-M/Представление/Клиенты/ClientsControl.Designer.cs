@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -51,18 +51,10 @@
             this.textBoxFind = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridClients = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDateBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuClient = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmChangeClient = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDeleteClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDigitalCard = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuVisit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmStartVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmFinishVisit = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,6 +92,17 @@
             this.btnDebt = new System.Windows.Forms.Button();
             this.btnTicketDelete = new System.Windows.Forms.Button();
             this.btnContract = new System.Windows.Forms.Button();
+            this.btnCard = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDateBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDigitalCard = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -127,6 +130,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditClient);
             this.flowLayoutPanel1.Controls.Add(this.btnDelete);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.btnCard);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -169,6 +173,7 @@
             this.imageList1.Images.SetKeyName(9, "coins_8623.png");
             this.imageList1.Images.SetKeyName(10, "new_5007.png");
             this.imageList1.Images.SetKeyName(11, "print_printer_6543.png");
+            this.imageList1.Images.SetKeyName(12, "credit_card_9349.ico");
             // 
             // btnEditClient
             // 
@@ -282,7 +287,8 @@
             this.clmDateBirth,
             this.clmPhone,
             this.clmAddress,
-            this.clmNote});
+            this.clmNote,
+            this.clmDigitalCard});
             this.tableLayoutPanel1.SetColumnSpan(this.gridClients, 2);
             this.gridClients.ContextMenuStrip = this.contextMenuClient;
             this.gridClients.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -292,114 +298,42 @@
             this.gridClients.RowTemplate.Height = 24;
             this.gridClients.Size = new System.Drawing.Size(873, 231);
             this.gridClients.TabIndex = 0;
+            this.gridClients.VirtualMode = true;
             this.gridClients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDblClickClient);
             this.gridClients.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnCellMouseDown);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 44;
-            // 
-            // clmNumber
-            // 
-            this.clmNumber.DataPropertyName = "Number";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmNumber.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmNumber.Frozen = true;
-            this.clmNumber.HeaderText = "Номер";
-            this.clmNumber.Name = "clmNumber";
-            this.clmNumber.ReadOnly = true;
-            // 
-            // clmSurname
-            // 
-            this.clmSurname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmSurname.DataPropertyName = "Surname";
-            this.clmSurname.HeaderText = "Фамилия";
-            this.clmSurname.Name = "clmSurname";
-            this.clmSurname.ReadOnly = true;
-            // 
-            // clmName
-            // 
-            this.clmName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmName.DataPropertyName = "Name";
-            this.clmName.HeaderText = "Имя";
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            // 
-            // clmLastName
-            // 
-            this.clmLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmLastName.DataPropertyName = "Lastname";
-            this.clmLastName.HeaderText = "Отчество";
-            this.clmLastName.Name = "clmLastName";
-            this.clmLastName.ReadOnly = true;
-            // 
-            // clmDateBirth
-            // 
-            this.clmDateBirth.DataPropertyName = "DateBirth";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.clmDateBirth.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmDateBirth.HeaderText = "Дата рождения";
-            this.clmDateBirth.Name = "clmDateBirth";
-            this.clmDateBirth.ReadOnly = true;
-            this.clmDateBirth.Width = 135;
-            // 
-            // clmPhone
-            // 
-            this.clmPhone.DataPropertyName = "Phone";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPhone.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmPhone.HeaderText = "Телефон";
-            this.clmPhone.Name = "clmPhone";
-            this.clmPhone.ReadOnly = true;
-            this.clmPhone.Width = 120;
-            // 
-            // clmAddress
-            // 
-            this.clmAddress.DataPropertyName = "Address";
-            this.clmAddress.HeaderText = "Адрес";
-            this.clmAddress.Name = "clmAddress";
-            this.clmAddress.ReadOnly = true;
-            this.clmAddress.Width = 120;
-            // 
-            // clmNote
-            // 
-            this.clmNote.DataPropertyName = "Note";
-            this.clmNote.HeaderText = "Примечание";
-            this.clmNote.Name = "clmNote";
-            this.clmNote.ReadOnly = true;
-            this.clmNote.Width = 120;
+            this.gridClients.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.OnClientCellValueNeeded);
             // 
             // contextMenuClient
             // 
             this.contextMenuClient.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmChangeClient,
-            this.cmDeleteClient});
+            this.cmDeleteClient,
+            this.cmDigitalCard});
             this.contextMenuClient.Name = "contextMenuClient";
-            this.contextMenuClient.Size = new System.Drawing.Size(142, 48);
+            this.contextMenuClient.Size = new System.Drawing.Size(188, 70);
             this.contextMenuClient.Opening += new System.ComponentModel.CancelEventHandler(this.OnOpeningContextClient);
             // 
             // cmChangeClient
             // 
             this.cmChangeClient.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmChangeClient.Name = "cmChangeClient";
-            this.cmChangeClient.Size = new System.Drawing.Size(141, 22);
+            this.cmChangeClient.Size = new System.Drawing.Size(187, 22);
             this.cmChangeClient.Text = "Изменить...";
             this.cmChangeClient.Click += new System.EventHandler(this.btnEditClient_Click);
             // 
             // cmDeleteClient
             // 
             this.cmDeleteClient.Name = "cmDeleteClient";
-            this.cmDeleteClient.Size = new System.Drawing.Size(141, 22);
+            this.cmDeleteClient.Size = new System.Drawing.Size(187, 22);
             this.cmDeleteClient.Text = "Удалить...";
             this.cmDeleteClient.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // cmDigitalCard
+            // 
+            this.cmDigitalCard.Name = "cmDigitalCard";
+            this.cmDigitalCard.Size = new System.Drawing.Size(187, 22);
+            this.cmDigitalCard.Text = "Электронная карта...";
+            this.cmDigitalCard.Click += new System.EventHandler(this.OnDigitalCard_Click);
             // 
             // contextMenuVisit
             // 
@@ -519,8 +453,8 @@
             // clmVisitFrom
             // 
             this.clmVisitFrom.DataPropertyName = "VisitFrom";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitFrom.DefaultCellStyle = dataGridViewCellStyle24;
             this.clmVisitFrom.HeaderText = "Посещение С";
             this.clmVisitFrom.Name = "clmVisitFrom";
             this.clmVisitFrom.ReadOnly = true;
@@ -529,8 +463,8 @@
             // clmVisitTo
             // 
             this.clmVisitTo.DataPropertyName = "VisitTo";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clmVisitTo.DefaultCellStyle = dataGridViewCellStyle25;
             this.clmVisitTo.HeaderText = "Посещение ПО";
             this.clmVisitTo.Name = "clmVisitTo";
             this.clmVisitTo.ReadOnly = true;
@@ -673,8 +607,8 @@
             // clmId
             // 
             this.clmId.DataPropertyName = "Id";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmId.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmId.DefaultCellStyle = dataGridViewCellStyle26;
             this.clmId.HeaderText = "Номер";
             this.clmId.Name = "clmId";
             this.clmId.ReadOnly = true;
@@ -682,10 +616,10 @@
             // clmDateFinish
             // 
             this.clmDateFinish.DataPropertyName = "DateFinish";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "d";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.Format = "d";
+            dataGridViewCellStyle27.NullValue = null;
+            this.clmDateFinish.DefaultCellStyle = dataGridViewCellStyle27;
             this.clmDateFinish.HeaderText = "Дата окончания";
             this.clmDateFinish.Name = "clmDateFinish";
             this.clmDateFinish.ReadOnly = true;
@@ -694,8 +628,8 @@
             // clmBalance
             // 
             this.clmBalance.DataPropertyName = "Balance";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle28;
             this.clmBalance.HeaderText = "Остаток";
             this.clmBalance.Name = "clmBalance";
             this.clmBalance.ReadOnly = true;
@@ -703,21 +637,21 @@
             // 
             // clmDebt
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.clmDebt.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle29.Format = "N2";
+            dataGridViewCellStyle29.NullValue = null;
+            this.clmDebt.DefaultCellStyle = dataGridViewCellStyle29;
             this.clmDebt.HeaderText = "Долг";
             this.clmDebt.Name = "clmDebt";
             this.clmDebt.ReadOnly = true;
             // 
             // clmPayBefore
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle10.Format = "d";
-            this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle30.Format = "d";
+            this.clmPayBefore.DefaultCellStyle = dataGridViewCellStyle30;
             this.clmPayBefore.HeaderText = "Оплатить до";
             this.clmPayBefore.Name = "clmPayBefore";
             this.clmPayBefore.ReadOnly = true;
@@ -853,6 +787,114 @@
             this.btnContract.UseVisualStyleBackColor = true;
             this.btnContract.Click += new System.EventHandler(this.OnBtnContract_Click);
             // 
+            // btnCard
+            // 
+            this.btnCard.BackColor = System.Drawing.Color.Transparent;
+            this.btnCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCard.FlatAppearance.BorderSize = 0;
+            this.btnCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCard.ImageIndex = 12;
+            this.btnCard.ImageList = this.imageList1;
+            this.btnCard.Location = new System.Drawing.Point(574, 3);
+            this.btnCard.Name = "btnCard";
+            this.btnCard.Size = new System.Drawing.Size(155, 36);
+            this.btnCard.TabIndex = 5;
+            this.btnCard.Text = "Электронная карта...";
+            this.btnCard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCard.UseVisualStyleBackColor = false;
+            this.btnCard.Click += new System.EventHandler(this.OnDigitalCard_Click);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 44;
+            // 
+            // clmNumber
+            // 
+            this.clmNumber.DataPropertyName = "Number";
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmNumber.DefaultCellStyle = dataGridViewCellStyle21;
+            this.clmNumber.Frozen = true;
+            this.clmNumber.HeaderText = "Номер";
+            this.clmNumber.Name = "clmNumber";
+            this.clmNumber.ReadOnly = true;
+            // 
+            // clmSurname
+            // 
+            this.clmSurname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmSurname.DataPropertyName = "Surname";
+            this.clmSurname.HeaderText = "Фамилия";
+            this.clmSurname.Name = "clmSurname";
+            this.clmSurname.ReadOnly = true;
+            // 
+            // clmName
+            // 
+            this.clmName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmName.DataPropertyName = "Name";
+            this.clmName.HeaderText = "Имя";
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            // 
+            // clmLastName
+            // 
+            this.clmLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLastName.DataPropertyName = "Lastname";
+            this.clmLastName.HeaderText = "Отчество";
+            this.clmLastName.Name = "clmLastName";
+            this.clmLastName.ReadOnly = true;
+            // 
+            // clmDateBirth
+            // 
+            this.clmDateBirth.DataPropertyName = "DateBirth";
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Format = "d";
+            dataGridViewCellStyle22.NullValue = null;
+            this.clmDateBirth.DefaultCellStyle = dataGridViewCellStyle22;
+            this.clmDateBirth.HeaderText = "Дата рождения";
+            this.clmDateBirth.Name = "clmDateBirth";
+            this.clmDateBirth.ReadOnly = true;
+            this.clmDateBirth.Width = 135;
+            // 
+            // clmPhone
+            // 
+            this.clmPhone.DataPropertyName = "Phone";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPhone.DefaultCellStyle = dataGridViewCellStyle23;
+            this.clmPhone.HeaderText = "Телефон";
+            this.clmPhone.Name = "clmPhone";
+            this.clmPhone.ReadOnly = true;
+            this.clmPhone.Width = 120;
+            // 
+            // clmAddress
+            // 
+            this.clmAddress.DataPropertyName = "Address";
+            this.clmAddress.HeaderText = "Адрес";
+            this.clmAddress.Name = "clmAddress";
+            this.clmAddress.ReadOnly = true;
+            this.clmAddress.Width = 120;
+            // 
+            // clmNote
+            // 
+            this.clmNote.DataPropertyName = "Note";
+            this.clmNote.HeaderText = "Примечание";
+            this.clmNote.Name = "clmNote";
+            this.clmNote.ReadOnly = true;
+            this.clmNote.Width = 120;
+            // 
+            // clmDigitalCard
+            // 
+            this.clmDigitalCard.HeaderText = "Эл.Карта";
+            this.clmDigitalCard.Name = "clmDigitalCard";
+            this.clmDigitalCard.ReadOnly = true;
+            this.clmDigitalCard.Width = 60;
+            // 
             // ClientsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -900,15 +942,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuVisit;
         private System.Windows.Forms.ToolStripMenuItem cmStartVisit;
         private System.Windows.Forms.ToolStripMenuItem cmFinishVisit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSurname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNote;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -947,6 +980,18 @@
         private System.Windows.Forms.ToolStripMenuItem cmShowTicket;
         private System.Windows.Forms.Button btnTicketDelete;
         private System.Windows.Forms.Button btnContract;
+        private System.Windows.Forms.ToolStripMenuItem cmDigitalCard;
+        private System.Windows.Forms.Button btnCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNote;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmDigitalCard;
 
 
 

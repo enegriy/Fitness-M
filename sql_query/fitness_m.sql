@@ -90,3 +90,4 @@ CREATE TABLE IF NOT EXISTS parameters (
 
 ALTER TABLE tickets ADD debt DECIMAL(10,2);
 ALTER TABLE tickets ADD pay_before DATE;
+ALTER TABLE clients ADD code INT UNSIGNED;

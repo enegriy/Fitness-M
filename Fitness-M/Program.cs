@@ -13,7 +13,6 @@ namespace Fitness_M
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var frmUserIdent = new UserIdentification();
@@ -21,8 +20,8 @@ namespace Fitness_M
             {
                 Application.Run(new BrowseForm());
             }
-
-
         }
+
+       
     }
 }

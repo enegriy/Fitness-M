@@ -124,6 +124,22 @@ namespace Fitness_M
         /// </summary>
         public string Note { get; set; }
         /// <summary>
+        /// Код электронной карты
+        /// </summary>
+        public uint Code { get; set; }
+        /// <summary>
+        /// Полное имя
+        /// </summary>
+        public string FullName { 
+            get 
+            {
+                string rslt = string.Format("{0} {1}", SurName, Name);
+                if (!string.IsNullOrEmpty(LastName))
+                    rslt += " " + LastName;
+                return rslt;
+            } 
+        }
+        /// <summary>
         /// Пустая запись
         /// </summary>
         public bool IsEmpty
@@ -157,6 +173,7 @@ namespace Fitness_M
         {
             Delete(this);
         }
+
         #endregion
     }
 }

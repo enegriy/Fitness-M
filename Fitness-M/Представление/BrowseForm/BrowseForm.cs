@@ -23,7 +23,16 @@ namespace Fitness_M
             SetRegims(treeViewRegims);
             m_DataSet = ClientDataSet.Get();
             timerForToday.Start();
+
+            Scaner.OpenScaner();
         }
+
+        private void OnFormClosing(object sender, FormClosedEventArgs e)
+        {
+            Scaner.CloseScanner();
+        }
+
+        
 
         /// <summary>
         /// Установить режимы
@@ -110,5 +119,7 @@ namespace Fitness_M
             lblDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
             lblTime.Text = DateTime.Now.ToString("HH:mm");
         }
+
+
     }
 }

@@ -97,6 +97,9 @@ namespace Fitness_M
             textBox5.DataBindings.Add("Text", m_CurrentClient, "Phone");
             textBox6.DataBindings.Add("Text", m_CurrentClient, "Address");
             textBox7.DataBindings.Add("Text", m_CurrentClient, "Note");
+
+            if (m_CurrentClient.Code != 0 && m_CurrentClient.Code != null)
+                checkBox1.Checked = true;
         }
 
         /// <summary>

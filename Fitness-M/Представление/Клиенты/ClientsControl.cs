@@ -429,6 +429,15 @@ namespace Fitness_M
                 e.Value = currObj.PayBefore == DateTime.MinValue ? "" : currObj.PayBefore.ToString("dd.MM.yyyy");
         }
 
+        private void OnClientCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            if (e.ColumnIndex == 9)
+            {
+                var currObj = (Client)gridClients.Rows[e.RowIndex].DataBoundItem;
+                e.Value = currObj.Code != null && currObj.Code != 0 ? true : false;
+            }
+        }
+
         private void OnOpeningContextClient(object sender, CancelEventArgs e)
         {
             if (((BindingSource)gridClients.DataSource).Current == null)
@@ -493,6 +502,19 @@ namespace Fitness_M
             if (ticket != null)
                 ReportContract.ShowReport(ticket);
         }
+
+        private void OnDigitalCard_Click(object sender, EventArgs e)
+        {
+            var client = (Client)((BindingSource)gridClients.DataSource).Current;
+            if ((client.Code != 0 &&
+                MessageHelper.ShowQuestion("У клиента существует электронная карта,\nхотите переопределить её?") == DialogResult.Yes) ||
+                client.Code == 0)
+            {
+                DigitalCardEditForm.ShowForm(client);
+            }
+        }
+
+
 
     }
 }

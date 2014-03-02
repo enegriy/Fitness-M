@@ -122,6 +122,7 @@
             this.Name = "BrowseForm";
             this.Text = "Фитнес-М";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnFormClosing);
             this.Load += new System.EventHandler(this.OnBrowseFormLoad);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

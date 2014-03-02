@@ -51,10 +51,12 @@
   <ItemGroup>
     <Compile Include="Library\Грид\GridHelper.cs" />
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
+    <Compile Include="Library\Сканер\Scaner.cs" />
+    <Compile Include="Library\Сканер\ScanerResultCode.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
     <Compile Include="Контроллер\Абонемент\TicketFilter.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
-    <Compile Include="Контроллер\Тренажеры\ClientController.cs" />
+    <Compile Include="Контроллер\Клиенты\ClientController.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />
@@ -149,11 +151,23 @@
     </Compile>
     <Compile Include="Модель_данных\Пользователи\CurrentUser.cs" />
     <Compile Include="Модель_данных\Пользователи\Roles.cs" />
+    <Compile Include="Представление\Клиенты\Электронная_карта\DigitalCardEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Клиенты\Электронная_карта\DigitalCardEditForm.Designer.cs">
+      <DependentUpon>DigitalCardEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Пользователи\UserIdentification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Представление\Пользователи\UserIdentification.Designer.cs">
       <DependentUpon>UserIdentification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Представление\Сеанс\ArrivedAndDepartedEditFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\Сеанс\ArrivedAndDepartedEditFrom.Designer.cs">
+      <DependentUpon>ArrivedAndDepartedEditFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Представление\Сеанс\PlanFormEdit.cs">
       <SubType>Form</SubType>
@@ -228,8 +242,14 @@
     <EmbeddedResource Include="Представление\Клиенты\ClientsControl.resx">
       <DependentUpon>ClientsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Клиенты\Электронная_карта\DigitalCardEditForm.resx">
+      <DependentUpon>DigitalCardEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\Пользователи\UserIdentification.resx">
       <DependentUpon>UserIdentification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Сеанс\ArrivedAndDepartedEditFrom.resx">
+      <DependentUpon>ArrivedAndDepartedEditFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Сеанс\PlanFormEdit.resx">
       <DependentUpon>PlanFormEdit.cs</DependentUpon>
@@ -264,7 +284,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
-    <Folder Include="Контроллер\Клиенты\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
