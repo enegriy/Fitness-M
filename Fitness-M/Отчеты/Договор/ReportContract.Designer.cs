@@ -48,9 +48,9 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(674, 32);
+            this.panel1.Size = new System.Drawing.Size(899, 39);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -63,12 +63,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 32);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(899, 39);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -80,16 +80,18 @@
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnPrint);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(171, 3);
+            this.panel2.Location = new System.Drawing.Point(228, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 26);
+            this.panel2.Size = new System.Drawing.Size(440, 31);
             this.panel2.TabIndex = 4;
             // 
             // btnPrevPage
             // 
-            this.btnPrevPage.Location = new System.Drawing.Point(126, 2);
+            this.btnPrevPage.Location = new System.Drawing.Point(168, 2);
+            this.btnPrevPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrevPage.Name = "btnPrevPage";
-            this.btnPrevPage.Size = new System.Drawing.Size(33, 22);
+            this.btnPrevPage.Size = new System.Drawing.Size(44, 27);
             this.btnPrevPage.TabIndex = 6;
             this.btnPrevPage.Text = "<<";
             this.btnPrevPage.UseVisualStyleBackColor = true;
@@ -97,9 +99,10 @@
             // 
             // btnNextPage
             // 
-            this.btnNextPage.Location = new System.Drawing.Point(214, 2);
+            this.btnNextPage.Location = new System.Drawing.Point(285, 2);
+            this.btnNextPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(33, 22);
+            this.btnNextPage.Size = new System.Drawing.Size(44, 27);
             this.btnNextPage.TabIndex = 5;
             this.btnNextPage.Text = ">>";
             this.btnNextPage.UseVisualStyleBackColor = true;
@@ -108,9 +111,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(160, 6);
+            this.label1.Location = new System.Drawing.Point(213, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Страница";
             // 
@@ -118,20 +122,20 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(261, 2);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(348, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(67, 22);
+            this.btnClose.Size = new System.Drawing.Size(89, 27);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Закрыть";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(2, 2);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Location = new System.Drawing.Point(3, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(67, 22);
+            this.btnPrint.Size = new System.Drawing.Size(89, 27);
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "Печать";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -142,11 +146,13 @@
             this.printPreviewControl1.AutoZoom = false;
             this.printPreviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printPreviewControl1.Document = this.printDoc;
-            this.printPreviewControl1.Location = new System.Drawing.Point(0, 32);
+            this.printPreviewControl1.Location = new System.Drawing.Point(0, 39);
+            this.printPreviewControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(674, 418);
+            this.printPreviewControl1.Size = new System.Drawing.Size(899, 515);
             this.printPreviewControl1.TabIndex = 2;
-            this.printPreviewControl1.Zoom = 1D;
+            this.printPreviewControl1.UseAntiAlias = true;
+            this.printPreviewControl1.Zoom = 1;
             // 
             // printDoc
             // 
@@ -154,11 +160,12 @@
             // 
             // ReportContract
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 450);
+            this.ClientSize = new System.Drawing.Size(899, 554);
             this.Controls.Add(this.printPreviewControl1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReportContract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Договор на оказание услуг";

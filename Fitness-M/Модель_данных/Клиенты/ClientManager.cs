@@ -157,16 +157,25 @@ namespace Fitness_M
         public long GenerateNumber()
         {
             OpenConnection();
-            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
-            cmd.Connection = Connection;
+            long num;
+            try
+            {
+                var cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd.Connection = Connection;
 
-            string sql = @"select max(number) from clients;";
-            cmd.CommandText = sql;
-            long num = (long)cmd.ExecuteScalar();
-            num++;
-
-            CloseConnection();
-
+                string sql = @"select max(number) from clients;";
+                cmd.CommandText = sql;
+                num = (long)cmd.ExecuteScalar();
+                num++;
+            }
+            catch
+            {
+                num = 1;
+            }
+            finally
+            {
+                CloseConnection();
+            }
             return num;
         }
     }
