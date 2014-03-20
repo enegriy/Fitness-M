@@ -85,7 +85,7 @@ namespace Fitness_M
         {
             Scaner.ActionWithCode -= ActionWithCode;
             timer1.Stop();
-            MessageHelper.ShowInfo("Электронная карта присвоенная клиенту!");
+            MessageHelper.ShowInfo("Электронная карта присвоенна клиенту!");
             Scaner.ActionWithCode += ClientController.ActionCodeWasScaned;
             
         }

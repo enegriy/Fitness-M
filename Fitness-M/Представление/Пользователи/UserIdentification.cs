@@ -33,6 +33,7 @@ namespace Fitness_M
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Focus();
             Close();
         }
 
@@ -46,6 +47,12 @@ namespace Fitness_M
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
+            if (DialogResult == System.Windows.Forms.DialogResult.Cancel)
+            {
+                e.Cancel = false;
+                return;
+            }
+
             if (DialogResult == System.Windows.Forms.DialogResult.OK
                 && m_IsClosingForm)
             {
@@ -63,6 +70,8 @@ namespace Fitness_M
                     e.Cancel = true;
                 }
             }
+            else
+                e.Cancel = true;
         }
 
         private void SignUp()
