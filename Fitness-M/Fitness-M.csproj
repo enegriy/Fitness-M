@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Library\Грид\GridHelper.cs" />
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
+    <Compile Include="Library\Логирование\Logger.cs" />
     <Compile Include="Library\Сканер\Scaner.cs" />
     <Compile Include="Library\Сканер\ScanerResultCode.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
