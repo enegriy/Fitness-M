@@ -137,7 +137,11 @@ namespace Fitness_M
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             //Логирование
-            Logger.WriteLine(string.Format("{0}  {1} - {2}", System.DateTime.Now, CurrentClient.FullName, DialogResult.ToString()));
+            if(!IsFormView)
+                Logger.WriteLine(string.Format("{0}  {1} - {2}", 
+                    System.DateTime.Now, 
+                    CurrentClient.FullName, 
+                    DialogResult.ToString()));
 
             try
             {

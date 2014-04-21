@@ -24,6 +24,15 @@ namespace Fitness_M
             m_DataSet = ClientDataSet.Get();
             timerForToday.Start();
 
+            /**/
+            var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
+            var timeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo);
+
+            var curDate = DateTime.Now;
+
+            VisualDetailByEquipment.FormShow(m_DataSet.ListFitnessEquipment, curDate, timeFrom.TimeOfDay, timeTo.TimeOfDay);
+            /**/
+
             Scaner.OpenScaner();
         }
 

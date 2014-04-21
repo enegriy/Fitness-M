@@ -126,7 +126,7 @@
             this.fitnessEquipmentSchedule1.DateVisit = new System.DateTime(2014, 2, 5, 22, 17, 9, 0);
             this.fitnessEquipmentSchedule1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fitnessEquipmentSchedule1.Location = new System.Drawing.Point(0, 0);
-            this.fitnessEquipmentSchedule1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fitnessEquipmentSchedule1.Margin = new System.Windows.Forms.Padding(4);
             this.fitnessEquipmentSchedule1.Name = "fitnessEquipmentSchedule1";
             this.fitnessEquipmentSchedule1.Size = new System.Drawing.Size(615, 391);
             this.fitnessEquipmentSchedule1.TabIndex = 1;

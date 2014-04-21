@@ -75,10 +75,6 @@ namespace Fitness_M
         }
         #endregion
 
-
-        
-        
-
         #region PublicMethods
         /// <summary>
         /// Конструктор
