@@ -274,14 +274,14 @@ namespace Fitness_M
                 var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
                 var timeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo);
 
-                var frm = VisualDetailScheduleEditForm.FormShow(DataSet.ListFitnessEquipment, visDate, timeFrom.TimeOfDay, timeTo.TimeOfDay);
-                if (frm != null)
+                var listFqWillBeReserve = VisualDetailScheduleEditForm.FormShow(DataSet.ListFitnessEquipment, visDate, timeFrom.TimeOfDay, timeTo.TimeOfDay);
+                if (listFqWillBeReserve.Any())
                 {
-                    /*var fitnessWillBeReserve = frm.FitnessEquipmentWillBeReserve;
-
-                    ((BindingSource)grid1.DataSource).Add(fitnessWillBeReserve);
-
-                    SetPeriodTraining(fitnessWillBeReserve.TimeFrom, fitnessWillBeReserve.TimeTo);*/
+                    foreach (var fitnessWillBeReserve in listFqWillBeReserve)
+                    {
+                        ((BindingSource)grid1.DataSource).Add(fitnessWillBeReserve);
+                        SetPeriodTraining(fitnessWillBeReserve.TimeFrom, fitnessWillBeReserve.TimeTo);
+                    }
                 }
             }
             catch (BussinesException ex)

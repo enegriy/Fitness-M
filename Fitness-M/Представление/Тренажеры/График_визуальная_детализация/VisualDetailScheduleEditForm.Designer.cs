@@ -44,6 +44,7 @@
             this.visualDetailSchedule1.TimeFrom = System.TimeSpan.Parse("20:55:20.2785972");
             this.visualDetailSchedule1.TimeTo = System.TimeSpan.Parse("20:55:20.2785972");
             this.visualDetailSchedule1.ToUseControl = Fitness_M.UseControl.AsRegim;
+            this.visualDetailSchedule1.Load += new System.EventHandler(this.visualDetailSchedule1_Load);
             // 
             // VisualDetailScheduleEditForm
             // 

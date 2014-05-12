@@ -19,7 +19,7 @@ namespace Fitness_M
         /// <summary>
         /// Список тренажеров забронировынный сейчас
         /// </summary>
-        public IList<FitnessEquipment> ListFitnessEquipmentReserve { get; set; }
+        public IList<FitnessEquipmentWillBeReserve> ListFitnessEquipmentWillBeReserve { get; set; }
         /// <summary>
         /// Дата посещения
         /// </summary>
@@ -61,6 +61,7 @@ namespace Fitness_M
 
         private void Init()
         {
+            ListFitnessEquipmentWillBeReserve = new List<FitnessEquipmentWillBeReserve>();
             dtTimePicker.Value = DateVisit;
 
             if (ToUseControl == UseControl.AsRegim)
@@ -201,12 +202,98 @@ namespace Fitness_M
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int fqId = (int)grid.CurrentRow.Tag;
+            try
+            {
+                int fqId = (int)grid.CurrentRow.Tag;
+
+                var fitnessEq = ListFitnessEquipment.FirstOrDefault(x => x.Id == fqId);
+                var timeReserve = (TimeSpan)grid.Columns[grid.CurrentCell.ColumnIndex].Tag;
+                var timeFinish = timeReserve.Add(new TimeSpan(0, fitnessEq.RunningTime, 0));
+
+                CheckTime(fitnessEq, DateVisit, timeReserve, timeFinish);
+
+                var fitEqWillBeReserve = new FitnessEquipmentWillBeReserve();
+                fitEqWillBeReserve.FitnessEquipmentReserve = fitnessEq;
+                fitEqWillBeReserve.TimeFrom = timeReserve;
+                fitEqWillBeReserve.TimeTo = timeFinish;
+
+                ListFitnessEquipmentWillBeReserve.Add(fitEqWillBeReserve);
+
+                FillArea(timeReserve, timeFinish);
+            }
+            catch (BussinesException exc)
+            {
+                MessageHelper.ShowError(exc.Message);
+            }
+        }
+
+        private void FillArea(TimeSpan timeStart ,TimeSpan timeFinish)
+        {
+            foreach (DataGridViewCell cell in grid.CurrentRow.Cells)
+            {
+                var timeFromCol = grid.Columns[cell.ColumnIndex].Tag;
+                if (timeFromCol != null && timeFromCol is TimeSpan &&
+                    ((TimeSpan)timeFromCol >= timeStart &&
+                    (TimeSpan)timeFromCol < timeFinish))
+                {
+                    cell.Style.BackColor = Color.FromArgb(255, 170, 80);
+                    cell.Style.SelectionBackColor = Color.FromArgb(255, 130, 20);
+                    cell.ToolTipText = string.Format("{0} - {1}", timeStart.ToShortTime(), timeFinish.ToShortTime());
+                }
+            }
+        }
+
+        private void CheckTime(
+            FitnessEquipment fitnessEquipment,
+            DateTime dateVisit,
+            TimeSpan timeStart,
+            TimeSpan timeFinish)
+        {
+            bool isFreePeriod = false;
             
-            var fitnessEq = ListFitnessEquipment.FirstOrDefault(x => x.Id == fqId);
-            var timeReserve = (TimeSpan)grid.Columns[grid.CurrentCell.ColumnIndex].Tag;
-   
-            ListFitnessEquipmentReserve.Add(fitnessEq);
+            isFreePeriod = !ListFitnessEquipmentWillBeReserve.Any(x =>
+                x.FitnessEquipmentReserve == fitnessEquipment && 
+                (x.TimeFrom <= timeFinish && 
+                x.TimeTo >= timeStart));
+
+            if (isFreePeriod)
+            {
+                isFreePeriod = false;
+
+                var feqController = new FitnessEquipmentController();
+
+                var listFreeTime = feqController.GetListFreeTime(fitnessEquipment, dateVisit, GetWorkPeriod());
+
+
+                foreach (var freeTime in listFreeTime)
+                {
+                    if (freeTime.DateFrom.TimeOfDay <= timeStart &&
+                        freeTime.DateTo.TimeOfDay >= timeFinish)
+                        isFreePeriod = true;
+                }
+            }
+
+            if (!isFreePeriod)
+            {
+                throw new BussinesException(string.Format("Невозможно записаться на {0} - {1}!",
+                        timeStart.ToString(),
+                        timeFinish.ToString()));
+            }
+        }
+
+        /// <summary>
+        /// Получить пероид работы на текущий день
+        /// </summary>
+        /// <returns></returns>
+        private DateFromAndDateTo GetWorkPeriod()
+        {
+            var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
+            var timeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo);
+
+            var dateFrom = new DateTime(DateVisit.Year, DateVisit.Month, DateVisit.Day, timeFrom.Hour, timeFrom.Minute, 0);
+            var dateTo = new DateTime(DateVisit.Year, DateVisit.Month, DateVisit.Day, timeTo.Hour, timeTo.Minute, 0);
+
+            return new DateFromAndDateTo(dateFrom, dateTo);
         }
     }
 }

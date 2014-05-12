@@ -19,7 +19,7 @@ namespace Fitness_M
         /// <summary>
         /// Запустить форму
         /// </summary>
-        public static Form FormShow(
+        public static IList<FitnessEquipmentWillBeReserve> FormShow(
             IList<FitnessEquipment> listFitnessEq, 
             DateTime dateVisit,
             TimeSpan timeFrom,
@@ -34,7 +34,7 @@ namespace Fitness_M
             frm.visualDetailSchedule1.ToUseControl = UseControl.AsDialog;
 
             frm.ShowDialog();
-            return frm;
+            return frm.visualDetailSchedule1.ListFitnessEquipmentWillBeReserve;
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -45,6 +45,11 @@ namespace Fitness_M
         public void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void visualDetailSchedule1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
