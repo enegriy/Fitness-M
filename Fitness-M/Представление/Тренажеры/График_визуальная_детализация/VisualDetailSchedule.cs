@@ -113,7 +113,7 @@ namespace Fitness_M
                             ((TimeSpan)timeFromCol >= busyTime.DateFrom.TimeOfDay &&
                             (TimeSpan)timeFromCol < busyTime.DateTo.TimeOfDay))
                         {
-                            cell.Style.BackColor = Color.Red;
+                            cell.Style.BackColor = Color.FromArgb(250, 110, 120);
                             cell.Style.SelectionBackColor = Color.FromArgb(213, 0, 0);
                             cell.ToolTipText = string.Format("{0} - {1}", busyTime.DateFrom.TimeOfDay.ToShortTime(), busyTime.DateTo.TimeOfDay.ToShortTime());
                         }
@@ -276,8 +276,8 @@ namespace Fitness_M
             if (!isFreePeriod)
             {
                 throw new BussinesException(string.Format("Невозможно записаться на {0} - {1}!",
-                        timeStart.ToString(),
-                        timeFinish.ToString()));
+                        timeStart.ToShortTime(),
+                        timeFinish.ToShortTime()));
             }
         }
 
