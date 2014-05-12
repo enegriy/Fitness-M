@@ -24,15 +24,6 @@ namespace Fitness_M
             m_DataSet = ClientDataSet.Get();
             timerForToday.Start();
 
-            /**/
-            var timeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom);
-            var timeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo);
-
-            var curDate = DateTime.Now;
-
-            VisualDetailByEquipment.FormShow(m_DataSet.ListFitnessEquipment, curDate, timeFrom.TimeOfDay, timeTo.TimeOfDay);
-            /**/
-
             Scaner.OpenScaner();
         }
 
@@ -100,11 +91,13 @@ namespace Fitness_M
             //График
             else if (e.Node.Name == "4")
             {
-                FitnessEquipmentSchedule ctrl = new FitnessEquipmentSchedule();
+                VisualDetailSchedule ctrl = new VisualDetailSchedule();
                 ctrl.DateVisit = DateTime.Now;
-                ctrl.DataSet = m_DataSet;
+                ctrl.ListFitnessEquipment = m_DataSet.ListFitnessEquipment;
+                ctrl.TimeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom).TimeOfDay;
+                ctrl.TimeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo).TimeOfDay;
+                ctrl.ToUseControl = UseControl.AsRegim;
                 ctrl.Dock = DockStyle.Fill;
-                ctrl.VisibleDateVisit = true;
                 panelFormConteiner.Controls.Add(ctrl);
             }
             else if (e.Node.Name == "5")

@@ -56,6 +56,7 @@
     <Compile Include="Library\Сканер\Scaner.cs" />
     <Compile Include="Library\Сканер\ScanerResultCode.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
+    <Compile Include="Option\UseControl.cs" />
     <Compile Include="Контроллер\Абонемент\TicketFilter.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Контроллер\Клиенты\ClientController.cs" />
@@ -195,11 +196,17 @@
     <Compile Include="Представление\Тренажеры\FitnessEquipmentFormEdit.Designer.cs">
       <DependentUpon>FitnessEquipmentFormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Представление\Тренажеры\Визуальная_детализация\VisualDetailByEquipment.cs">
+    <Compile Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailScheduleEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Представление\Тренажеры\Визуальная_детализация\VisualDetailByEquipment.Designer.cs">
-      <DependentUpon>VisualDetailByEquipment.cs</DependentUpon>
+    <Compile Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailScheduleEditForm.Designer.cs">
+      <DependentUpon>VisualDetailScheduleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailSchedule.Designer.cs">
+      <DependentUpon>VisualDetailSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.cs">
       <SubType>UserControl</SubType>
@@ -271,8 +278,11 @@
     <EmbeddedResource Include="Представление\Тренажеры\ReserveFitnessEquipment.resx">
       <DependentUpon>ReserveFitnessEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Представление\Тренажеры\Визуальная_детализация\VisualDetailByEquipment.resx">
-      <DependentUpon>VisualDetailByEquipment.cs</DependentUpon>
+    <EmbeddedResource Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailScheduleEditForm.resx">
+      <DependentUpon>VisualDetailScheduleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Представление\Тренажеры\График_визуальная_детализация\VisualDetailSchedule.resx">
+      <DependentUpon>VisualDetailSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Представление\Тренажеры\График\FitnessEquipmentSchedule.resx">
       <DependentUpon>FitnessEquipmentSchedule.cs</DependentUpon>
