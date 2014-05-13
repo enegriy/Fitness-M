@@ -514,6 +514,12 @@ namespace Fitness_M
             }
         }
 
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            var client = (Client)((BindingSource)gridClients.DataSource).Current;
+            HistoryVisitsBrowseForm.FormShow(client);
+        }
+
 
 
     }
