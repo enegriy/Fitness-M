@@ -38,6 +38,7 @@ namespace Fitness_M
                 fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
                 fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
                 fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
+                fitnessEquipment.TimeSpan = TryGetValue<int>(reader["time_span"]);
             }
             cmd.Dispose();
             CloseConnection();
@@ -65,6 +66,7 @@ namespace Fitness_M
                 fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
                 fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
                 fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
+                fitnessEquipment.TimeSpan = TryGetValue<int>(reader["time_span"]);
 
                 listFitnessEquipment.Add(fitnessEquipment);
             }
@@ -88,15 +90,15 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO fitness_equipment (id, title, running_time, count_balls) 
-                        VALUES (NULL, @title, @running_time, @count_balls)";
+                sql = @"INSERT INTO fitness_equipment (id, title, running_time, count_balls, time_span) 
+                        VALUES (NULL, @title, @running_time, @count_balls, @time_span)";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@title", fitnessEquipment.Title);
                 cmd.Parameters.AddWithValue("@running_time", fitnessEquipment.RunningTime);
                 cmd.Parameters.AddWithValue("@count_balls", fitnessEquipment.CountBalls);
-
-                try
+                cmd.Parameters.AddWithValue("@time_span", fitnessEquipment.TimeSpan);
+                try 
                 {
                     cmd.ExecuteNonQuery();
                     fitnessEquipment.Id = (int)cmd.LastInsertedId;
@@ -123,12 +125,14 @@ namespace Fitness_M
                 string sql = @"UPDATE fitness_equipment SET 
                     title = @title,
                     running_time = @running_time,
-                    count_balls = @count_balls
+                    count_balls = @count_balls,
+                    time_span = @time_span
                     WHERE id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@title", fitnessEquipment.Title);
                 cmd.Parameters.AddWithValue("@running_time", fitnessEquipment.RunningTime);
                 cmd.Parameters.AddWithValue("@count_balls", fitnessEquipment.CountBalls);
+                cmd.Parameters.AddWithValue("@time_span", fitnessEquipment.TimeSpan);
                 cmd.Parameters.AddWithValue("@id", fitnessEquipment.Id);
 
                 cmd.ExecuteNonQuery();

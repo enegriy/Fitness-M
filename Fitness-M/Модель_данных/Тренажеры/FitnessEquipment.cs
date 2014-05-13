@@ -33,6 +33,10 @@ namespace Fitness_M
         /// </summary>
         public int CountBalls { get; set; }
         /// <summary>
+        /// Временной интервал (в часах)
+        /// </summary>
+        public int TimeSpan { get; set; }
+        /// <summary>
         /// Пустая запись
         /// </summary>
         public bool IsEmpty
