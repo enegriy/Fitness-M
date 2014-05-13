@@ -143,7 +143,7 @@ namespace Fitness_M
             col.Name = column_title;
             col.HeaderText = "";
             col.Frozen = true;
-            col.Width = 150;
+            col.Width = 180;
             grid.Columns.Add(col);
 
             while (tsCur <= tsFinish)
@@ -156,7 +156,7 @@ namespace Fitness_M
                 col.Name = string.Format("col_{0:00}:{1:00}", tsCur.Hours, tsCur.Minutes);
                 col.HeaderText = headerName;
                 col.Tag = tsCur;
-                col.Width = 36;
+                col.Width = 42;
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
 
                 grid.Columns.Add(col);
@@ -204,6 +204,9 @@ namespace Fitness_M
         {
             try
             {
+                if (grid.CurrentCell.ColumnIndex == 0)
+                    throw new BussinesException("Переместите курсор на свободную ячейку для определения времени начала записи на тренажер!");
+
                 int fqId = (int)grid.CurrentRow.Tag;
 
                 var fitnessEq = ListFitnessEquipment.FirstOrDefault(x => x.Id == fqId);
