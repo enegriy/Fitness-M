@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryVisitsBrowseForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateFinish = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gridVisits = new System.Windows.Forms.DataGridView();
@@ -59,13 +59,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateFinish, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblFio, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateStart, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.gridVisits, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,13 +79,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(682, 555);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dateFinish
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker2.Location = new System.Drawing.Point(330, 37);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(149, 22);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dateFinish.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dateFinish.Location = new System.Drawing.Point(330, 37);
+            this.dateFinish.Name = "dateFinish";
+            this.dateFinish.Size = new System.Drawing.Size(149, 22);
+            this.dateFinish.TabIndex = 2;
+            this.dateFinish.ValueChanged += new System.EventHandler(this.OnChangePeriod);
             // 
             // label4
             // 
@@ -143,13 +144,14 @@
             this.label3.Text = "с";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dateTimePicker1
+            // dateStart
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Location = new System.Drawing.Point(130, 37);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(149, 22);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dateStart.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dateStart.Location = new System.Drawing.Point(130, 37);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(149, 22);
+            this.dateStart.TabIndex = 1;
+            this.dateStart.ValueChanged += new System.EventHandler(this.OnChangePeriod);
             // 
             // tableLayoutPanel2
             // 
@@ -203,6 +205,7 @@
             // clmVisitFrom
             // 
             this.clmVisitFrom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmVisitFrom.DataPropertyName = "VisitFrom";
             this.clmVisitFrom.HeaderText = "Посещение С";
             this.clmVisitFrom.Name = "clmVisitFrom";
             this.clmVisitFrom.ReadOnly = true;
@@ -210,6 +213,7 @@
             // clmVisitTo
             // 
             this.clmVisitTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmVisitTo.DataPropertyName = "VisitTo";
             this.clmVisitTo.HeaderText = "Посещение ПО";
             this.clmVisitTo.Name = "clmVisitTo";
             this.clmVisitTo.ReadOnly = true;
@@ -217,6 +221,7 @@
             // clmPlanFrom
             // 
             this.clmPlanFrom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmPlanFrom.DataPropertyName = "PlanFrom";
             this.clmPlanFrom.HeaderText = "Бронь С";
             this.clmPlanFrom.Name = "clmPlanFrom";
             this.clmPlanFrom.ReadOnly = true;
@@ -224,6 +229,7 @@
             // clmPlanTo
             // 
             this.clmPlanTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmPlanTo.DataPropertyName = "PlanTo";
             this.clmPlanTo.HeaderText = "Бронь ПО";
             this.clmPlanTo.Name = "clmPlanTo";
             this.clmPlanTo.ReadOnly = true;
@@ -231,6 +237,7 @@
             // clmIsDisabled
             // 
             this.clmIsDisabled.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmIsDisabled.DataPropertyName = "IsDisabled";
             this.clmIsDisabled.HeaderText = "Анулирован";
             this.clmIsDisabled.Name = "clmIsDisabled";
             this.clmIsDisabled.ReadOnly = true;
@@ -260,11 +267,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblFio;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateFinish;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView gridVisits;

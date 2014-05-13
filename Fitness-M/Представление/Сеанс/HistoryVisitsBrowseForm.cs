@@ -38,6 +38,33 @@ namespace Fitness_M
         {
             lblFio.Text = m_Client.FullName;
             GridHelper.SetGridStyle(gridVisits);
+            FillGrid(dateStart.Value, dateFinish.Value);
+        }
+
+
+        private void FillGrid(DateTime dateStart, DateTime dateFinish)
+        {
+            var listVisit = m_Client.ListVisit.Where(x => x.PlanFrom.Date >= dateStart.Date && x.PlanFrom.Date <= dateFinish.Date).OrderBy(x=>x.PlanFrom);
+            if (listVisit == null || !listVisit.Any())
+            {
+                gridVisits.DataSource = null;
+            }
+            else
+            {
+                var bindingVisits = new BindingSource(listVisit, "");
+                gridVisits.DataSource = bindingVisits;
+            }
+        }
+
+        private void OnChangePeriod(object sender, EventArgs e)
+        {
+            if (dateStart.Value > dateFinish.Value)
+            {
+                MessageHelper.ShowError("Не правильно указан период!");
+                return;
+            }
+
+            FillGrid(dateStart.Value, dateFinish.Value);
         }
     }
 }
