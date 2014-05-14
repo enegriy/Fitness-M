@@ -201,6 +201,7 @@
             this.gridVisits.RowTemplate.Height = 24;
             this.gridVisits.Size = new System.Drawing.Size(662, 425);
             this.gridVisits.TabIndex = 4;
+            this.gridVisits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVisits_CellDoubleClick);
             // 
             // clmVisitFrom
             // 

@@ -66,5 +66,18 @@ namespace Fitness_M
 
             FillGrid(dateStart.Value, dateFinish.Value);
         }
+
+        private void gridVisits_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var source = gridVisits.DataSource as BindingSource;
+            if (source != null)
+            {
+                var currentVisit = (Visit)source.Current;
+                if (currentVisit != null)
+                {
+                    PlanFormEdit.FormViewVisit(currentVisit);
+                }
+            }
+        }
     }
 }
