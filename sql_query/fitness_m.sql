@@ -92,3 +92,4 @@ ALTER TABLE tickets ADD debt DECIMAL(10,2);
 ALTER TABLE tickets ADD pay_before DATE;
 ALTER TABLE clients ADD code INT UNSIGNED;
 ALTER TABLE clients CHANGE note note TEXT;
+ALTER TABLE fitness_equipment ADD time_span int;
