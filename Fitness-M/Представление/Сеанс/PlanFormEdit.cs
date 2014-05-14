@@ -195,6 +195,13 @@ namespace Fitness_M
                             foreach (var boundItem in source)
                             {
                                 var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
+
+                                FitnessEquipmentController.CheckInterval(
+                                    CurrentClient,
+                                    fitnessEqWillBeReseve.FitnessEquipmentReserve,
+                                    dtDateVisit.Value.Date,
+                                    fitnessEqWillBeReseve.TimeFrom);
+                                
                                 var useFitnessEq = new ClientUseFitnessEquipment();
                                 useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
                                 useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;

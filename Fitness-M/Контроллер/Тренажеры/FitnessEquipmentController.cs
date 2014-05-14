@@ -119,5 +119,37 @@ namespace Fitness_M
 
             return rslt;
         }
+
+        public static void CheckInterval(Client client, 
+            FitnessEquipment fitnessEq, 
+            DateTime DateVisit, 
+            TimeSpan timeFrom)
+        {
+            //Если интервал задан
+            if (fitnessEq.TimeSpan > 0)
+            {
+                //За какое количество дней просмотреть посещения
+                var periodDayForVisit = (fitnessEq.TimeSpan / 24)+1;
+                //Дата записи на тренажер
+                var date = DateVisit.Date.Add(timeFrom);
+                //Список посещений за предыдущие дни
+                var listVisit = client.ListVisit.Where(x=>
+                    x.PlanFrom.Date >= DateVisit.Date.AddDays(-periodDayForVisit));
+
+                foreach (var visit in listVisit)
+                {
+                    var existFitEq = visit.ClientUseFitnessEquipmentSpec.Where(x => 
+                        x.FitnessEquipmentRef == fitnessEq);
+                    if(existFitEq.Any(x=>
+                        (date - visit.PlanFrom.Date.Add(x.TimeFrom)).TotalHours < fitnessEq.TimeSpan))
+                    {
+                        throw new BussinesException(
+                            string.Format("Ошибка записи на тренажер {0}, интервал между посещениями должен состовлять не менее {1} часов",
+                            fitnessEq.Title, fitnessEq.TimeSpan));
+                    }
+
+                }
+            }
+        }
     }
 }
