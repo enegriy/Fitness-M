@@ -53,15 +53,11 @@ namespace Fitness_M
                 return;
             }
 
-            if (DialogResult == System.Windows.Forms.DialogResult.OK
-                && m_IsClosingForm)
+            if (DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                CheckNameAndPass(e);
-                if (e.Cancel)
-                    return;
-
                 try
                 {
+                    CheckNameAndPass();
                     SignUp();
                 }
                 catch (BussinesException ex)
@@ -78,7 +74,7 @@ namespace Fitness_M
         {
             string name = textBox1.Text;
             string pasw = textBox2.Text;
-            int role = comboBox1.SelectedIndex+1;
+            int role = comboBox1.SelectedIndex;
 
             var m_Connection =
                 new MySql.Data.MySqlClient.MySqlConnection(
@@ -110,20 +106,32 @@ namespace Fitness_M
         }
 
 
-        private void CheckNameAndPass(FormClosingEventArgs e)
+        private void CheckNameAndPass()
         {
             if (string.IsNullOrEmpty(textBox1.Text) ||
                 string.IsNullOrEmpty(textBox2.Text))
             {
-                e.Cancel = true;
+                throw new BussinesException("Заполните имя пользователя и пароль!");
             }
-            else
-                e.Cancel = false;
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+                throw new BussinesException("Выберите роль!");
+            }
         }
 
         private void OnValidating(object sender, CancelEventArgs e)
         {
             ValidationHelper.Validating(sender, e, ref m_IsClosingForm, errorProvider1);
+        }
+
+        private void UserIdentification_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
     }
