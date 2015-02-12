@@ -43,10 +43,8 @@ namespace Fitness_M
                 tbPayBefore.Text = Ticket.PayBefore.ToString("dd.MM.yyyy");
             }
 
-            tbCountBalls.Text = Ticket.KindTicketsRef.CountBalls.ToString();
             tbCountVisit.Text = Ticket.KindTicketsRef.CountVisits.ToString();
             tbPrice.Text = Ticket.KindTicketsRef.Price.ToString();
-            cbGroup.Checked = Ticket.KindTicketsRef.IsOnlyGroup;
             cbDisable.Checked = Ticket.KindTicketsRef.IsInactive;
         }
     }

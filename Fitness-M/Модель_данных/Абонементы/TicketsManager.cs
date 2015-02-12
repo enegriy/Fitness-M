@@ -30,9 +30,7 @@ namespace Fitness_M
                 var kindTickets = new KindTickets();
                 kindTickets.Id = TryGetValue<int>(reader["id"]);
                 kindTickets.Period = TryGetValue<int>(reader["period"]);
-                kindTickets.CountBalls = TryGetValue<int>(reader["count_balls"]);
                 kindTickets.CountVisits = TryGetValue<int>(reader["count_visits"]);
-                kindTickets.IsOnlyGroup = TryGetValue<bool>(reader["isonlygroup"]);
                 kindTickets.IsInactive = TryGetValue<bool>(reader["isinactive"]);
                 kindTickets.Price = TryGetValue<decimal>(reader["price"]);
                 listKinds.Add(kindTickets);
@@ -58,9 +56,7 @@ namespace Fitness_M
                 kindTickets = new KindTickets();
                 kindTickets.Id = TryGetValue<int>(reader["id"]);
                 kindTickets.Period = TryGetValue<int>(reader["period"]);
-                kindTickets.CountBalls = TryGetValue<int>(reader["count_balls"]);
                 kindTickets.CountVisits = TryGetValue<int>(reader["count_visits"]);
-                kindTickets.IsOnlyGroup = TryGetValue<bool>(reader["isonlygroup"]);
                 kindTickets.IsInactive = TryGetValue<bool>(reader["isinactive"]);
                 kindTickets.Price = TryGetValue<decimal>(reader["price"]);
             }
@@ -125,9 +121,7 @@ namespace Fitness_M
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@period", kindTickets.Period);
-                cmd.Parameters.AddWithValue("@count_balls", kindTickets.CountBalls);
                 cmd.Parameters.AddWithValue("@count_visits", kindTickets.CountVisits);
-                cmd.Parameters.AddWithValue("@isonlygroup", kindTickets.IsOnlyGroup);
                 cmd.Parameters.AddWithValue("@isinactive", kindTickets.IsInactive);
                 cmd.Parameters.AddWithValue("@price", kindTickets.Price);
 
@@ -209,9 +203,7 @@ namespace Fitness_M
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", kindTickets.Id);
                 cmd.Parameters.AddWithValue("@period", kindTickets.Period);
-                cmd.Parameters.AddWithValue("@count_balls", kindTickets.CountBalls);
                 cmd.Parameters.AddWithValue("@count_visits", kindTickets.CountVisits);
-                cmd.Parameters.AddWithValue("@isonlygroup", kindTickets.IsOnlyGroup);
                 cmd.Parameters.AddWithValue("@isinactive", kindTickets.IsInactive);
                 cmd.Parameters.AddWithValue("@price", kindTickets.Price);
 

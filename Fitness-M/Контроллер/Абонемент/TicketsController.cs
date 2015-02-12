@@ -21,14 +21,9 @@ namespace Fitness_M
             var ticket = new Tickets();
             ticket.ClientId = client.Id;
             ticket.KindTicketsId = kindTickets.Id;
-            if (kindTickets.IsOnlyGroup)
-            {
-                ticket.Balance = kindTickets.CountVisits;
-            }
-            else
-            {
-                ticket.Balance = kindTickets.CountBalls;
-            }
+
+            ticket.Balance = kindTickets.CountVisits;
+           
             ticket.DateFinish = DateTime.Now.AddMonths(kindTickets.Period);
 
             ticket.Save();
@@ -62,8 +57,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 &&
-                x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&&
+                x.KindTicketsRef.IsOnlyGroup*/);
 
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
@@ -79,8 +74,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 &&
-                !x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&&
+                !x.KindTicketsRef.IsOnlyGroup*/);
 
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
@@ -97,8 +92,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x => 
                 x.DateFinish > System.DateTime.Now && 
-                x.Balance > 0 && 
-                x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&& 
+                x.KindTicketsRef.IsOnlyGroup*/);
 
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
@@ -119,8 +114,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 &&
-                x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&&
+                x.KindTicketsRef.IsOnlyGroup*/);
 
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения групповых занятий!");
@@ -138,8 +133,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 &&
-                !x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&&
+                !x.KindTicketsRef.IsOnlyGroup*/);
 
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
@@ -158,8 +153,8 @@ namespace Fitness_M
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 &&
-                !x.KindTicketsRef.IsOnlyGroup);
+                x.Balance > 0 /*&&
+                !x.KindTicketsRef.IsOnlyGroup*/);
 
             if(ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
@@ -181,14 +176,14 @@ namespace Fitness_M
             var listTicket = client.ListTickets.Where(x =>
                 x.DateFinish.Date > DateTime.Now && x.Balance > 0);
 
-            var isExistOnlyGroup = listTicket.Any(x =>
-                x.KindTicketsRef.IsOnlyGroup == true);
+            /*var isExistOnlyGroup = listTicket.Any(x =>
+                x.KindTicketsRef.IsOnlyGroup == true);*/
 
-            var isExistNotOnlyGroup = listTicket.Any(x =>
-                x.KindTicketsRef.IsOnlyGroup == false);
+          /*  var isExistNotOnlyGroup = listTicket.Any(x =>
+                x.KindTicketsRef.IsOnlyGroup == false);*/
 
-            if (isExistNotOnlyGroup && isExistOnlyGroup)
-                throw new BussinesException("Не возможно добавить новый абонемент, у клиента уже есть абонемент на групповые и не групповые занятия!");
+           /* if (isExistNotOnlyGroup && isExistOnlyGroup)
+                throw new BussinesException("Не возможно добавить новый абонемент, у клиента уже есть абонемент на групповые и не групповые занятия!");*/
         }
 
         /// <summary>
@@ -199,8 +194,8 @@ namespace Fitness_M
             var listTicket = client.ListTickets.Where(x =>
                 x.DateFinish.Date > DateTime.Now && x.Balance > 0);
 
-            return listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);
+            return /*listTicket.Any(x =>
+                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);*/ false;
         }
 
         /// <summary>
@@ -211,8 +206,8 @@ namespace Fitness_M
             var listTicket = client.ListTickets.Where(x =>
                 x.DateFinish.Date > DateTime.Now && x.Balance > 0);
 
-            return listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == true);
+            return /*listTicket.Any(x =>
+                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == */true;
         }
     }
 }

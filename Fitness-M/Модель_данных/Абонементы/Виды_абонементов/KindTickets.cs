@@ -46,22 +46,6 @@ namespace Fitness_M
         }
 
         /// <summary>
-        /// Количество баллов
-        /// </summary>
-        private int m_CountBalls;
-        /// <summary>
-        /// Количество баллов
-        /// </summary>
-        public int CountBalls
-        {
-            get { return m_CountBalls; }
-            set { 
-                m_CountBalls = value;
-                OnPropertyChanged("CountBalls");
-            }
-        }
-
-        /// <summary>
         /// Количество посещений
         /// </summary>
         private int m_CountVisits;
@@ -74,22 +58,6 @@ namespace Fitness_M
             set { 
                 m_CountVisits = value;
                 OnPropertyChanged("CountVisits");
-            }
-        }
-
-        /// <summary>
-        /// Только групповые занятия
-        /// </summary>
-        private bool m_IsOnlyGroup;
-        /// <summary>
-        /// Только групповые занятия
-        /// </summary>
-        public bool IsOnlyGroup
-        {
-            get { return m_IsOnlyGroup; }
-            set { 
-                m_IsOnlyGroup = value;
-                OnPropertyChanged("IsOnlyGroup");
             }
         }
 
@@ -191,10 +159,10 @@ namespace Fitness_M
             var snapshot = new KindTickets();
             snapshot.Id = Id;
             snapshot.Period = Period;
-            snapshot.CountBalls = CountBalls;
+            //snapshot.CountBalls = CountBalls;
             snapshot.CountVisits = CountVisits;
             snapshot.IsInactive = IsInactive;
-            snapshot.IsOnlyGroup = IsOnlyGroup;
+            //snapshot.IsOnlyGroup = IsOnlyGroup;
             snapshot.Price = Price;
             return snapshot;
         }
@@ -207,10 +175,10 @@ namespace Fitness_M
         {
             Id = snapShot.Id;
             Period = snapShot.Period;
-            CountBalls = snapShot.CountBalls;
+           // CountBalls = snapShot.CountBalls;
             CountVisits = snapShot.CountVisits;
             IsInactive = snapShot.IsInactive;
-            IsOnlyGroup = snapShot.IsOnlyGroup;
+           // IsOnlyGroup = snapShot.IsOnlyGroup;
             Price = snapShot.Price;
         }
         #endregion

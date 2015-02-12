@@ -27,7 +27,7 @@ namespace Fitness_M
 
             string sql = @"select 
                               t.id as ticketID, t.datefinish, balance, 
-                              kt.count_balls, kt.count_visits, kt.price, t.debt,
+                              kt.count_visits, kt.price, t.debt,
                               c.number, c.surname, c.name, c.lastname, c.phone
                             from tickets t
                             left join kind_tickets kt on t.kind_tickets_id = kt.id
@@ -109,7 +109,6 @@ namespace Fitness_M
                 ticketMixed.TicketId = (int)reader["ticketID"];
                 ticketMixed.DateFinish = (DateTime)reader["datefinish"];
                 ticketMixed.Balance = (int)reader["balance"];
-                ticketMixed.CountBalls = (int)reader["count_balls"];
                 ticketMixed.CountVisits = (int)reader["count_visits"];
                 ticketMixed.Price = (decimal)reader["price"];
                 ticketMixed.Debt = (decimal)reader["debt"];

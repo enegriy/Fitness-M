@@ -55,7 +55,6 @@ namespace Fitness_M
                     DateTime.Now.ToString("dd.MM.yyyy"),
                     m_Tickets.ClientRef.SurName + " "+m_Tickets.ClientRef.Name + " "+m_Tickets.ClientRef.LastName,
                     m_Tickets.KindTicketsRef.Period,
-                    m_Tickets.KindTicketsRef.CountBalls,
                     m_Tickets.KindTicketsRef.Price);
             }
             else

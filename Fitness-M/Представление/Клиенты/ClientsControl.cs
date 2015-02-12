@@ -480,10 +480,10 @@ namespace Fitness_M
                 {
                     if (MessageHelper.ShowQuestion("Вы уверены что хотите удалить абонемент?") == DialogResult.Yes)
                     {
-                        if ((ticket.KindTicketsRef.IsOnlyGroup && ticket.Balance < ticket.KindTicketsRef.CountVisits) ||
+                       /* if ((ticket.KindTicketsRef.IsOnlyGroup && ticket.Balance < ticket.KindTicketsRef.CountVisits) ||
                             (!ticket.KindTicketsRef.IsOnlyGroup && ticket.Balance < ticket.KindTicketsRef.CountBalls))
                             throw new BussinesException("Нельзя удалить абонемент по нему существуют посещения!");
-
+                        */
                         var ticketSource = (BindingSource)gridTickets.DataSource;
                         ticketSource.Remove(ticket);
                         DataSet.ListTickets.Remove(ticket);
