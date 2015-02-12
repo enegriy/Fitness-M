@@ -108,8 +108,6 @@ namespace Fitness_M
                     fontTime, brush, fieldSize, line * (textSize + space));
                 line++;
             }
-
-            
         }
 
         private void btnClose_Click(object sender, EventArgs e)

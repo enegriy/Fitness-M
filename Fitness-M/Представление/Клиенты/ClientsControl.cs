@@ -112,7 +112,12 @@ namespace Fitness_M
                     if (client != null)
                     {
                         foreach (var visit in client.ListVisit)
+                        {
+                            foreach (var clientUseEq in visit.ClientUseFitnessEquipmentSpec)
+                                clientUseEq.Delete();
+
                             visit.Delete();
+                        }
 
                         foreach (var ticket in client.ListTickets)
                             ticket.Delete();
@@ -120,8 +125,6 @@ namespace Fitness_M
                         client.Delete();
 
                         ((BindingSource)gridClients.DataSource).Remove(client);
-                        //DataSet.ListClients.Remove(client);
-                        //gridClients.DataSource = DataSet.ListClients.ToArray();
                     }
                 }
             }
