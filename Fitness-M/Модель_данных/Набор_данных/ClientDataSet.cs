@@ -85,9 +85,11 @@ namespace Fitness_M
         /// </summary>
         public static ClientDataSet Get()
         {
-            if (m_This != null) return m_This;
-            m_This = new ClientDataSet();
-            m_This.LoadData();
+            if (m_This == null)
+            {
+                m_This = new ClientDataSet();
+                m_This.LoadData();
+            }
             return m_This;
         }
 

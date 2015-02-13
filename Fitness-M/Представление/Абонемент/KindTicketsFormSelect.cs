@@ -84,16 +84,9 @@ namespace Fitness_M
                     var currentKindTicket = ((BindingSource)gridKindTickets.DataSource).Current as KindTickets;
                     if (currentKindTicket == null)
                         throw new BussinesException("Не выбран абонемент!");
-
-                    //if (currentKindTicket.IsOnlyGroup)
-                    {
-                        if (ticketController.IsExistTicketOnlyGroup(m_Client))
-                            throw new BussinesException("У клиента уже существует абонемент на групповые занятия!");
-                    }
-                    //else
                     {
                         if (ticketController.IsExistTicketOnFitnessEq(m_Client))
-                            throw new BussinesException("У клиента существует абонемент с неиспользуемыми баллами!");
+                            throw new BussinesException("У клиента существует абонемент с неиспользуемыми посещениями!");
                     }
 
                     KindTicketsSelected = currentKindTicket;

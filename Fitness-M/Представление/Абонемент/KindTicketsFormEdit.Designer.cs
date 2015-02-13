@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KindTicketsFormEdit));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.numCountVisit = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -38,13 +40,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numCountVisit = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountVisit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCountVisit)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.Controls.Add(this.checkBox2, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -72,8 +72,33 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(632, 183);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(632, 185);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // numCountVisit
+            // 
+            this.numCountVisit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numCountVisit.Location = new System.Drawing.Point(320, 68);
+            this.numCountVisit.Margin = new System.Windows.Forms.Padding(4);
+            this.numCountVisit.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numCountVisit.Name = "numCountVisit";
+            this.numCountVisit.Size = new System.Drawing.Size(308, 22);
+            this.numCountVisit.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(4, 64);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(308, 32);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Количество посещений:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -91,7 +116,7 @@
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown1.Location = new System.Drawing.Point(320, 36);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(308, 22);
             this.numericUpDown1.TabIndex = 2;
@@ -107,7 +132,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnOk, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 132);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -120,7 +145,7 @@
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.Location = new System.Drawing.Point(468, 4);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 30);
             this.btnClose.TabIndex = 8;
@@ -132,7 +157,7 @@
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOk.Location = new System.Drawing.Point(316, 4);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(144, 30);
             this.btnOk.TabIndex = 7;
@@ -156,7 +181,7 @@
             this.numericUpDown4.DecimalPlaces = 2;
             this.numericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown4.Location = new System.Drawing.Point(320, 4);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -172,59 +197,33 @@
             this.checkBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(320, 100);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(308, 24);
             this.checkBox2.TabIndex = 6;
             this.checkBox2.Text = "Абонемент недействителен";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(4, 64);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(308, 32);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Количество посещений:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numCountVisit
-            // 
-            this.numCountVisit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numCountVisit.Enabled = false;
-            this.numCountVisit.Location = new System.Drawing.Point(320, 68);
-            this.numCountVisit.Margin = new System.Windows.Forms.Padding(4);
-            this.numCountVisit.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numCountVisit.Name = "numCountVisit";
-            this.numCountVisit.Size = new System.Drawing.Size(308, 22);
-            this.numCountVisit.TabIndex = 13;
-            // 
             // KindTicketsFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 183);
+            this.ClientSize = new System.Drawing.Size(632, 185);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(650, 230);
             this.Name = "KindTicketsFormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicketsFormEdit";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.Load += new System.EventHandler(this.OnFormLoad);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountVisit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCountVisit)).EndInit();
             this.ResumeLayout(false);
 
         }
