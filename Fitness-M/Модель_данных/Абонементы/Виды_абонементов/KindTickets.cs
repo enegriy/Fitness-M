@@ -159,10 +159,8 @@ namespace Fitness_M
             var snapshot = new KindTickets();
             snapshot.Id = Id;
             snapshot.Period = Period;
-            //snapshot.CountBalls = CountBalls;
             snapshot.CountVisits = CountVisits;
             snapshot.IsInactive = IsInactive;
-            //snapshot.IsOnlyGroup = IsOnlyGroup;
             snapshot.Price = Price;
             return snapshot;
         }

@@ -116,8 +116,8 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO kind_tickets (id, period, count_balls, count_visits, isonlygroup, isinactive, price) 
-                        VALUES (NULL, @period, @count_balls, @count_visits, @isonlygroup, @isinactive, @price)";
+                sql = @"INSERT INTO kind_tickets (id, period, count_visits, isinactive, price) 
+                        VALUES (NULL, @period, @count_visits, @isinactive, @price)";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@period", kindTickets.Period);

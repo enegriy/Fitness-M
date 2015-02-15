@@ -67,7 +67,6 @@ namespace Fitness_M
             m_KindTicketSnapshot = m_KindTickets.SnapShot();
             SetFormTitle();
             BindingClient();
-            ((INotifyPropertyChanged)m_KindTickets).PropertyChanged += PropertyChanged;
 
         }
 
@@ -80,8 +79,6 @@ namespace Fitness_M
                 {
                     if (DialogResult == DialogResult.OK)
                     {
-                        ValidationKindTickets(m_KindTickets);
-
                         if (Action == ActionState.Add)
                             m_KindTickets.Save();
                         else if (Action == ActionState.Edit)
@@ -96,39 +93,11 @@ namespace Fitness_M
                 }
                 else
                     e.Cancel = true;
-
-                if (!e.Cancel)
-                    ((INotifyPropertyChanged)m_KindTickets).PropertyChanged -= PropertyChanged;
             }
             catch (BussinesException exc)
             {
                 e.Cancel = true;
                 MessageHelper.ShowError(exc.Message);
-            }
-        }
-
-        private void ValidationKindTickets(KindTickets m_KindTickets)
-        {
-            //if (m_KindTickets.CountBalls <= 0 && m_KindTickets.CountVisits <= 0)
-             //   throw new BussinesException("Укажите количество баллов или посещений !");
-        }
-
-        public void PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == "IsOnlyGroup")
-            {
-               /* if (m_KindTickets.IsOnlyGroup)
-                {
-                    numCountBalls.Value = 0;
-                    numCountBalls.Enabled = false;
-                    numCountVisit.Enabled = true;
-                }
-                else
-                {
-                    numCountVisit.Value = 0;
-                    numCountVisit.Enabled = false;
-                    numCountBalls.Enabled = true;
-                }*/
             }
         }
 
@@ -139,9 +108,7 @@ namespace Fitness_M
         {
             numericUpDown4.DataBindings.Add("Value", m_KindTickets, "Price",false,DataSourceUpdateMode.OnPropertyChanged);
             numericUpDown1.DataBindings.Add("Value", m_KindTickets, "Period", false, DataSourceUpdateMode.OnPropertyChanged);
-            //numCountBalls.DataBindings.Add("Value", m_KindTickets, "CountBalls", false, DataSourceUpdateMode.OnPropertyChanged);
             numCountVisit.DataBindings.Add("Value", m_KindTickets, "CountVisits", false, DataSourceUpdateMode.OnPropertyChanged);
-            //cbOnlyGroup.DataBindings.Add("Checked", m_KindTickets, "IsOnlyGroup", false, DataSourceUpdateMode.OnPropertyChanged);
             checkBox2.DataBindings.Add("Checked", m_KindTickets, "IsInactive", false, DataSourceUpdateMode.OnPropertyChanged);
         }
     }

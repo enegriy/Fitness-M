@@ -67,14 +67,14 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(509, 394);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(483, 387);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -86,19 +86,19 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 347);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 327);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(503, 42);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(477, 42);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.Location = new System.Drawing.Point(349, 2);
+            this.btnCancel.Location = new System.Drawing.Point(323, 2);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(151, 38);
@@ -112,11 +112,11 @@
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(4, 164);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(4, 189);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(501, 177);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(475, 132);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Вид абонемента";
@@ -129,33 +129,31 @@
             this.tableLayoutPanel3.Controls.Add(this.tbPrice, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.tbCountVisit, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.cbDisable, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.cbDisable, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 23);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
+            this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(493, 150);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(467, 105);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tbPrice
             // 
             this.tbPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPrice.Location = new System.Drawing.Point(250, 36);
-            this.tbPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPrice.Location = new System.Drawing.Point(237, 36);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.ReadOnly = true;
-            this.tbPrice.Size = new System.Drawing.Size(239, 23);
+            this.tbPrice.Size = new System.Drawing.Size(226, 23);
             this.tbPrice.TabIndex = 23;
             this.tbPrice.TabStop = false;
             // 
@@ -163,11 +161,11 @@
             // 
             this.tbCountVisit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCountVisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbCountVisit.Location = new System.Drawing.Point(250, 4);
-            this.tbCountVisit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCountVisit.Location = new System.Drawing.Point(237, 4);
+            this.tbCountVisit.Margin = new System.Windows.Forms.Padding(4);
             this.tbCountVisit.Name = "tbCountVisit";
             this.tbCountVisit.ReadOnly = true;
-            this.tbCountVisit.Size = new System.Drawing.Size(239, 23);
+            this.tbCountVisit.Size = new System.Drawing.Size(226, 23);
             this.tbCountVisit.TabIndex = 22;
             this.tbCountVisit.TabStop = false;
             // 
@@ -179,7 +177,7 @@
             this.label9.Location = new System.Drawing.Point(4, 32);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(238, 32);
+            this.label9.Size = new System.Drawing.Size(225, 32);
             this.label9.TabIndex = 20;
             this.label9.Text = "Цена:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,10 +189,10 @@
             this.cbDisable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbDisable.Enabled = false;
             this.cbDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbDisable.Location = new System.Drawing.Point(4, 100);
-            this.cbDisable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbDisable.Location = new System.Drawing.Point(4, 68);
+            this.cbDisable.Margin = new System.Windows.Forms.Padding(4);
             this.cbDisable.Name = "cbDisable";
-            this.cbDisable.Size = new System.Drawing.Size(485, 24);
+            this.cbDisable.Size = new System.Drawing.Size(459, 33);
             this.cbDisable.TabIndex = 17;
             this.cbDisable.TabStop = false;
             this.cbDisable.Text = "Недоступен";
@@ -208,7 +206,7 @@
             this.label6.Location = new System.Drawing.Point(4, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(238, 32);
+            this.label6.Size = new System.Drawing.Size(225, 32);
             this.label6.TabIndex = 9;
             this.label6.Text = "Количество посещений:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,10 +218,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(501, 152);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(475, 177);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Абонемент";
@@ -243,7 +241,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tbDataFinish, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 23);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -251,18 +249,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(493, 125);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 150);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tbPayBefore
             // 
             this.tbPayBefore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPayBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPayBefore.Location = new System.Drawing.Point(250, 100);
-            this.tbPayBefore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPayBefore.Location = new System.Drawing.Point(237, 100);
+            this.tbPayBefore.Margin = new System.Windows.Forms.Padding(4);
             this.tbPayBefore.Name = "tbPayBefore";
             this.tbPayBefore.ReadOnly = true;
-            this.tbPayBefore.Size = new System.Drawing.Size(239, 23);
+            this.tbPayBefore.Size = new System.Drawing.Size(226, 23);
             this.tbPayBefore.TabIndex = 10;
             this.tbPayBefore.TabStop = false;
             // 
@@ -270,11 +268,11 @@
             // 
             this.tbDebt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDebt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDebt.Location = new System.Drawing.Point(250, 68);
-            this.tbDebt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDebt.Location = new System.Drawing.Point(237, 68);
+            this.tbDebt.Margin = new System.Windows.Forms.Padding(4);
             this.tbDebt.Name = "tbDebt";
             this.tbDebt.ReadOnly = true;
-            this.tbDebt.Size = new System.Drawing.Size(239, 23);
+            this.tbDebt.Size = new System.Drawing.Size(226, 23);
             this.tbDebt.TabIndex = 9;
             this.tbDebt.TabStop = false;
             // 
@@ -282,11 +280,11 @@
             // 
             this.tbBalance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbBalance.Location = new System.Drawing.Point(250, 36);
-            this.tbBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBalance.Location = new System.Drawing.Point(237, 36);
+            this.tbBalance.Margin = new System.Windows.Forms.Padding(4);
             this.tbBalance.Name = "tbBalance";
             this.tbBalance.ReadOnly = true;
-            this.tbBalance.Size = new System.Drawing.Size(239, 23);
+            this.tbBalance.Size = new System.Drawing.Size(226, 23);
             this.tbBalance.TabIndex = 8;
             this.tbBalance.TabStop = false;
             // 
@@ -298,7 +296,7 @@
             this.label7.Location = new System.Drawing.Point(4, 96);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 32);
+            this.label7.Size = new System.Drawing.Size(225, 32);
             this.label7.TabIndex = 6;
             this.label7.Text = "Оплатить до:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,7 +309,7 @@
             this.label5.Location = new System.Drawing.Point(4, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(238, 32);
+            this.label5.Size = new System.Drawing.Size(225, 32);
             this.label5.TabIndex = 4;
             this.label5.Text = "Долг:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -324,7 +322,7 @@
             this.label3.Location = new System.Drawing.Point(4, 32);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 32);
+            this.label3.Size = new System.Drawing.Size(225, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Остаток:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,7 +335,7 @@
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 32);
+            this.label1.Size = new System.Drawing.Size(225, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Дата окончания:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -346,11 +344,11 @@
             // 
             this.tbDataFinish.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDataFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbDataFinish.Location = new System.Drawing.Point(250, 4);
-            this.tbDataFinish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataFinish.Location = new System.Drawing.Point(237, 4);
+            this.tbDataFinish.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataFinish.Name = "tbDataFinish";
             this.tbDataFinish.ReadOnly = true;
-            this.tbDataFinish.Size = new System.Drawing.Size(239, 23);
+            this.tbDataFinish.Size = new System.Drawing.Size(226, 23);
             this.tbDataFinish.TabIndex = 7;
             this.tbDataFinish.TabStop = false;
             // 
@@ -358,10 +356,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 394);
+            this.ClientSize = new System.Drawing.Size(483, 387);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(794, 481);
             this.MinimizeBox = false;

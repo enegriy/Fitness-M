@@ -188,8 +188,7 @@ namespace Fitness_M
             var listTicket = client.ListTickets.Where(x =>
                 x.DateFinish.Date > DateTime.Now && x.Balance > 0);
 
-            return /*listTicket.Any(x =>
-                x.GetKindTickets(x.KindTicketsId).IsOnlyGroup == false);*/ false;
+            return listTicket.Any();
         }
 
         /// <summary>
