@@ -96,8 +96,6 @@ namespace Fitness_M
                 frm.tbTimeTo.Text = visit.PlanTo.TimeOfDay.ToShortTime();
             }
 
-            frm.cbGroupVisit.Checked = visit.IsOnlyGroup;
-
             var feManager = new FitnessEquipmentManager();
 
             var visitSpec = new List<FitnessEquipmentWillBeReserve>();
@@ -148,92 +146,67 @@ namespace Fitness_M
                 {
                     ValidationPlan();
 
-                    if (cbGroupVisit.Checked)
+                    IList<ClientUseFitnessEquipment> listUseFitness =
+                        new List<ClientUseFitnessEquipment>();
+
+                    var om = new ObjectManager();
+                    om.OpenConnection();
+                    var tr = om.Connection.BeginTransaction();
+                    try
                     {
-                        TicketsController.CheckExistGroupVisitTicket(CurrentClient.ListTickets);
-
-                        TimeSpan timeFrom = TimeHelper.CompileDate(tbTimeFrom.Text);
-                        TimeSpan timeTo = TimeHelper.CompileDate(tbTimeTo.Text);
-
-                        if (timeFrom > timeTo)
-                            throw new BussinesException("Время 'с' не божет быть больше времени 'по'!");
+                        TicketsController.CheckExistBallsTicket(CurrentClient.ListTickets);
 
                         Visit newVisit = new Visit();
                         newVisit.ClientId = CurrentClient.Id;
-                        newVisit.PlanFrom = dtDateVisit.Value.Date.Add(timeFrom);
-                        newVisit.PlanTo = dtDateVisit.Value.Date.Add(timeTo);
+                        newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
+                        newVisit.PlanTo = dtDateVisit.Value.Date.Add(PeriodTrainingFinish);
                         newVisit.IsDisabled = false;
-                        newVisit.IsOnlyGroup = true;
+                        newVisit.IsOnlyGroup = false;
 
-                        TicketsController.DeductGroupVisit(CurrentClient.ListTickets);
+
+                        var source = (BindingSource) grid1.DataSource;
+                        foreach (var boundItem in source)
+                        {
+                            var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve) boundItem;
+
+                            FitnessEquipmentController.CheckInterval(
+                                CurrentClient,
+                                fitnessEqWillBeReseve.FitnessEquipmentReserve,
+                                dtDateVisit.Value.Date,
+                                fitnessEqWillBeReseve.TimeFrom);
+
+                            var useFitnessEq = new ClientUseFitnessEquipment();
+                            useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
+                            useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
+                            useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
+                            listUseFitness.Add(useFitnessEq);
+                        }
+
+                        TicketsController.DeductBalls(CurrentClient.ListTickets);
+
+                        tr.Commit();
+
                         newVisit.Save();
+                        foreach (var clientUse in listUseFitness)
+                        {
+                            clientUse.VisitId = newVisit.Id;
+                            clientUse.Save();
+                            DataSet.ListUseFitnessEquipment.Add(clientUse);
+                        }
+
                         NewVisit = newVisit;
                     }
-                    else
+                    catch (Exception exc)
                     {
-                        IList<ClientUseFitnessEquipment> listUseFitness =
-                            new List<ClientUseFitnessEquipment>();
-
-                        var om = new ObjectManager();
-                        om.OpenConnection();
-                        var tr = om.Connection.BeginTransaction();
-                        try
-                        {
-                            TicketsController.CheckExistBallsTicket(CurrentClient.ListTickets);
-
-                            Visit newVisit = new Visit();
-                            newVisit.ClientId = CurrentClient.Id;
-                            newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
-                            newVisit.PlanTo = dtDateVisit.Value.Date.Add(PeriodTrainingFinish);
-                            newVisit.IsDisabled = false;
-                            newVisit.IsOnlyGroup = false;
-                            
-
-                            var source = (BindingSource)grid1.DataSource;
-                            int countBalls = 0;
-                            foreach (var boundItem in source)
-                            {
-                                var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve)boundItem;
-
-                                FitnessEquipmentController.CheckInterval(
-                                    CurrentClient,
-                                    fitnessEqWillBeReseve.FitnessEquipmentReserve,
-                                    dtDateVisit.Value.Date,
-                                    fitnessEqWillBeReseve.TimeFrom);
-                                
-                                var useFitnessEq = new ClientUseFitnessEquipment();
-                                useFitnessEq.FitnessEquipmentId = fitnessEqWillBeReseve.FitnessEquipmentReserve.Id;
-                                useFitnessEq.TimeFrom = fitnessEqWillBeReseve.TimeFrom;
-                                useFitnessEq.TimeTo = fitnessEqWillBeReseve.TimeTo;
-                                countBalls += fitnessEqWillBeReseve.FitnessEquipmentReserve.CountBalls;
-                                listUseFitness.Add(useFitnessEq);
-                            }
-
-                            TicketsController.DeductBalls(CurrentClient.ListTickets, countBalls);
-
-                            tr.Commit();
-
-                            newVisit.Save();
-                            foreach (var clientUse in listUseFitness)
-                            {
-                                clientUse.VisitId = newVisit.Id;
-                                clientUse.Save();
-                                DataSet.ListUseFitnessEquipment.Add(clientUse);
-                            }
-
-                            NewVisit = newVisit;
-                        }
-                        catch (Exception exc)
-                        {
-                            tr.Rollback();
-                            throw new BussinesException(exc.Message, exc);
-                        }
-                        finally
-                        {
-                            om.CloseConnection();
-                        }
+                        tr.Rollback();
+                        throw new BussinesException(exc.Message, exc);
+                    }
+                    finally
+                    {
+                        om.CloseConnection();
                     }
                 }
+
             }
             catch (BussinesException exc)
             {
@@ -244,20 +217,9 @@ namespace Fitness_M
 
         private void ValidationPlan()
         {
-            if (cbGroupVisit.Checked)
-            {
-                if (tbTimeFrom.Text == "  :")
-                    throw new BussinesException("'Время с' не может быть пустым!");
-
-                if (tbTimeTo.Text == "  :")
-                    throw new BussinesException("'Время по' не может быть пустым!");
-            }
-            else
-            {
-                var source = (BindingSource)grid1.DataSource;
-                if (source.Count == 0)
-                    throw new BussinesException("Необходимо выбрать тренажеры!");
-            }
+            var source = (BindingSource) grid1.DataSource;
+            if (source.Count == 0)
+                throw new BussinesException("Необходимо выбрать тренажеры!");
         }
 
         private void InitGrid()
@@ -352,10 +314,8 @@ namespace Fitness_M
             if (e.ColumnIndex == 1)
                 e.Value = currObj.FitnessEquipmentReserve.Title;
             else if (e.ColumnIndex == 2)
-                e.Value = currObj.FitnessEquipmentReserve.CountBalls;
-            else if (e.ColumnIndex == 3)
                 e.Value = currObj.TimeFrom.ToShortTime();
-            else if (e.ColumnIndex == 4)
+            else if (e.ColumnIndex == 3)
                 e.Value = currObj.TimeTo.ToShortTime();
         }
 
@@ -373,25 +333,8 @@ namespace Fitness_M
             dtDateVisit.Enabled = false;
             btnAddFQ.Enabled = false;
             btnDelete.Enabled = false;
-            cbGroupVisit.Enabled = false;
             tbTimeFrom.Enabled = false;
             tbTimeTo.Enabled = false;
-        }
-
-        private void OnCheckedChange(object sender, EventArgs e)
-        {
-            if (cbGroupVisit.Checked)
-            {
-                groupBox1.Enabled = false;
-                tbTimeFrom.Enabled = true;
-                tbTimeTo.Enabled = true;
-            }
-            else
-            {
-                tbTimeFrom.Enabled = false;
-                tbTimeTo.Enabled = false;
-                groupBox1.Enabled = true;
-            }
         }
         
     }

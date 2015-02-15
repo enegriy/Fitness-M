@@ -128,8 +128,7 @@ namespace Fitness_M
         /// <summary>
         /// Списать баллы
         /// </summary>
-        public static void ReturnBalls(IList<Tickets> listTicket,
-            int countBalls)
+        public static void ReturnBalls(IList<Tickets> listTicket)
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
@@ -139,7 +138,7 @@ namespace Fitness_M
             if (ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
 
-            ticket.Balance += countBalls;
+            ticket.Balance += 1;
 
             ticket.Update();
 
@@ -148,21 +147,16 @@ namespace Fitness_M
         /// <summary>
         /// Списать баллы
         /// </summary>
-        public static void DeductBalls(IList<Tickets> listTicket,
-            int countBalls)
+        public static void DeductBalls(IList<Tickets> listTicket)
         {
             var ticket = listTicket.FirstOrDefault(x =>
                 x.DateFinish > System.DateTime.Now &&
-                x.Balance > 0 /*&&
-                !x.KindTicketsRef.IsOnlyGroup*/);
+                x.Balance > 0 );
 
             if(ticket == null)
                 throw new BussinesException("У вас нет абонемента для посещения тренажеров!");
 
-            if (ticket.Balance < countBalls)
-                throw new BussinesException("Для посещения этих тренажеров у вас не хватает баллов!");
-
-            ticket.Balance -= countBalls;
+            ticket.Balance -= 1;
 
             ticket.Update();
 

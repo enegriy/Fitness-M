@@ -29,10 +29,6 @@ namespace Fitness_M
         /// </summary>
         public int RunningTime { get; set; }
         /// <summary>
-        /// Количество баллов
-        /// </summary>
-        public int CountBalls { get; set; }
-        /// <summary>
         /// Временной интервал (в часах)
         /// </summary>
         public int TimeSpan { get; set; }

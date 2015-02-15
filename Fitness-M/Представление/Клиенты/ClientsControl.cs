@@ -274,8 +274,7 @@ namespace Fitness_M
                         }
                         else//Иначе тренажеры
                         {
-                            int countBalls = currentVisit.ClientUseFitnessEquipmentSpec.Sum(x => x.FitnessEquipmentRef.CountBalls);
-                            TicketsController.ReturnBalls(currentClient.ListTickets, countBalls);
+                            TicketsController.ReturnBalls(currentClient.ListTickets);
                         }
 
                         currentVisit.IsDisabled = true;

@@ -37,7 +37,6 @@ namespace Fitness_M
                 fitnessEquipment.Id = TryGetValue<int>(reader["id"]);
                 fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
                 fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
-                fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
                 fitnessEquipment.TimeSpan = TryGetValue<int>(reader["time_span"]);
             }
             cmd.Dispose();
@@ -65,7 +64,6 @@ namespace Fitness_M
                 fitnessEquipment.Id = TryGetValue<int>(reader["id"]);
                 fitnessEquipment.Title = TryGetValue<string>(reader["title"]);
                 fitnessEquipment.RunningTime = TryGetValue<int>(reader["running_time"]);
-                fitnessEquipment.CountBalls = TryGetValue<int>(reader["count_balls"]);
                 fitnessEquipment.TimeSpan = TryGetValue<int>(reader["time_span"]);
 
                 listFitnessEquipment.Add(fitnessEquipment);
@@ -90,13 +88,12 @@ namespace Fitness_M
             var count = (long)cmd.ExecuteScalar();
             if (count == 0)
             {
-                sql = @"INSERT INTO fitness_equipment (id, title, running_time, count_balls, time_span) 
-                        VALUES (NULL, @title, @running_time, @count_balls, @time_span)";
+                sql = @"INSERT INTO fitness_equipment (id, title, running_time, time_span) 
+                        VALUES (NULL, @title, @running_time, @time_span)";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@title", fitnessEquipment.Title);
                 cmd.Parameters.AddWithValue("@running_time", fitnessEquipment.RunningTime);
-                cmd.Parameters.AddWithValue("@count_balls", fitnessEquipment.CountBalls);
                 cmd.Parameters.AddWithValue("@time_span", fitnessEquipment.TimeSpan);
                 try 
                 {
@@ -125,13 +122,11 @@ namespace Fitness_M
                 string sql = @"UPDATE fitness_equipment SET 
                     title = @title,
                     running_time = @running_time,
-                    count_balls = @count_balls,
                     time_span = @time_span
                     WHERE id = @id";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@title", fitnessEquipment.Title);
                 cmd.Parameters.AddWithValue("@running_time", fitnessEquipment.RunningTime);
-                cmd.Parameters.AddWithValue("@count_balls", fitnessEquipment.CountBalls);
                 cmd.Parameters.AddWithValue("@time_span", fitnessEquipment.TimeSpan);
                 cmd.Parameters.AddWithValue("@id", fitnessEquipment.Id);
 
