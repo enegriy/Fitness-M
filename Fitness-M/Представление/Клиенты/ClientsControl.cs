@@ -517,6 +517,16 @@ namespace Fitness_M
             HistoryVisitsBrowseForm.FormShow(client);
         }
 
+        private void OnBtnExtensionFinish_Click(object sender, EventArgs e)
+        {
+            var ticket = ((BindingSource)gridTickets.DataSource).Current;
+            if (ticket != null)
+            {
+                if (DateFinishChangeFormEdit.FormShow((Tickets)ticket) == DialogResult.OK)
+                    gridTickets.Refresh();
+            }
+        }
+
 
 
     }

@@ -31,6 +31,22 @@ namespace Fitness_M
             }
         }
 
+        /// <summary>
+        /// Записать текст и перевести каретку
+        /// </summary>
+        public static void WriteLine(string text, string fileName)
+        {
+            StreamWriter writter = new StreamWriter(fileName, true);
+            try
+            {
+                writter.WriteLine(text);
+                writter.Close();
+            }
+            catch
+            {
+                writter.Dispose();
+            }
+        }
 
         /// <summary>
         /// Записать текст и перевести каретку
