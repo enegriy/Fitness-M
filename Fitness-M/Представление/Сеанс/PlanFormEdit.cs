@@ -161,10 +161,13 @@ namespace Fitness_M
                         newVisit.PlanFrom = dtDateVisit.Value.Date.Add(PeriodTrainingStart);
                         newVisit.PlanTo = dtDateVisit.Value.Date.Add(PeriodTrainingFinish);
                         newVisit.IsDisabled = false;
-                        newVisit.IsOnlyGroup = false;
 
 
                         var source = (BindingSource) grid1.DataSource;
+
+                        if(source.Count > 3)
+                            throw new BussinesException("Кол-во тренажеров не должно быть больше 3 за одно посещение!");
+
                         foreach (var boundItem in source)
                         {
                             var fitnessEqWillBeReseve = (FitnessEquipmentWillBeReserve) boundItem;
@@ -182,7 +185,7 @@ namespace Fitness_M
                             listUseFitness.Add(useFitnessEq);
                         }
 
-                        TicketsController.DeductBalls(CurrentClient.ListTickets);
+                        TicketsController.DeductVisit(CurrentClient.ListTickets);
 
                         tr.Commit();
 

@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanFormEdit));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -39,11 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grid1 = new System.Windows.Forms.DataGridView();
-            this.clmFitnessEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCountBallsFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFQ = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -52,6 +46,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbTimeFrom = new System.Windows.Forms.MaskedTextBox();
             this.tbTimeTo = new System.Windows.Forms.MaskedTextBox();
+            this.clmFitnessEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNameFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeFq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -171,7 +169,6 @@
             this.grid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmFitnessEquipment,
             this.clmNameFq,
-            this.clmCountBallsFq,
             this.clmTimeFq,
             this.clmTimeTo});
             this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -185,47 +182,6 @@
             this.grid1.TabIndex = 1;
             this.grid1.VirtualMode = true;
             this.grid1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.OnCellValueNeeded);
-            // 
-            // clmFitnessEquipment
-            // 
-            this.clmFitnessEquipment.DataPropertyName = "FitnessEquipmentReserve";
-            this.clmFitnessEquipment.HeaderText = "Тренажер";
-            this.clmFitnessEquipment.Name = "clmFitnessEquipment";
-            this.clmFitnessEquipment.ReadOnly = true;
-            this.clmFitnessEquipment.Visible = false;
-            // 
-            // clmNameFq
-            // 
-            this.clmNameFq.HeaderText = "Название";
-            this.clmNameFq.Name = "clmNameFq";
-            this.clmNameFq.ReadOnly = true;
-            this.clmNameFq.Width = 200;
-            // 
-            // clmCountBallsFq
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmCountBallsFq.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmCountBallsFq.HeaderText = "Колличество баллов";
-            this.clmCountBallsFq.Name = "clmCountBallsFq";
-            this.clmCountBallsFq.ReadOnly = true;
-            this.clmCountBallsFq.Width = 140;
-            // 
-            // clmTimeFq
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = null;
-            this.clmTimeFq.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmTimeFq.HeaderText = "Время c";
-            this.clmTimeFq.Name = "clmTimeFq";
-            this.clmTimeFq.ReadOnly = true;
-            // 
-            // clmTimeTo
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmTimeTo.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmTimeTo.HeaderText = "Время по";
-            this.clmTimeTo.Name = "clmTimeTo";
-            this.clmTimeTo.ReadOnly = true;
             // 
             // flowLayoutPanel1
             // 
@@ -321,6 +277,38 @@
             this.tbTimeTo.TabIndex = 29;
             this.tbTimeTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // clmFitnessEquipment
+            // 
+            this.clmFitnessEquipment.DataPropertyName = "FitnessEquipmentReserve";
+            this.clmFitnessEquipment.HeaderText = "Тренажер";
+            this.clmFitnessEquipment.Name = "clmFitnessEquipment";
+            this.clmFitnessEquipment.ReadOnly = true;
+            this.clmFitnessEquipment.Visible = false;
+            // 
+            // clmNameFq
+            // 
+            this.clmNameFq.HeaderText = "Название";
+            this.clmNameFq.Name = "clmNameFq";
+            this.clmNameFq.ReadOnly = true;
+            this.clmNameFq.Width = 200;
+            // 
+            // clmTimeFq
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.clmTimeFq.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmTimeFq.HeaderText = "Время c";
+            this.clmTimeFq.Name = "clmTimeFq";
+            this.clmTimeFq.ReadOnly = true;
+            // 
+            // clmTimeTo
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmTimeTo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmTimeTo.HeaderText = "Время по";
+            this.clmTimeTo.Name = "clmTimeTo";
+            this.clmTimeTo.ReadOnly = true;
+            // 
             // PlanFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,8 +321,8 @@
             this.Name = "PlanFormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Бронировать";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.Load += new System.EventHandler(this.OnFormLoad);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -360,12 +348,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFitnessEquipment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNameFq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCountBallsFq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeFq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeTo;
         private System.Windows.Forms.MaskedTextBox tbTimeFrom;
         private System.Windows.Forms.MaskedTextBox tbTimeTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFitnessEquipment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNameFq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeFq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeTo;
     }
 }

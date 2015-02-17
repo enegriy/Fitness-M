@@ -267,15 +267,10 @@ namespace Fitness_M
                     if (MessageHelper.ShowQuestion(
                         "Вы уверены что хотите анулировать посещение?") == DialogResult.Yes)
                     {
-                        //Если анулируем групповой сеанс
-                        if (currentVisit.IsOnlyGroup)
-                        {
-                            TicketsController.ReturnGroupVisit(currentClient.ListTickets);
-                        }
-                        else//Иначе тренажеры
-                        {
-                            TicketsController.ReturnBalls(currentClient.ListTickets);
-                        }
+
+
+                        TicketsController.ReturnVisit(currentClient.ListTickets);
+
 
                         currentVisit.IsDisabled = true;
                         currentVisit.Update();
