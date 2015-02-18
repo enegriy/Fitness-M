@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Fitness_M.Представление.Абонемент;
 
 namespace Fitness_M
 {
@@ -523,6 +524,16 @@ namespace Fitness_M
             if (ticket != null)
             {
                 if (DateFinishChangeFormEdit.FormShow((Tickets)ticket) == DialogResult.OK)
+                    gridTickets.Refresh();
+            }
+        }
+
+        private void OnButtonAdd_Click(object sender, EventArgs e)
+        {
+            var ticket = ((BindingSource)gridTickets.DataSource).Current;
+            if (ticket != null)
+            {
+                if (CountVisitEditForm.FormShow((Tickets)ticket) == DialogResult.OK)
                     gridTickets.Refresh();
             }
         }
