@@ -50,6 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\Валидация\ControlsForValidation.cs" />
+    <Compile Include="Library\Валидация\ControlsInvalid.cs" />
+    <Compile Include="Library\Валидация\ValidationProvider.cs" />
+    <Compile Include="Library\Валидация\Стратегии\IValidationStrategy.cs" />
+    <Compile Include="Library\Валидация\Стратегии\StrategyInstance.cs" />
+    <Compile Include="Library\Валидация\Стратегии\ValidationStrategyComboBox.cs" />
+    <Compile Include="Library\Валидация\Стратегии\ValidationStrategyNotNull.cs" />
     <Compile Include="Library\Грид\GridHelper.cs" />
     <Compile Include="Library\ДатаВремя\TimeHelper.cs" />
     <Compile Include="Library\Логирование\Logger.cs" />

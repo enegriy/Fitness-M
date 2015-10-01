@@ -11,7 +11,8 @@ namespace Fitness_M
 {
     public partial class UserIdentification : Form
     {
-        private bool m_IsClosingForm = true;
+        private ValidationProvider validationProvider;
+
 
         public static DialogResult ShowUserIdentity()
         {
@@ -23,11 +24,39 @@ namespace Fitness_M
         public UserIdentification()
         {
             InitializeComponent();
+
+            var acsc = new AutoCompleteStringCollection();
+            acsc.Add("Подоля");
+            acsc.Add("Админ");
+
+            textBox1.AutoCompleteCustomSource = acsc;
+            textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            validationProvider = new ValidationProvider(errorProvider1);
+            
         }
 
         private void OnFormLoad(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
+        	ValidationInit();
+			comboBox1.SelectedIndex = 0;
+        }
+
+		private void ValidationInit()
+		{
+			validationProvider.OnValidationChange += ValidationChange;
+
+			validationProvider.AddValidation(textBox1, typeof(ValidationStrategyNotNull));
+			validationProvider.AddValidation(textBox2, typeof(ValidationStrategyNotNull));
+			validationProvider.AddValidation(comboBox1, typeof(ValidationStrategyComboBox));
+
+			validationProvider.Validate();
+		}
+
+        private void ValidationChange(bool isValid)
+        {
+			btnOk.Enabled = isValid;
         }
 
 
@@ -40,7 +69,6 @@ namespace Fitness_M
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            
             Close();
         }
 
@@ -68,6 +96,11 @@ namespace Fitness_M
             }
             else
                 e.Cancel = true;
+
+            if(e.Cancel)
+            {
+                validationProvider.OnValidationChange -= ValidationChange;
+            }
         }
 
         private void SignUp()
@@ -120,18 +153,23 @@ namespace Fitness_M
             }
         }
 
-        private void OnValidating(object sender, CancelEventArgs e)
-        {
-            ValidationHelper.Validating(sender, e, ref m_IsClosingForm, errorProvider1);
-        }
-
         private void UserIdentification_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && validationProvider.IsValid)
             {
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void OnTextChange(object sender, EventArgs e)
+        {
+            validationProvider.Validate(sender as Control);
+        }
+
+        private void OnSelectedIndexChange(object sender, EventArgs e)
+        {
+            validationProvider.Validate(sender as Control);
         }
 
     }
