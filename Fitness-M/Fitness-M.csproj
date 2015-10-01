@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\Автокомплит\TextBoxAutoComplete.cs" />
     <Compile Include="Library\Валидация\ControlsForValidation.cs" />
     <Compile Include="Library\Валидация\ControlsInvalid.cs" />
     <Compile Include="Library\Валидация\ValidationProvider.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipment.cs" />
     <Compile Include="Модель_данных\Клиент_использует_тренажеры\ClientUseFitnessEquipmentManager.cs" />
     <Compile Include="Модель_данных\Параметры\ParamsManager.cs" />
+    <Compile Include="Модель_данных\Пользователи\UserManager.cs" />
     <Compile Include="Модель_данных\Сеанс\Visit.cs" />
     <Compile Include="Модель_данных\Сеанс\VisitManager.cs" />
     <Compile Include="Модель_данных\Тренажеры\DateFromAndDateTo.cs" />

@@ -32,11 +32,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserIdentification));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.tbUserName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.tbUserPasswd = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.cbRole = new System.Windows.Forms.ComboBox();
 			this.btnOk = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -50,11 +50,11 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.tbUserName, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 3);
+			this.tableLayoutPanel1.Controls.Add(this.tbUserPasswd, 0, 3);
 			this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
-			this.tableLayoutPanel1.Controls.Add(this.comboBox1, 0, 5);
+			this.tableLayoutPanel1.Controls.Add(this.cbRole, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.btnOk, 0, 7);
 			this.tableLayoutPanel1.Controls.Add(this.btnCancel, 1, 7);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -88,16 +88,15 @@
 			this.label1.Text = "Имя пользователя:";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			// 
-			// textBox1
+			// tbUserName
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 2);
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(17, 41);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(338, 22);
-			this.textBox1.TabIndex = 1;
-			this.textBox1.TextChanged += new System.EventHandler(this.OnTextChange);
+			this.tableLayoutPanel1.SetColumnSpan(this.tbUserName, 2);
+			this.tbUserName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbUserName.Location = new System.Drawing.Point(17, 41);
+			this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
+			this.tbUserName.Name = "tbUserName";
+			this.tbUserName.Size = new System.Drawing.Size(338, 22);
+			this.tbUserName.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -111,17 +110,16 @@
 			this.label2.Text = "Пароль:";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			// 
-			// textBox2
+			// tbUserPasswd
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.textBox2, 2);
-			this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox2.Location = new System.Drawing.Point(17, 98);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(338, 22);
-			this.textBox2.TabIndex = 2;
-			this.textBox2.UseSystemPasswordChar = true;
-			this.textBox2.TextChanged += new System.EventHandler(this.OnTextChange);
+			this.tableLayoutPanel1.SetColumnSpan(this.tbUserPasswd, 2);
+			this.tbUserPasswd.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbUserPasswd.Location = new System.Drawing.Point(17, 98);
+			this.tbUserPasswd.Margin = new System.Windows.Forms.Padding(4);
+			this.tbUserPasswd.Name = "tbUserPasswd";
+			this.tbUserPasswd.Size = new System.Drawing.Size(338, 22);
+			this.tbUserPasswd.TabIndex = 2;
+			this.tbUserPasswd.UseSystemPasswordChar = true;
 			// 
 			// label3
 			// 
@@ -135,23 +133,22 @@
 			this.label3.Text = "Роль:";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			// 
-			// comboBox1
+			// cbRole
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.comboBox1, 2);
-			this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
+			this.tableLayoutPanel1.SetColumnSpan(this.cbRole, 2);
+			this.cbRole.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbRole.FormattingEnabled = true;
+			this.cbRole.Items.AddRange(new object[] {
             "",
             "Пользователь",
             "Администратор"});
-			this.comboBox1.Location = new System.Drawing.Point(17, 155);
-			this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.comboBox1.MinimumSize = new System.Drawing.Size(336, 0);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(338, 24);
-			this.comboBox1.TabIndex = 3;
-			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.OnSelectedIndexChange);
+			this.cbRole.Location = new System.Drawing.Point(17, 155);
+			this.cbRole.Margin = new System.Windows.Forms.Padding(4);
+			this.cbRole.MinimumSize = new System.Drawing.Size(336, 0);
+			this.cbRole.Name = "cbRole";
+			this.cbRole.Size = new System.Drawing.Size(338, 24);
+			this.cbRole.TabIndex = 3;
 			// 
 			// btnOk
 			// 
@@ -164,7 +161,6 @@
 			this.btnOk.TabIndex = 4;
 			this.btnOk.Text = "Войти";
 			this.btnOk.UseVisualStyleBackColor = true;
-			this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
 			// btnCancel
 			// 
@@ -176,7 +172,6 @@
 			this.btnCancel.TabIndex = 5;
 			this.btnCancel.Text = "Отменить";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// errorProvider1
 			// 
@@ -213,11 +208,11 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbUserPasswd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.ErrorProvider errorProvider1;

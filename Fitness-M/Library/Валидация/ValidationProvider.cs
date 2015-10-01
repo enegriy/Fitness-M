@@ -11,6 +11,7 @@ namespace Fitness_M
 	/// </summary>
 	public class ValidationProvider
 	{
+
 		#region Fields
 		/// <summary>
 		/// провайдер ошибок
@@ -27,7 +28,6 @@ namespace Fitness_M
 		/// </summary>
 		private ControlsValidation controlsValidation = new ControlsValidation();
 		#endregion
-
 
 		#region Event
 		/// <summary>
@@ -47,8 +47,7 @@ namespace Fitness_M
 		}
 		#endregion
 
-
-		#region PublicMethod
+		#region PublicMethods
 		/// <summary>
 		/// .ctor
 		/// </summary>
@@ -72,6 +71,15 @@ namespace Fitness_M
 		}
 
 		/// <summary>
+		/// Добавить валидацию
+		/// </summary>
+		public void AddValidation(Control ctrl, EventHandler checkHandler, Type strategyType)
+		{
+			AddValidation(ctrl, strategyType);
+			CheckValidationHandler(ctrl, checkHandler);
+		}
+
+		/// <summary>
 		/// Удалить валидацию
 		/// </summary>
 		public void RemoveValidation(Control ctrl, Type strategyType)
@@ -80,7 +88,7 @@ namespace Fitness_M
 		}
 
 		/// <summary>
-		/// проверить контрол
+		/// Проверить контрол
 		/// </summary>
 		public void Validate(Control ctrl)
 		{
@@ -107,12 +115,27 @@ namespace Fitness_M
 		}
 
 		/// <summary>
-		/// Валидный/не валидный
+		/// Валидный/Невалидный
 		/// </summary>
 		public bool IsValid
 		{
 			get { return controlsInvalid.IsEmpty(); }
 		}
 		#endregion
+
+		#region PrivateMethods
+		/// <summary>
+		/// Метод подписывается на событие по котором 
+		/// будет вызыватся проверка валидации контрола
+		/// </summary>
+		private void CheckValidationHandler(Control ctrl, EventHandler checkHandler)
+		{
+			if (ctrl is ComboBox)
+				((ComboBox) ctrl).SelectedIndexChanged += checkHandler;
+			else
+				ctrl.TextChanged += checkHandler;
+		}
+		#endregion
+
 	}
 }
