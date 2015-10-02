@@ -10,19 +10,8 @@ using Fitness_M.Представление.Абонемент;
 
 namespace Fitness_M
 {
-    public partial class ClientsControl : UserControl
+	public partial class ClientsControl : UserRegime
     {
-        #region Prop
-        /// <summary>
-        /// Данные
-        /// </summary>
-        public ClientDataSet DataSet
-        {
-            get;
-            set;
-        }
-        #endregion
-
         public ClientsControl()
         {
             InitializeComponent();

@@ -27,6 +27,10 @@ namespace Fitness_M
 		/// Контролы для валидации
 		/// </summary>
 		private ControlsValidation controlsValidation = new ControlsValidation();
+		/// <summary>
+		/// Экзмпляры стратегий валидации
+		/// </summary>
+		private InstanceObject<IValidationStrategy> strategyInstance = new InstanceObject<IValidationStrategy>(); 
 		#endregion
 
 		#region Event
@@ -63,7 +67,7 @@ namespace Fitness_M
 		public void AddValidation(Control ctrl, Type strategyType)
 		{
 			//Получить экземпляр стратегии
-			var strategy = StrategyInstance.GetStrategyInstance(strategyType);
+			var strategy = strategyInstance.GetInstance(strategyType);
 
 			//Проверяю что точно стратегия
 			if (strategy != null)

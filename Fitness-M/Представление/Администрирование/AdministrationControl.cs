@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public partial class AdministrationControl : UserControl
+    public partial class AdministrationControl : UserRegime
     {
         //Флаг изменения значений на этой вкладки
         bool m_IsValueChanged = false;

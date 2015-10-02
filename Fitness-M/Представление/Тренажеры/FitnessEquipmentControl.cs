@@ -9,16 +9,8 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public partial class FitnessEquipmentControl : UserControl
+    public partial class FitnessEquipmentControl : UserRegime
     {
-        /// <summary>
-        /// Данные
-        /// </summary>
-        public ClientDataSet DataSet
-        {
-            get;
-            set;
-        }
 
         public FitnessEquipmentControl()
         {

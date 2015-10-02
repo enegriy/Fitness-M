@@ -15,7 +15,7 @@ namespace Fitness_M
 
     	private UserManager m_UserManager;
 		/// <summary>
-		/// PropUserManager
+		/// UserManager
 		/// </summary>
     	private UserManager PropUserManager
     	{
@@ -27,13 +27,11 @@ namespace Fitness_M
     		}
     	}
 
-
         public static DialogResult ShowUserIdentity()
         {
             var form = new UserIdentification();
             return form.ShowDialog();
         }
-
 
 		public UserIdentification()
 		{
@@ -110,6 +108,11 @@ namespace Fitness_M
 			if (e.KeyCode == Keys.Enter && validationProvider.IsValid)
 			{
 				DialogResult = DialogResult.OK;
+				Close();
+			}
+			if(e.KeyCode == Keys.Escape)
+			{
+				DialogResult = DialogResult.Cancel;
 				Close();
 			}
 		}

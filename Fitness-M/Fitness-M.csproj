@@ -51,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\Автокомплит\TextBoxAutoComplete.cs" />
+    <Compile Include="Library\Бизнес_объекты\InstanceObject.cs" />
     <Compile Include="Library\Валидация\ControlsForValidation.cs" />
     <Compile Include="Library\Валидация\ControlsInvalid.cs" />
     <Compile Include="Library\Валидация\ValidationProvider.cs" />
     <Compile Include="Library\Валидация\Стратегии\IValidationStrategy.cs" />
-    <Compile Include="Library\Валидация\Стратегии\StrategyInstance.cs" />
     <Compile Include="Library\Валидация\Стратегии\ValidationStrategyComboBox.cs" />
     <Compile Include="Library\Валидация\Стратегии\ValidationStrategyNotNull.cs" />
     <Compile Include="Library\Грид\GridHelper.cs" />
@@ -64,10 +64,16 @@
     <Compile Include="Library\Сканер\Scaner.cs" />
     <Compile Include="Library\Сканер\ScanerResultCode.cs" />
     <Compile Include="Library\Сообщения\MessageHelper.cs" />
+    <Compile Include="Library\Элемент_управления\UserRegime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Option\UseControl.cs" />
     <Compile Include="Контроллер\Абонемент\TicketFilter.cs" />
     <Compile Include="Контроллер\Абонемент\TicketsController.cs" />
     <Compile Include="Контроллер\Клиенты\ClientController.cs" />
+    <Compile Include="Контроллер\Разделы\Regimes.cs" />
+    <Compile Include="Контроллер\Разделы\RegimesController.cs" />
+    <Compile Include="Контроллер\Разделы\TheUsingRegime.cs" />
     <Compile Include="Контроллер\Тренажеры\FitnessEquipmentController.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixed.cs" />
     <Compile Include="Модель_данных\Абонементы\Абонементы_расширенный_список\TicketMixedManager.cs" />

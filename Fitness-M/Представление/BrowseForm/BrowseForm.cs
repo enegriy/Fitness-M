@@ -18,7 +18,7 @@ namespace Fitness_M
             InitializeComponent();
         }
 
-        private void OnBrowseFormLoad(object sender, EventArgs e)
+        private void OnForm_Load(object sender, EventArgs e)
         {
             SetRegims(treeViewRegims);
             m_DataSet = ClientDataSet.Get();
@@ -27,94 +27,52 @@ namespace Fitness_M
             Scaner.OpenScaner();
         }
 
-        private void OnFormClosing(object sender, FormClosedEventArgs e)
+        private void OnForm_Closing(object sender, FormClosedEventArgs e)
         {
             Scaner.CloseScanner();
         }
 
-        
 
-        /// <summary>
-        /// Установить режимы
-        /// </summary>
-        /// <param name="treeViewRegims"></param>
-        private void SetRegims(TreeView treeViewRegims)
-        {
-            treeViewRegims.Nodes.Add("1", "Клиенты");
-            treeViewRegims.Nodes.Add("2", "Абонементы");
-            treeViewRegims.Nodes.Add("3", "Тренажеры");
-            treeViewRegims.Nodes.Add("4", "График");
-            treeViewRegims.Nodes.Add("5", "Администрирование");
-        }
+		/// <summary>
+		/// Установить режимы
+		/// </summary>
+		private void SetRegims(TreeView treeViewRegims)
+		{
+			foreach (var usingRegime in RegimesController.UsingRegims)
+				treeViewRegims.Nodes.Add(usingRegime.Regime.ToString(), usingRegime.Name);
+		}
 
-        private void SetUserControl(UserControl ctrl)
-        {
-
-            if (ctrl is ClientsControl)
-                ctrl = new ClientsControl();
-
-            ctrl.Dock = DockStyle.Fill;
-            panelFormConteiner.Controls.Add(ctrl);
-
-        }
 
         private void OnAfterSelect(object sender, TreeViewEventArgs e)
         {
             ClearControls(panelFormConteiner);
 
-            //Клиенты
-            if (e.Node.Name == "1")
-            {
-                ClientsControl ctrl = new ClientsControl();
-                ctrl.DataSet = m_DataSet;
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
+        	var usingRegime = RegimesController.UsingRegims.FirstOrDefault(x => x.Regime.ToString() == e.Node.Name);
+			if(usingRegime != null)
+			{
+				var regime = RegimesController.Activate(usingRegime, m_DataSet);
+				regime.Dock = DockStyle.Fill;
 
-            }
-            //Абонементы
-            else if (e.Node.Name == "2")
-            {
+				if (regime is VisualDetailSchedule)
+				{
+					((VisualDetailSchedule)regime).DateVisit = DateTime.Now;
+					((VisualDetailSchedule)regime).ListFitnessEquipment = m_DataSet.ListFitnessEquipment;
+					((VisualDetailSchedule)regime).TimeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom).TimeOfDay;
+					((VisualDetailSchedule)regime).TimeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo).TimeOfDay;
+					((VisualDetailSchedule)regime).ToUseControl = UseControl.AsRegim;
+				}
 
-                TicketsControl ctrl = new TicketsControl();
-                ctrl.DataSet = m_DataSet;
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
-            }
-            //Тренажеры
-            else if (e.Node.Name == "3")
-            {
-                FitnessEquipmentControl ctrl = new FitnessEquipmentControl();
-                ctrl.DataSet = m_DataSet;
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
-            }
-            //График
-            else if (e.Node.Name == "4")
-            {
-                VisualDetailSchedule ctrl = new VisualDetailSchedule();
-                ctrl.DateVisit = DateTime.Now;
-                ctrl.ListFitnessEquipment = m_DataSet.ListFitnessEquipment;
-                ctrl.TimeFrom = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeFrom).TimeOfDay;
-                ctrl.TimeTo = ParamsManager.TryGetParamsDateTime(ParamsConstant.WorkTimeTo).TimeOfDay;
-                ctrl.ToUseControl = UseControl.AsRegim;
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
-            }
-            else if (e.Node.Name == "5")
-            {
-                AdministrationControl ctrl = new AdministrationControl();
-                ctrl.Dock = DockStyle.Fill;
-                panelFormConteiner.Controls.Add(ctrl);
-            }
+				panelFormConteiner.Controls.Add(regime);
+			}
         }
+
 
         private void ClearControls(Control control)
         {
             for (int i = 0; i < control.Controls.Count; i++)
-            {
                 control.Controls.RemoveAt(i);
-            }
         }
+
 
         private void timerForToday_Tick(object sender, EventArgs e)
         {

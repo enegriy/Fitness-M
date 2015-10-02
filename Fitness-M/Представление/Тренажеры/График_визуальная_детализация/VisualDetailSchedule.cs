@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public partial class VisualDetailSchedule : UserControl
+    public partial class VisualDetailSchedule : UserRegime
     {
         #region Prop
         /// <summary>

@@ -38,6 +38,9 @@ namespace Fitness_M
 
 		public void SignUp(string name, string pasw, int role)
 		{
+			if(name == null || pasw == null) 
+				throw new BussinesException("Не верные данные пользователь/пароль!");
+
 			OpenConnection();
 			try
 			{

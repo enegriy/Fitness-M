@@ -7,8 +7,10 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public delegate void CallbackActionWithCode(uint Code);
-
+    public delegate void CallbackActionWithCode(uint сode);
+	/// <summary>
+	/// Сканер штрих-кодов
+	/// </summary>
     public static class Scaner
     {
         #region Prop
@@ -79,8 +81,6 @@ namespace Fitness_M
         /// <summary>
         /// Получить текст ошибки
         /// </summary>
-        /// <param name="err_code"></param>
-        /// <returns></returns>
         public static string ErrMsgText(int err_code)
         {
             switch (err_code)
@@ -107,12 +107,12 @@ namespace Fitness_M
         /// </summary>
         public static void OpenScaner()
         {
-            var isGetScanner = Scaner.GetScaner();
+            var isGetScanner = GetScaner();
 
             if (isGetScanner)
             {
-                int res = Scaner.OpenReader(0);
-                res = Scaner.SetBeepBlinkMode(0, 1, 1);
+                int res = OpenReader(0);
+                res = SetBeepBlinkMode(0, 1, 1);
                 Application.Idle += ApplicationIdleEvents;
                 ActionWithCode += ClientController.ActionCodeWasScaned;
             }
@@ -123,9 +123,9 @@ namespace Fitness_M
         /// </summary>
         public static void CloseScanner()
         {
-            if (Scaner.IsScanerOpened)
+            if (IsScanerOpened)
             {
-                Scaner.CloseReader(0);
+                CloseReader(0);
                 Application.Idle -= ApplicationIdleEvents;
                 ActionWithCode -= ClientController.ActionCodeWasScaned;
             }
@@ -136,10 +136,10 @@ namespace Fitness_M
         /// </summary>
         public static void ApplicationIdleEvents(object sender, EventArgs e)
         {
-            if (Scaner.IsScanerOpened)
+            if (IsScanerOpened)
             {
                 uint code = 0;
-                var res = Scaner.ReadCardNumber(0, ref code);
+                var res = ReadCardNumber(0, ref code);
                 if (res == ScanerResultCode.RES_OK)
                 {
                     if (ActionWithCode != null)

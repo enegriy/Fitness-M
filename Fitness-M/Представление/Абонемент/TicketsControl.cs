@@ -9,18 +9,8 @@ using System.Windows.Forms;
 
 namespace Fitness_M
 {
-    public partial class TicketsControl : UserControl
+    public partial class TicketsControl : UserRegime
     {
-        #region Prop
-        /// <summary>
-        /// Данные
-        /// </summary>
-        public ClientDataSet DataSet
-        {
-            get;
-            set;
-        }
-        #endregion
 
         private TicketFilter m_Filter = new TicketFilter();
         private TicketMixedManager ticketMixManager = new TicketMixedManager();
