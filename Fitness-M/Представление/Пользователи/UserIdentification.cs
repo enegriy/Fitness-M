@@ -13,6 +13,20 @@ namespace Fitness_M
     {
         private ValidationProvider validationProvider;
 
+    	private UserManager m_UserManager;
+		/// <summary>
+		/// PropUserManager
+		/// </summary>
+    	private UserManager PropUserManager
+    	{
+    		get
+    		{
+    			if(m_UserManager == null)
+					m_UserManager = new UserManager();
+    			return m_UserManager;
+    		}
+    	}
+
 
         public static DialogResult ShowUserIdentity()
         {
@@ -30,8 +44,7 @@ namespace Fitness_M
 
     	private void OnFormLoad(object sender, EventArgs e)
         {
-			var userManager = new UserManager();
-			TextBoxAutoComplete.Initializer(tbUserName, userManager.GetUsersName());
+			TextBoxAutoComplete.Initializer(tbUserName, PropUserManager.GetUsersName());
 
         	ValidationInit();
 			cbRole.SelectedIndex = 0;
@@ -68,7 +81,11 @@ namespace Fitness_M
 			{
 				try
 				{
-					SignUp();
+					string name = tbUserName.Text;
+					string pasw = tbUserPasswd.Text;
+					int role = cbRole.SelectedIndex;
+
+					PropUserManager.SignUp(name, pasw, role);
 					e.Cancel = false;
 				}
 				catch (BussinesException ex)
@@ -96,43 +113,6 @@ namespace Fitness_M
 				Close();
 			}
 		}
-
-
-        private void SignUp()
-        {
-            string name = tbUserName.Text;
-            string pasw = tbUserPasswd.Text;
-            int role = cbRole.SelectedIndex;
-
-            var m_Connection =
-                new MySql.Data.MySqlClient.MySqlConnection(
-                    ProgOptions.mConnectionString);
-
-            if (m_Connection.State != ConnectionState.Open)
-                m_Connection.Open();
-            
-            var cmd = new MySql.Data.MySqlClient.MySqlCommand();
-            cmd.Connection = m_Connection;
-
-            string sql = string.Format("select id from users where name = '{0}' and passwd = '{1}' and role_number = {2};", name, pasw, role);
-            cmd.CommandText = sql;
-            var reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                CurrentUser.Id = (int)reader["id"];
-                if (role == 1)
-                    CurrentUser.Role = Roles.User;
-                else
-                    CurrentUser.Role = Roles.Administrator;
-            }
-            else
-                throw new BussinesException("Пользователь с такими реквизитами не найден!");
-
-            if (m_Connection.State != System.Data.ConnectionState.Closed)
-                m_Connection.Close();
-
-        }
-
     }
 
 }
