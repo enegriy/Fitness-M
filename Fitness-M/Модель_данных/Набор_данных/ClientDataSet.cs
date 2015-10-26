@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Fitness_M
 {
@@ -83,27 +85,45 @@ namespace Fitness_M
         /// <summary>
         /// Загрузить данные
         /// </summary>
-        public static ClientDataSet Get()
+		public static ClientDataSet Get()
         {
-            if (m_This == null)
-            {
-                m_This = new ClientDataSet();
-                m_This.LoadData();
-            }
-            return m_This;
+        	if (m_This == null)
+        	{
+        		var splash = Splash.Show(
+        			"Ожидайте...",
+        			"Пожалуйста подождите несколько минут, идет загрузка данных...");
+
+        		m_This = new ClientDataSet();
+				m_This.LoadData(splash);
+
+				splash.BeginInvoke(new MethodInvoker(splash.Close));
+        	}
+
+        	return m_This;
         }
 
-        /// <summary>
+    	/// <summary>
         /// Загрузить все данные
         /// </summary>
-        public void LoadData()
+		public void LoadData(Splash splash)
         {
             LoadClients();
+			splash.BeginInvoke(new MethodInvoker(()=> splash.SetValueProgress(10)));
+
             LoadTickets();
+			splash.BeginInvoke(new MethodInvoker(() => splash.SetValueProgress(35)));
+
             LoadKindTickets();
+			splash.BeginInvoke(new MethodInvoker(() => splash.SetValueProgress(50)));
+
             LoadFitnessEquipments();
+			splash.BeginInvoke(new MethodInvoker(() => splash.SetValueProgress(80)));
+
             LoadVisits();
+			splash.BeginInvoke(new MethodInvoker(() => splash.SetValueProgress(90)));
+
             LoadUseFitnessEquipment();
+			splash.BeginInvoke(new MethodInvoker(() => splash.SetValueProgress(100)));
         }
 
         #endregion

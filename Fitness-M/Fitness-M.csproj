@@ -117,6 +117,12 @@
     <Compile Include="Модель_данных\Абонементы\Абонементы\Tickets.cs" />
     <Compile Include="Модель_данных\Абонементы\Виды_абонементов\KindTickets.cs" />
     <Compile Include="Модель_данных\Набор_данных\ClientDataSet.cs" />
+    <Compile Include="Представление\BrowseForm\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Представление\BrowseForm\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Представление\Абонемент\CountVisitEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Представление\BrowseForm\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Представление\Абонемент\CountVisitEditForm.resx">
       <DependentUpon>CountVisitEditForm.cs</DependentUpon>
     </EmbeddedResource>
